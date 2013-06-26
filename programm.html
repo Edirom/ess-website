@@ -18,7 +18,7 @@
 			
 			<ul class="title-area">
 				<li class="name">
-					<h1 class="hide-for-small"><a href="index.html">Edirom Summer School 2013</a></h1>
+					<h1 class="hide-for-small"><a href="index.html">Edirom-Summer-School 2013</a></h1>
 					<h1 class="show-for-small"><a href="index.html">ESS 2013</a></h1>
 				</li>
 				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -26,20 +26,17 @@
 			
 			<section class="top-bar-section">
 				<ul class="right">
-					<!--<li><a href="#" class="active">Home</a></li>-->
-					<li><a href="#" class="active">Programm</a></li>
+					<li class="active"><a href="#">Programm</a></li>
 					<li class="divider"></li>
-					<li><a href="dozenten.html">Dozenten</a></li>
+					<li><a href="dozentInnen.html">DozentInnen</a></li>
 					<li class="divider"></li>
 					<li><a href="veranstaltungsort.html">Veranstaltungsort</a></li>
 					<li class="divider"></li>
-					<li><a href="unterbringung.html">Unterbringung</a></li>
-					<li class="divider"></li>
+					<!--<li><a href="unterbringung.html">Unterbringung</a></li>
+					<li class="divider"></li>-->
 					<li><a href="partner.html">Partner</a></li>
 					<li class="divider"></li>
 					<li><a href="registrierung.html">Registrierung</a></li>
-					<!--<li><a href="#" class="button">Link 3</a></li>-->
-					<!--<li><a href="#" class="button">Link 4</a></li>-->
 				</ul>
 			</section>
 		</nav>
@@ -54,29 +51,48 @@
 		
 		<!-- Sidebar -->
 		
-		<aside class="large-3 columns panel">
+		<!--<div data-magellan-expedition="fixed" id="programm-nav">
+			<h5>Programm</h5>
+			<ul class="sub-nav">
+				<li data-magellan-arrival="tei-einf"><a href="#tei-einf">Einführung TEI</a></li>
+				<li data-magellan-arrival="mei-einf"><a href="#mei-einf">Einführung MEI</a></li>
+				<li data-magellan-arrival="mermeid"><a href="#mermeid">MerMEId</a></li>
+			</ul>
+		</div>-->
+		
+		<!--<aside class="large-3 columns ess-side-nav">
 			
 			<h5>Programm</h5>
 			<ul class="side-nav">
 				<li><a href="#tei-einf">Einführung TEI</a></li>
 				<li><a href="#mei-einf">Einführung MEI</a></li>
 				<li><a href="#mermeid">MerMEId</a></li>
+				<li><a href="#mss">Codierung von Handschriften</a></li>
+				<li><a href="#textgrod">TextGrid</a></li>
+				<li><a href="#strukVok">Kontrollierte strukturierte Vokabulare</a></li>
+				<li><a href="#odd-einf">Einführung ODD</a></li>
+				<li><a href="#xslt">Einführung XSLT</a></li>
+				<li><a href="#xpath">Einführung XPath</a></li>
+				<li><a href="#konzeption">Konzeption Digitaler Musikausgaben</a></li>
+				<li><a href="#ediromTools">Edirom Tools</a></li>
+				<li><a href="#qs">Qualitätssicherung im Prozess der Codierung</a></li>
+				<li><a href="#musikCodierung">Musikcodierung in der Praxis</a></li>
 			</ul>
 			
-			<!--<div class="panel">
+			<!-\-<div class="panel">
 				<h5>Featured</h5>
 				<p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
 				<a href="#">Read More </a>
-			</div>-->
+			</div>-\->
 			
-		</aside>
+		</aside>-->
 		
 		<!-- End Sidebar -->
 		
 		<!-- Main Blog Content -->
 		
-		<div class="large-9 columns" role="content">
-			<article id="tei-einf">
+		<!--<div class="large-9 columns" role="content">
+			<article id="tei-einf" data-magellan-destination="tei-einf">
 				<h2>Einführung in die Textauszeichnung mit TEI</h2>
 				<h3>Dozentin: Agnes Brauer</h3>
 				<p>Der Workshop führt in die Grundlagen der Textauszeichnung mit TEI ein. TEI wurde im Rahmen der Text Encoding Initiative als XML-basierte Auszeichnungssprache speziell für die Zwecke der Geisteswissenschaften konzipiert und stellt mittlerweile einen De-facto-Standard für die wissenschaftliche Textkodierung dar.</p>
@@ -86,7 +102,7 @@
 				<p>Zielgruppe: Einsteiger (Novice)</p>
 			</article>
 			<hr class="dots"/>
-			<article id="mei-einf">
+			<article id="mei-einf" data-magellan-destination="mei-einf">
 				<h2>Einführung in die Musikcodierung mit MEI</h2>
 				<h3>Dozentinnen: Kristina Richts und Maja Hartwig</h3>
 				<p>Als XML-basiertes Auszeichnungsformat von Musiknotation bildet MEI einen wichtigen Bestandteil der Digital Humanities. In diesem Kontext hat sich MEI in den letzten Jahren etabliert und wird gegenwärtig zur Unterstützung von digitalen Editionen und zahlreichen anderen Projekten verwendet.</p> 
@@ -97,7 +113,7 @@
 				<p>Zielgruppe: Novice und Advanced Beginners</p>
 			</article>
 			<hr class="dots"/>
-			<article id="mermeid">
+			<article id="mermeid"  data-magellan-destination="mermeid">
 				<h2>MerMEId – Arbeiten mit MEI-Metadaten</h2>
 				<h3>Dozent: Axel Teich Geertinger</h3>
 				<p>Metadaten in MEI-Dateien sind Informationen teils über die Datei selbst, teils aber auch über die codierte Musik. Das MEI-Schema erlaubt das Verzeichnen von sehr detaillierte Metadaten, so dass sich ganze Werkverzeichnisse darauf aufbauen lassen, einschließlich Quellenbeschreibungen, Aufführungsdaten und mehr. Die hierzu entwickelte Software <a href="http://www.kb.dk/en/kb/nb/mta/dcm/projekter/mermeid.html" title="Metadata Editor and Repository for MEI Data">MerMEId</a> (Metadata Editor and Repository for MEI Data) bietet eine browserbasierte Benutzeroberfläche zur Arbeit mit MEI-Metadaten an. </p> 
@@ -108,6 +124,130 @@
 				<p>Software: JavaScript-fähiger Browser (z.B. Firefox, Google Chrome, Internet Explorer); XML-Editor oder eventuell Text-Editor</p> 
 				<p>Zielgruppe: Novice und Advanced Beginners</p>
 			</article>
+		</div>-->
+		
+		
+		
+		<div class="section-container vertical-tabs" data-section="vertical-tabs" data-options="one_up: false;">
+			<section>
+				<p class="title" data-section-title><a href="#uebersicht">Übersicht</a></p>
+				<div class="content" data-section-content>
+					<a href="img/ESS2013_Programm.pdf" title="Edirom–Summer–School-Programm als PDF"><img src="img/ESS2013_Programm.png" width="973" height="729" alt="Programmübersicht"/></a>
+				</div>
+			</section>
+			<section>
+				<p class="title" data-section-title><a href="#tei-einf">TEI Einführung</a></p>
+				<div class="content" data-section-content>
+					<h2>Einführung in die Textauszeichnung mit TEI</h2>
+					<h3>Dozentin: Agnes Brauer</h3>
+					<p>Der Workshop führt in die Grundlagen der Textauszeichnung nach den Richtlinien der <a href="http://www.tei-c.org" title="TEI Webseite">Text Encoding Initiative</a> (TEI) ein. TEI wurde als XML-basierte Auszeichnungssprache speziell für die Zwecke der Geisteswissenschaften konzipiert und stellt mittlerweile einen De-facto-Standard für die wissenschaftliche Textkodierung dar.</p>
+					<p>Nach einer knappen allgemeinen Einführung in XML werden sich die Teilnehmer anhand von kleinen Übungen in die Praxis der Textauszeichnung mit TEI einarbeiten und einen Überblick über die Bedeutung und die verschiedenen Module dieser Sprache erhalten. Vordergründiges Ziel des Workshops ist es, die Teilnehmer zu einem selbstständigen Umgang mit den TEI- Guidelines anzuleiten und damit für eine spezifische Vertiefung im Rahmen ihrer Projekte zu rüsten.</p>
+					<dl>
+						<dt>Voraussetzungen/Vorkenntnisse</dt>
+						<dd>keine</dd>
+						<dt>Software</dt>
+						<dd>XML-Editor (z.B. oXygen), Internetbrowser</dd>
+						<dt>Zielgruppe</dt>
+						<dd>Einsteiger (Novice)</dd>
+					</dl>
+				</div>
+			</section>
+			<section>
+				<p class="title" data-section-title><a href="#mei-einf">MEI Einführung</a></p>
+				<div class="content" data-section-content>
+					<h2>Einführung in die Musikcodierung mit MEI</h2>
+					<h3>Dozentinnen: Kristina Richts und Maja Hartwig</h3>
+					<p>Als XML-basiertes Auszeichnungsformat von Musiknotation bildet die <a href="http://music-encoding.org" title="MEI Webseite">Music Encoding Initiative</a> (MEI) einen wichtigen Bestandteil der Digital Humanities. In diesem Kontext hat sich MEI in den letzten Jahren etabliert und wird gegenwärtig zur Unterstützung von digitalen Editionen und zahlreichen anderen Projekten verwendet.</p> 
+					<p>Die Codierung von Musik nebst umfangreicher Beschreibung bibliographischer Angaben mit MEI geschieht in einer XML-basierten Umgebung, die es erlaubt, Daten strukturiert abzulegen und dennoch einen flexiblen Umgang mit ihnen zu gewährleisten. Der Umgang und das Verständnis mit dem Datenformat gewinnen zunehmend an Wichtigkeit in der digitalen Welt, deshalb wird bei der diesjährigen Summer School ein MEI-Einführungskurs beruhend auf den Erfahrungen des letzten Jahres angeboten. Der Kurs richtet sich an MEI-Neulinge gleichermaßen wie an Teilnehmer, die bereits Erfahrungswerte mit dem Format haben. XML-Kenntnisse sowie ein grundlegendes Verständnis von Musiknotation werden vorausgesetzt. Neben theoretischen Grundlagen werden praktische Erfahrungen gesammelt, sowie spezielle Anwendungen und Codierungsbeispiele diskutiert.</p>
+					<p>Es wird empfohlen, sich im Vorhinein mit den Übungen von MEI 1<sup>st</sup>, verfügbar auf <a href="http://music-encoding.org/support/MEI1st">http://music-encoding.org/support/MEI1st</a>, zu beschäftigen, Erfahrungen im Umgang mit TEI sind von Vorteil. Darüber hinaus wird darum gebeten, ein eigens Laptop mitzubringen und darauf die kostenlose Demoversion des XML-Editors Oxygen vor Beginn des Kurses zu installieren, um eine einheitliche Ausgangssituation zu gewährleisten.</p>
+					<dl>
+						<dt>Voraussetzungen/Vorkenntnisse</dt>
+						<dd>XML-Kenntnisse und musikalisches Grundverständnis erwünscht</dd>
+						<dt>Software</dt>
+						<dd>XML-Editor (z.B. oXygen), Internetbrowser</dd>
+						<dt>Zielgruppe</dt>
+						<dd>Novice und Advanced Beginners</dd>
+					</dl>
+				</div>
+			</section>
+			<section>
+				<p class="title" data-section-title><a href="#mermeid">MerMEId</a></p>
+				<div class="content" data-section-content>
+					<h2>MerMEId – Arbeiten mit MEI-Metadaten</h2>
+					<h3>Dozent: Axel Teich Geertinger</h3>
+					<p>Metadaten in MEI-Dateien sind Informationen teils über die Datei selbst, teils aber auch über die codierte Musik. Das MEI-Schema erlaubt das Verzeichnen von sehr detaillierte Metadaten, so dass sich ganze Werkverzeichnisse darauf aufbauen lassen, einschließlich Quellenbeschreibungen, Aufführungsdaten und mehr. Die hierzu entwickelte Software <a href="http://www.kb.dk/en/kb/nb/mta/dcm/projekter/mermeid.html" title="Metadata Editor and Repository for MEI Data">MerMEId</a> (Metadata Editor and Repository for MEI Data) bietet eine browserbasierte Benutzeroberfläche zur Arbeit mit MEI-Metadaten an. </p> 
+					<p>Im Kurs wird der sogenannte Header, der die Metadaten enthält, besprochen, eventuell mit Codierungsübungen "per Hand". Daraufhin wird MerMEId als Codierungshilfe, Anzeige von Metadaten und Werkzeug zum Erstellen von Werkverzeichnissen vorgestellt. Dabei wird auch auf die Beschreibung von musikalischen Werken auf verschiedenen Abstraktions- und Detailebenen eingegangen (Werk, Fassung, Quelle, Exemplar).</p>
+					<p>Teilnehmer werden aufgefordert, Material für ein eigenes kleines "Werkverzeichnis" mitzubringen, z.B. Kopien aus vorhandenen Verzeichnissen, die im Kurs digital umgesetzt werden können. </p>
+					<p>Ziel des Kurses ist es, die Teilnehmer mit den Hauptelementen des MEI-Headers und deren Anwendungsmöglichkeiten vertraut zu machen, sowie "Hands-on" Erfahrungen mit der Arbeit mit MEI-Metadaten zu gewinnen. </p>
+					<dl>
+						<dt>Voraussetzungen/Vorkenntnisse</dt>
+						<dd>grundlegende XML-Kenntnisse, gerne auch erste MEI-Kenntnisse</dd>
+						<dt>Software</dt>
+						<dd>JavaScript-fähiger Browser (z.B. Firefox, Google Chrome, Internet Explorer); XML-Editor oder eventuell Text-Editor</dd>
+						<dt>Zielgruppe</dt>
+						<dd>Novice und Advanced Beginners</dd>
+					</dl>
+				</div>
+			</section>
+			<section>
+				<p class="title" data-section-title><a href="#qs">Qualitätssicherung</a></p>
+				<div class="content" data-section-content>
+					<h2>Qualitätssicherung im Prozess der Codierung</h2>
+					<h3>DozentInnen: Benjamin W. Bohl und Anna Maria Komprecht</h3>
+					<p>Der Kurs soll einen ersten Ansatz und einen Arbeitsbericht zum Qualitätsmanagement in digitalen Forschungsprojekten liefern. Wenn Sie also Interesse an der generellen Einführung zu Qualitätsmerkmalen in den Digital Humanities, Qualitätskontroll-Prozessen, Qualitätssicherungsszenarien, und dem Entwurf eines exempalrischen Kontrollsystems mit XML-Technologien haben, bietet dieser Nachmittag für Sie einen ersten Überlick zu diesem weitreichenden Themengebiet.</p>
+					<p>Ziel des Kurses ist die Aufarbeitung einiger Qualitäts-Grundsätze und Technologien in den Digital Humanities. Zusätzlich soll er dazu anregen, den Computer in eigenen (Forschungs-)Projekten als Kontrollwerkzeug einzusetzen. </p>
+					<dl>
+						<dt>Voraussetzungen/Vorkenntnisse</dt>
+						<dd>Es werden keine Vorkenntnisse vorausgesetzt</dd>
+						<dt>Software</dt>
+						<dd>XML-Editor (z.B. oXygen)</dd>
+						<dt>Zielgruppe</dt>
+						<dd>Teilnehmer jeglicher Kenntnisstufen sind herzlich willkommen</dd>
+					</dl>
+				</div>
+			</section>
+			<section>
+				<p class="title" data-section-title><a href="#musikCodierung">Musikcodierung</a></p>
+				<div class="content" data-section-content>
+					<h2>Musikcodierung in der Praxis</h2>
+					<h3>DozentInnen: Kristin Herold und Johannes Kepper</h3>
+					<p>Der Kurs thematisiert den praktischen Umgang mit MEI-Daten im Rahmen digitaler Musik-Editionen. Es wird vermittelt, wie Daten aus verschiedenen Anwendungen miteinander verknüpft und gegenseitig angereichert werden. Außerdem werden verschiedene Transformationsszenarien zu vollständigen Workflows kombiniert, die gleichzeitig Auskunft über ihre eigene Bearbeitungsgeschichte geben. </p>
+					<p>Die Teilnehmer sollen befähigt werden, eigenständig verschiedene Werkzeuge für MEI-Daten zu kombinieren, um daraus individuell zugeschnittene Arbeitsabläufe zu erstellen.</p>
+					<dl>
+						<dt>Voraussetzungen/Vorkenntnisse</dt>
+						<dd>Erwartet werden solide Kenntnisse von XML und MEI. Vorkenntnisse in XPath und XSLT sind hilfreich, aber nicht zwingend notwendig.</dd>
+						<dt>Software</dt>
+						<dd>XML-Editor (z.B. oXygen)</dd>
+						<dt>Zielgruppe</dt>
+						<dd>Competent</dd>
+					</dl>
+				</div>
+			</section>
+			<section>
+				<p class="title" data-section-title><a href="#textGrid">TextGrid</a></p>
+				<div class="content" data-section-content>
+					<h2>TextGrid</h2>
+					<h3>Dozenten: Dr. Oliver Schmid und Philipp Vanscheidt</h3>
+					<p>TextGrid ist ein Forschungsverbund, dessen Ziel es ist, den Zugang zu und den Austausch von Informationen in den Geisteswissenschaften mit Hilfe moderner Informationstechnologie zu unterstützen. Die Grundlagen und Komponenten der virtuellen Forschungsumgebung werden in dem Workshop vorgestellt. Dabei sollen insbesondere folgende Elemente der Software vorgestellt und ihr Einsatz in der Forschung erläutert werden:</p>
+					<ol>
+						<li>Eine <i>Projekt- und Nutzerverwaltung</i> ermöglicht die Erstellung neuer Projekte und die Zuordnung weiterer Benutzer in bestimmten Rollen zu einem Projekt.</li>
+						<li>Das Schema der <i>Metadaten</i>, die auch für projektübergreifende Recherchen verwendet werden, kann an die konkreten Bedürfnisse angepasst werden.</li>
+						<li>Der Anwender kann im <i>XML-Editor</i> beliebig wechseln zwischen einer technisch orientierten Ansicht, die alle Tags und Attribute anzeigt, und einer Ansicht, die an der Darstellung eines Textverarbeitungsprogramms orientiert ist.</li>
+						<li>Ein <i>Text-Bild-Link-Editor</i> dient zur Verknüpfung von Text- und Bildelementen.</li>
+						<li>Eine <i>Wörterbuch-Suche</i> gestattet die Suche im Trierer Wörterbuchnetz.</li>
+						<li>Das <i>Publizieren</i> im Repository wird durch eine automatische Metadatenvalidierung unterstützt und stattet die Veröffentlichungen mit PIDs aus, um die wissenschaftliche Zitierbarkeit zu garantieren.</li>
+					</ol>
+					<p>In Übungen soll ein kleines Editionsprojekt selbständig mit TextGrid fertig gestellt werden.</p>
+					<dl>
+						<dt>Voraussetzungen/Vorkenntnisse</dt>
+						<dd>Registrierung bei <a href="http://textgrid.de/registrierungdownload/registrierung" title="TextGrid-Registrierung">TextGrid</a>; XML-Kenntnisse sind von Vorteil, aber nicht vorausgesetzt</dd>
+						<dt>Software</dt>
+						<dd><a href="http://www.java.com/de/" title="Java Download">Java</a> und <a href="http://textgrid.de/registrierungdownload/download-und-installation/" title="TextGrid Download">TextGrid</a></dd>
+						<dt>Zielgruppe</dt>
+						<dd>Novice</dd>
+					</dl>
+				</div>
+			</section>
 		</div>
 		
 		<!-- End Main Content -->
@@ -139,6 +279,7 @@
 	</script>
 	<script src="javascripts/foundation/foundation.js"></script>
 	<script src="javascripts/foundation/foundation.topbar.js"></script>
+	<script src="javascripts/foundation/foundation.section.js"></script>
 	<script>
 	  $(document).foundation();
 	</script>

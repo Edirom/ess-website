@@ -49,6 +49,7 @@ $body-font-family: "Lucida Sans Unicode", "Lucida Grande", "Helvetica Neue", "He
 // $alert-color: #c60f13;
 // $success-color: #5da423;
 $ess-gray: rgb(94, 98, 99);
+// $ess-bg-color: #dfdfdf;
 
 // Make sure border radius matches unless we want it different.
 
@@ -201,7 +202,7 @@ $header-font-color: $ess-gray;
 // Lists
 
 // $list-style-position: outside;
-// $list-side-margin: emCalc(20px);
+$list-side-margin: emCalc(40px);
 // $list-nested-margin: emCalc(20px);
 // $definition-list-header-weight: bold;
 // $definition-list-header-margin-bottom: .3em;
@@ -851,7 +852,7 @@ $header-font-color: $ess-gray;
 
 // Background and border styles
 
-// $panel-bg: darken(#fff, 5%);
+$panel-bg: lighten($ess-gray, 55%);
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -1009,7 +1010,7 @@ $header-font-color: $ess-gray;
 
 // Border size
 
-// $section-border-size: 1px;
+$section-border-size: 0px;
 // $section-border-style: solid;
 // $section-border-color: #ccc;
 
@@ -1204,7 +1205,7 @@ $header-font-color: $ess-gray;
 
 // Background color for the top bar
 
-$topbar-bg: #dfdfdf !default;
+$topbar-bg: lighten($ess-gray, 50%) !default;
 
 // Height and margin
 
@@ -1223,13 +1224,13 @@ $topbar-bg: #dfdfdf !default;
 // Set the link colors and styles for top-level nav
 
 $topbar-link-color: $ess-gray;
-$topbar-link-color-hover: #000;
-// $topbar-link-color-active: #000;
+$topbar-link-color-hover: $ess-gray;
+$topbar-link-color-active: #000;
 // $topbar-link-weight: bold;
 // $topbar-link-font-size: emCalc(13px);
 // $topbar-link-hover-lightness: -30%; // Darken by 30%
 // $topbar-link-bg-hover: darken($topbar-bg, 3%);
-// $topbar-link-bg-active: darken($topbar-bg, 3%);
+$topbar-link-bg-active: darken($topbar-bg, 6%);
 
 // $topbar-dropdown-label-color: #555;
 // $topbar-dropdown-label-text-transform: uppercase;
@@ -1293,3 +1294,9 @@ $topbar-menu-icon-color: $topbar-link-color;
     width: 150px;
     margin: 0 auto emCalc(20px) auto;
 }
+
+.ess-side-nav {
+    @extend .panel;
+    @extend .radius;
+}
+
