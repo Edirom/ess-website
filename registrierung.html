@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Registrierung</title>
+	<link rel="stylesheet" href="stylesheets/app.css" />
+	<script src="javascripts/vendor/custom.modernizr.js"></script>
+
+	<script type="text/javascript">
+		function validate_name(field)
+			{
+			with (field)
+			  {
+			  if (value.length < 2||value.length > 40)
+				{	
+				
+				if(field==vorname)
+				{
+					div1.innerHTML="<font color=red>Ungültige Eingabe!</font>";
+				}
+				else div2.innerHTML="<font color=red>Ungültige Eingabe!</font>";
+				return false;
+				}
+			  else {
+			  if(field==vorname)
+				{
+					div1.innerHTML="<font color=green>Richtig!</font>";
+				}
+				else div2.innerHTML="<font color=green>Richtig!</font>";
+				
+			  return true;
+				   }
+			
+				   }
+			}
+		function validate_email(field)
+		{
+		with (field)
+		{
+		apos=value.indexOf("@")
+		dotpos=value.lastIndexOf(".")
+		if (apos<1||dotpos-apos<2) 
+		  {
+		  divemail.innerHTML="<font color=red>Ungültige Eingabe!</font>";
+		  return false;
+		  }
+		  else {
+		  divemail.innerHTML="<font color=green>Richtig!</font>";
+		  return true;
+		  }
+		}
+		}
+
+		function validate_form(thisform)
+		{
+		with (thisform){
+		if (!validate_email(email)) return false;
+		if (!validate_name(vorname)) return false;
+		if (!validate_name(nachname)) return false;
+		
+		return true;
+		}
+		}
+	</script>
+</head>
+<body>
+
+	<!-- Nav Bar -->
+	
+	<div class="contain-to-grid fixed myBorder">
+		<nav class="top-bar">
+			
+			<ul class="title-area">
+				<li class="name">
+					<h1 class="hide-for-small"><a href="index.html">Edirom-Summer-School 2013</a></h1>
+					<h1 class="show-for-small"><a href="index.html">ESS 2013</a></h1>
+				</li>
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			</ul>
+			
+			<section class="top-bar-section">
+				<ul class="right">
+					<li><a href="programm.html">Programm</a></li>
+					<li class="divider"></li>
+					<li><a href="dozentInnen.html">DozentInnen</a></li>
+					<li class="divider"></li>
+					<li><a href="veranstaltungsort.html">Veranstaltungsort</a></li>
+					<li class="divider"></li>
+					<!--<li><a href="unterbringung.html">Unterbringung</a></li>
+					<li class="divider"></li>-->
+					<li><a href="partner.html">Partner</a></li>
+					<li class="divider"></li>
+					<li class="active"><a href="#">Registrierung</a></li>
+				</ul>
+			</section>
+		</nav>
+	</div>
+	
+	<!-- End Nav -->
+	
+	
+	<!-- Main Page Content and Sidebar -->
+	
+	<div class="row">
+		
+		<!-- Main Blog Content -->
+		
+		
+		<div class=" large-6 large-centered  columns" role="content">
+			<h1>Registrierung</h1>
+
+			<form class="custom" name="form1" action="submitpage.html" onsubmit="return validate_form(this)";>
+			  <fieldset>
+				<legend>Persönliche Angaben</legend>
+
+				<label for="customDropdown1">Title</label>
+				  <select id="customDropdown1" class="medium">
+					<option>Frau</option>
+					<option>Herr</option>
+				  </select>
+				  
+				<label for="vorname">Vorname</label>
+				<input type="text" placeholder="Ihr Vorname" name="vorname" id="vorname"/>
+				<div id="div1">*2-40Buchstaben</div>
+				<label for="nachname">Nachname</label>
+				<input type="text" placeholder="Ihr Nachname" name="nachname" id="nachname"/>
+				<div id="div2">*2-40Buchstaben</div>
+				<label for="email">E-Mail</label>
+				<input type="text" placeholder="Ihre E-Mail-Adresse" name="email"/>
+				<div id="divemail">Bitte gültige Email-Adressee eingeben</div>
+			  </fieldset>
+			  <fieldset>
+				<legend>Kurswahl</legend>
+				
+				<label for="tei-einf"><input type="checkbox" id="tei-einf" style="display: none;"><span class="custom checkbox"></span> Einführung in die Textauszeichnung mit TEI</label>
+				<label for="mei-einf"><input type="checkbox" id="mei-einf" style="display: none;"><span class="custom checkbox"></span> Einführung in die Musikcodierung mit MEI</label>
+				<label for="mermeid"><input type="checkbox" id="mermeid" style="display: none;"><span class="custom checkbox"></span> MerMEId – Arbeiten mit MEI-Metadaten</label>
+				<label for="qs"><input type="checkbox" id="qs" style="display: none;"><span class="custom checkbox"></span> Qualitätssicherung im Prozess der Codierung</label>
+				<label for="musikCodierung"><input type="checkbox" id="musikCodierung" style="display: none;"><span class="custom checkbox"></span> Musikcodierung in der Praxis</label>
+				<label for="textGrid"><input type="checkbox" id="textGrid" style="display: none;"><span class="custom checkbox"></span> TextGrid</label>
+				<label for="odd"><input type="checkbox" id="odd" style="display: none;"><span class="custom checkbox"></span> Einführung in die TEI Metasprache ODD</label>
+				
+				
+			  </fieldset>
+				
+				<input href="#" class="tiny button secondary" type="submit" value="Senden"/>
+				<input href="#" class="tiny button secondary right" value="Abbrechen"/>
+			</form> 
+			
+			
+
+		</div>
+			
+		
+		<!-- End Main Content -->
+		
+	</div>
+	
+	<!-- End Main Content and Sidebar -->
+	
+	<!-- Footer -->
+	
+	<footer class="row">
+		<div class="small-12 columns">
+			<hr />
+			<div class="row">
+				<div class="small-12 columns text-center">
+					<p><a href="impressum.html">Impressum</a></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Check for Zepto support, load jQuery if necessary -->
+	<script>
+	  document.write('<script src=javascripts/vendor/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '.js><\/script>');
+	</script>
+	<script src="javascripts/foundation/foundation.js"></script>
+	<script src="javascripts/foundation/foundation.topbar.js"></script>
+	<script src="javascripts/foundation/foundation.forms.js"></script>
+	<script>
+	  $(document).foundation();
+	</script>
+	
+  
+</body>
+</html>
