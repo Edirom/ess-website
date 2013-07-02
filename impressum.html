@@ -51,7 +51,7 @@
 		
 		<!-- Main Blog Content -->
 		
-		<div class="small-12 large-6 large-centered columns" role="content">
+		<div class="large-6 large-centered columns" role="content">
 			<h2>Impressum</h2>
 			<p>
 				Virtueller Forschungsverbund "Edirom"<br/>
@@ -68,6 +68,13 @@
 		
 		<!-- End Main Content -->
 		
+	</div>
+	
+	<div class="row">
+		<div class="large-6 large-centered columns">
+			<h2>Privatsphäre</h2>
+			<iframe frameborder="no" width="600px" height="200px" src="http://www.weber-gesamtausgabe.de/piwik/index.php?module=CoreAdminHome&amp;action=optOut&amp;language=de"></iframe>
+		</div>
 	</div>
 	
 	<!-- End Main Content and Sidebar -->
@@ -98,6 +105,26 @@
 	<script>
 	  $(document).foundation();
 	</script>
-  
+		
+	<!-- Piwik -->
+	<script type="text/javascript">
+	  var _paq = _paq || [];
+	  _paq.push(["setDomains", ["*.ess.uni-paderborn.de","*.ess.upb.de"]]);
+	  _paq.push(["trackPageView"]);
+	  _paq.push(["enableLinkTracking"]);
+	
+	  (function() {
+	    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://www.weber-gesamtausgabe.de/piwik/";
+	    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+	    _paq.push(["setSiteId", "2"]);
+	    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+	    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+	<!-- End Piwik Code -->
+		
+	<!-- Piwik Image Tracker -->
+	<noscript><img src="http://www.weber-gesamtausgabe.de/piwik/piwik.php?idsite=2&amp;rec=1" style="border:0" alt="" /></noscript>
+	<!-- End Piwik -->
 </body>
 </html>
