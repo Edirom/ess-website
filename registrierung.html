@@ -58,8 +58,8 @@
 		{
 		with (thisform){
 		
-		if (!validate_name(vorname)) return false;
-		if (!validate_name(nachname)) return false;
+		//if (!validate_name(vorname)) return false;
+		//if (!validate_name(nachname)) return false;
 		if (!validate_email(email)) return false;
 		
 		return true;
@@ -69,15 +69,18 @@
 	
 	<script type="text/javascript">
 		var KursList = [
-		{"KursID":"tei-einf", "Termin":[1,2,3]},
-		{"KursID":"mei-einf", "Termin":[5,6,7]},
-		{"KursID":"mermeid", "Termin":[8,9]},
-		{"KursID":"qs", "Termin":[4]},
-		{"KursID":"musikCodierung", "Termin":[8,9]},
-		{"KursID":"textGrid", "Termin":[6,7]},
-		{"KursID":"odd", "Termin":[2]},
-		{"KursID":"xslt", "Termin":[8,9]},
-		{"KursID":"kdm", "Termin":[1]}		
+		{"KursID":"tei-einf", "Termin":[1,2,3], "Counter":0},
+		{"KursID":"mei-einf", "Termin":[5,6,7], "Counter":0},
+		{"KursID":"mermeid", "Termin":[8,9], "Counter":0},
+		{"KursID":"qs", "Termin":[4], "Counter":0},
+		{"KursID":"musikCodierung", "Termin":[8,9], "Counter":0},
+		{"KursID":"textGrid", "Termin":[6,7], "Counter":0},
+		{"KursID":"odd", "Termin":[2], "Counter":0},
+		{"KursID":"xslt", "Termin":[8,9], "Counter":0},
+		{"KursID":"kdm", "Termin":[1], "Counter":0},
+		{"KursID":"ms", "Termin":[4,5], "Counter":0},
+		{"KursID":"edirom", "Termin":[2,3], "Counter":0},
+		{"KursID":"xpath", "Termin":[4,5], "Counter":0}		
 		];
 		
 		function pos(kurs)
@@ -89,24 +92,20 @@
 			}
 		}
 		function match(termin1,termin2)
-		{
-			
+		{			
 			for (var i=0;i<termin1.length;i++)
 				for (var j=0;j<termin2.length;j++)
 				{
 					if (termin1[i]==termin2[j]) return true;
 				}
-			return false;
-			
+			return false;			
 		}
 		function conflict(kurs)
 		{		
 		var k = pos(kurs);
-		var termin=KursList[k].Termin;
-				
+		var termin=KursList[k].Termin;				
 		if (document.getElementById(kurs).checked==false)
 		{
-			//alert($.inArray(i, termin2));
 			
 			for(var i=0;i<k;i++)
 			{
@@ -116,11 +115,9 @@
 				$(document.getElementById(KursList[i].KursID)).attr('disabled', true);
 				$(document.getElementById(KursList[i].KursID).parentNode).removeAttr('onclick');
 				$(document.getElementById(KursList[i].KursID).nextSibling).addClass('disabled');
+				KursList[i].Counter++;
 				}
-				console.log(KursList[i].KursID,document.getElementById(KursList[i].KursID).disabled);
-				//console.log(i);
-				//disable checkbox KursList[i]
-				
+												
 			}
 			for(var j=k+1;j<KursList.length;j++)
 			{
@@ -129,46 +126,42 @@
 				$(document.getElementById(KursList[j].KursID)).attr('disabled', true);
 				$(document.getElementById(KursList[j].KursID).parentNode).removeAttr('onclick');
 				$(document.getElementById(KursList[j].KursID).nextSibling).addClass('disabled');
+				KursList[j].Counter++;
 				}
-				console.log(KursList[j].KursID,document.getElementById(KursList[j].KursID).disabled);
-				//console.log(j);
-				//disable checkbox KursList[i]
-			}
-		
+				
+			}		
 		}
 		else 
 		{	
 						
 			for(var i=0;i<k;i++)
 			{
-				if (match(termin,KursList[i].Termin))
+				if (match(termin,KursList[i].Termin)&&KursList[i].Counter==1)
 				{
 				$(document.getElementById(KursList[i].KursID)).removeAttr('disabled');
 				$(document.getElementById(KursList[i].KursID).parentNode).attr('onclick','conflict("'+KursList[i].KursID+'")');
 				$(document.getElementById(KursList[i].KursID).nextSibling).removeClass('disabled');
+				KursList[i].Counter--;
 				}
-				console.log('remove: ', KursList[i].KursID,document.getElementById(KursList[i].KursID).disabled);
-				
-				//enable checkbox KursList[i]
-				
+				else if (match(termin,KursList[i].Termin)&&KursList[i].Counter>1)
+				KursList[i].Counter--;
+						
+							
 			}
 			for(var j=k+1;j<KursList.length;j++)
 			{
-				if (match(termin,KursList[j].Termin))
+				if (match(termin,KursList[j].Termin)&&KursList[j].Counter==1)
 				{
 				$(document.getElementById(KursList[j].KursID)).removeAttr('disabled');
 				$(document.getElementById(KursList[j].KursID).parentNode).attr('onclick','conflict("'+KursList[j].KursID+'")');
 				$(document.getElementById(KursList[j].KursID).nextSibling).removeClass('disabled');
+				KursList[j].Counter--;
 				}
-				console.log('remove: ', KursList[j].KursID,document.getElementById(KursList[j].KursID).disabled);
-				//console.log('bar');
-				//enable checkbox KursList[i]
-				
-			}
-			
-		}
-		//document.getElementById('mei-einf').checked = true;
-		
+				else if (match(termin,KursList[j].Termin)&&KursList[j].Counter>1)
+				KursList[j].Counter--;
+							
+			}			
+		}				
 		}
 		
 	</script>
@@ -223,49 +216,38 @@
 			  <fieldset>
 				<legend>Persönliche Angaben</legend>
 				
-				<div class="row">
-					<div class="small-3 columns">
-					<label for="customDropdown1" class="right inline">Anrede</label>
-					</div>
-					<div class="small-9 columns">
-					  <select id="customDropdown1" class="small" required="">
-					  <option DISABLED selected></option>
+				<label for="customDropdown1">Anrede *</label>
+					<select id="customDropdown1" class="small" required="">
+						<option DISABLED selected></option>
 						<option>Frau</option>
 						<option>Herr</option>
-					  </select>
-					 </div>
-				</div>
-				 
-				 <div class="row">
-					<div class="small-3 columns">
-						<label for="vorname" class="right inline">Vorname</label>
-					</div>
-					<div class="small-5 columns">
-						<input type="text" placeholder="Ihr Vorname" name="vorname" id="vorname"/>
-					</div>
-					<div class="small-4 columns" id="div1" >
-						<label class="left inline">*2-40Buchstaben</label>
-					</div>
-				 </div>
-						
+					</select>					 
+									
+				<label for="vorname">Vorname *</label>			
+				<input type="text" placeholder="Ihr Vorname(Pflichtangabe)" name="vorname" id="vorname" required=""/>
+									
 				<label for="nachname">Nachname *</label>
-				<input type="text" placeholder="Ihr Nachname (Pflichtangabe)" name="nachname" id="nachname" required=""/>
+				<input type="text" placeholder="Ihr Nachname(Pflichtangabe)" name="nachname" id="nachname" required=""/>
 				
 				<label for="email">E-Mail *</label>
-				<input type="email" placeholder="Ihre E-Mail-Adresse" name="email"/>
+				<input type="email" placeholder="Ihre E-Mail-Adresse" name="email" required=""/>
 			  </fieldset>
+			  
 			  <fieldset>
 				<legend>Kurswahl</legend>
 				
-				<label for="tei-einf" onclick="conflict('tei-einf')"><input type="checkbox" id="tei-einf"  style="display: none;" /><span class="custom checkbox"></span> <span data-tooltip class="has-tip" title="Zeit: Montag 9:30 bis Dienstag 12:30; Kosten: 15 Euro">Einführung in die Textauszeichnung mit TEI </span></label>
-				<label for="mei-einf" onclick="conflict('mei-einf')"><input type="checkbox" id="mei-einf" style="display: none;"><span class="custom checkbox"></span> Einführung in die Musikcodierung mit MEI</label>
-				<label for="mermeid" onclick="conflict('mermeid')"><input type="checkbox" id="mermeid" style="display: none;"><span class="custom checkbox"></span> MerMEId – Arbeiten mit MEI-Metadaten</label>
-				<label for="qs" onclick="conflict('qs')"><input type="checkbox" id="qs" style="display: none;"><span class="custom checkbox"></span> Qualitätssicherung im Prozess der Codierung</label>
-				<label for="musikCodierung" onclick="conflict('musikCodierung')"><input type="checkbox" id="musikCodierung" style="display: none;"><span class="custom checkbox"></span> Musikcodierung in der Praxis</label>
-				<label for="textGrid" onclick="conflict('textGrid')"><input type="checkbox" id="textGrid" style="display: none;"><span class="custom checkbox"></span> TextGrid</label>
-				<label for="odd" onclick="conflict('odd')"><input type="checkbox" id="odd" style="display: none;"><span class="custom checkbox"></span> Einführung in die TEI Metasprache ODD</label>
-				<label for="xslt" onclick="conflict('xslt')"><input type="checkbox" id="xslt" style="display: none;"><span class="custom checkbox"></span> Einführung in die Programmiersprache XSLT</label>
-				<label for="kdm" onclick="conflict('kdm')"><input type="checkbox" id="kdm" style="display: none;"><span class="custom checkbox"></span> Konzeption digitaler Musikausgaben</label>
+				<label for="tei-einf" onclick="conflict('tei-einf')"><input type="checkbox" id="tei-einf"  style="display: none;" /><span class="custom checkbox"></span>Einführung in die Textauszeichnung mit TEI <span data-tooltip class="has-tip tip-right" title="Zeit: Montag 9:30 bis Dienstag 12:30; Kosten: 15 Euro"> Info</span></label>
+				<label for="mei-einf" onclick="conflict('mei-einf')"><input type="checkbox" id="mei-einf" style="display: none;"/><span class="custom checkbox"></span> Einführung in die Musikcodierung mit MEI</label>
+				<label for="mermeid" onclick="conflict('mermeid')"><input type="checkbox" id="mermeid" style="display: none;"/><span class="custom checkbox"></span> MerMEId – Arbeiten mit MEI-Metadaten</label>
+				<label for="qs" onclick="conflict('qs')"><input type="checkbox" id="qs" style="display: none;"/><span class="custom checkbox"></span> Qualitätssicherung im Prozess der Codierung</label>
+				<label for="musikCodierung" onclick="conflict('musikCodierung')"><input type="checkbox" id="musikCodierung" style="display: none;"/><span class="custom checkbox"></span> Musikcodierung in der Praxis</label>
+				<label for="textGrid" onclick="conflict('textGrid')"><input type="checkbox" id="textGrid" style="display: none;"/><span class="custom checkbox"></span> TextGrid</label>
+				<label for="odd" onclick="conflict('odd')"><input type="checkbox" id="odd" style="display: none;"/><span class="custom checkbox"></span> Einführung in die TEI Metasprache ODD</label>
+				<label for="xslt" onclick="conflict('xslt')"><input type="checkbox" id="xslt" style="display: none;"/><span class="custom checkbox"></span> Einführung in die Programmiersprache XSLT</label>
+				<label for="kdm" onclick="conflict('kdm')"><input type="checkbox" id="kdm" style="display: none;"/><span class="custom checkbox"></span> Konzeption digitaler Musikausgaben</label>
+				<label for="ms" onclick="conflict('ms')"><input type="checkbox" id="ms" style="display: none;"/><span class="custom checkbox"></span> TEI für Handschriften</label>
+				<label for="edirom" onclick="conflict('edirom')"><input type="checkbox" id="edirom" style="display: none;"/><span class="custom checkbox"></span> Edirom Tools – Erstellen einer Edirom Online</label>
+				<label for="xpath" onclick="conflict('xpath')"><input type="checkbox" id="xpath" style="display: none;"/><span class="custom checkbox"></span> XPath und Reguläre Ausdrücke – Fortgeschrittenes Suchen in XML-Dokumenten</label>
 				
 			  </fieldset>
 				
