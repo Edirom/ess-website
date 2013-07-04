@@ -1,4 +1,7 @@
-# www.robotstxt.org/
-# www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
+# robots.txt for http://ess.uni-paderborn.de/
 
 User-agent: *
+Disallow: /stylesheets/
+Disallow: /javascripts/
+Disallow: /sass/
+Disallow: /img/
