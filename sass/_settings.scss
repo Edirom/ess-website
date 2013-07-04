@@ -1187,10 +1187,10 @@ $section-border-size: 0px;
 // $has-tip-cursor-type: help;
 
 // $tooltip-padding: emCalc(8px);
-// $tooltip-bg: #000;
+ $tooltip-bg: lighten($ess-gray, 50%);
 // $tooltip-font-size: emCalc(15px);
 // $tooltip-font-weight: bold;
-// $tooltip-font-color: #fff;
+$tooltip-font-color: #000;
 // $tooltip-line-height: 1.3;
 // $tooltip-close-font-size: emCalc(10px);
 // $tooltip-close-font-weight: normal;

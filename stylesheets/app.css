@@ -4222,8 +4222,8 @@ form.custom .custom.disabled {
   max-width: 85%;
   left: 50%;
   width: 100%;
-  color: white;
-  background: black;
+  color: black;
+  background: #dfe0e1;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
@@ -4235,7 +4235,7 @@ form.custom .custom.disabled {
   width: 0;
   height: 0;
   border: solid 5px;
-  border-color: transparent transparent black transparent;
+  border-color: transparent transparent #dfe0e1 transparent;
   top: -10px;
 }
 /* line 71, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.2.3/scss/foundation/components/_tooltips.scss */
@@ -4255,12 +4255,12 @@ form.custom .custom.disabled {
 @media only screen and (min-width: 768px) {
   /* line 86, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.2.3/scss/foundation/components/_tooltips.scss */
   .tooltip > .nub {
-    border-color: transparent transparent black transparent;
+    border-color: transparent transparent #dfe0e1 transparent;
     top: -10px;
   }
   /* line 90, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.2.3/scss/foundation/components/_tooltips.scss */
   .tooltip.tip-top > .nub {
-    border-color: black transparent transparent transparent;
+    border-color: #dfe0e1 transparent transparent transparent;
     top: auto;
     bottom: -10px;
   }
@@ -4270,7 +4270,7 @@ form.custom .custom.disabled {
   }
   /* line 99, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.2.3/scss/foundation/components/_tooltips.scss */
   .tooltip.tip-left > .nub {
-    border-color: transparent transparent transparent black;
+    border-color: transparent transparent transparent #dfe0e1;
     right: -10px;
     left: auto;
     top: 50%;
@@ -4278,7 +4278,7 @@ form.custom .custom.disabled {
   }
   /* line 106, ../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.2.3/scss/foundation/components/_tooltips.scss */
   .tooltip.tip-right > .nub {
-    border-color: transparent black transparent transparent;
+    border-color: transparent #dfe0e1 transparent transparent;
     right: auto;
     left: -10px;
     top: 50%;
