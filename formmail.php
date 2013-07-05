@@ -400,7 +400,7 @@ $VALID_ENV = array('HTTP_REFERER','REMOTE_HOST','REMOTE_ADDR','REMOTE_USER',
                 'HTTP_USER_AGENT');
 
             /* Help: http://www.tectite.com/fmdoc/fileuploads.php */
-define("FILEUPLOADS",false);        // set to true to allow file attachments
+define("FILEUPLOADS",true);        // set to true to allow file attachments
 
             /* Help: http://www.tectite.com/fmdoc/max_file_upload_size.php */
 define("MAX_FILE_UPLOAD_SIZE",0);       // default of 0 means that other software
