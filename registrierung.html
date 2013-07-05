@@ -58,7 +58,7 @@
 			
 <!--			<p>Bitte folgen Sie uns auf <a href="https://twitter.com/edirom">Twitter</a> für aktuelle Ankündigungen.</p>-->
 			
-			<form class="custom" name="form1" method="post" enctype="multipart/form-data" action="submit.html" onsubmit="return validate_form(this)">
+			<form class="custom" name="form1" method="post" enctype="multipart/form-data" action="formmail.php" onsubmit="return validate_form(this)">
 				<input type="hidden" name="env_report" value="REMOTE_HOST,REMOTE_ADDR,HTTP_USER_AGENT,AUTH_TYPE,REMOTE_USER" />
 				<input type="hidden" name="recipients" value="pstadlerbe_gatozzi.bib.hfm-detmold.de" />
 				<input type="hidden" name="required" value="anrede:Anrede,vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail" />
@@ -197,8 +197,8 @@
 	<script>
 	  $(document).foundation();
 	</script>
-	<!--
-	<!-\- Piwik -\->
+	
+	<!-- Piwik -->
 	<script type="text/javascript">
 	  var _paq = _paq || [];
 	  _paq.push(["setDomains", ["*.ess.uni-paderborn.de","*.ess.upb.de"]]);
@@ -213,10 +213,10 @@
 	    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
 	  })();
 	</script>
-	<!-\- End Piwik Code -\->
+	<!-- End Piwik Code -->
 		
-	<!-\- Piwik Image Tracker -\->
+	<!-- Piwik Image Tracker -->
 	<noscript><img src="http://www.weber-gesamtausgabe.de/piwik/piwik.php?idsite=2&amp;rec=1" style="border:0" alt="" /></noscript>
-	<!-\- End Piwik -\->-->
+	<!-- End Piwik -->
 </body>
 </html>
