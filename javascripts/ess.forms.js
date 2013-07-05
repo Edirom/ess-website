@@ -11,9 +11,10 @@ var KursList = [
     {"KursID":"ms", "Termin":[4,5], "Counter":0},
     {"KursID":"edirom", "Termin":[2,3], "Counter":0},
     {"KursID":"xpath", "Termin":[4,5], "Counter":0},
-    {"KursID":"beratung", "Termin":[], "Counter":0},
     {"KursID":"ks-vok", "Termin":[6,7], "Counter":0}
 ];
+
+var errorText = '<small>Ungültige Eingabe</small>';
 		
 function pos(kurs)
 {
@@ -92,27 +93,17 @@ function conflict(kurs)
 
 function validate_name(field)
 {
+    var myID = field.name+'Div';
     with (field)
     {
         if (value.length < 2||value.length > 40)
       	{	
-      	   if(field==vorname)
-      	   {
-      		div1.innerHTML="<font color=red>Ungültige Eingabe!</font>";
-      	   }
-      	   else div2.innerHTML="<font color=red>Ungültige Eingabe!</font>";
-      	   return false;
+      	$('#'+ myID + '> .errorText').show();
+      	$('#'+myID).addClass('error');
+      	return false;
       	}
-      	else 
-      	{
-            if(field==vorname)
-            {
-            div1.innerHTML="<font color=green>Richtig!</font>";
-            }
-            else div2.innerHTML="<font color=green>Richtig!</font>";
-            return true;
-        }
     }
+    return true;
 }
 
 function validate_email(field)
@@ -123,24 +114,37 @@ function validate_email(field)
         dotpos=value.lastIndexOf(".")
         if (apos<1||dotpos-apos<2) 
         {
-        divemail.innerHTML="<font color=red>Ungültige Eingabe!</font>";
+        $('#emailDiv > .errorText').show();
+        $('#emailDiv').addClass('error');
         return false;
         }
-        else 
-        {
-        divemail.innerHTML="<font color=green>Richtig!</font>";
-        return true;
-        }
     }
+    return true;
+}
+
+function validate_anrede(field)
+{
+    if(field.value=='')
+    {
+        $('#anredeDiv > .errorText').show();
+        $('#anredeDiv').addClass('error');
+        return false;
+    }
+    return true;
 }
 
 function validate_form(thisform)
 {
+    var error=0;
+    $('.errorText').hide();
+    $('.error').removeClass('error');
     with (thisform)
     {
-    //if (!validate_name(vorname)) return false;
-    //if (!validate_name(nachname)) return false;
-    if (!validate_email(email)) return false;
-    return true;
+    if (!validate_name(vorname)) error++;
+    if (!validate_name(nachname)) error++;
+    if (!validate_email(email)) error++;
+    if (!validate_anrede(anrede)) error++;
+    //console.log(error);
+    if (error!=0) return false; 
     }
 }

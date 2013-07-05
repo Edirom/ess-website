@@ -51,14 +51,14 @@
 		<!-- Main Blog Content -->
 		
 		
-		<div class="columns" role="content">
+		<div class="columns large-9" role="content">
 			<h1>Registrierung</h1>
 			
 <!--			<p>Die Registrierung wird in wenigen Tagen geöffnet.</p>-->
 			
 <!--			<p>Bitte folgen Sie uns auf <a href="https://twitter.com/edirom">Twitter</a> für aktuelle Ankündigungen.</p>-->
 			
-			<form class="custom" name="form1" action="submitpage.html" onsubmit="return validate_form(this);">
+			<form class="custom" name="form1" method="post" enctype="multipart/form-data" action="submit.html" onsubmit="return validate_form(this)">
 				<input type="hidden" name="env_report" value="REMOTE_HOST,REMOTE_ADDR,HTTP_USER_AGENT,AUTH_TYPE,REMOTE_USER" />
 				<input type="hidden" name="recipients" value="pstadlerbe_gatozzi.bib.hfm-detmold.de" />
 				<input type="hidden" name="required" value="anrede:Anrede,vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail" />
@@ -71,50 +71,73 @@
 						<fieldset>
 							<legend>Persönliche Angaben</legend>
 							
-							<label for="anrede">Anrede *</label>
-							<select id="anrede" class="small" required="required" name="anrede">
-								<option disabled="disabled" selected="selected"></option>
-								<option>Frau</option>
-								<option>Herr</option>
-							</select>					 
-												
-							<label for="vorname">Vorname *</label>			
-							<input type="text" placeholder="Ihr Vorname (Pflichtangabe)" name="vorname" id="vorname" required="required"/>
-												
-							<label for="nachname">Nachname *</label>
-							<input type="text" placeholder="Ihr Nachname (Pflichtangabe)" name="nachname" id="nachname" required="required"/>
+							<div id="anredeDiv">
+								<label for="anrede">Anrede *</label>
+								<select id="anrede" class="small" required="required" name="anrede">
+									<option disabled="disabled" selected="selected"></option>
+									<option>Frau</option>
+									<option>Herr</option>
+								</select>
+								<small class="errorText" style="display:none;">Bitte auswählen</small>
+							</div>
 							
-							<label for="email">E-Mail *</label>
-							<input type="email" placeholder="Ihre E-Mail-Adresse (Pflichtangabe)" name="email" required="required"/>
+							<div id="vornameDiv">
+								<label for="vorname">Vorname *</label>			
+								<input type="text" placeholder="Ihr Vorname (Pflichtangabe)" name="vorname" id="vorname"/>
+								<small class="errorText" style="display:none;">Ungültige Eingabe</small>
+							</div>
+							<div id="nachnameDiv">
+								<label for="nachname">Nachname *</label>
+								<input type="text" placeholder="Ihr Nachname (Pflichtangabe)" name="nachname" id="nachname"/>
+								<small class="errorText" style="display:none;">Ungültige Eingabe</small>
+							</div>
+							<div id="emailDiv">
+								<label for="email">E-Mail *</label>
+								<input type="email" placeholder="Ihre E-Mail-Adresse (Pflichtangabe)" name="email" id="email"/>
+								<small class="errorText" style="display:none;">Ungültige Eingabe</small>
+							</div>
 						</fieldset>
+						
+						<fieldset>
+							<legend>Laptop-Entleihe</legend>
+							<label for="laptop"><input type="checkbox" id="laptop" style="display: none;" name="laptop" value="ja"/><span class="custom checkbox"></span> Ich benötige einen Leihrechner </label>
+						</fieldset>
+						
+						<fieldset>
+							<legend>Social Evening Out</legend>
+							<label for="seo"><input type="checkbox" id="seo" style="display: none;" name="seo" value="ja"/><span class="custom checkbox"></span> Ja, ich nehme teil</label><span class="checkbox-sub-label">Geselliger Abend (Mi., 25.&#8201;9., ab 19 Uhr) </span>
+						</fieldset>
+						
 						<fieldset>
 							<legend>Kommentar</legend>
-							<textarea placeholder="Sie können uns bei Bedarf hier einen Kommentar hinterlassen" name="kommentar" id="kommentar" ></textarea>
+							<textarea placeholder="Sie können uns hier einen Kommentar hinterlassen" name="kommentar" id="kommentar" ></textarea>
 						</fieldset>
 					</div>
 					
 					<div class="large-6 columns">
 						<fieldset>
 							<legend>Kurswahl</legend>
-							<label for="tei-einf" onclick="conflict('tei-einf')"><input type="checkbox" id="tei-einf" style="display: none;" name="kurse[]" value="tei-einf"/><span class="custom checkbox"></span> Einführung in die Textauszeichnung mit TEI <span data-tooltip="" class="has-tip tip-right" title="Zeit: Montag 9:30 bis Dienstag 12:30; Kosten: 15 Euro"> <img src="img/info.png"/></span></label>
-							<label for="mei-einf" onclick="conflict('mei-einf')"><input type="checkbox" id="mei-einf" style="display: none;" name="kurse[]" value="mei-einf"/><span class="custom checkbox"></span> Einführung in die Musikcodierung mit MEI <span data-tooltip="" class="has-tip tip-right" title="Zeit: Mittwoch 9:30 bis Donnerstag 12:30; Kosten: 15 Euro"> <img src="img/info.png"/></span></label>
-							<label for="mermeid" onclick="conflict('mermeid')"><input type="checkbox" id="mermeid" style="display: none;" name="kurse[]" value="mermeid"/><span class="custom checkbox"></span> MerMEId – Arbeiten mit MEI-Metadaten <span data-tooltip="" class="has-tip tip-right" title="Zeit: Donnerstag 14:00 bis Freitag 12:30; Kosten: 10 Euro"> <img src="img/info.png"/></span></label>
-							<label for="qs" onclick="conflict('qs')"><input type="checkbox" id="qs" style="display: none;" name="kurse[]" value="qs"/><span class="custom checkbox"></span> Qualitätssicherung im Prozess der Codierung <span data-tooltip="" class="has-tip tip-right" title="Zeit: Dienstag 14:00 bis 17:30; Kosten: 5 Euro"> <img src="img/info.png"/></span></label>
-							<label for="musikCodierung" onclick="conflict('musikCodierung')"><input type="checkbox" id="musikCodierung" style="display: none;" name="kurse[]" value="musikCodierung"/><span class="custom checkbox"></span> Musikcodierung in der Praxis <span data-tooltip="" class="has-tip tip-right" title="Zeit: Donnerstag 14:00 bis Freitag 12:30; Kosten: 10 Euro"> <img src="img/info.png"/></span></label>
-							<label for="textGrid" onclick="conflict('textGrid')"><input type="checkbox" id="textGrid" style="display: none;" name="kurse[]" value="textGrid"/><span class="custom checkbox"></span> TextGrid <span data-tooltip="" class="has-tip tip-right" title="Zeit: Mittwoch 14:00 bis Donnerstag 12:30; Kosten: 10 Euro"> <img src="img/info.png"/></span></label>
-							<label for="odd" onclick="conflict('odd')"><input type="checkbox" id="odd" style="display: none;" name="kurse[]" value="odd"/><span class="custom checkbox"></span> Einführung in die TEI Metasprache ODD <span data-tooltip="" class="has-tip tip-right" title="Zeit: Montag 14:00 bis Dienstag 12:30; Kosten: 10 Euro"> <img src="img/info.png"/></span></label>
-							<label for="xslt" onclick="conflict('xslt')"><input type="checkbox" id="xslt" style="display: none;" name="kurse[]" value="xslt"/><span class="custom checkbox"></span> Einführung in die Programmiersprache XSLT <span data-tooltip="" class="has-tip tip-right" title="Zeit: Donnerstag 14:00 bis Freitag 12:30; Kosten: 10 Euro"> <img src="img/info.png"/></span></label>
-							<label for="kdm" onclick="conflict('kdm')"><input type="checkbox" id="kdm" style="display: none;" name="kurse[]" value="kdm"/><span class="custom checkbox"></span> Konzeption digitaler Musikausgaben <span data-tooltip="" class="has-tip tip-right" title="Zeit: Montag 9:30 bis 12:30; Kosten: 5 Euro"> <img src="img/info.png"/></span></label>
-							<label for="ms" onclick="conflict('ms')"><input type="checkbox" id="ms" style="display: none;" name="kurse[]" value="ms"/><span class="custom checkbox"></span> TEI für Handschriften <span data-tooltip="" class="has-tip tip-right" title="Zeit: Dienstag 14:00 bis Mittwoch 12:30; Kosten: 10 Euro"> <img src="img/info.png"/></span></label>
-							<label for="edirom" onclick="conflict('edirom')"><input type="checkbox" id="edirom" style="display: none;" name="kurse[]" value="edirom"/><span class="custom checkbox"></span> Edirom Tools – Erstellen einer Edirom Online <span data-tooltip="" class="has-tip tip-right" title="Zeit: Montag 14:00 bis Dienstag 12:30; Kosten: 10 Euro"> <img src="img/info.png"/></span></label>
-							<label for="xpath" onclick="conflict('xpath')"><input type="checkbox" id="xpath" style="display: none;" name="kurse[]" value="xpath"/><span class="custom checkbox"></span> XPath und Reguläre Ausdrücke – Fortgeschrittenes Suchen in XML-Dokumenten <span data-tooltip="" class="has-tip tip-right" title="Zeit: Dienstag 14:00 bis Mittwoch 12:30; Kosten: 10 Euro"> <img src="img/info.png"/></span></label>
-<!--							<label for="beratung" onclick="conflict('beratung')"><input type="checkbox" id="beratung" style="display: none;" name="kurse[]" value="beratung"/><span class="custom checkbox"></span> Individuelle Forschungsberatung <span data-tooltip="" class="has-tip tip-right" title="Zeit: nach Vereinbarung; Kosten: Euro"> <img src="img/info.png"/></span></label>-->
-							<label for="ks-vok" onclick="conflict('ks-vok')"><input type="checkbox" id="ks-vok" style="display: none;" name="kurse[]" value="ks-vok"/><span class="custom checkbox"></span> Kontrolliert-strukturierte Vokabulare in interdisziplinärer Perspektive <span data-tooltip="" class="has-tip tip-right" title="Zeit: Mittwoch 14:00 bis Donnerstag 12:30; Kosten: 10 Euro"> <img src="img/info.png"/></span></label>
+							<label for="edirom" onclick="conflict('edirom')"><input type="checkbox" id="edirom" style="display: none;" name="kurse[]" value="edirom"/><span class="custom checkbox"></span> Edirom Tools </label><span class="checkbox-sub-label">Zeit: Montag 14:00 bis Dienstag 12:30; Kosten: 10 Euro</span>
+							<label for="euf"><input type="checkbox" id="euf" style="display: none;" name="kurse[]" value="euf"/><span class="custom checkbox"></span> Edirom User Forum </label><span class="checkbox-sub-label">Zeit: Montag 17:45 bis 18:30 Uhr</span>
+							<label for="ks-vok" onclick="conflict('ks-vok')"><input type="checkbox" id="ks-vok" style="display: none;" name="kurse[]" value="ks-vok"/><span class="custom checkbox"></span> Kontrolliert-strukturierte Vokabulare </label><span class="checkbox-sub-label">Zeit: Mittwoch 14:00 bis Donnerstag 12:30; Kosten: 10 Euro</span>
+							<label for="kdm" onclick="conflict('kdm')"><input type="checkbox" id="kdm" style="display: none;" name="kurse[]" value="kdm"/><span class="custom checkbox"></span> Konzeption digitaler Musikausgaben </label><span class="checkbox-sub-label">Zeit: Montag 9:30 bis 12:30; Kosten: 5 Euro</span>
+							<label for="mei-einf" onclick="conflict('mei-einf')"><input type="checkbox" id="mei-einf" style="display: none;" name="kurse[]" value="mei-einf"/><span class="custom checkbox"></span> MEI Einführung</label><span class="checkbox-sub-label">Zeit: Mittwoch 9:30 bis Donnerstag 12:30; Kosten: 15 Euro</span>
+							<label for="mermeid" onclick="conflict('mermeid')"><input type="checkbox" id="mermeid" style="display: none;" name="kurse[]" value="mermeid"/><span class="custom checkbox"></span> MerMEId </label><span class="checkbox-sub-label">Zeit: Donnerstag 14:00 bis Freitag 12:30; Kosten: 10 Euro</span>
+							<label for="musikCodierung" onclick="conflict('musikCodierung')"><input type="checkbox" id="musikCodierung" style="display: none;" name="kurse[]" value="musikCodierung"/><span class="custom checkbox"></span> Musikcodierung in der Praxis </label><span class="checkbox-sub-label">Zeit: Donnerstag 14:00 bis Freitag 12:30; Kosten: 10 Euro</span>
+							<label for="odd" onclick="conflict('odd')"><input type="checkbox" id="odd" style="display: none;" name="kurse[]" value="odd"/><span class="custom checkbox"></span> ODD Einführung </label><span class="checkbox-sub-label">Zeit: Montag 14:00 bis Dienstag 12:30; Kosten: 10 Euro</span>
+							<label for="qs" onclick="conflict('qs')"><input type="checkbox" id="qs" style="display: none;" name="kurse[]" value="qs"/><span class="custom checkbox"></span> Qualitätssicherung </label><span class="checkbox-sub-label">Zeit: Dienstag 14:00 bis 17:30; Kosten: 5 Euro</span>
+							<label for="tei-einf" onclick="conflict('tei-einf')"><input type="checkbox" id="tei-einf" style="display: none;" name="kurse[]" value="tei-einf"/><span class="custom checkbox"></span> TEI Einführung</label><span class="checkbox-sub-label">(Zeit: Montag 9:30 bis Dienstag 12:30; Kosten: 15 Euro)</span>
+							<label for="ms" onclick="conflict('ms')"><input type="checkbox" id="ms" style="display: none;" name="kurse[]" value="ms"/><span class="custom checkbox"></span> TEI für Handschriften </label><span class="checkbox-sub-label">Zeit: Dienstag 14:00 bis Mittwoch 12:30; Kosten: 10 Euro</span>
+							<label for="textGrid" onclick="conflict('textGrid')"><input type="checkbox" id="textGrid" style="display: none;" name="kurse[]" value="textGrid"/><span class="custom checkbox"></span> TextGrid </label><span class="checkbox-sub-label">Zeit: Mittwoch 14:00 bis Donnerstag 12:30; Kosten: 10 Euro</span>
+							<label for="xpath" onclick="conflict('xpath')"><input type="checkbox" id="xpath" style="display: none;" name="kurse[]" value="xpath"/><span class="custom checkbox"></span> XPath und Reguläre Ausdrücke </label><span class="checkbox-sub-label">Zeit: Dienstag 14:00 bis Mittwoch 12:30; Kosten: 10 Euro</span>
+							<label for="xslt" onclick="conflict('xslt')"><input type="checkbox" id="xslt" style="display: none;" name="kurse[]" value="xslt"/><span class="custom checkbox"></span> XSLT Einführung </label><span class="checkbox-sub-label">Zeit: Donnerstag 14:00 bis Freitag 12:30; Kosten: 10 Euro</span>
 						</fieldset>
 						
 						<fieldset>
 							<legend>Forschungsberatung</legend>
-							<label for="beratung"><input type="checkbox" id="beratung" style="display: none;" name="beratung" value="ja"/><span class="custom checkbox"></span> Ja, ich möchte an der Forschungsberatung teilnehmen </label>
+							<label for="beratung"><input type="checkbox" id="beratung" style="display: none;" name="beratung" value="ja"/><span class="custom checkbox"></span> Ja, ich nehme teil </label>
+							<p></p>
+							<p>Bitte fügen Sie hier Ihr Exposé an:</p>
 							<label for="file"><input id="file" name="file" type="file"/></label>
 						</fieldset>
 						
@@ -122,6 +145,22 @@
 					</div>
 				</div>
 			</form> 
+		</div>
+		
+		<div class="columns large-3">
+			<div class="row panel">
+				<h3>Wichtige Hinweise</h3>
+				<h4 class="subheader">Anmeldeschluss</h4>
+				<p>30. August 2013</p>
+				<h4 class="subheader">Kosten</h4>
+				<p>Es wird lediglich ein Unkostenbeitrag von 5,– Euro pro Halbtag erhoben.</p>
+			</div>
+			<div class="row panel">
+				<h3>Datenschutz</h3>
+				<p>Die von uns bei der Registrierung erfassten Daten dienen nur zur Anmeldung bei der Edirom-Summer-School.
+					Wir geben Ihre Daten nicht an Dritte weiter und erteilen Ihnen jederzeit gern Auskunft über die bei uns gespeicherten Daten.
+					Hierzu wenden Sie sich bitte an eine der im <a href="impressum.html">Impressum</a> genannten Adressen.</p>
+			</div>
 		</div>
 		
 		<!-- End Main Content -->
@@ -158,8 +197,8 @@
 	<script>
 	  $(document).foundation();
 	</script>
-	
-	<!-- Piwik -->
+	<!--
+	<!-\- Piwik -\->
 	<script type="text/javascript">
 	  var _paq = _paq || [];
 	  _paq.push(["setDomains", ["*.ess.uni-paderborn.de","*.ess.upb.de"]]);
@@ -174,10 +213,10 @@
 	    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
 	  })();
 	</script>
-	<!-- End Piwik Code -->
+	<!-\- End Piwik Code -\->
 		
-	<!-- Piwik Image Tracker -->
+	<!-\- Piwik Image Tracker -\->
 	<noscript><img src="http://www.weber-gesamtausgabe.de/piwik/piwik.php?idsite=2&amp;rec=1" style="border:0" alt="" /></noscript>
-	<!-- End Piwik -->
+	<!-\- End Piwik -\->-->
 </body>
 </html>

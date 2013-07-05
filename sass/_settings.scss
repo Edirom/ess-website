@@ -166,8 +166,8 @@ $header-font-color: $ess-gray;
 
 // <small> styling
 
-// $small-font-size: 60%;
-// $small-font-color: lighten($header-font-color, 30%);
+$small-font-size: 60%;
+$small-font-color: lighten($header-font-color, 30%);
 
 // Paragraphs
 
@@ -1270,33 +1270,3 @@ $topbar-menu-icon-color: $topbar-link-color;
 // Sticky Class
 
 // $topbar-sticky-class: ".sticky";
-
-.myBorder {
-    border-bottom: solid 1px darken($topbar-bg, 20%);
-}
-
-@media only screen {
-    .row {
-        margin-top:emCalc(20px) !important;
-        margin-bottom:emCalc(20px);
-    }
-    #partner-list li {
-        margin: emCalc(10px) 0 emCalc(30px) 0;
-    }
-    
-}
-
-.dots {
-    border:none;
-    background-image: url(../img/dots.png);
-    background-repeat: no-repeat;
-    height: 29px;
-    width: 150px;
-    margin: 0 auto emCalc(20px) auto;
-}
-
-.ess-side-nav {
-    @extend .panel;
-    @extend .radius;
-}
-
