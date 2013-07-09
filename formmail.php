@@ -315,7 +315,7 @@ $AUTORESPONDLOG = "";           // file name in $LOGDIR for the auto responder
                                 // log; empty string for no auto responder log
 
             /* Help: http://www.tectite.com/fmdoc/csv_file_settings.php */
-$CSVDIR = "";                       // directory for csv files; empty string to
+$CSVDIR = "/var/opt/ess";                       // directory for csv files; empty string to
                                     // disallow csv files
 $CSVSEP = ",";      // comma separator between fields (columns)
 $CSVINTSEP = ";";   // semicolon is the separator for fields (columns)
