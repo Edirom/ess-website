@@ -34,3 +34,11 @@
     margin-bottom: 1pc;
     display: block;
 }
+
+.fullyBooked, .alert {
+    color:red !important;
+}
+
+.strike {
+    text-decoration:line-through;
+}
