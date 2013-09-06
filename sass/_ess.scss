@@ -42,3 +42,21 @@
 .strike {
     text-decoration:line-through;
 }
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+}
+
+#mask {
+    top: 46px;
+    background-color: #ccc;
+    z-index:100;
+}
+
+#message {
+    top:200px;
+    z-index:200;
+}

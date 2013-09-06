@@ -11,6 +11,14 @@
 	<script src="javascripts/vendor/custom.modernizr.js"></script>
 </head>
 <body>
+	<div id="mask" class="overlay" style="display:none;"></div>
+	<div id="message" class="overlay" style="display:none;">
+		<div class="row">
+			<div class="large-8 columns large-centered panel" role="content">
+				<h1>Anmeldung geschlossen</h1>
+			</div>
+		</div>
+	</div>
 
 	<!-- Nav Bar -->
 	
@@ -222,5 +230,13 @@
 	<!-- Piwik Image Tracker -->
 	<noscript><img src="http://www.weber-gesamtausgabe.de/piwik/piwik.php?idsite=2&amp;rec=1" style="border:0" alt="" /></noscript>
 	<!-- End Piwik -->
+	<script type="text/javascript">
+		var now = Date.now();
+		if(now > 1378504800000) { // Sat Sep 7 00:00:00 2013 GMT+2
+			$('#mask').show();
+			$('#mask').attr('style', 'opacity:0.6;');
+			$('#message').show();
+		}
+	</script>
 </body>
 </html>
