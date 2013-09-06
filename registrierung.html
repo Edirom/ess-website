@@ -231,11 +231,8 @@
 	<noscript><img src="http://www.weber-gesamtausgabe.de/piwik/piwik.php?idsite=2&amp;rec=1" style="border:0" alt="" /></noscript>
 	<!-- End Piwik -->
 	<script type="text/javascript">
-		var now = new Date();
-		var day = ((now.getDate() < 10) ? "0" + now.getDate() : now.getDate());
-		var month = ((now.getMonth() +1 < 10) ? "0" + (now.getMonth()+1) : now.getMonth()+1);
-		var year = now.getFullYear();
-		if((year + month + day) > 20130906) {
+		var now = Date.now();
+		if(now > 1378504800000) { // Sat Sep 7 00:00:00 2013 GMT+2
 			$('#mask').show();
 			$('#mask').attr('style', 'opacity:0.6;');
 			$('#message').show();
