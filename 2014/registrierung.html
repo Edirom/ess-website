@@ -137,18 +137,29 @@
 					<div class="large-6 columns">
 						<fieldset>
 							<legend>Kurswahl</legend>
-							<label for="dariah"><input type="checkbox" id="dariah" style="display: none;" name="kurse[]" value="dariah"/><span class="custom checkbox"></span> DARIAH-DE Infrastruktur</label><span class="checkbox-sub-label">Zeit: Montag 14:00–17:30 Uhr <br />Kosten: 5 Euro</span>
-							<label for="edirom"><input type="checkbox" id="edirom" style="display: none;" name="kurse[]" value="edirom"/><span class="custom checkbox"></span> Edirom Tools </label><span class="checkbox-sub-label">Zeit: Mittwoch 9:00 bis Donnerstag 12:30 <br />Kosten: 15 Euro</span>
-							<label for="euf"><input type="checkbox" id="euf" style="display: none;" name="kurse[]" value="euf"/><span class="custom checkbox"></span> Edirom User Forum </label><span class="checkbox-sub-label">Zeit: Dienstag 17:45 bis 18:30 Uhr</span>
+							<label for="dariah" onclick="conflict('dariah')"><input type="checkbox" id="dariah" style="display: none;" name="kurse[]" value="dariah"/><span class="custom checkbox"></span> DARIAH-DE Infrastruktur</label><span class="checkbox-sub-label">Zeit: Montag 14:00–17:30 Uhr <br />Kosten: 5 Euro</span>
+							
+							<label for="edirom" onclick="conflict('edirom')"><input type="checkbox" id="edirom" style="display: none;" name="kurse[]" value="edirom"/><span class="custom checkbox"></span> Edirom Tools </label><span class="checkbox-sub-label">Zeit: Mittwoch 9:00 bis Donnerstag 12:30 <br />Kosten: 15 Euro</span>
+							
+							<label for="euf" onclick="conflict('euf')"><input type="checkbox" id="euf" style="display: none;" name="kurse[]" value="euf"/><span class="custom checkbox"></span> Edirom User Forum </label><span class="checkbox-sub-label">Zeit: Dienstag 17:45 bis 18:30 Uhr</span>
+							
 							<label for="mei-rendering" onclick="conflict('mei-rendering')"><input type="checkbox" id="mei-rendering" style="display: none;" name="kurse[]" value="mei-rendering"/><span class="custom checkbox"></span> Encoding and Rendering of MEI (english) </label><span class="checkbox-sub-label">Time: Thursday 14:00 till Friday 12:30 <br />Costs: 10 Euro</span>
 							<label for="kdm" onclick="conflict('kdm')"><input type="checkbox" id="kdm" style="display: none;" name="kurse[]" value="kdm"/><span class="custom checkbox"></span> Konzeption digitaler Musikausgaben </label><span class="checkbox-sub-label">Zeit: Montag 9:00 bis 12:30 <br />Kosten: 5 Euro</span>
+							
 							<label for="mei-einf" onclick="conflict('mei-einf')"><input type="checkbox" id="mei-einf" style="display: none;" name="kurse[]" value="mei-einf"/><span class="custom checkbox"></span> MEI Einführung</label><span class="checkbox-sub-label">Zeit: Montag 14:00 bis Dienstag 17:30 <br />Kosten: 15 Euro</span>
+							
 							<label for="mei-einf-en" onclick="conflict('mei-einf-en')"><input type="checkbox" id="mei-einf-en" style="display: none;" name="kurse[]" value="mei-einf"/><span class="custom checkbox"></span> MEI Introduction (english)</label><span class="checkbox-sub-label">Time: Monday 14:00 till Tuesday 17:30 <br />Costs: 15 Euro</span>
+							
 							<label for="mermeid" onclick="conflict('mermeid')"><input type="checkbox" id="mermeid" style="display: none;" name="kurse[]" value="mermeid"/><span class="custom checkbox"></span> MerMEId </label><span class="checkbox-sub-label">Zeit: Donnerstag 14:00 bis Freitag 12:30 <br />Kosten: 10 Euro</span>
+							
 							<label for="odd" onclick="conflict('odd')"><input type="checkbox" id="odd" style="display: none;" name="kurse[]" value="odd"/><span class="custom checkbox"></span> ODD Einführung </label><span class="checkbox-sub-label">Zeit: Mittwoch 14:00 bis Donnerstag 12:30 <br />Kosten: 10 Euro</span>
+							
 							<label for="python" onclick="conflict('python')"><input type="checkbox" id="python" style="display: none;" name="kurse[]" value="python"/><span class="custom checkbox"></span> Python Einführung</label><span class="checkbox-sub-label">Zeit: Donnerstag 14:00 Uhr bis Freitag 12:30 <br />Kosten: 10 Euro</span>
+							
 							<label for="tei-einf" onclick="conflict('tei-einf')"><input type="checkbox" id="tei-einf" style="display: none;" name="kurse[]" value="tei-einf"/><span class="custom checkbox"></span> TEI Einführung</label><span class="checkbox-sub-label">Zeit: Dienstag 9:00 bis Mittwoch 12:30 <br />Kosten: 15 Euro</span>
+							
 							<label for="xpath" onclick="conflict('xpath')"><input type="checkbox" id="xpath" style="display: none;" name="kurse[]" value="xpath"/><span class="custom checkbox"></span> XPath und Reguläre Ausdrücke </label><span class="checkbox-sub-label">Zeit: Montag 14:00 bis Dienstag 17:30 <br />Kosten: 15 Euro</span>
+							
 							<label for="xslt" onclick="conflict('xslt')"><input type="checkbox" id="xslt" style="display: none;" name="kurse[]" value="xslt"/><span class="custom checkbox"></span> XSLT Einführung </label><span class="checkbox-sub-label">Zeit: Mittwoch 9:00 Uhr bis Donnerstag 12:30 <br />Kosten: 15 Euro</span>
 						</fieldset>					
 						<input class="small button secondary right" type="submit" value="Senden"/>
