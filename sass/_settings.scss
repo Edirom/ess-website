@@ -1229,8 +1229,8 @@ $topbar-link-color-active: #000;
 // $topbar-link-weight: bold;
 // $topbar-link-font-size: emCalc(13px);
 // $topbar-link-hover-lightness: -30%; // Darken by 30%
-// $topbar-link-bg-hover: darken($topbar-bg, 3%);
-$topbar-link-bg-active: darken($topbar-bg, 6%);
+$topbar-link-bg-hover: darken($topbar-bg, 6%);
+$topbar-link-bg-active: darken($topbar-bg, 10%);
 
 // $topbar-dropdown-label-color: #555;
 // $topbar-dropdown-label-text-transform: uppercase;
@@ -1264,8 +1264,10 @@ $topbar-menu-icon-color: $topbar-link-color;
 
 // Divider Styles
 
-// $topbar-divider-border-bottom: solid 1px lighten($topbar-bg, 10%);
-// $topbar-divider-border-top: solid 1px darken($topbar-bg, 10%);
+// = rechter Rand
+$topbar-divider-border-bottom: none;
+// = linker Rand
+$topbar-divider-border-top: solid 1px darken($topbar-bg, 20%);
 
 // Sticky Class
 
