@@ -336,7 +336,7 @@ $CSVLINE = "\n";    // line termination for CSV files.  The default is
                     // this value, you *must* set $CSVOPEN = "b".
 
             /* Help: http://www.tectite.com/fmdoc/templatedir.php */
-$TEMPLATEDIR = "/var/www/ess2013/formTemplates";                  // directory for template files; empty string
+$TEMPLATEDIR = "/var/www/ess2013/2014/formTemplates";                  // directory for template files; empty string
                                     // if you don't have any templates
 
             /* Help: http://www.tectite.com/fmdoc/templateurl.php */

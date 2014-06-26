@@ -1,14 +1,14 @@
 // Global Foundation Settings
-@import "settings";
+@import "settings.scss";
 
 // Webicons
 @import "webicons";
 
 // custom Edirom-Summer-School CSS
-@import "ess";
+@import "ess.scss";
 
 // Comment out this import if you don't want to use normalize
-@import "normalize";
+@import "normalize.scss";
 
 // Comment out this import if you are customizing you imports below
 // @import "foundation";
