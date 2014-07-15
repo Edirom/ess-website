@@ -1,17 +1,17 @@
 var KursList = [
     {"KursID":"dariah", "Termin":[1], "Counter":0},
-    {"KursID":"edirom", "Termin":[2,5], "Counter":0},
+    {"KursID":"edirom", "Termin":[2,5,8], "Counter":0},
     {"KursID":"euf", "Termin":[], "Counter":0},
-    {"KursID":"mei-rendering", "Termin":[3], "Counter":0},
+    {"KursID":"mei-rendering", "Termin":[3,6], "Counter":0},
     {"KursID":"kdm", "Termin":[], "Counter":0},
     {"KursID":"mei-einf", "Termin":[1,4], "Counter":0},
     {"KursID":"mei-einf-en", "Termin":[1,4], "Counter":0},
-    {"KursID":"mermeid", "Termin":[3], "Counter":0},
-    {"KursID":"odd", "Termin":[2,3], "Counter":0},
+    {"KursID":"mermeid", "Termin":[3,6], "Counter":0},
+    {"KursID":"odd", "Termin":[6,8], "Counter":0},
     {"KursID":"python", "Termin":[5], "Counter":0},
-    {"KursID":"tei-einf", "Termin":[3,4], "Counter":0},
-    {"KursID":"xpath", "Termin":[1], "Counter":0},
-    {"KursID":"xslt", "Termin":[2,3], "Counter":0}
+    {"KursID":"tei-einf", "Termin":[3,4,7], "Counter":0},
+    {"KursID":"xpath", "Termin":[1,7], "Counter":0},
+    {"KursID":"xslt", "Termin":[2,3,6], "Counter":0}
 ];
 
 var errorText = '<small>Ungültige Eingabe</small>';
