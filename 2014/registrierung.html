@@ -83,7 +83,7 @@
 				<input type="hidden" name="bad_template" value="form_bad.html" />
 				<input type="hidden" name="derive_fields" value="realname=vorname+nachname" />
 				<input type="hidden" name="csvfile" value="anmeldungen.csv" />
-				<input type="hidden" name="csvcolumns" value="nachname,vorname,anrede,email,laptop,seo,beratung,kurse,kommentar" />
+				<input type="hidden" name="csvcolumns" value="nachname,vorname,anrede,email,student,laptop,seo,beratung,kurse,kommentar" />
 				
 				<div class="row">
 					
@@ -115,6 +115,8 @@
 								<label for="email">E-Mail *</label>
 								<input type="email" placeholder="Ihre E-Mail-Adresse (Pflichtangabe)" name="email" id="email"/>
 								<small class="errorText" style="display:none;">Ungültige Eingabe</small>
+								
+								<label for="student"><input type="checkbox" id="student" style="display: none;" name="student" value="ja"/><span class="custom checkbox"></span> Ich bin eingeschriebener Student der Uni Paderborn oder der HfM Detmold.</label>
 							</div>
 						</fieldset>
 						
@@ -179,6 +181,7 @@
 			   <!-- <p class="alert">verlängert bis <br/>06. September 2013</p> -->
 				<h4 class="subheader">Kosten</h4>
 				<p>Es wird ein Unkostenbeitrag von 5,– Euro pro Halbtag erhoben.</p>
+				<p>Für Studenten der Universität Paderborn und der Hochschule für Musik Detmold entfällt der Unkostenbeitrag.</p>
 			</div>
 			<div class="row panel">
 				<h3>Datenschutz</h3>
