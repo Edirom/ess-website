@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="description" content="Registrierung zur Edirom-Summer-School 2013" />
+	<title>Registrierung</title>
+	<link rel="stylesheet" href="../stylesheets/app.css" />
+	<script src="../javascripts/vendor/custom.modernizr.js"></script>
+	    <style type="text/css">
+        .icon{height: 40px; margin-right:5px;}
+    </style>
+</head>
+<body>
+	
+	<div id="mask" class="overlay" style="display:none;"></div>
+	<div id="message" class="overlay" style="display:none;">
+		<div class="row">
+			<div class="large-8 columns large-centered panel" role="content">
+				<h1>Anmeldung geschlossen</h1>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Nav Bar -->
+	
+	<div class="contain-to-grid fixed myBorder">
+		<nav class="top-bar">
+			
+			<ul class="title-area">
+				<li class="name">
+					<h1 class="hide-for-small"><a href="../index.html"><img src="img/ESS2014_icon.png" class="icon"/>Edirom-Summer-School 2014</a></h1>
+					<h1 class="show-for-small"><a href="../index.html">ESS 2014</a></h1>
+				</li>
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			</ul>
+			
+			<section class="top-bar-section">
+				<ul class="right">
+					<li><a href="programm.html">Programm 2014</a></li>
+					<li class="divider"></li>
+					<!--<li><a href="dozentInnen.html">DozentInnen</a></li>
+					<li class="divider"></li>-->
+					<li><a href="veranstaltungsort.html">Veranstaltungsort</a></li>
+					<li class="divider"></li>
+					<!--<li><a href="unterbringung.html">Unterbringung</a></li>
+					<li class="divider"></li>-->
+					<li><a href="partner.html">Partner</a></li>
+					<li class="divider"></li>
+					<li class="active"><a href="registrierung.html">Registrierung</a></li>
+					<li class="divider"></li>
+					<li><a href="programm2013.html">ESS 2013</a></li>
+				</ul>
+			</section>
+		</nav>
+	</div>
+	
+	<!-- End Nav -->
+	
+	
+	<!-- Main Page Content and Sidebar -->
+	
+	<div class="row">
+		
+		<!-- Main Blog Content -->
+		
+		
+		<div class="columns large-9" role="content">
+			<h1>Registrierung</h1>
+			
+<!--			<p>Die Registrierung wird in wenigen Tagen geöffnet.</p>-->
+			
+<!--			<p>Bitte folgen Sie uns auf <a href="https://twitter.com/edirom">Twitter</a> für aktuelle Ankündigungen.</p>-->
+			
+			<form class="custom" name="form1" method="post" enctype="multipart/form-data" action="formmail.php" onsubmit="return validate_form(this)">
+				<input type="hidden" name="recipients" value="essbe_gaedirom.de" />
+				<input type="hidden" name="required" value="anrede:Anrede,vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail" />
+				<input type="hidden" name="subject" value="[ESS2015] Anmeldung" />
+				<input type="hidden" name="good_template" value="form_ok.html" />
+				<input type="hidden" name="bad_template" value="form_bad.html" />
+				<input type="hidden" name="derive_fields" value="realname=vorname+nachname" />
+				<input type="hidden" name="csvfile" value="anmeldungen.csv" />
+				<input type="hidden" name="csvcolumns" value="nachname,vorname,anrede,email,student,laptop,seo,beratung,kurse,kommentar" />
+				<input type="hidden" name="autorespond"
+					value="PlainFile=autorespond.txt,Subject=[ESS2015] Anmeldebestätigung" />
+				
+				<div class="row">
+					
+					<div class="large-6 columns">
+						<fieldset>
+							<legend>Persönliche Angaben</legend>
+							
+							<div id="anredeDiv">
+								<label for="anrede">Anrede *</label>
+								<select id="anrede" class="small" required="required" name="anrede">
+									<option disabled="disabled" selected="selected"></option>
+									<option>Frau</option>
+									<option>Herr</option>
+								</select>
+								<small class="errorText" style="display:none;">Bitte auswählen</small>
+							</div>
+							
+							<div id="vornameDiv">
+								<label for="vorname">Vorname *</label>			
+								<input type="text" placeholder="Ihr Vorname (Pflichtangabe)" name="vorname" id="vorname"/>
+								<small class="errorText" style="display:none;">Ungültige Eingabe</small>
+							</div>
+							<div id="nachnameDiv">
+								<label for="nachname">Nachname *</label>
+								<input type="text" placeholder="Ihr Nachname (Pflichtangabe)" name="nachname" id="nachname"/>
+								<small class="errorText" style="display:none;">Ungültige Eingabe</small>
+							</div>
+							<div id="emailDiv">
+								<label for="email">E-Mail *</label>
+								<input type="email" placeholder="Ihre E-Mail-Adresse (Pflichtangabe)" name="email" id="email"/>
+								<small class="errorText" style="display:none;">Ungültige Eingabe</small>
+								
+								<label for="student"><input type="checkbox" id="student" style="display: none;" name="student" value="ja"/><span class="custom checkbox"></span> Ich bin eingeschriebener Student der Uni Paderborn oder der HfM Detmold.</label>
+							</div>
+						</fieldset>
+						
+						<fieldset>
+							<legend>Laptop-Entleihe</legend>
+							<label for="laptop"><input type="checkbox" id="laptop" style="display: none;" name="laptop" value="ja"/><span class="custom checkbox"></span> Ich benötige einen Leihrechner </label>
+						</fieldset>
+						
+						<fieldset>
+							<legend>Social Evening Out</legend>
+							<label for="seo"><input type="checkbox" id="seo" style="display: none;" name="seo" value="ja"/><span class="custom checkbox"></span> Ja, ich nehme teil</label><span class="checkbox-sub-label">(Mi., 10.&#8201;9., ab 19 Uhr) </span>
+						</fieldset>
+						
+						<fieldset>
+							<legend>Kommentar</legend>
+							<textarea placeholder="Sie können uns hier einen Kommentar hinterlassen" name="kommentar" id="kommentar" ></textarea>
+						</fieldset>
+						
+						<fieldset class="recaptcha">
+							<legend>Yet another Social Evening Out</legend>
+							<label for="yseo"><input type="checkbox" id="yseo" style="display: none;" name="yseo" value="jajaja"/><span class="custom checkbox"></span> Ja, ich nehme teil</label><span class="checkbox-sub-label">(Mi., 10.&#8201;9., ab 20 Uhr) </span>
+							<label for="plaptop"><input type="checkbox" id="plaptop" style="display: none;" name="plaptop" value=""/><span class="custom checkbox"></span> Ich benötige einen schöneren Leihrechner </label>
+						</fieldset>
+					</div>
+					
+					<div class="large-6 columns">
+						<fieldset>
+							<legend>Kurswahl</legend>
+							<label for="dariah" onclick="conflict('dariah')"><input type="checkbox" id="dariah" style="display: none;" name="kurse[]" value="dariah"/><span class="custom checkbox"></span> DARIAH-DE Infrastruktur</label><span class="checkbox-sub-label">Zeit: Montag 14:00–17:30 Uhr <br />Kosten: 5 Euro <br /><span class="alert">Nur noch wenige Plätze!</span></span>
+							
+							<label for="edirom" onclick="conflict('edirom')"><input type="checkbox" id="edirom" style="display: none;" name="kurse[]" value="edirom"/><span class="custom checkbox"></span> Edirom Tools <!--<span class="alert">Ausgebucht!</span>--></label><span class="checkbox-sub-label">Zeit: Donnerstag 9:00 Uhr bis Freitag 12:30 Uhr<br />Kosten: 15 Euro</span>
+							
+							<label for="euf" onclick="conflict('euf')"><input type="checkbox" id="euf" style="display: none;" name="kurse[]" value="euf"/><span class="custom checkbox"></span> Edirom User Forum </label><span class="checkbox-sub-label">Zeit: Donnerstag 17:45 Uhr bis 18:30 Uhr</span>
+							
+							<label for="mei-rendering" onclick="conflict('mei-rendering')"><input type="checkbox" id="mei-rendering" style="display: none;" name="kurse[]" value="mei-rendering"/><span class="custom checkbox"></span> Encoding and Rendering of MEI (english) </label><span class="checkbox-sub-label">Time: Wednesday 9:00 till 17:30 <br />Costs: 10 Euro</span>
+							
+							<label for="kdm" onclick="conflict('kdm')"><input type="checkbox" id="kdm" style="display: none;" name="kurse[]" value="kdm"/><span class="custom checkbox"></span> Konzeption digitaler Musikausgaben </label><span class="checkbox-sub-label">Zeit: Montag 9:00 Uhr bis 12:30 Uhr<br />Kosten: 5 Euro</span>
+							
+							<label for="mei-einf" onclick="conflict('mei-einf')"><input type="checkbox" id="mei-einf" style="display: none;" name="kurse[]" value="mei-einf"/><span class="custom checkbox"></span> MEI Einführung</label><span class="checkbox-sub-label">Zeit: Montag 14:00 Uhr bis Dienstag 17:30 Uhr<br />Kosten: 15 Euro</span>
+							
+							<label for="mei-einf-en" onclick="conflict('mei-einf-en')"><input type="checkbox" id="mei-einf-en" style="display: none;" name="kurse[]" value="mei-einf-en"/><span class="custom checkbox"></span> MEI Introduction (english)</label><span class="checkbox-sub-label">Time: Monday 14:00 till Tuesday 17:30 <br />Costs: 15 Euro</span>
+							
+							<label for="mermeid" onclick="conflict('mermeid')"><input type="checkbox" id="mermeid" style="display: none;" name="kurse[]" value="mermeid"/><span class="custom checkbox"></span> MEI Metadaten</label><span class="checkbox-sub-label">Zeit: Mittwoch 9:00–17:30 Uhr <br />Kosten: 10 Euro<br /><span class="alert">Nur noch wenige Plätze!</span></span>
+							
+							<label for="odd" onclick="conflict('odd')"><input type="checkbox" id="odd" style="display: none;" name="kurse[]" value="odd"/><span class="custom checkbox"></span> ODD Einführung </label><span class="checkbox-sub-label">Zeit: Mittwoch 14:00 Uhr bis Donnerstag 12:30 Uhr<br />Kosten: 10 Euro <br /><span class="alert">Nur noch wenige Plätze!</span></span>
+							
+							<label for="python" onclick="conflict('python')"><input type="checkbox" id="python" style="display: none;" name="kurse[]" value="python"/><span class="custom checkbox"></span> Python Einführung</label><span class="checkbox-sub-label">Zeit: Donnerstag 14:00 Uhr bis Freitag 12:30 Uhr<br />Kosten: 10 Euro</span>
+							
+							<label for="tei-einf"><input type="checkbox" id="tei-einf" style="display: none;" name="kurse[]" value="tei-einf" disabled="disabled"/><span class="custom checkbox"></span> TEI Einführung – <span class="alert">Ausgebucht!</span></label><span class="checkbox-sub-label">Zeit: Dienstag 9:00 Uhr bis Mittwoch 12:30 Uhr<br />Kosten: 15 Euro</span>
+							
+							<label for="xpath" onclick="conflict('xpath')"><input type="checkbox" id="xpath" style="display: none;" name="kurse[]" value="xpath"/><span class="custom checkbox"></span> XPath und Reguläre Ausdrücke </label><span class="checkbox-sub-label">Zeit: Montag 14:00 Uhr bis Dienstag 17:30 Uhr<br />Kosten: 15 Euro</span>
+							
+							<label for="xslt" onclick="conflict('xslt')"><input type="checkbox" id="xslt" style="display: none;" name="kurse[]" value="xslt"/><span class="custom checkbox"></span> XSLT Einführung </label><span class="checkbox-sub-label">Zeit: Mittwoch 9:00 Uhr bis Donnerstag 12:30 Uhr<br />Kosten: 15 Euro</span>
+						</fieldset>					
+						<input class="small button secondary right" type="submit" value="Senden"/>
+					</div>
+				</div>
+			</form> 
+		</div>
+		
+		<div class="columns large-3">
+			<div class="row panel">
+				<h3>Wichtige Hinweise</h3>
+				<h4 class="subheader alert">Anmeldeschluss verlängert</h4>
+				<p>Die Anmeldung zu den Kursen ist bis zum <b>14. August 2014</b> möglich.</p>
+
+<!-- 			   <p class="strike">30. August 2014</p> -->
+			   <!-- <p class="alert">verlängert bis <br/>06. September 2013</p> -->
+				<h4 class="subheader">Kosten</h4>
+				<p>Es wird ein Unkostenbeitrag von 5,– Euro pro Halbtag erhoben.</p>
+				<p>Für Studenten der Universität Paderborn und der Hochschule für Musik Detmold entfällt der Unkostenbeitrag.</p>
+			</div>
+			<div class="row panel">
+				<h3>Datenschutz</h3>
+				<p>Die von uns bei der Registrierung erfassten Daten dienen nur zur Anmeldung bei der Edirom-Summer-School.
+					Wir geben Ihre Daten nicht an Dritte weiter und erteilen Ihnen jederzeit gern Auskunft über die bei uns gespeicherten Daten.
+					Hierzu wenden Sie sich bitte an eine der im <a href="../impressum.html">Impressum</a> genannten Adressen.</p>
+			</div>
+		</div>
+		
+		<!-- End Main Content -->
+		
+	</div>
+	
+	<!-- End Main Content and Sidebar -->
+	
+	<!-- Footer -->
+	
+	<footer class="row">
+		<div class="small-12 columns">
+			<hr />
+			<div class="row">
+				<div class="small-12 columns text-center">
+					<p><a href="../impressum.html">Impressum</a></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Check for Zepto support, load jQuery if necessary -->
+	<script>
+	  document.write('<script src=../javascripts/vendor/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '.js><\/script>');
+	</script>
+	<script src="../javascripts/foundation/foundation.js"></script>
+	<script src="../javascripts/foundation/foundation.topbar.js"></script>
+	<script src="../javascripts/foundation/foundation.forms.js"></script>
+	<script src="../javascripts/foundation/foundation.tooltips.js"></script>
+	<script src="../javascripts/ess.forms.js"></script>
+	<script>
+	  $(document).foundation();
+	</script>
+	
+	<!-- Piwik -->
+	<script type="text/javascript">
+	  var _paq = _paq || [];
+	  _paq.push(["setDomains", ["*.ess.uni-paderborn.de","*.ess.upb.de"]]);
+	  _paq.push(["trackPageView"]);
+	  _paq.push(["enableLinkTracking"]);
+	
+	  (function() {
+	    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://www.weber-gesamtausgabe.de/piwik/";
+	    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+	    _paq.push(["setSiteId", "2"]);
+	    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+	    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+	<!-- End Piwik Code -->
+		
+	<!-- Piwik Image Tracker -->
+	<noscript><img src="http://www.weber-gesamtausgabe.de/piwik/piwik.php?idsite=2&amp;rec=1" style="border:0" alt="" /></noscript>
+	<!-- End Piwik -->
+	<script type="text/javascript">
+		var now = Date.now();
+		if(now > 1408053600) { // 2014-08-15 00:00:00 Unix Lokalzeit
+			$('#mask').show();
+			$('#mask').attr('style', 'opacity:0.6;');
+			$('#message').show();
+		}
+	</script>
+</body>
+</html>
