@@ -9,7 +9,8 @@
 	<title>Registrierung</title>
 	<link rel="stylesheet" href="../stylesheets/app.css" />
 	<script src="../javascripts/vendor/custom.modernizr.js"></script>
-	    <style type="text/css">
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<style type="text/css">
         .icon{height: 40px; margin-right:5px;}
     </style>
 </head>
@@ -76,12 +77,12 @@
 <!--			<p>Bitte folgen Sie uns auf <a href="https://twitter.com/edirom">Twitter</a> für aktuelle Ankündigungen.</p>-->
 			
 			<form class="custom" name="form1" method="post" enctype="multipart/form-data" action="formmail.php" onsubmit="return validate_form(this)">
-				<input type="hidden" name="recipients" value="essbe_gaedirom.de" />
+				<input type="hidden" name="recipients" value="stadlerbe_gaedirom.de" />
 				<input type="hidden" name="required" value="anrede:Anrede,vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail" />
 				<input type="hidden" name="subject" value="[ESS2015] Anmeldung" />
 				<input type="hidden" name="good_template" value="form_ok.html" />
 				<input type="hidden" name="bad_template" value="form_bad.html" />
-				<input type="hidden" name="derive_fields" value="realname=vorname+nachname" />
+				<input type="hidden" name="derive_fields" value="realname=vorname+nachname,imgverify=g-recaptcha-response" />
 				<input type="hidden" name="csvfile" value="anmeldungen.csv" />
 				<input type="hidden" name="csvcolumns" value="nachname,vorname,anrede,email,student,laptop,seo,beratung,kurse,kommentar" />
 				<input type="hidden" name="autorespond"
@@ -136,12 +137,6 @@
 							<legend>Kommentar</legend>
 							<textarea placeholder="Sie können uns hier einen Kommentar hinterlassen" name="kommentar" id="kommentar" ></textarea>
 						</fieldset>
-						
-						<fieldset class="recaptcha">
-							<legend>Yet another Social Evening Out</legend>
-							<label for="yseo"><input type="checkbox" id="yseo" style="display: none;" name="yseo" value="jajaja"/><span class="custom checkbox"></span> Ja, ich nehme teil</label><span class="checkbox-sub-label">(Mi., 10.&#8201;9., ab 20 Uhr) </span>
-							<label for="plaptop"><input type="checkbox" id="plaptop" style="display: none;" name="plaptop" value=""/><span class="custom checkbox"></span> Ich benötige einen schöneren Leihrechner </label>
-						</fieldset>
 					</div>
 					
 					<div class="large-6 columns">
@@ -172,7 +167,8 @@
 							<label for="xpath" onclick="conflict('xpath')"><input type="checkbox" id="xpath" style="display: none;" name="kurse[]" value="xpath"/><span class="custom checkbox"></span> XPath und Reguläre Ausdrücke </label><span class="checkbox-sub-label">Zeit: Montag 14:00 Uhr bis Dienstag 17:30 Uhr<br />Kosten: 15 Euro</span>
 							
 							<label for="xslt" onclick="conflict('xslt')"><input type="checkbox" id="xslt" style="display: none;" name="kurse[]" value="xslt"/><span class="custom checkbox"></span> XSLT Einführung </label><span class="checkbox-sub-label">Zeit: Mittwoch 9:00 Uhr bis Donnerstag 12:30 Uhr<br />Kosten: 15 Euro</span>
-						</fieldset>					
+						</fieldset>
+						<div class="g-recaptcha" data-sitekey="6Lf5lggTAAAAAOYB0vOQ1HbvKSfkemAijK4tDL1B"></div>
 						<input class="small button secondary right" type="submit" value="Senden"/>
 					</div>
 				</div>
@@ -254,13 +250,13 @@
 	<!-- Piwik Image Tracker -->
 	<noscript><img src="http://www.weber-gesamtausgabe.de/piwik/piwik.php?idsite=2&amp;rec=1" style="border:0" alt="" /></noscript>
 	<!-- End Piwik -->
-	<script type="text/javascript">
+	<!--<script type="text/javascript">
 		var now = Date.now();
 		if(now > 1408053600) { // 2014-08-15 00:00:00 Unix Lokalzeit
 			$('#mask').show();
 			$('#mask').attr('style', 'opacity:0.6;');
 			$('#message').show();
 		}
-	</script>
+	</script>-->
 </body>
 </html>

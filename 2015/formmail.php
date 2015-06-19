@@ -447,7 +447,7 @@ $EMAIL_NAME = "^[-a-z0-9._]+"; /* the '^' is an important security feature! */
 $TARGET_EMAIL = array($EMAIL_NAME . "@edirom\.de$");
 
 /* Help: http://www.tectite.com/fmdoc/def_alert.php */
-$DEF_ALERT = "ess@edirom.de";
+$DEF_ALERT = "pstadler@edirom.de";
 
 /* Help: http://www.tectite.com/fmdoc/site_domain.php */
 $SITE_DOMAIN = ""; /* your website domain name */
@@ -615,7 +615,7 @@ $DB_SEE_INI = false; /* set to true to just see the ini file */
 $MAXSTRING = 1024; /* maximum string length for a value */
 
 /* Help: http://www.tectite.com/fmdoc/require_captcha.php */
-$REQUIRE_CAPTCHA = ""; /* set to a message string if your forms */
+$REQUIRE_CAPTCHA = "Confirm you are not a robot."; /* set to a message string if your forms */
 // must provide a CAPTCHA string
 
 /* Help: http://www.tectite.com/fmdoc/recaptcha_private_key.php */
@@ -773,7 +773,7 @@ $ATTACK_DETECTION_URL_PATTERNS = array(
 $ATTACK_DETECTION_IGNORE_ERRORS = false;
 
 /* Help: http://www.tectite.com/fmdoc/attack_detection_reverse_captcha.php */
-$ATTACK_DETECTION_REVERSE_CAPTCHA = array("yseo"=>"jajaja", "plaptop"=>"");
+$ATTACK_DETECTION_REVERSE_CAPTCHA = array();
 
 /* Help: http://www.tectite.com/fmdoc/geoip_lic.php */
 $GEOIP_LIC = ""; /* default - no GeoIP */
