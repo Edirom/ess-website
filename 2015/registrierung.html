@@ -77,16 +77,18 @@
 <!--			<p>Bitte folgen Sie uns auf <a href="https://twitter.com/edirom">Twitter</a> für aktuelle Ankündigungen.</p>-->
 			
 			<form class="custom" name="form1" method="post" enctype="multipart/form-data" action="formmail.php" onsubmit="return validate_form(this)">
-				<input type="hidden" name="recipients" value="stadlerbe_gaedirom.de" />
+				<input type="hidden" name="recipients" value="essbe_gaedirom.de" />
 				<input type="hidden" name="required" value="anrede:Anrede,vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail" />
 				<input type="hidden" name="subject" value="[ESS2015] Anmeldung" />
 				<input type="hidden" name="good_template" value="form_ok.html" />
 				<input type="hidden" name="bad_template" value="form_bad.html" />
-				<input type="hidden" name="derive_fields" value="realname=vorname+nachname,imgverify=g-recaptcha-response" />
-				<input type="hidden" name="csvfile" value="anmeldungen.csv" />
+				<input type="hidden" name="derive_fields" value="realname=vorname+nachname,imgverify=g-recaptcha-response,arverify=imgverify" />
+				<input type="hidden" name="csvfile" value="anmeldungen2015.csv" />
 				<input type="hidden" name="csvcolumns" value="nachname,vorname,anrede,email,student,laptop,seo,beratung,kurse,kommentar" />
 				<input type="hidden" name="autorespond"
-					value="PlainFile=autorespond.txt,Subject=[ESS2015] Anmeldebestätigung" />
+					value="PlainFile=autorespond.txt,Subject=[ESS2015] Anmeldebestätigung,FromAddr=essbe_gaedirom.de" />
+				<input type="hidden" name="mail_options"
+					value="CharSet=utf-8" />
 				
 				<div class="row">
 					

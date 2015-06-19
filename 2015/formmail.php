@@ -447,7 +447,7 @@ $EMAIL_NAME = "^[-a-z0-9._]+"; /* the '^' is an important security feature! */
 $TARGET_EMAIL = array($EMAIL_NAME . "@edirom\.de$");
 
 /* Help: http://www.tectite.com/fmdoc/def_alert.php */
-$DEF_ALERT = "pstadler@edirom.de";
+$DEF_ALERT = "stadler@edirom.de";
 
 /* Help: http://www.tectite.com/fmdoc/site_domain.php */
 $SITE_DOMAIN = ""; /* your website domain name */
