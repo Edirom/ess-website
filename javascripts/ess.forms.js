@@ -22,7 +22,7 @@ function pos(kurs)
 	{
 		return i;
 	}
-}../2015/registrierung.html
+}
 
 function match(termin1,termin2)
 {			
