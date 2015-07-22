@@ -1,18 +1,16 @@
 /* pro Halbtag eine Ziffer in das Array "Termin" vergeben */
 var KursList = [
-    {"KursID":"dariah", "Termin":[2], "Counter":0},
-    {"KursID":"edirom", "Termin":[7,8,9], "Counter":0},
-    {"KursID":"euf", "Termin":[], "Counter":0},
-    {"KursID":"mei-rendering", "Termin":[5,6], "Counter":0},
-    {"KursID":"kdm", "Termin":[1], "Counter":0},
-    {"KursID":"mei-einf", "Termin":[2,3,4], "Counter":0},
-    {"KursID":"mei-einf-en", "Termin":[2,3,4], "Counter":0},
-    {"KursID":"mermeid", "Termin":[5,6], "Counter":0},
-    {"KursID":"odd", "Termin":[6,7], "Counter":0},
-    {"KursID":"python", "Termin":[8,9], "Counter":0},
-    {"KursID":"tei-einf", "Termin":[3,4,5], "Counter":0},
-    {"KursID":"xpath", "Termin":[2,3,4], "Counter":0},
-    {"KursID":"xslt", "Termin":[5,6,7], "Counter":0}
+    {"KursID":"exist", "Termin":[4,5,6], "Counter":0},
+    {"KursID":"XMLdata", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"edition", "Termin":[8,9], "Counter":0},
+    {"KursID":"edirom", "Termin":[8,9,10], "Counter":0},
+    {"KursID":"euf", "Termin":[0], "Counter":0},
+    {"KursID":"kolloquium", "Termin":[6,7], "Counter":0},
+    {"KursID":"mei-einf", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"mermeid", "Termin":[8,9,10], "Counter":0},
+    {"KursID":"meidev", "Termin":[1,2], "Counter":0},
+    {"KursID":"odd", "Termin":[3,4], "Counter":0},
+    {"KursID":"tei-einf", "Termin":[4,5,6], "Counter":0}
 ];
 
 var errorText = '<small>Ungültige Eingabe</small>';
