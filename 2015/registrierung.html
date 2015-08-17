@@ -140,12 +140,10 @@
 							</div>
 						</fieldset>
 						
-<!--
 						<fieldset>
 							<legend>Laptop-Entleihe</legend>
-							<label for="laptop"><input type="checkbox" id="laptop" style="display: none;" name="laptop" value="ja"/><span class="custom checkbox"></span> Ich benötige einen Leihrechner </label>
+							<label for="laptop"><input type="checkbox"  disabled="disabled" id="laptop" style="display: none;" name="laptop" value="ja"/><span class="custom checkbox"></span> Ich benötige einen Leihrechner </label>
 						</fieldset>
--->
 						
 						<fieldset>
 							<legend>Social Evening Out</legend>
@@ -161,31 +159,27 @@
 					<div class="large-6 columns">
 						<fieldset>
 							<legend>Kurswahl</legend>
-<!--
-							<label for="exist" onclick="conflict('exist')"><input type="checkbox" id="exist" style="display: none;" name="kurse[]" value="exist"/><span class="custom checkbox"></span> Anwendungsentwicklung mit eXist-db</label><span class="checkbox-sub-label">Zeit: Dienstag 14:00 Uhr bis Mittwoch 17:30 Uhr <br />Kosten: 21 Euro <br /></span>
+							<label for="exist" onclick="conflict('exist')"><input type="checkbox" id="exist" style="display: none;" name="kurse[]" value="exist"  disabled="disabled"/><span class="custom checkbox"></span> Anwendungsentwicklung mit eXist-db</label><span class="checkbox-sub-label">Zeit: Dienstag 14:00 Uhr bis Mittwoch 17:30 Uhr <br />Kosten: 21 Euro <br /><span class="alert">Geschlossen!</span></span>
 							
-							<label for="XMLdata" onclick="conflict('XMLdata')"><input type="checkbox" id="XMLdata" style="display: none;" name="kurse[]" value="XMLdata"/><span class="custom checkbox"></span> Arbeiten mit XML-Daten</label><span class="checkbox-sub-label">Zeit: Montag 9:00 Uhr bis Dienstag 12:30 Uhr <br />Kosten: 21 Euro <br /></span>
+							<label for="XMLdata" onclick="conflict('XMLdata')"><input type="checkbox" id="XMLdata" style="display: none;" name="kurse[]" value="XMLdata"  disabled="disabled"/><span class="custom checkbox"></span> Arbeiten mit XML-Daten</label><span class="checkbox-sub-label">Zeit: Montag 9:00 Uhr bis Dienstag 12:30 Uhr <br />Kosten: 21 Euro <br /><span class="alert">Geschlossen!</span></span>
 							
-							<label for="edition" onclick="conflict('edition')"><input type="checkbox" id="edition" style="display: none;" name="kurse[]" value="edition"/><span class="custom checkbox"></span> Digitale Editionspraxis </label><span class="checkbox-sub-label">Zeit: Donnerstag 9:00–17:30 Uhr<br />Kosten: 14 Euro <br /><span class="alert">Nur noch wenige Plätze!</span></span>
+							<label for="edition" onclick="conflict('edition')"><input type="checkbox" id="edition" style="display: none;" name="kurse[]" value="edition"  disabled="disabled"/><span class="custom checkbox"></span> Digitale Editionspraxis </label><span class="checkbox-sub-label">Zeit: Donnerstag 9:00–17:30 Uhr<br />Kosten: 14 Euro <br /><span class="alert">Geschlossen!</span></span>
 							
-							<label for="edirom" onclick="conflict('edirom')"><input type="checkbox" id="edirom" style="display: none;" name="kurse[]" value="edirom"/><span class="custom checkbox"></span> Einführung in die Edirom Tools </label><span class="checkbox-sub-label">Zeit: Donnerstag 9:00 Uhr bis Freitag 12:30 Uhr<br />Kosten: 21 Euro <br /><span class="alert">Nur noch wenige Plätze!</span></span>
+							<label for="edirom" onclick="conflict('edirom')"><input type="checkbox" id="edirom" style="display: none;" name="kurse[]" value="edirom"  disabled="disabled"/><span class="custom checkbox"></span> Einführung in die Edirom Tools </label><span class="checkbox-sub-label">Zeit: Donnerstag 9:00 Uhr bis Freitag 12:30 Uhr<br />Kosten: 21 Euro <br /><span class="alert">Geschlossen!</span></span>
 							
 							<label for="euf" onclick="conflict('euf')"><input type="checkbox" id="euf" style="display: none;" name="kurse[]" value="euf"/><span class="custom checkbox"></span> Edirom User Forum </label><span class="checkbox-sub-label">Zeit: Dienstag 17:45 Uhr bis 18:30 Uhr</span>
 							
--->
 							<label for="kolloquium" onclick="conflict('kolloquium')"><input type="checkbox" id="kolloquium" style="display: none;" name="kurse[]" value="kolloquium"/><span class="custom checkbox"></span> Expertenkolloquium: Forschungsdaten für Andere </label><span class="checkbox-sub-label">Zeit: Mittwoch 9:30 Uhr bis 17:00 Uhr<br />Kosten: 14 Euro</span>
 							
-<!--
-							<label for="mei-einf" onclick="conflict('mei-einf')"><input type="checkbox" id="mei-einf" style="display: none;" name="kurse[]" value="mei-einf" disabled="disabled"/><span class="custom checkbox"></span> MEI Einführung</label><span class="checkbox-sub-label">Zeit: Montag 9:00 Uhr bis Dienstag 12:30 Uhr<br />Kosten: 21 Euro <br /><span class="alert">Ausgebucht!</span></span>
+								<label for="mei-einf" onclick="conflict('mei-einf')"><input type="checkbox" id="mei-einf" style="display: none;" name="kurse[]" value="mei-einf" disabled="disabled"/><span class="custom checkbox"></span> MEI Einführung</label><span class="checkbox-sub-label">Zeit: Montag 9:00 Uhr bis Dienstag 12:30 Uhr<br />Kosten: 21 Euro <br /><span class="alert">Geschlossen!</span></span>
 							
-							<label for="mermeid" onclick="conflict('mermeid')"><input type="checkbox" id="mermeid" style="display: none;" name="kurse[]" value="mermeid"/><span class="custom checkbox"></span> MEI Metadaten</label><span class="checkbox-sub-label">Zeit: Donnerstag 9:00 Uhr bis Freitag 12:30 Uhr <br />Kosten: 21 Euro<br /></span>
+							<label for="mermeid" onclick="conflict('mermeid')"><input type="checkbox" id="mermeid" style="display: none;" name="kurse[]" value="mermeid" disabled="disabled"/><span class="custom checkbox"></span> MEI Metadaten</label><span class="checkbox-sub-label">Zeit: Donnerstag 9:00 Uhr bis Freitag 12:30 Uhr <br />Kosten: 21 Euro<br /><span class="alert">Geschlossen!</span></span>
 							
-							<label for="meidev" onclick="conflict('meidev')"><input type="checkbox" id="meidev" style="display: none;" name="kurse[]" value="meidev"/><span class="custom checkbox"></span> MEI Tool Development (english) </label><span class="checkbox-sub-label">Time: Monday 9:00 till 17:30 <br />Costs: 14 Euro</span>
+							<label for="meidev" onclick="conflict('meidev')"><input type="checkbox" id="meidev" style="display: none;" name="kurse[]" value="meidev" disabled="disabled"/><span class="custom checkbox"></span> MEI Tool Development (english) </label><span class="checkbox-sub-label">Time: Monday 9:00 till 17:30 <br />Costs: 14 Euro<br /><span class="alert">Closed!</span></span>
 							
-							<label for="odd" onclick="conflict('odd')"><input type="checkbox" id="odd" style="display: none;" name="kurse[]" value="odd"/><span class="custom checkbox"></span> ODD Einführung </label><span class="checkbox-sub-label">Zeit: Dienstag 9:00–17:30 Uhr<br />Kosten: 14 Euro <br /></span>
+							<label for="odd" onclick="conflict('odd')"><input type="checkbox" id="odd" style="display: none;" name="kurse[]" value="odd" disabled="disabled"/><span class="custom checkbox"></span> ODD Einführung </label><span class="checkbox-sub-label">Zeit: Dienstag 9:00–17:30 Uhr<br />Kosten: 14 Euro <br /><span class="alert">Geschlossen!</span></span>
 							
-							<label for="tei-einf" onclick="conflict('tei-einf')"><input type="checkbox" id="tei-einf" style="display: none;" name="kurse[]" value="tei-einf"/><span class="custom checkbox"></span> TEI Einführung </label><span class="checkbox-sub-label">Zeit: Dienstag 14:00 Uhr bis Mittwoch 17:30 Uhr<br />Kosten: 21 Euro</span>
--->
+							<label for="tei-einf" onclick="conflict('tei-einf')"><input type="checkbox" id="tei-einf" style="display: none;" name="kurse[]" value="tei-einf" disabled="disabled"/><span class="custom checkbox"></span> TEI Einführung </label><span class="checkbox-sub-label">Zeit: Dienstag 14:00 Uhr bis Mittwoch 17:30 Uhr<br />Kosten: 21 Euro<br /><span class="alert">Geschlossen!</span></span>
 
 						</fieldset>
 						
