@@ -1,3 +1,15 @@
+/* Ergänzungen von Daniel Röwenstrunk am 7. Juni 2016 */
+/* Style für die Sprache der Kurse in der Navigation in der Seitenleiste */
+span.title-lang {
+    font-size:0.8em;
+    color:grey;
+}
+
+p.title a {
+    white-space: normal !important;
+    padding: 0.5em 1em !important;
+}
+
 /* Variable for path to webicon images */
 /* Webicons by Adam Fairhead at Fairhead Creative http://fairheadcreative.com */
 /* line 6, ../sass/_webicons.scss */
