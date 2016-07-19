@@ -1,5 +1,24 @@
 /* pro Halbtag eine Ziffer in das Array "Termin" vergeben */
+
 var KursList = [
+    {"KursID":"tei", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"mei-A-dt", "Termin":[4,5,6], "Counter":0},
+    {"KursID":"edirom-A-dt", "Termin":[7,8,9], "Counter":0},
+    {"KursID":"edirom-A-en", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"mei-A-en", "Termin":[4,5,6], "Counter":0},
+    {"KursID":"metadaten", "Termin":[7,8], "Counter":0},
+    {"KursID":"edition-A-en", "Termin":[9,10], "Counter":0},
+    {"KursID":"mei-F-dt", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"edirom-F-dt", "Termin":[4,5,6], "Counter":0},
+    {"KursID":"edition-F-dt", "Termin":[7,8], "Counter":0},
+    {"KursID":"philo", "Termin":[1,2], "Counter":0},
+    {"KursID":"exist", "Termin":[3,4], "Counter":0},
+    {"KursID":"meidev", "Termin":[5,6], "Counter":0},
+    {"KursID":"daten", "Termin":[7], "Counter":0},
+];
+
+/*Konfiguration der Summerschool 2015*/
+/*var KursList = [
     {"KursID":"exist", "Termin":[4,5,6], "Counter":0},
     {"KursID":"XMLdata", "Termin":[1,2,3], "Counter":0},
     {"KursID":"edition", "Termin":[8,9], "Counter":0},
@@ -11,7 +30,7 @@ var KursList = [
     {"KursID":"meidev", "Termin":[1,2], "Counter":0},
     {"KursID":"odd", "Termin":[3,4], "Counter":0},
     {"KursID":"tei-einf", "Termin":[4,5,6], "Counter":0}
-];
+];*/
 
 var errorText = '<small>Ungültige Eingabe</small>';
 		
