@@ -16,15 +16,16 @@
 </head>
 <body>
 	
-	<!-- dieser layer überlagert die anmeldungsmaske, nach anmeldeschluss einfach kommentierung drumrum entfernen -->
-	<!--  <div id="mask" class="overlay" style="display:none;"></div>
+	<!-- dieser layer überlagert die anmeldungsmaske nach anmeldeschluss, 
+	    bitte ganz unten das Datum aktualisieren -->
+	  <div id="mask" class="overlay" style="display:none;"></div>
 	<div id="message" class="overlay" style="display:none;">
 		<div class="row">
 			<div class="large-8 columns large-centered panel" role="content">
 				<h1>Anmeldung geschlossen</h1>
 			</div>
 		</div>
-	</div> -->
+	</div> 
 
 
 	<!-- Nav Bar -->
@@ -286,9 +287,12 @@
 	<!-- Piwik Image Tracker -->
 	<noscript><img src="http://www.weber-gesamtausgabe.de/piwik/piwik.php?idsite=2&amp;rec=1" style="border:0" alt="" /></noscript>
 	<!-- End Piwik -->
+    
+	<!-- Anmeldeschluss hier eintragen    -->
 	<script type="text/javascript">
-		var now = Date.now();
-		if(now > 1438380000) { // 2015-08-01 00:00:00 Unix Lokalzeit
+		var now = Date.now(),
+		anmeldeschluss = Date.parse('29 Aug 2016 00:00:00 GMT+0200') ; 
+		if(now > anmeldeschluss) { // 2015-08-01 00:00:00 Unix Lokalzeit
 			$('#mask').show();
 			$('#mask').attr('style', 'opacity:0.6;');
 			$('#message').show();
