@@ -607,7 +607,7 @@ $DB_SEE_INPUT = false; /* set to true to just see the input values */
 $DB_SEE_INI = false; /* set to true to just see the ini file */
 
 /* Help: http://www.tectite.com/fmdoc/maxstring.php */
-$MAXSTRING = 1024; /* maximum string length for a value */
+$MAXSTRING = 2048; /* maximum string length for a value */
 
 /* Help: http://www.tectite.com/fmdoc/require_captcha.php */
 $REQUIRE_CAPTCHA = "Confirm you are not a robot."; /* set to a message string if your forms */
@@ -3104,6 +3104,7 @@ $SPECIAL_NOSTRIP = array(
 	"conditions",
 	"fmcompute",
 	"recaptcha_response_field",
+	"g-recaptcha-response",
 	"recaptcha_challenge_field",
 );
 
@@ -3359,11 +3360,11 @@ if (Settings::get('RECAPTCHA_PRIVATE_KEY') !== "") {
 				$s_error      = "";
 				if (!$this->_Resp['success']) {
 					// TODO: this code looks wrong - check!
-					$s_error = $this->_Resp['error_codes'][0];
-					if (!isset($this->_Resp['error_codes']) || count($this->_Resp['error_codes']) == 0 ||
-					    !$this->_Resp['error_codes'][0]
+					$s_error = $this->_Resp['error-codes'][0];
+					if (!isset($this->_Resp['error-codes']) || count($this->_Resp['error-codes']) == 0 ||
+					    !$this->_Resp['error-codes'][0]
 					) {
-						$s_error = 'verification failed';
+						$s_error = 'verification failed somehow ; we have no idea!';
 					}
 				}
 				return ($this->_Resp['success']);
