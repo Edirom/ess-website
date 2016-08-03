@@ -12,8 +12,8 @@ var KursList = [
     {"KursID":"edirom-F-dt", "Termin":[4,5,6], "Counter":0},
     {"KursID":"edition-F-dt", "Termin":[7,8], "Counter":0},
     {"KursID":"philo", "Termin":[1,2], "Counter":0},
-    {"KursID":"exist", "Termin":[3,4], "Counter":0},
-    {"KursID":"meidev", "Termin":[5,6], "Counter":0},
+    {"KursID":"eXist", "Termin":[3,4], "Counter":0},
+    {"KursID":"mei-tools", "Termin":[5,6], "Counter":0},
     {"KursID":"daten", "Termin":[7], "Counter":0},
 ];
 
@@ -162,6 +162,11 @@ function validate_form(thisform)
     if (!validate_name(nachname)) error++;
     if (!validate_email(email)) error++;
     if (!validate_anrede(anrede)) error++;
+    if (document.getElementById('g-recaptcha-response').value.length === 0) {
+        error++;
+        $('.captcha > .errorText').show();
+        $('.captcha').addClass('error');
+    }
     //console.log(error);
     if (error!=0) return false; 
     }
