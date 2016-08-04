@@ -14,7 +14,7 @@ var KursList = [
     {"KursID":"philo", "Termin":[1,2], "Counter":0},
     {"KursID":"eXist", "Termin":[3,4], "Counter":0},
     {"KursID":"mei-tools", "Termin":[5,6], "Counter":0},
-    {"KursID":"daten", "Termin":[7], "Counter":0},
+    {"KursID":"daten", "Termin":[7], "Counter":0}
 ];
 
 /*Konfiguration der Summerschool 2015*/
@@ -48,64 +48,44 @@ function match(termin1,termin2)
 	for (var i=0;i<termin1.length;i++)
 		for (var j=0;j<termin2.length;j++)
 		{
-			if (termin1[i]==termin2[j]) return true;
+			if (termin1[i]===termin2[j]) return true;
 		}
 	return false;			
 }
 
-function conflict(kurs)
-{		
+function conflict(kurs, force) {		
+
+    // if checkbox is disabled
+    if($(document.getElementById(kurs)).attr('disabled'))
+        return;
+    
     var k = pos(kurs);
     var termin=KursList[k].Termin;				
-    if (document.getElementById(kurs).checked==false)
-    {
-		for(var i=0;i<k;i++)
-		{
-			if (match(termin,KursList[i].Termin))
-			{
-			$(document.getElementById(KursList[i].KursID)).attr('disabled', true);
-			$(document.getElementById(KursList[i].KursID).parentNode).removeAttr('onclick');
-			$(document.getElementById(KursList[i].KursID).nextSibling).addClass('disabled');
-			KursList[i].Counter++;
+    
+    if (force || document.getElementById(kurs).checked==false) {
+		for(var i=0;i<KursList.length;i++) {
+		    if(i === k) continue;
+		    
+			if (match(termin,KursList[i].Termin)) {
+    			$(document.getElementById(KursList[i].KursID)).attr('disabled', true);
+    			$(document.getElementById(KursList[i].KursID).nextSibling).addClass('disabled');
+    			KursList[i].Counter++;
 			}
 		}
-		for(var j=k+1;j<KursList.length;j++)
-		{
-			if (match(termin,KursList[j].Termin))
-			{
-			$(document.getElementById(KursList[j].KursID)).attr('disabled', true);
-			$(document.getElementById(KursList[j].KursID).parentNode).removeAttr('onclick');
-			$(document.getElementById(KursList[j].KursID).nextSibling).addClass('disabled');
-			KursList[j].Counter++;
-			}
-		}		
 	}
-	else 
-	{	
-		for(var i=0;i<k;i++)
-		{
-			if (match(termin,KursList[i].Termin)&&KursList[i].Counter==1)
-			{
-			$(document.getElementById(KursList[i].KursID)).removeAttr('disabled');
-			$(document.getElementById(KursList[i].KursID).parentNode).attr('onclick','conflict("'+KursList[i].KursID+'")');
-			$(document.getElementById(KursList[i].KursID).nextSibling).removeClass('disabled');
-			KursList[i].Counter--;
+	else {	
+		for(var i=0;i<KursList.length;i++) {
+		
+		    if(i === k) continue;
+		
+			if (match(termin,KursList[i].Termin) && KursList[i].Counter==1) {
+    			$(document.getElementById(KursList[i].KursID)).removeAttr('disabled');
+    			$(document.getElementById(KursList[i].KursID).nextSibling).removeClass('disabled');
+    			KursList[i].Counter--;
 			}
-			else if (match(termin,KursList[i].Termin)&&KursList[i].Counter>1)
-			KursList[i].Counter--;
+			else if (match(termin,KursList[i].Termin) && KursList[i].Counter>1)
+			    KursList[i].Counter--;
 		}
-		for(var j=k+1;j<KursList.length;j++)
-		{
-			if (match(termin,KursList[j].Termin)&&KursList[j].Counter==1)
-			{
-			$(document.getElementById(KursList[j].KursID)).removeAttr('disabled');
-			$(document.getElementById(KursList[j].KursID).parentNode).attr('onclick','conflict("'+KursList[j].KursID+'")');
-			$(document.getElementById(KursList[j].KursID).nextSibling).removeClass('disabled');
-			KursList[j].Counter--;
-			}
-			else if (match(termin,KursList[j].Termin)&&KursList[j].Counter>1)
-			KursList[j].Counter--;
-		}			
 	}				
 }
 
@@ -171,3 +151,13 @@ function validate_form(thisform)
     if (error!=0) return false; 
     }
 }
+
+// beim Aufruf durch die Browser-History müssen die Counter (und die disabled-Klassen) neu gesetzt werden 
+function init() {
+
+    $('.kurse input:checked').each(function(a,b) {
+        conflict(b.id, true);
+    });
+}
+
+init();
