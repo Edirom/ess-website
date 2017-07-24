@@ -83,9 +83,7 @@ function conflict(kurs, force) {
 		    if(i === k) continue;
 		    
 			if (match(termin,KursList[i].Termin)) {
-			
-			console.log(KursList[i].KursID);
-			
+						
     			$(document.getElementById(KursList[i].KursID)).attr('disabled', true);
     			$(document.getElementById(KursList[i].KursID).nextSibling).addClass('disabled');
     			KursList[i].Counter++;
