@@ -1,6 +1,22 @@
 /* pro Halbtag eine Ziffer in das Array "Termin" vergeben */
 
 var KursList = [
+    {"KursID":"mei-E", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"edirom-P", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"xTec", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"PerfFrei", "Termin":[1,2,3,4,5,6,7,8], "Counter":0},
+    {"KursID":"git", "Termin":[4], "Counter":0},
+    {"KursID":"daten", "Termin":[5], "Counter":0},
+    {"KursID":"SemWeb", "Termin":[4], "Counter":0},
+    {"KursID":"rendMEI", "Termin":[5], "Counter":0},
+    {"KursID":"audio", "Termin":[4], "Counter":0},
+    {"KursID":"edirom-E", "Termin":[6,7,8], "Counter":0},
+    {"KursID":"mei-F", "Termin":[6,7,8], "Counter":0},
+    {"KursID":"tei", "Termin":[6,7,8], "Counter":0},
+];
+
+/*Konfiguration der Summerschool 2016*/
+/*var KursList = [
     {"KursID":"tei", "Termin":[1,2,3], "Counter":0},
     {"KursID":"mei-A-dt", "Termin":[4,5,6], "Counter":0},
     {"KursID":"edirom-A-dt", "Termin":[7,8,9], "Counter":0},
@@ -15,7 +31,7 @@ var KursList = [
     {"KursID":"eXist", "Termin":[3,4], "Counter":0},
     {"KursID":"mei-tools", "Termin":[5,6], "Counter":0},
     {"KursID":"daten", "Termin":[7], "Counter":0}
-];
+];*/
 
 /*Konfiguration der Summerschool 2015*/
 /*var KursList = [
