@@ -6,10 +6,10 @@ var KursList = [
     {"KursID":"xTec", "Termin":[1,2,3], "Counter":0},
     {"KursID":"PerfFrei", "Termin":[1,2,3,4,5,6,7,8], "Counter":0},
     {"KursID":"git", "Termin":[4], "Counter":0},
-    {"KursID":"daten", "Termin":[5], "Counter":0},
     {"KursID":"semWeb", "Termin":[4], "Counter":0},
-    {"KursID":"rendMEI", "Termin":[5], "Counter":0},
     {"KursID":"audio", "Termin":[4], "Counter":0},
+    {"KursID":"daten", "Termin":[5], "Counter":0},
+    {"KursID":"rendMEI", "Termin":[5], "Counter":0},
     {"KursID":"edirom-E", "Termin":[6,7,8], "Counter":0},
     {"KursID":"mei-F", "Termin":[6,7,8], "Counter":0},
     {"KursID":"tei", "Termin":[6,7,8], "Counter":0}
@@ -83,6 +83,9 @@ function conflict(kurs, force) {
 		    if(i === k) continue;
 		    
 			if (match(termin,KursList[i].Termin)) {
+			
+			console.log(KursList[i].KursID);
+			
     			$(document.getElementById(KursList[i].KursID)).attr('disabled', true);
     			$(document.getElementById(KursList[i].KursID).nextSibling).addClass('disabled');
     			KursList[i].Counter++;
