@@ -1,7 +1,7 @@
 /* pro Halbtag eine Ziffer in das Array "Termin" vergeben */
 
 var KursList = [
-    {"KursID":"mei-E", "Termin":[1,2,3], "Counter":0},
+   /*{"KursID":"mei-E", "Termin":[1,2,3], "Counter":0},*/ 
     {"KursID":"edirom-P", "Termin":[1,2,3], "Counter":0},
     {"KursID":"xTec", "Termin":[1,2,3], "Counter":0},
     {"KursID":"PerfFrei", "Termin":[1,2,3,4,5,6,7,8], "Counter":0},
