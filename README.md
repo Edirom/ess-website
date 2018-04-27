@@ -5,9 +5,9 @@ Web pages for the [Edirom Summer School](http://ess.uni-paderborn.de) based on t
 ## Docker
 There's a docker image available at [Docker Hub](https://hub.docker.com/r/edirom/vife-website/), based on an Nginx web server. Run it with 
 ```
-# docker run --rm --name ess edirom/ess-website
+# docker run --rm --name ess -p8080:80 edirom/ess-website
 ```
-
+and point your browser at `http://localhost:8080`.
 
 ## Credits 
 Software and Frameworks used:
