@@ -1,0 +1,6 @@
+# files to be excluded from the Docker image
+.DS_Store
+**/*.git*
+*.xsl
+*.xlsx
+*.xpr

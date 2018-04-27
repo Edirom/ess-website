@@ -2,6 +2,13 @@
 
 Web pages for the [Edirom Summer School](http://ess.uni-paderborn.de) based on the CSS framework [Foundation](http://foundation.zurb.com).
 
+## Docker
+There's a docker image available at [Docker Hub](https://hub.docker.com/r/edirom/vife-website/), based on an Nginx web server. Run it with 
+```
+# docker run --rm --name ess edirom/ess-website
+```
+
+
 ## Credits 
 Software and Frameworks used:
 
