@@ -20,4 +20,4 @@ Software and Frameworks used:
 
 ## License
 
-This work is licensed under a [Creative Commons Attribution 3.0 Unported License (CC BY 3.0)](http://creativecommons.org/licenses/by/3.0/)
+This work is licensed under a [Creative Commons Attribution 4.0 Unported License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
