@@ -82,12 +82,15 @@
 		
 		<div class="large-6 columns">
 			<h2>Privatsphäre</h2>
-			<p>Unserer Website verwendet <a href="http://piwik.org" title="Piwik: Open Source Web Analytics – Liberating Web Analytics">Piwik</a>, dabei handelt es sich um einen sogenannten Webanalysedienst. Piwik verwendet sog. “Cookies”, dass sind Textdateien, die auf Ihrem Computer gespeichert werden und die unsererseits eine Analyse der Benutzung der Webseite ermöglichen. Zu diesem Zweck werden die durch den Cookie erzeugten Nutzungsinformationen (einschließlich Ihrer gekürzten IP-Adresse) an unseren Server übertragen und zu Nutzungsanalysezwecken gespeichert, was der Webseitenoptimierung unsererseits dient. Ihre IP-Adresse wird bei diesem Vorgang umge­hend anony­mi­siert, so dass Sie als Nutzer für uns anonym bleiben. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Webseite werden nicht an Dritte weitergegeben. Sie können die Verwendung der Cookies durch eine entsprechende Einstellung Ihrer Browser Software verhindern, es kann jedoch sein, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website voll umfänglich nutzen können.</p>
-			<p>Wenn Sie mit der Speicherung und Auswertung dieser Daten aus Ihrem Besuch nicht einverstanden sind, dann können Sie der Speicherung und Nutzung nachfolgend per Mausklick jederzeit widersprechen. In diesem Fall wird in Ihrem Browser ein sog. Opt-Out-Cookie abgelegt, was zur Folge hat, dass Piwik keinerlei Sitzungsdaten erhebt. <strong>Achtung</strong>: Wenn Sie Ihre Cookies löschen, so hat dies zur Folge, dass auch das Opt-Out-Cookie gelöscht wird und ggf. von Ihnen erneut aktiviert werden muss.</p>
+			<p>Unserer Website verwendet <a href="https://matomo.org" title="Matomo: Open Source Web Analytics">Matomo</a>, dabei handelt es sich um einen sogenannten Webanalysedienst. Matomo verwendet sog. “Cookies”, dass sind Textdateien, die auf Ihrem Computer gespeichert werden und die unsererseits eine Analyse der Benutzung der Webseite ermöglichen. Zu diesem Zweck werden die durch den Cookie erzeugten Nutzungsinformationen (einschließlich Ihrer gekürzten IP-Adresse) an unseren Server übertragen und zu Nutzungsanalysezwecken gespeichert, was der Webseitenoptimierung unsererseits dient. Ihre IP-Adresse wird bei diesem Vorgang umge­hend anony­mi­siert, so dass Sie als Nutzer für uns anonym bleiben. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Webseite werden nicht an Dritte weitergegeben. Sie können die Verwendung der Cookies durch eine entsprechende Einstellung Ihrer Browser Software verhindern, es kann jedoch sein, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website voll umfänglich nutzen können.</p>
+			<p>Wenn Sie mit der Speicherung und Auswertung dieser Daten aus Ihrem Besuch nicht einverstanden sind, dann können Sie der Speicherung und Nutzung nachfolgend per Mausklick jederzeit widersprechen. In diesem Fall wird in Ihrem Browser ein sog. Opt-Out-Cookie abgelegt, was zur Folge hat, dass Matomo keinerlei Sitzungsdaten erhebt. <strong>Achtung</strong>: Wenn Sie Ihre Cookies löschen, so hat dies zur Folge, dass auch das Opt-Out-Cookie gelöscht wird und ggf. von Ihnen erneut aktiviert werden muss.</p>
 			<p><small>Quelle: <a href="http://www.datenschutzbeauftragter-info.de/fachbeitraege/">www.datenschutzbeauftragter-info.de</a> </small></p>
 			<div class="panel">
 				<h5>Widerspruch</h5>
-				<iframe frameborder="no" width="100%" height="350px" src="http://www.weber-gesamtausgabe.de/piwik/index.php?module=CoreAdminHome&amp;action=optOut&amp;language=de"></iframe>
+				<iframe
+					style="border: 0; height: 350px; width: 100%;"
+					src="https://matomo.edirom.de/index.php?module=CoreAdminHome&action=optOut&language=de&backgroundColor=&fontColor=&fontSize=&fontFamily="
+					></iframe>
 			</div>
 		</div>
 		<!-- End Main Content -->
@@ -124,25 +127,22 @@
 	  $(document).foundation();
 	</script>
 		
-	<!-- Piwik -->
+	<!-- Matomo -->
 	<script type="text/javascript">
-	  var _paq = _paq || [];
-	  _paq.push(["setDomains", ["*.ess.uni-paderborn.de","*.ess.upb.de"]]);
-	  _paq.push(["trackPageView"]);
-	  _paq.push(["enableLinkTracking"]);
-	
-	  (function() {
-	    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://www.weber-gesamtausgabe.de/piwik/";
-	    _paq.push(["setTrackerUrl", u+"piwik.php"]);
-	    _paq.push(["setSiteId", "2"]);
-	    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-	    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-	  })();
-	</script>
-	<!-- End Piwik Code -->
-		
-	<!-- Piwik Image Tracker -->
-	<noscript><img src="http://www.weber-gesamtausgabe.de/piwik/piwik.php?idsite=2&amp;rec=1" style="border:0" alt="" /></noscript>
-	<!-- End Piwik -->
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDomains", ["*.ess.upb.de","*.ess.uni-paderborn.de"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.edirom.de/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+	<noscript><p><img src="//matomo.edirom.de/piwik.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+	<!-- End Matomo Code -->
 </body>
 </html>
