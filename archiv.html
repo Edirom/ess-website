@@ -5,11 +5,9 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<meta name="google-site-verification" content="_lpEUZU8bG1CxddpNoKUBFjVcNncJwf9uHWPz3PJMm4" />
-	<meta name="description" content="Die Edirom-Summer-School: 'Digital Humanities – Themen, Tools, Technologien'. 
-		In Kooperation mit DARIAH-DE.
-		Angeboten werden grundlegende Einführungen in die Auszeichnungsstandards der Text Encoding Initiative (TEI) und der Music Encoding Initiative (MEI), Edirom, MerMEId und vieles mehr."/>
-	<title>Edirom-Summer-School</title>
+	<meta name="referrer" content="same-origin"/>
+	<meta name="description" content="Archiv der Edirom-Summer-School: Übersicht über das Programm der letzten Jahre"/>
+	<title>Archiv</title>
 	<link rel="stylesheet" href="stylesheets/app.css" />
 	<script src="javascripts/vendor/custom.modernizr.js"></script>
     <style type="text/css">
@@ -148,25 +146,22 @@
 	  $(document).foundation();
 	</script>
 		
-	<!-- Piwik -->
-	<script type="text/javascript">
-	  var _paq = _paq || [];
-	  _paq.push(["setDomains", ["*.ess.uni-paderborn.de","*.ess.upb.de"]]);
-	  _paq.push(["trackPageView"]);
-	  _paq.push(["enableLinkTracking"]);
-	
-	  (function() {
-	    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://www.weber-gesamtausgabe.de/piwik/";
-	    _paq.push(["setTrackerUrl", u+"piwik.php"]);
-	    _paq.push(["setSiteId", "2"]);
-	    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-	    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-	  })();
-	</script>
-	<!-- End Piwik Code -->
-		
-	<!-- Piwik Image Tracker -->
-	<noscript><img src="http://www.weber-gesamtausgabe.de/piwik/piwik.php?idsite=2&amp;rec=1" style="border:0" alt="" /></noscript>
-	<!-- End Piwik -->
+		<!-- Matomo -->
+		<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDomains", ["*.ess.upb.de","*.ess.uni-paderborn.de"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.edirom.de/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+		<noscript><p><img src="//matomo.edirom.de/piwik.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<!-- End Matomo Code -->
 </body>
 </html>
