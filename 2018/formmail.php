@@ -1,10 +1,10 @@
 <?php
-$FM_VERS = "9.13"; // script version
+$FM_VERS = "9.15"; // script version
 
 /* ex:set ts=4 sw=4 et:
  * FormMail PHP script from Tectite.com.  This script requires PHP 5 or later.
  * Versions of Tectite FormMail are available for PHP 4 (look for versions 8 and below).
- * Copyright (c) 2001-2015 Open Concepts (Vic) Pty Ltd
+ * Copyright (c) 2001-2017 Open Concepts (Vic) Pty Ltd
  * (ABN 12 130 429 248), Melbourne, Australia.
  * This script is free for all use as described in the "Copying and Use" and
  * "Warranty and Disclaimer" sections below.
@@ -371,7 +371,7 @@ class ExecEnv
 	{
 		$m_only_cookies = $this->getINIBool('session.use_only_cookies');
 		if ($m_only_cookies === null) {
-			$m_only_cookies = $ExecEnv->IsPHPAtLeast('5.3.0') ? true : false;
+			$m_only_cookies = $this->IsPHPAtLeast('5.3.0') ? true : false;
 		}
 		return (!$m_only_cookies);
 	}
@@ -510,7 +510,7 @@ $CSVLINE = "\n"; /* line termination for CSV files.  The default is a single lin
 	                    this value, you *must* set $CSVOPEN = "b". */
 
 /* Help: http://www.tectite.com/fmdoc/templatedir.php */
-$TEMPLATEDIR = "/var/www/ess2013/2017/formTemplates"; /* directory for template files; empty string if you don't have any templates */
+$TEMPLATEDIR = "/usr/share/nginx/html/2018/formTemplates"; /* directory for template files; empty string if you don't have any templates */
 
 /* Help: http://www.tectite.com/fmdoc/templateurl.php */
 $TEMPLATEURL = ""; /* default; no template URL */
@@ -760,8 +760,10 @@ $ATTACK_DETECTION_MANY_URL_FIELDS = 0;
 
 /* Help: http://www.tectite.com/fmdoc/attack_detection_url_patterns.php */
 $ATTACK_DETECTION_URL_PATTERNS = array(
-	'(^|[^-a-z_.0-9]+)(?<!@)([-a-z0-9]+\.)+(com|org|net|biz|info|name|pro|tel|asia|cat)\b',
-	'(^|[^-a-z_.0-9]+)(?<!@)([-a-z0-9]+\.)+(com{0,1}|org|net)\.[a-z][a-z]\b'
+	'(^|[^-a-z_.0-9]+)(?<!@)([-a-z0-9]+\.)+(com|org|net|biz|info|name|pro|tel|asia|cat|pw|study|party|click|gdn|gq|top|cf|loan|link|webcam|racing|stream|trade|club|review|bid|racing|win)\b',
+	'(^|[^-a-z_.0-9]+)(?<!@)([-a-z0-9]+\.)+(com{0,1}|org|net)\.[a-z][a-z]\b',
+	'(^|[^-a-z_.0-9]+)(?<!@)([-a-z0-9]+\.)+(xn--[a-z0-9]+)\b',
+	'\b(bit\.ly|goo\.gl|owl\.ly|deck\.ly|su\.pr|lnk\.co|fur\.ly)/'
 );
 
 /* Help: http://www.tectite.com/fmdoc/attack_detection_ignore_errors.php */
@@ -908,7 +910,7 @@ class Settings
  * of "formmail-postconfig.inc.php" and other hook scripts.
  * Therefore, all configuration settings have been changed to be global
  * variables (no define's).
- * 
+ *
  * The following defines are for backward-compatibility with any existing
  * hook scripts that are expecting the old constants.
  */
@@ -3104,8 +3106,10 @@ $SPECIAL_NOSTRIP = array(
 	"conditions",
 	"fmcompute",
 	"recaptcha_response_field",
-	"g-recaptcha-response",
 	"recaptcha_challenge_field",
+	"g-recaptcha-response",
+	"arverify",
+	"imgverify",
 );
 
 //
@@ -3309,34 +3313,33 @@ if (Settings::get('RECAPTCHA_PRIVATE_KEY') !== "") {
 			}
 
 			/**
-			 * Try 2 ways to contact Google reCaptcha.
-			 * PHP version 5.6.2 has problems with sockets, and other versions have problems
-			 * with fopen!
+			 * Try to contact Google reCaptcha.
+			 * PHP version 5.6.2 has problems with sockets, so this may fail with PHP 5.6.2.
+			 *
 			 * @param $s_response the reCaptcha response.
 			 */
 			function _askGoogle($s_response)
 			{
-				$s_url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . $this->_sPrivate .
-				         "&response=$s_response";
-				if (($fp = fopen($s_url,'rb')) === false) {
-					FMDebug('Open google reCaptcha with fopen FAILED');
-					$recaptcha = new HTTPGet($s_url);
-					$s_resp    = $recaptcha->Read();
-					if ($s_resp === false) {
-						FMDebug('reCaptcha via HTTPGet socket failed');
-						$s_resp = '{"success":false,"error_codes":["reCaptcha failed"]}';
-					} else {
-						$s_resp = implode('',$s_resp);
-						FMDebug('reCaptcha via HTTPGet socket succeed: ' . $s_resp);
-					}
+				$s_url = 'https://www.google.com/recaptcha/api/siteverify';
+
+				$a_post_data = array(
+					'secret'   => $this->_sPrivate,
+					'response' => $s_response
+				);
+				if (isset($_SERVER['REMOTE_ADDR'])) {
+					$a_post_data['remoteip'] = $_SERVER['REMOTE_ADDR'];
+				}
+
+				FMDebug('Posting to google reCaptcha');
+				$recaptcha    = new HTTPPost($s_url);
+				$a_resp_lines = $recaptcha->Post($a_post_data);
+
+				if ($a_resp_lines === false) {
+					FMDebug('reCaptcha via HTTPPost socket failed');
+					$s_resp = '{"success":false,"error-codes":["reCaptcha failed"]}';
 				} else {
-					FMDebug('Opened google reCaptcha with fopen');
-					$s_resp = '';
-					while (!feof($fp)) {
-						$s_resp .= fread($fp,8192);
-					}
-					fclose($fp);
-					FMDebug("Response: $s_resp");
+					$s_resp = implode('',$a_resp_lines);
+					FMDebug('reCaptcha via HTTPPost socket succeeded: ' . $s_resp);
 				}
 				$this->_Resp = json_decode($s_resp,true);
 			}
@@ -3359,12 +3362,12 @@ if (Settings::get('RECAPTCHA_PRIVATE_KEY') !== "") {
 				$this->_bDone = true;
 				$s_error      = "";
 				if (!$this->_Resp['success']) {
-					// TODO: this code looks wrong - check!
-					$s_error = $this->_Resp['error-codes'][0];
 					if (!isset($this->_Resp['error-codes']) || count($this->_Resp['error-codes']) == 0 ||
 					    !$this->_Resp['error-codes'][0]
 					) {
-						$s_error = 'verification failed somehow ; we have no idea!';
+						$s_error = 'verification failed (error not specified)';
+					} else {
+						$s_error = $this->_Resp['error-codes'][0];
 					}
 				}
 				return ($this->_Resp['success']);
@@ -3446,7 +3449,7 @@ class EmailChecker
 	 *
 	 * @param array $a_patterns an array of email address patterns
 	 */
-	function EmailChecker($a_patterns = array())
+	function __construct($a_patterns = array())
 	{
 		$this->_aAddresses      = array();
 		$this->_aTargetPatterns = $a_patterns;
@@ -4012,13 +4015,13 @@ function LineFolding($s_str,$i_max_line,$s_before,$s_after,$s_fold)
 				if ($b_found) {
 					$s_str      = substr($s_str,0,$jj) . $s_fold . substr($s_str,$jj);
 					$i_fold_len = strlen($s_fold);
-					$i_str_len += $i_fold_len; // the additional chars we inserted
-					$i_start = $jj + $i_fold_len; // start of the next line
-					$b_done  = true;
+					$i_str_len  += $i_fold_len; // the additional chars we inserted
+					$i_start    = $jj + $i_fold_len; // start of the next line
+					$b_done     = true;
 				}
 			}
 			//
-			// if we cannot fold and shorten the line, 
+			// if we cannot fold and shorten the line,
 			// ignore this and try for the next line
 			//
 			if ($b_done) {
@@ -4032,8 +4035,8 @@ function LineFolding($s_str,$i_max_line,$s_before,$s_after,$s_fold)
 			// end of line found - reset counters
 			//
 			$i_line_len = 0;
-			$ii += 2;
-			$i_start = $ii;
+			$ii         += 2;
+			$i_start    = $ii;
 		} else {
 			$ii++;
 			$i_line_len++;
@@ -5034,13 +5037,13 @@ function ValueSpec($s_spec,$a_form_data,&$a_errors)
 							}
 							break;
 						default:
-							SendAlert(GetMessage(MSG_UNK_VALUE_SPEC,
-							                     array("SPEC" => $s_spec,"MSG" => "")));
+							SendAlertIgnoreSpam(GetMessage(MSG_UNK_VALUE_SPEC,
+							                               array("SPEC" => $s_spec,"MSG" => "")));
 							break;
 					}
 				} else {
-					SendAlert(GetMessage(MSG_UNK_VALUE_SPEC,array("SPEC" => $s_spec,
-					                                              "MSG"  => ""
+					SendAlertIgnoreSpam(GetMessage(MSG_UNK_VALUE_SPEC,array("SPEC" => $s_spec,
+					                                                        "MSG"  => ""
 					)));
 				}
 			}
@@ -5197,7 +5200,7 @@ function IsFieldSet($s_fld,$a_main_vars)
  * Function:    IsFileField
  * Parameters:  $s_fld  the field name
  * Returns:     bool    true if this is a file upload field
- * Description:     
+ * Description:
  *  Checks if a field is a file upload field (regardless of whether
  *  file uploads are being allowed, or whether the actual upload
  *  is valid in any way).
@@ -5512,7 +5515,7 @@ function CreateDerived($a_form_data)
 			$a_form_data[$s_name] = DeriveValue($a_form_data,$a_value_spec,$s_name,$a_errors);
 		}
 		if (count($a_errors) > 0) {
-			SendAlert(GetMessage(MSG_DERIVED_INVALID) . implode("\n",$a_errors));
+			SendAlertIgnoreSpam(GetMessage(MSG_DERIVED_INVALID) . implode("\n",$a_errors));
 			Error("derivation_failure",GetMessage(MSG_INT_FORM_ERROR));
 		}
 	}
@@ -5572,7 +5575,7 @@ function SetFileNames($s_name_spec,$a_order,$a_fields,$a_raw_fields,$a_all_raw_v
                                             array("NAME"=>$s_name)));*/
 	}
 	if (count($a_errors) > 0) {
-		SendAlert(GetMessage(MSG_FILE_NAMES_INVALID) . implode("\n",$a_errors));
+		SendAlertIgnoreSpam(GetMessage(MSG_FILE_NAMES_INVALID) . implode("\n",$a_errors));
 		Error("file_names_derivation_failure",GetMessage(MSG_INT_FORM_ERROR));
 	}
 	return (array($a_order,$a_fields,$a_raw_fields,$a_all_raw_values,$a_file_vars));
@@ -5706,8 +5709,8 @@ function ProcessOptions($s_name,$a_form_data,&$a_options,$a_valid_options)
 		ProcessAttributeList($s_name,$a_form_data,$a_list,$a_options,$a_errors,$a_valid_options);
 	}
 	if (count($a_errors) > 0) {
-		SendAlert(GetMessage(MSG_OPTIONS_INVALID,array("OPT" => $s_name)) .
-		          implode("\n",$a_errors));
+		SendAlertIgnoreSpam(GetMessage(MSG_OPTIONS_INVALID,array("OPT" => $s_name)) .
+		                    implode("\n",$a_errors));
 	}
 }
 
@@ -6551,6 +6554,16 @@ function SendCheckedMail($to,$subject,$mesg,$sender,$a_headers = array())
 }
 
 //
+// Send an alert email, but not if ATTACK_DETECTION_IGNORE_ERRORS is true.
+//
+function SendAlertIgnoreSpam($s_error,$b_filter = true,$b_non_error = false)
+{
+	if (!Settings::get('ATTACK_DETECTION_IGNORE_ERRORS')) {
+		SendAlert($s_error,$b_filter,$b_non_error);
+	}
+}
+
+//
 // Send an alert email
 //
 function SendAlert($s_error,$b_filter = true,$b_non_error = false)
@@ -6665,16 +6678,16 @@ function SendAlert($s_error,$b_filter = true,$b_non_error = false)
 
 		if ($b_non_error) {
 			$s_preamble = $s_error . Settings::get('BODY_LF') . Settings::get('BODY_LF');
-			$s_mesg .= $s_preamble;
-			$s_subj = GetMessage(MSG_FM_ALERT);
+			$s_mesg     .= $s_preamble;
+			$s_subj     = GetMessage(MSG_FM_ALERT);
 			if (!empty($s_form_subject)) {
 				$s_subj .= " ($s_form_subject)";
 			}
 		} else {
 			$s_preamble = GetMessage(MSG_FM_ERROR_LINE) . Settings::get('BODY_LF') .
 			              $s_error . Settings::get('BODY_LF') . Settings::get('BODY_LF');
-			$s_mesg .= $s_preamble;
-			$s_subj = GetMessage(MSG_FM_ERROR);
+			$s_mesg     .= $s_preamble;
+			$s_subj     = GetMessage(MSG_FM_ERROR);
 			if (!empty($s_form_subject)) {
 				$s_subj .= " ($s_form_subject)";
 			}
@@ -6714,7 +6727,7 @@ function SendAlert($s_error,$b_filter = true,$b_non_error = false)
 			$s_new_mesg .= GetMessage(MSG_FILTERED,array("FILTER" => $s_filter_name)) .
 			               Settings::get('BODY_LF') . Settings::get('BODY_LF') .
 			               $s_filtered_results;
-			$s_mesg = $s_new_mesg;
+			$s_mesg     = $s_new_mesg;
 		}
 		$s_mesg .= Settings::get('BODY_LF');
 
@@ -6949,7 +6962,7 @@ function FMDebug($s_mesg)
 
 /*
  * Class:       NetIO
- * Description:     
+ * Description:
  *  A class to provide internet input/output capabilities.
  *  Use as a base class for more specific functions.
  */
@@ -6976,7 +6989,7 @@ class   NetIO
 
 	var $nErrSocket = -100; // error in socket open
 
-	function NetIO($s_host = NULL,$i_port = NULL,$s_prefix = "")
+	function __construct($s_host = NULL,$i_port = NULL,$s_prefix = "")
 	{
 		if (isset($s_host)) {
 			$this->_sHost = $s_host;
@@ -7110,13 +7123,19 @@ class   NetIO
 
 	function _SSLOpen($s_ip,&$errno,&$errstr,$i_timeout)
 	{
+		global $ExecEnv;
+
 		FMDebug("Using _SSLOpen (stream_socket_client), SNI, host=" . $this->GetHost());
 		$context = stream_context_create();
 		$result  = stream_context_set_option($context,'ssl','verify_host',true);
 		$result  = stream_context_set_option($context,'ssl','verify_peer',false);
 		$result  = stream_context_set_option($context,'ssl','allow_self_signed',true);
 		$result  = stream_context_set_option($context,'ssl','SNI_enabled',true);
-		$result  = stream_context_set_option($context,'ssl','SNI_server_name',$this->GetHost());
+		if ($ExecEnv->IsPHPAtLeast("5.6.0")) {
+			$result = stream_context_set_option($context,'ssl','peer_name',$this->GetHost());
+		} else {
+			$result = stream_context_set_option($context,'ssl','SNI_server_name',$this->GetHost());
+		}
 		//
 		// Note that even if SNI fails, the socket will still open, but the
 		// web server should send a 400 error.
@@ -7216,7 +7235,7 @@ class   NetIO
 
 /*
  * Class:       HTTPGet
- * Description:     
+ * Description:
  *  A class that implements HTTP GET method.
  */
 
@@ -7239,9 +7258,9 @@ class   HTTPGet extends NetIO
 	var $nErrParse  = -1000; // failed to parse URL
 	var $nErrScheme = -1001; // unsupported URL scheme
 
-	function HTTPGet($s_url = "")
+	function __construct($s_url = "")
 	{
-		NetIO::NetIO();
+		parent::__construct();
 		$this->_aURLSplit = array();
 		if (($this->_sURL = $s_url) !== "") {
 			$this->_SplitURL();
@@ -7375,7 +7394,7 @@ class   HTTPGet extends NetIO
 		//
 		// End of request headers
 		//
-		$s_req .= "\r\n";
+		$s_req           .= "\r\n";
 		$this->_sRequest = $s_req;
 	}
 
@@ -7497,7 +7516,7 @@ class   HTTPGet extends NetIO
 
 /*
  * Class:       HTTPPost
- * Description:     
+ * Description:
  *  A class that implements HTTP POST method.
  */
 
@@ -7505,10 +7524,10 @@ class   HTTPPost extends HTTPGet
 {
 	var $_sPostData; /* data to POST */
 
-	function HTTPPost($s_url = "")
+	function __construct($s_url = "")
 	{
 		$this->_sPostData = '';
-		HTTPGet::HTTPGet($s_url);
+		parent::__construct($s_url);
 	}
 
 	function _SendRequest()
@@ -8689,7 +8708,7 @@ function AdvancedRequired($s_cond,$i_span,$a_vars,&$s_missing,&$a_missing_list)
 				//
 				// failed
 				//
-				$s_missing .= "$s_error_mesg\n";
+				$s_missing               .= "$s_error_mesg\n";
 				$a_missing_list[$s_fld1] = "$s_error_mesg";
 				$b_ok                    = false;
 			}
@@ -8731,8 +8750,8 @@ function CheckRequired($s_reqd,$a_vars,&$s_missing,&$a_missing_list)
 				} else {
 					$s_mesg = "$s_friendly ($s_mesg)";
 				}
-				$b_bad = true;
-				$s_missing .= "$s_mesg\n";
+				$b_bad                  = true;
+				$s_missing              .= "$s_mesg\n";
 				$a_missing_list[$s_fld] = "$s_mesg";
 			}
 		} elseif (!AdvancedRequired($s_cond,$i_span,$a_vars,
@@ -8749,7 +8768,7 @@ function CheckRequired($s_reqd,$a_vars,&$s_missing,&$a_missing_list)
 	//
 	if (!Settings::isEmpty('REQUIRE_CAPTCHA')) {
 		if ($SPECIAL_VALUES["imgverify"] === "") {
-			$s_missing .= Settings::get('REQUIRE_CAPTCHA') . "\n";
+			$s_missing                   .= Settings::get('REQUIRE_CAPTCHA') . "\n";
 			$a_missing_list['imgverify'] = Settings::get('REQUIRE_CAPTCHA');
 			$b_bad                       = true;
 		}
@@ -9129,7 +9148,7 @@ class Conditions
 
 	private function _recordField($s_fld_name,$s_mesg)
 	{
-		$this->_sMissing .= $s_mesg . "\n";
+		$this->_sMissing                  .= $s_mesg . "\n";
 		$this->_aMissingList[$s_fld_name] = $s_mesg;
 	}
 
@@ -9690,11 +9709,11 @@ class   CSVFormat
      *              $s_esc_policy   escape processing policy to use
      *              $s_clean_func   a cleaning function
      * Returns:     n/a
-     * Description: 
+     * Description:
      *  Constructs the object.
      */
-	function CSVFormat($c_sep = ',',$c_quote = '"',$c_int_sep = ';',
-	                   $s_esc_policy = "backslash",$s_clean_func = NULL)
+	function __construct($c_sep = ',',$c_quote = '"',$c_int_sep = ';',
+	                     $s_esc_policy = "backslash",$s_clean_func = NULL)
 	{
 		$this->SetSep($c_sep);
 		$this->SetQuote($c_quote);
@@ -10483,7 +10502,7 @@ function FixInputText($s_name,$s_value,$s_buf)
 	//
 
 	// handle type attribute first
-	$s_pat = '/(<\s*input[^>]*type="(?:text|password)"[^>]*name="';
+	$s_pat = '/(<\s*input[^>]*type="(?:text|password|email|tel|search|number|date|month|datetime|datetime-local|time|week|range|url|color)"[^>]*name="';
 	$s_pat .= preg_quote($s_name,"/");
 	$s_pat .= '"[^>]*)(value="[^"]*")([^>]*?)(\s*\/\s*)?>';
 	$s_pat .= '/ims';
@@ -10492,7 +10511,7 @@ function FixInputText($s_name,$s_value,$s_buf)
 	// handle name attribute first
 	$s_pat = '/(<\s*input[^>]*name="';
 	$s_pat .= preg_quote($s_name,"/");
-	$s_pat .= '"[^>]*type="(?:text|password)"[^>]*)(value="[^"]*")([^>]*?)(\s*\/\s*)?>';
+	$s_pat .= '"[^>]*type="(?:text|password|email|tel|search|number|date|month|datetime|datetime-local|time|week|range|url|color)"[^>]*)(value="[^"]*")([^>]*?)(\s*\/\s*)?>';
 	$s_pat .= '/ims';
 	$s_buf = preg_replace($s_pat,'$1$3$4>',$s_buf);
 
@@ -10502,7 +10521,7 @@ function FixInputText($s_name,$s_value,$s_buf)
 	$s_repl = '$1 value="' . htmlspecialchars(RegReplaceQuote($s_value)) . '" $2>';
 
 	// handle type attribute first
-	$s_pat = '/(<\s*input[^>]*type="(?:text|password)"[^>]*name="';
+	$s_pat = '/(<\s*input[^>]*type="(?:text|password|email|tel|search|number|date|month|datetime|datetime-local|time|week|range|url|color)"[^>]*name="';
 	$s_pat .= preg_quote($s_name,"/");
 	$s_pat .= '"[^>]*?)(\s*\/\s*)?>';
 	$s_pat .= '/ims';
@@ -10511,7 +10530,7 @@ function FixInputText($s_name,$s_value,$s_buf)
 	// handle name attribute first
 	$s_pat = '/(<\s*input[^>]*name="';
 	$s_pat .= preg_quote($s_name,"/");
-	$s_pat .= '"[^>]*type="(?:text|password)"[^>]*?)(\s*\/\s*)?>';
+	$s_pat .= '"[^>]*type="(?:text|password|email|tel|search|number|date|month|datetime|datetime-local|time|week|range|url|color)"[^>]*?)(\s*\/\s*)?>';
 	$s_pat .= '/ims';
 	$s_buf = preg_replace($s_pat,$s_repl,$s_buf);
 
@@ -10687,12 +10706,12 @@ function FixSelect($s_name,$s_value,$s_buf)
 	//  </select>
 	//
 
-	$s_pat = '/(<\s*select[^>]*name="';
-	$s_pat .= preg_quote($s_name,"/");
-	$s_pat .= '".*?<\s*option[^>]*value="';
-	$s_pat .= preg_quote($s_value,"/");
-	$s_pat .= '"[^>]*)>';
-	$s_pat .= '/ims';
+	$s_pat  = '/(<\s*select[^>]*name="';
+	$s_pat  .= preg_quote($s_name,"/");
+	$s_pat  .= '".*?<\s*option[^>]*value="';
+	$s_pat  .= preg_quote($s_value,"/");
+	$s_pat  .= '"[^>]*)>';
+	$s_pat  .= '/ims';
 	$s_repl = '$1 selected="selected">';
 	//  echo "<p>pat: ".htmlspecialchars($s_pat);
 	$s_buf = preg_replace($s_pat,$s_repl,$s_buf);
@@ -10713,12 +10732,12 @@ function FixMultiSelect($s_name,$a_values,$s_buf)
 	//
 
 	foreach ($a_values as $s_value) {
-		$s_pat = '/(<\s*select[^>]*name="';
-		$s_pat .= preg_quote($s_name,"/");
-		$s_pat .= '\[\]".*?<\s*option[^>]*value="';
-		$s_pat .= preg_quote($s_value,"/");
-		$s_pat .= '"[^>]*)>';
-		$s_pat .= '/ims';
+		$s_pat  = '/(<\s*select[^>]*name="';
+		$s_pat  .= preg_quote($s_name,"/");
+		$s_pat  .= '\[\]".*?<\s*option[^>]*value="';
+		$s_pat  .= preg_quote($s_value,"/");
+		$s_pat  .= '"[^>]*)>';
+		$s_pat  .= '/ims';
 		$s_repl = '$1 selected="selected">';
 		//  echo "<p>pat: ".htmlspecialchars($s_pat);
 		$s_buf = preg_replace($s_pat,$s_repl,$s_buf);
@@ -10898,6 +10917,8 @@ function ProcessReturnToForm($s_url,$a_values,$a_strip = array())
 //
 function GetReturnLink($s_this_script,$i_form_index)
 {
+	global $aServerVars;
+
 	if (!CheckValidURL($s_this_script)) {
 		Error("not_valid_url",GetMessage(MSG_RETURN_URL_INVALID,
 		                                 array("URL" => $s_this_script)),false,false);
@@ -13172,6 +13193,11 @@ function DetectAttacks($a_fields)
 			$b_attacked = true;
 		}
 	}
+	if (function_exists('FMHookDetectAttacks')) {
+		if (FMHookDetectAttacks($a_fields,$s_attack,$s_info,$s_user_info)) {
+			$b_attacked = true;
+		}
+	}
 
 	if ($b_attacked) {
 		if (function_exists('FMHookAttacked')) {
@@ -13221,10 +13247,10 @@ function DetectRevCaptchaAttack($a_revcap_spec,$a_form_data,&$s_attack,&$s_info,
 			    $a_form_data[$s_fld_name] !== ""
 			) {
 				$b_attacked = true;
-				$s_info .= "\n" . GetMessage(MSG_ATTACK_REV_CAP_INFO,
-				                             array("FLD"     => $s_fld_name,
-				                                   "CONTENT" => $a_form_data[$s_fld_name]
-				                             ),false);
+				$s_info     .= "\n" . GetMessage(MSG_ATTACK_REV_CAP_INFO,
+				                                 array("FLD"     => $s_fld_name,
+				                                       "CONTENT" => $a_form_data[$s_fld_name]
+				                                 ),false);
 			}
 		} else {
 			$n_non_empty++;
@@ -13232,13 +13258,13 @@ function DetectRevCaptchaAttack($a_revcap_spec,$a_form_data,&$s_attack,&$s_info,
 			    $a_form_data[$s_fld_name] !== $s_value
 			) {
 				$b_attacked = true;
-				$s_info .= "\n" . GetMessage(MSG_ATTACK_REV_CAP_INFO,
-				                             array("FLD"     => $s_fld_name,
-				                                   "CONTENT" =>
-					                                   isset($a_form_data[$s_fld_name]) ?
-						                                   $a_form_data[$s_fld_name] :
-						                                   ""
-				                             ),false);
+				$s_info     .= "\n" . GetMessage(MSG_ATTACK_REV_CAP_INFO,
+				                                 array("FLD"     => $s_fld_name,
+				                                       "CONTENT" =>
+					                                       isset($a_form_data[$s_fld_name]) ?
+						                                       $a_form_data[$s_fld_name] :
+						                                       ""
+				                                 ),false);
 			}
 		}
 	}
@@ -13277,7 +13303,7 @@ function CheckCaptchaSubmit()
 			$s_error = '';
 			if (!$reCaptchaProcessor->Check($SPECIAL_VALUES["imgverify"],$SPECIAL_VALUES,$s_error)) {
 				$s_error_mesg = GetMessage(MSG_RECAPTCHA_MATCH,array("ERR" => $s_error));
-				UserError("recaptcha",$s_error_mesg,array(),array('imgverify' => $s_error_mesg));
+				UserError("recaptcha",$s_error_mesg,'',array('imgverify' => $s_error_mesg));
 			}
 		}
 		//
@@ -13302,14 +13328,14 @@ function CheckCaptchaSubmit()
 				    strtoupper(GetSession("VerifyImgString"))
 				) {
 					$s_error_mesg = GetMessage(MSG_VERIFY_MATCH);
-					UserError("img_verify",$s_error_mesg,array(),array('imgverify' => $s_error_mesg));
+					UserError("img_verify",$s_error_mesg,'',array('imgverify' => $s_error_mesg));
 				}
 			} else {
 				if (strtoupper(str_replace(" ","",$SPECIAL_VALUES["imgverify"])) !==
 				    strtoupper(GetSession("turing_string"))
 				) {
 					$s_error_mesg = GetMessage(MSG_VERIFY_MATCH);
-					UserError("img_verify",$s_error_mesg,array(),array('imgverify' => $s_error_mesg));
+					UserError("img_verify",$s_error_mesg,'',array('imgverify' => $s_error_mesg));
 				}
 			}
 		}
@@ -13356,7 +13382,7 @@ class   AutoResponder
      * Description: 
      *  Constructs the object.
      */
-	function AutoResponder()
+	function __construct()
 	{
 		global $SPECIAL_VALUES;
 
@@ -13648,7 +13674,7 @@ class   AutoResponder
 		$s_type = "";
 		if ($b_use_template) {
 			if (IsAROptionSet('PlainTemplate')) {
-				$s_type .= "PlainTemplate ";
+				$s_type     .= "PlainTemplate ";
 				$s_template = GetAROption("PlainTemplate");
 				if (!ProcessTemplate($s_template,$a_lines,$a_values,
 				                     GetAROption('TemplateMissing'),
@@ -13727,7 +13753,7 @@ class   SessionAccess
      * Description: 
      *  Constructs the object.
      */
-	function SessionAccess($a_access_list)
+	function __construct($a_access_list)
 	{
 		$this->_aAccessList = $a_access_list;
 	}
