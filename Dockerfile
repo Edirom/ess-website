@@ -3,6 +3,7 @@ LABEL maintainer="Peter Stadler for the ViFE"
 
 ARG SSMTP_AuthUser
 ARG SSMTP_AuthPass
+ARG CAPTCHA_PRIVATE_KEY
 
 WORKDIR /var/www/html
 COPY . .
