@@ -87,8 +87,8 @@
 			<p>Die Registrierung für die Edirom-Summer-School 2018 ist voraussichtlich von Ende Juli bis Ende August 2018 auf dieser Seite möglich.
 				Bitte folgen Sie uns auf <a href="https://twitter.com/edirom">Twitter</a> für aktuelle Ankündigungen.</p>
 			
-		<!--Anmeldeformular-->	  
-			<!--<form class="custom" name="form1" method="post" enctype="multipart/form-data" action="formmail.php" onsubmit="return validate_form(this)">
+			<!--Anmeldeformular-->	  
+			<form class="custom" name="form1" method="post" enctype="multipart/form-data" action="formmail.php" onsubmit="return validate_form(this)">
 				<input type="hidden" name="recipients" value="essbe_gaedirom.de" />
 				<input type="hidden" name="required" value="anrede:Anrede,vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail" />
 				<input type="hidden" name="subject" value="[ESS2018] Anmeldung" />
@@ -136,9 +136,9 @@
 								<label for="student"><input type="checkbox" id="student" style="display: none;" name="student" value="ja"/><span class="custom checkbox"></span> Ich bin eingeschriebene/r Studierende/r an der Universität Paderborn oder der HfM Detmold.</label>
 							</div>
 						</fieldset>
-						-->
+						
 						<!--ABENDVERANSTALTUNGEN-->
-						<!--<fieldset>
+						<fieldset>
 							<legend>Teilnahme an Abendveranstaltungen</legend>
 
 							<label for="key">
@@ -163,47 +163,47 @@
 							<legend>Kommentar</legend>
 							<textarea placeholder="Sie können uns hier einen Kommentar hinterlassen" name="kommentar" id="kommentar" ></textarea>
 						</fieldset>
-					</div>-->
+					</div>
 					
 					<!-- KURSE -->
-					<!--<div class="large-6 columns">
+					<div class="large-6 columns">
 						<fieldset class="kurse">
 							<legend>Kurswahl</legend>
-							-->
+							
 							<!-- auch alle Kurse so formatieren, wenn Anmeldung geschlossen (besonders auf @disabled achten), also der Layer darüber liegt; just to be sure ;)-->
-							<!--<label for="exist" onclick="conflict('exist')"><input type="checkbox" id="exist" style="display: none;" name="kurse[]" value="exist"  disabled="disabled"/><span class="custom checkbox"></span> Anwendungsentwicklung mit eXist-db</label><span class="checkbox-sub-label">Zeit: Dienstag 14:00 Uhr bis Mittwoch 17:30 Uhr <br />Kosten: 21 Euro <br /><span class="alert">Geschlossen!</span></span>-->
+							
 							
 							<!-- Arbeiten mit XML -->
-							<!--<span class="checkbox-sub-label">Zeit: Mittwoch 09:15 bis 17:45 <br />Kosten: 16 Euro <br /></span>-->
+							<label for="arbeiten-xml" onclick="conflict('arbeiten-xml')"><input type="checkbox" id="arbeiten-xml" style="display: none;" name="kurse[]" value="arbeiten-xml" /><span class="custom checkbox"></span> Arbeiten mit XML</label><span class="checkbox-sub-label">Zeit: Mittwoch 9:15 Uhr bis 17:45 Uhr <br />Kosten: 16 Euro <br /><!--<span class="alert">Geschlossen!</span>--></span>
 							
 							<!-- Digitale Editionen anreichern -->
-							<!--<label for="anreichern" onclick="conflict('anreichern')"><input type="checkbox" id="anreichern" style="display: none;" name="kurse[]" value="anreichern" /><span class="custom checkbox"></span> Digitale Editionen anreichern <span class="title-lang">(deutsch/english)</span></label><span class="checkbox-sub-label">Time: Tuesday 11:15 till Friday 12:45 <br />Costs: 56 Euro </span>-->
+							<label for="anreichern" onclick="conflict('anreichern')"><input type="checkbox" id="anreichern" style="display: none;" name="kurse[]" value="anreichern" /><span class="custom checkbox"></span> Digitale Editionen anreichern <span class="title-lang">(deutsch/english)</span></label><span class="checkbox-sub-label">Time: Tuesday 11:15 till Friday 12:45 <br />Costs: 56 Euro </span>
 							
 							<!-- Edirom -->
-							<!--<label for="edirom" onclick="conflict('edirom')"><input type="checkbox" id="edirom" style="display: none;" name="kurse[]" value="edirom"/><span class="custom checkbox"></span> Edirom: Werkzeuge für die Erstellung und Präsentation digitaler Musikedition </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro</span>-->
+							<label for="edirom" onclick="conflict('edirom')"><input type="checkbox" id="edirom" style="display: none;" name="kurse[]" value="edirom"/><span class="custom checkbox"></span> Edirom: Werkzeuge für die Erstellung und Präsentation digitaler Musikedition </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro</span>
 							
 							<!-- MEI Einsteiger -->
-							<!--<label for="mei-e" onclick="conflict('mei-e')"><input type="checkbox" id="mei-e" style="display: none;" name="kurse[]" value="mei-e"/><span class="custom checkbox"></span> MEI Einsteiger </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro</span>-->
+							<label for="mei-e" onclick="conflict('mei-e')"><input type="checkbox" id="mei-e" style="display: none;" name="kurse[]" value="mei-e"/><span class="custom checkbox"></span> MEI Einsteiger </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro</span>
 
 							<!-- MEI Fortgeschritten -->
-							<!--<label for="mei-f" onclick="conflict('mei-f')"><input type="checkbox" id="mei-f" style="display: none;" name="kurse[]" value="mei-f" /><span class="custom checkbox"></span> MEI Fortgeschrittene </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro<br /></span>-->
+							<label for="mei-f" onclick="conflict('mei-f')"><input type="checkbox" id="mei-f" style="display: none;" name="kurse[]" value="mei-f" /><span class="custom checkbox"></span> MEI Fortgeschrittene </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro<br /></span>
 							
 							<!-- MEI Metadaten -->
-							<!--<label for="mei-meta" onclick="conflict('mei-meta')"><input type="checkbox" id="mei-meta" style="display: none;" name="kurse[]" value="mei-meta" /><span class="custom checkbox" ></span> MEI Metadaten </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro<br /></span>-->
+							<label for="mei-meta" onclick="conflict('mei-meta')"><input type="checkbox" id="mei-meta" style="display: none;" name="kurse[]" value="mei-meta" /><span class="custom checkbox" ></span> MEI Metadaten </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro<br /></span>
 							
 							<!-- Programmieren für Geisteswissenschaftler -->
-							<!--<label for="programmieren" onclick="conflict('programmieren')"><input type="checkbox" id="programmieren" style="display: none;" name="kurse[]" value="programmieren" /><span class="custom checkbox"></span> Programmieren für Geisteswissenschaftler </label><span class="checkbox-sub-label">Zeit: Mittwoch 09:15 bis 17:45 <br />Kosten: 16 Euro </span>-->
+							<label for="programmieren" onclick="conflict('programmieren')"><input type="checkbox" id="programmieren" style="display: none;" name="kurse[]" value="programmieren" /><span class="custom checkbox"></span> Programmieren für Geisteswissenschaftler </label><span class="checkbox-sub-label">Zeit: Mittwoch 09:15 bis 17:45 <br />Kosten: 16 Euro </span>
 							
 							<!-- Quellenerschließung mit MEI -->
-							<!--<label for="hoftheater" onclick="conflict('hoftheater')"><input type="checkbox" id="hoftheater" style="display: none;" name="kurse[]" value="hoftheater" /><span class="custom checkbox"></span> Quellenerschließung mit MEI – Erfahrungen des Detmolder Hoftheater Projekts </label><span class="checkbox-sub-label">Zeit: Mittwoch 9:15 bis 17:45 <br />Kosten: 16 Euro<br /></span>-->		
+							<label for="hoftheater" onclick="conflict('hoftheater')"><input type="checkbox" id="hoftheater" style="display: none;" name="kurse[]" value="hoftheater" /><span class="custom checkbox"></span> Quellenerschließung mit MEI – Erfahrungen des Detmolder Hoftheater Projekts </label><span class="checkbox-sub-label">Zeit: Mittwoch 9:15 bis 17:45 <br />Kosten: 16 Euro<br /></span>		
 							
 							<!-- Semantic Web/Linked open data -->
-							<!--<label for="sem-web" onclick="conflict('sem-web')"><input type="checkbox" id="sem-web" style="display: none;" name="kurse[]" value="sem-web" /><span class="custom checkbox"></span> Semantic Web/Linked open data </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro <br /></span>-->
+							<label for="sem-web" onclick="conflict('sem-web')"><input type="checkbox" id="sem-web" style="display: none;" name="kurse[]" value="sem-web" /><span class="custom checkbox"></span> Semantic Web/Linked open data </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro <br /></span>
 							
 							<!-- TEI Einsteiger -->
-							<!--<label for="tei" onclick="conflict('tei')"><input type="checkbox" id="tei" style="display: none;" name="kurse[]" value="tei" /><span class="custom checkbox"></span> TEI Einsteiger </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro <br /></span>-->
+							<label for="tei" onclick="conflict('tei')"><input type="checkbox" id="tei" style="display: none;" name="kurse[]" value="tei" /><span class="custom checkbox"></span> TEI Einsteiger </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro <br /></span>
 							
-						<!--</fieldset>
+						</fieldset>
 						<div class="captcha">
 					       <div class="g-recaptcha" data-sitekey="6LehmiYTAAAAACjoZFLWSSR8AVe44FXp3pwhIel3"></div>
 					       <small class="errorText" style="display:none;">Bitte bestätigen</small>
@@ -211,7 +211,7 @@
 						<input class="small button secondary right" type="submit" value="Senden"/>
 					</div>
 				</div>
-				</form>-->
+			</form>
 			
 			<h3>Bewerbung &#171;Spotlights&#187;</h3>
 			<p>
