@@ -19,14 +19,14 @@
 	
 	<!-- dieser layer überlagert die anmeldungsmaske nach anmeldeschluss, 
 	    bitte ganz unten das Datum aktualisieren -->
-<!--	  <div id="mask" class="overlay" style="display:none;"></div>
+ <div id="mask" class="overlay" style="display:none;"></div>
 	<div id="message" class="overlay" style="display:none;">
 		<div class="row">
 			<div class="large-8 columns large-centered panel" role="content">
 				<h1>Anmeldung geschlossen</h1>
 			</div>
 		</div>
-	</div> -->
+	</div>
 
 
 	<!-- Nav Bar -->
@@ -78,16 +78,14 @@
 	
 	<div class="row">
 		
-	<!-- Main Blog Content -->	
-		<div class="columns large-9" role="content">
-			
-			
+	<!-- Main Blog Content -->
+		
+		<div class="columns large-9" role="content">	
 			<h1>Registrierung ESS 2018</h1>
-			<!--<h4 class="subheader alert">Anmeldeschluss verlängert bis 04.09.2016</h4>-->
+			
 			<p>Die Registrierung für die Edirom-Summer-School 2018 ist verlängert und endet am 10. September.
 				Bitte folgen Sie uns auf <a href="https://twitter.com/edirom">Twitter</a> für aktuelle Ankündigungen.</p>
 			
-			<!--Anmeldeformular-->	  
 			<form class="custom" name="form1" method="post" enctype="multipart/form-data" action="formmail.php" onsubmit="return validate_form(this)">
 				<input type="hidden" name="recipients" value="essbe_gaedirom.de" />
 				<input type="hidden" name="required" value="anrede:Anrede,vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail" />
@@ -141,7 +139,6 @@
 							</div>
 						</fieldset>
 						
-						<!--ABENDVERANSTALTUNGEN-->
 						<fieldset>
 							<legend>Teilnahme an Abendveranstaltungen</legend>
 
@@ -169,42 +166,28 @@
 						</fieldset>
 					</div>
 					
-					<!-- KURSE -->
 					<div class="large-6 columns">
 						<fieldset class="kurse">
 							<legend>Kurswahl</legend>
 							
-							<!-- auch alle Kurse so formatieren, wenn Anmeldung geschlossen (besonders auf @disabled achten), also der Layer darüber liegt; just to be sure ;)-->
+							<label for="arbeiten-xml" onclick="conflict('arbeiten-xml')"><input type="checkbox" id="arbeiten-xml" style="display: none;" name="kurse[]" value="arbeiten-xml" /><span class="custom checkbox"></span> Arbeiten mit XML</label><span class="checkbox-sub-label">Zeit: Mittwoch 9:15 Uhr bis 17:45 Uhr <br />Kosten: 16 Euro <br /></span>
 							
-							
-							<!-- Arbeiten mit XML -->
-							<label for="arbeiten-xml" onclick="conflict('arbeiten-xml')"><input type="checkbox" id="arbeiten-xml" style="display: none;" name="kurse[]" value="arbeiten-xml" /><span class="custom checkbox"></span> Arbeiten mit XML</label><span class="checkbox-sub-label">Zeit: Mittwoch 9:15 Uhr bis 17:45 Uhr <br />Kosten: 16 Euro <br /><!--<span class="alert">Geschlossen!</span>--></span>
-							
-							<!-- Digitale Editionen anreichern -->
 							<label for="anreichern" onclick="conflict('anreichern')"><input type="checkbox" id="anreichern" style="display: none;" name="kurse[]" value="anreichern" /><span class="custom checkbox"></span> Digitale Editionen anreichern <span class="title-lang">(deutsch/english)</span></label><span class="checkbox-sub-label">Time: Tuesday 11:15 till Friday 12:45 <br />Costs: 56 Euro </span>
 							
-							<!-- Edirom -->
 							<label for="edirom" onclick="conflict('edirom')"><input type="checkbox" id="edirom" style="display: none;" name="kurse[]" value="edirom"/><span class="custom checkbox"></span> Edirom: Werkzeuge für die Erstellung und Präsentation digitaler Musikedition </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro</span>
 							
-							<!-- MEI Einsteiger -->
 							<label for="mei-e" onclick="conflict('mei-e')"><input type="checkbox" id="mei-e" style="display: none;" name="kurse[]" value="mei-e"/><span class="custom checkbox"></span> MEI Einsteiger </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro</span>
 
-							<!-- MEI Fortgeschritten -->
 							<label for="mei-f" onclick="conflict('mei-f')"><input type="checkbox" id="mei-f" style="display: none;" name="kurse[]" value="mei-f" /><span class="custom checkbox"></span> MEI Fortgeschrittene </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro<br /></span>
 							
-							<!-- MEI Metadaten -->
 							<label for="mei-meta" onclick="conflict('mei-meta')"><input type="checkbox" id="mei-meta" style="display: none;" name="kurse[]" value="mei-meta" /><span class="custom checkbox" ></span> MEI Metadaten </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro<br /></span>
 							
-							<!-- Programmieren für Geisteswissenschaftler -->
 							<label for="programmieren" onclick="conflict('programmieren')"><input type="checkbox" id="programmieren" style="display: none;" name="kurse[]" value="programmieren" disabled="disabled" /><span class="custom checkbox"></span> Programmieren für Geisteswissenschaftler </label><span class="checkbox-sub-label">Zeit: Mittwoch 09:15 bis 17:45 <br />Kosten: 16 Euro <span class="alert">Kurs ausgebucht!</span></span>
 							
-							<!-- Quellenerschließung mit MEI -->
 							<label for="hoftheater" onclick="conflict('hoftheater')"><input type="checkbox" id="hoftheater" style="display: none;" name="kurse[]" value="hoftheater" /><span class="custom checkbox"></span> Quellenerschließung mit MEI – Erfahrungen des Detmolder Hoftheater Projekts </label><span class="checkbox-sub-label">Zeit: Mittwoch 9:15 bis 17:45 <br />Kosten: 16 Euro<br /></span>		
 							
-							<!-- Semantic Web/Linked open data -->
 							<label for="sem-web" onclick="conflict('sem-web')"><input type="checkbox" id="sem-web" style="display: none;" name="kurse[]" value="sem-web" /><span class="custom checkbox"></span> Semantic Web/Linked open data </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro <br /></span>
 							
-							<!-- TEI Einsteiger -->
 							<label for="tei" onclick="conflict('tei')"><input type="checkbox" id="tei" style="display: none;" name="kurse[]" value="tei" /><span class="custom checkbox"></span> TEI Einsteiger </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro <br /></span>
 							
 						</fieldset>
@@ -317,7 +300,7 @@
 	<!-- Anmeldeschluss hier eintragen    -->
 	<script type="text/javascript">
 		var now = Date.now(),
-		anmeldeschluss = Date.parse('01 Sep 2017 00:00:00 GMT+0200') ; 
+		anmeldeschluss = Date.parse('10 Sep 2018 00:00:00 GMT+0200') ; 
 		if(now > anmeldeschluss) { // 2015-08-01 00:00:00 Unix Lokalzeit
 			$('#mask').show();
 			$('#mask').attr('style', 'opacity:0.6;');
