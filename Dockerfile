@@ -1,18 +1,33 @@
-FROM php:apache
+# Dockerfile for the Edirom Summer School website
+# Use the nginx part for the static site (when the registration is closed)
+# and the apache part (with php enabled) for the php registration form
+
+#################
+# nginx
+#################
+FROM nginx:alpine
 LABEL maintainer="Peter Stadler for the ViFE"
+COPY . /usr/share/nginx/html/ 
 
-ARG SSMTP_AuthUser
-ARG SSMTP_AuthPass
-ARG CAPTCHA_PRIVATE_KEY
 
-WORKDIR /var/www/html
-COPY . .
+#################
+# apache
+#################
+#FROM php:apache
+#LABEL maintainer="Peter Stadler for the ViFE"
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends ssmtp && \
-    apt-get clean && \
-    rm -r /var/lib/apt/lists/* && \
-    mv entrypoint.sh /usr/local/bin/
+#ARG SSMTP_AuthUser
+#ARG SSMTP_AuthPass
+#ARG CAPTCHA_PRIVATE_KEY
 
-ENTRYPOINT ["entrypoint.sh"]
-CMD ["apache2-foreground"]
+#WORKDIR /var/www/html
+#COPY . .
+
+#RUN apt-get update && \
+#    apt-get install -y --no-install-recommends ssmtp && \
+#    apt-get clean && \
+#    rm -r /var/lib/apt/lists/* && \
+#    mv entrypoint.sh /usr/local/bin/
+
+#ENTRYPOINT ["entrypoint.sh"]
+#CMD ["apache2-foreground"]
