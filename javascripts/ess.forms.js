@@ -1,6 +1,21 @@
 /* pro Halbtag eine Ziffer in das Array "Termin" vergeben */
 
 var KursList = [
+    {"KursID":"anwendung-mei", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"arbeiten-xml", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"exist", "Termin":[4,5], "Counter":0},
+    {"KursID":"git", "Termin":[4,5], "Counter":0},
+    {"KursID":"odd", "Termin":[6,7,8], "Counter":0},
+    {"KursID":"tei", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"mining", "Termin":[6,7,8], "Counter":0},
+    {"KursID":"programmieren", "Termin":[4,5], "Counter":0},
+    {"KursID":"mei-quellen", "Termin":[6,7,8], "Counter":0},
+    {"KursID":"sem-web", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"workflows", "Termin":[6,7,8], "Counter":0}
+];
+
+/*Konfiguration der Summerschool 2018*/
+/*var KursList = [
     {"KursID":"mei-e", "Termin":[1,2,3], "Counter":0},
     {"KursID":"tei", "Termin":[1,2,3], "Counter":0},
     {"KursID":"sem-web", "Termin":[1,2,3], "Counter":0},
@@ -11,7 +26,7 @@ var KursList = [
     {"KursID":"edirom", "Termin":[6,7,8], "Counter":0},
     {"KursID":"mei-f", "Termin":[6,7,8], "Counter":0},
     {"KursID":"mei-meta", "Termin":[6,7,8], "Counter":0}
-];
+]; */
 
 /*Konfiguration der Summerschool 2017*/
 /*var KursList = [
