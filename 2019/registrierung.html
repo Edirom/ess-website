@@ -83,21 +83,21 @@
 		<div class="columns large-9" role="content">	
 			<h2>Registrierung ESS 2019</h2>
 			
-			<p>Nach Abschluss der Planungen können Sie sich hier ab Mitte Juli für die 10. Edirom-Summer-School 2019 registrieren.
+			<p>Ab dem 15. Juli können Sie sich hier für die 10. Edirom-Summer-School 2019 registrieren.
 				Bitte folgen Sie uns auch auf <a href="https://twitter.com/edirom">Twitter</a> für aktuelle Ankündigungen.
 			</p>
 			
 			<!--<form class="custom" name="form1" method="post" enctype="multipart/form-data" action="formmail.php" onsubmit="return validate_form(this)">
 				<input type="hidden" name="recipients" value="essbe_gaedirom.de" />
 				<input type="hidden" name="required" value="anrede:Anrede,vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail" />
-				<input type="hidden" name="subject" value="[ESS2018] Anmeldung" />
+				<input type="hidden" name="subject" value="[ESS2019] Anmeldung" />
 				<input type="hidden" name="good_template" value="form_ok.html" />
 				<input type="hidden" name="bad_template" value="form_bad.html" />
 				<input type="hidden" name="derive_fields" value="realname=vorname+nachname,imgverify=g-recaptcha-response,arverify=imgverify" />
-				<input type="hidden" name="csvfile" value="anmeldungen2018.csv" />
+				<input type="hidden" name="csvfile" value="anmeldungen2019.csv" />
 				<input type="hidden" name="csvcolumns" value="nachname,vorname,anrede,email,student,laptop,euf,seo,key,kurse,kommentar" />
 				<input type="hidden" name="autorespond"
-					value="PlainFile=autorespond.txt,Subject=[ESS2018] Anmeldebestätigung,FromAddr=essbe_gaedirom.de" />
+					value="PlainFile=autorespond.txt,Subject=[ESS2019] Anmeldebestätigung,FromAddr=essbe_gaedirom.de" />
 				<input type="hidden" name="mail_options"
 					value="CharSet=utf-8" />
 				
@@ -146,17 +146,17 @@
 							<label for="key">
 								<input type="checkbox" id="key" style="display: none;" name="key" value="ja"/>
 								<span class="custom checkbox"></span> Keynote <span class="title-lang">(Deutsch)</span>
-								<span class="checkbox-sub-label">Zeit: Dienstag, 18.&#8201;9., 18:00 </span>
+								<span class="checkbox-sub-label">Zeit: Montag, 02.&#8201;09., 18:00 </span>
 							</label>
 							<label for="euf">
 								<input type="checkbox" id="euf" style="display: none;" name="euf" value="ja"/>
 								<span class="custom checkbox"></span> Postersession
-								<span class="checkbox-sub-label">Zeit: Montag, 17.&#8201;9., 18:00 </span>
+								<span class="checkbox-sub-label">Zeit: Dienstag, 03.&#8201;09., 18:00 </span>
 							</label>
 							<label for="seo">
 								<input type="checkbox" id="seo" style="display: none;" name="seo" value="ja"/>
 								<span class="custom checkbox"></span> Social Evening Out
-								<span class="checkbox-sub-label">Zeit: Mittwoch, 19.&#8201;9., ab 19:00 (auf eigene Kosten) </span>
+								<span class="checkbox-sub-label">Zeit: Mittwoch, 04.&#8201;09., ab 19:00 (auf eigene Kosten) </span>
 							</label>
 								
 						</fieldset>
@@ -171,25 +171,27 @@
 						<fieldset class="kurse">
 							<legend>Kurswahl</legend>
 							
-							<label for="arbeiten-xml" onclick="conflict('arbeiten-xml')"><input type="checkbox" id="arbeiten-xml" style="display: none;" name="kurse[]" value="arbeiten-xml" /><span class="custom checkbox"></span> Arbeiten mit XML</label><span class="checkbox-sub-label">Zeit: Mittwoch 9:15 Uhr bis 17:45 Uhr <br />Kosten: 16 Euro <br /></span>
+							<label for="anwendung-mei" onclick="conflict('anwendung-mei')"><input type="checkbox" id="anwendung-mei" style="display: none;" name="kurse[]" value="anwendung-mei" /><span class="custom checkbox"></span> Anwendungsorientiertes MEI</label><span class="checkbox-sub-label">Zeit: Montag 14:15 Uhr bis Mittwoch 17:45 Uhr <br />Kosten: 50 Euro </span>
 							
-							<label for="anreichern" onclick="conflict('anreichern')"><input type="checkbox" id="anreichern" style="display: none;" name="kurse[]" value="anreichern" /><span class="custom checkbox"></span> Digitale Editionen anreichern <span class="title-lang">(deutsch/english)</span></label><span class="checkbox-sub-label">Time: Tuesday 11:15 till Friday 12:45 <br />Costs: 56 Euro </span>
+							<label for="arbeiten-xml" onclick="conflict('arbeiten-xml')"><input type="checkbox" id="arbeiten-xml" style="display: none;" name="kurse[]" value="arbeiten-xml" /><span class="custom checkbox"></span> Arbeiten mit XML</label><span class="checkbox-sub-label">Zeit: Montag 14:15 Uhr bis Dienstag 17:45 Uhr <br />Kosten: 30 Euro </span>
 							
-							<label for="edirom" onclick="conflict('edirom')"><input type="checkbox" id="edirom" style="display: none;" name="kurse[]" value="edirom"/><span class="custom checkbox"></span> Edirom: Werkzeuge für die Erstellung und Präsentation digitaler Musikedition </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro</span>
+							<label for="exist" onclick="conflict('exist')"><input type="checkbox" id="exist" style="display: none;" name="kurse[]" value="exist" /><span class="custom checkbox"></span> Einführung in die eXist-Datenbank </label><span class="checkbox-sub-label">Zeit: Mittwoch 09:15 Uhr bis 17:45 Uhr<br />Kosten: 20 Euro </span>
 							
-							<label for="mei-e" onclick="conflict('mei-e')"><input type="checkbox" id="mei-e" style="display: none;" name="kurse[]" value="mei-e"/><span class="custom checkbox"></span> MEI Einsteiger </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro</span>
+							<label for="git" onclick="conflict('git')"><input type="checkbox" id="git" style="display: none;" name="kurse[]" value="git"/><span class="custom checkbox"></span> Einführung in die Versionsverwaltung mit Git </label><span class="checkbox-sub-label">Zeit: Mittwoch 09:15 bis 17:45 <br />Kosten: 20 Euro</span>
+							
+							<label for="odd" onclick="conflict('odd')"><input type="checkbox" id="odd" style="display: none;" name="kurse[]" value="odd"/><span class="custom checkbox"></span> Einführung in die MEI- und TEI-Schemaentwicklung mit ODD </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 30 Euro</span>
 
-							<label for="mei-f" onclick="conflict('mei-f')"><input type="checkbox" id="mei-f" style="display: none;" name="kurse[]" value="mei-f" /><span class="custom checkbox"></span> MEI Fortgeschrittene </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro<br /></span>
+							<label for="tei" onclick="conflict('tei')"><input type="checkbox" id="tei" style="display: none;" name="kurse[]" value="tei" /><span class="custom checkbox"></span> Einführung in TEI </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 30 Euro></span>
 							
-							<label for="mei-meta" onclick="conflict('mei-meta')"><input type="checkbox" id="mei-meta" style="display: none;" name="kurse[]" value="mei-meta" /><span class="custom checkbox" ></span> MEI Metadaten </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 24 Euro<br /></span>
+							<label for="mining" onclick="conflict('mining')"><input type="checkbox" id="mining" style="display: none;" name="kurse[]" value="mining" /><span class="custom checkbox" ></span> Mining Music Data - Arbeiten mit RISM-Daten </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 30 Euro</span>
 							
-							<label for="programmieren" onclick="conflict('programmieren')"><input type="checkbox" id="programmieren" style="display: none;" name="kurse[]" value="programmieren" disabled="disabled" /><span class="custom checkbox"></span> Programmieren für Geisteswissenschaftler </label><span class="checkbox-sub-label">Zeit: Mittwoch 09:15 bis 17:45 <br />Kosten: 16 Euro <span class="alert">Kurs ausgebucht!</span></span>
+							<label for="programmieren" onclick="conflict('programmieren')"><input type="checkbox" id="programmieren" style="display: none;" name="kurse[]" value="programmieren" /><span class="custom checkbox"></span> Programmieren für Kultur- und GeisteswissenschaftlerInnen </label><span class="checkbox-sub-label">Zeit: Mittwoch 09:15 bis 17:45 <br />Kosten: 20 Euro</span>
 							
-							<label for="hoftheater" onclick="conflict('hoftheater')"><input type="checkbox" id="hoftheater" style="display: none;" name="kurse[]" value="hoftheater" /><span class="custom checkbox"></span> Quellenerschließung mit MEI – Erfahrungen des Detmolder Hoftheater Projekts </label><span class="checkbox-sub-label">Zeit: Mittwoch 9:15 bis 17:45 <br />Kosten: 16 Euro<br /></span>		
+							<label for="mei-quellen" onclick="conflict('mei-quellen')"><input type="checkbox" id="mei-quellen" style="display: none;" name="kurse[]" value="mei-quellen" /><span class="custom checkbox"></span> Quellenbeschreibung mit MEI </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 12:45 <br />Kosten: 30 Euro</span>		
 							
-							<label for="sem-web" onclick="conflict('sem-web')"><input type="checkbox" id="sem-web" style="display: none;" name="kurse[]" value="sem-web" /><span class="custom checkbox"></span> Semantic Web/Linked open data </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro <br /></span>
+							<label for="sem-web" onclick="conflict('sem-web')"><input type="checkbox" id="sem-web" style="display: none;" name="kurse[]" value="sem-web" /><span class="custom checkbox"></span> Semantic Web/Linked Open Data </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 30 Euro </span>
 							
-							<label for="tei" onclick="conflict('tei')"><input type="checkbox" id="tei" style="display: none;" name="kurse[]" value="tei" /><span class="custom checkbox"></span> TEI Einsteiger </label><span class="checkbox-sub-label">Zeit: Montag 14:15 bis Dienstag 17:45 <br />Kosten: 24 Euro <br /></span>
+							<label for="workflows" onclick="conflict('workflows')"><input type="checkbox" id="workflows" style="display: none;" name="kurse[]" value="workflows" /><span class="custom checkbox"></span> Workflows und Tools im Kontext digitaler Editionen </label><span class="checkbox-sub-label">Zeit: Donnerstag 11:15 bis Freitag 17:45 <br />Kosten: 30 Euro </span>
 							
 						</fieldset>
 						<div class="captcha">
