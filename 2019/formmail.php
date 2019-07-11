@@ -3763,8 +3763,7 @@ class FieldManager
 		// of the matches; since we don't assume the array is ordered
 		// by ascending offset, we'll sort it now
 		//
-		//usort($a_matches,create_function('$a,$b','return $b[1] - $a[1];'));
-		usort($a_matches,function($a) use ($b) {return $b[1] - $a[1];});
+		usort($a_matches,create_function('$a,$b','return $b[1] - $a[1];'));
 		$a_match_data = array();
 		for ($ii = 0 ; $ii < count($a_matches) ; $ii++) {
 			$s_match  = $a_matches[$ii][0];
@@ -10084,8 +10083,8 @@ function BuiltinFilterCSV()
          */
 	$m_temp = GetFilterOption("CSVRaw");
 	if (!isset($m_temp)) {
-	   $csv_format->SetCleanFunc(function($m_value) {return CleanValue($m_value);}
-	);
+		$csv_format->SetCleanFunc(create_function('$m_value',
+		                                          'return CleanValue($m_value);'));
 	}
 
 	$s_csv = $csv_format->MakeCSVRecord($a_column_list,$aAllRawValues);
@@ -12311,9 +12310,8 @@ function WriteCSVFile($s_csv_file,$a_vars)
 	$csv_format->SetSep(Settings::get('CSVSEP'));
 	$csv_format->SetIntSep(Settings::get('CSVINTSEP'));
 	if (Settings::get('LIMITED_IMPORT')) {
-		$csv_format->SetCleanFunc(function($m_value) {return CleanValue($m_value);}
-		//create_function('$m_value', 'return CleanValue($m_value);')
-		);
+		$csv_format->SetCleanFunc(create_function('$m_value',
+		                                          'return CleanValue($m_value);'));
 	}
 
 	$s_csv = $csv_format->MakeCSVRecord($a_column_list,$a_vars);
