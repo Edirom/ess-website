@@ -4435,7 +4435,7 @@ function GetTokens($s_str,$s_quotes = "'\"")
 			case "\n":
 			case "\r":
 				$ii++;
-				continue;
+				break;
 		}
 		//
 		// start of a token
