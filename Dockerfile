@@ -21,6 +21,9 @@ ARG SSMTP_AuthPass
 ARG CAPTCHA_PUBLIC_KEY
 ARG CAPTCHA_PRIVATE_KEY
 
+# Use the default production configuration
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
 WORKDIR /var/www/html
 COPY . .
 
