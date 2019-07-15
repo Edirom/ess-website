@@ -13,7 +13,7 @@
 #################
 # apache
 #################
-FROM php:apache
+FROM php:apache-stretch
 LABEL maintainer="Peter Stadler for the ViFE"
 
 ARG SSMTP_AuthUser
