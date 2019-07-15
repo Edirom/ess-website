@@ -18,7 +18,8 @@ sendmail_path = "/usr/sbin/ssmtp -t"
 EOF
 
 # inject CAPTCHA_PRIVATE_KEY into formmail.php
-sed -i -e "s+.*\$RECAPTCHA_PRIVATE_KEY =.*+\$RECAPTCHA_PRIVATE_KEY = \"${CAPTCHA_PRIVATE_KEY}\";+" /var/www/html/2018/formmail.php
+sed -i -e "s+.*\$RECAPTCHA_PRIVATE_KEY =.*+\$RECAPTCHA_PRIVATE_KEY = \"${CAPTCHA_PRIVATE_KEY}\";+" /var/www/html/2019/formmail.php
+sed -i -e "s+data-sitekey=\"[_a-zA-Z0-9]*\"+data-sitekey=\"${CAPTCHA_PUBLIC_KEY}\"+" /var/www/html/2019/registrierung.html
 
 # call the original entrypoint script
 docker-php-entrypoint
