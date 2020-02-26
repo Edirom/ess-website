@@ -1,6 +1,25 @@
 /* pro Halbtag eine Ziffer in das Array "Termin" vergeben */
 
+
+/* Konfiguration der Summerschool 2020 */
+
 var KursList = [
+    {"KursID":"tei", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"odd", "Termin":[4,5], "Counter":0},
+    {"KursID":"teiPublisher", "Termin":[6,7,8], "Counter":0},
+    {"KursID":"programmieren", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"mpm", "Termin":[4], "Counter":0},
+    {"KursID":"meiler", "Termin":[5], "Counter":0},
+    {"KursID":"edirom", "Termin":[6,7,8], "Counter":0},
+    {"KursID":"meiE", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"meiPraxis", "Termin":[4,5,6,7,8], "Counter":0},
+    {"KursID":"meiWerk", "Termin":[1,2,3], "Counter":0},
+    {"KursID":"git", "Termin":[4,5], "Counter":0},
+    {"KursID":"xTech", "Termin":[6,7,8], "Counter":0}
+];
+
+/* Konfiguration der Summerschool 2019 */
+/*var KursList = [
     {"KursID":"anwendung-mei", "Termin":[1,2,3,4,5], "Counter":0},
     {"KursID":"arbeiten-xml", "Termin":[1,2,3], "Counter":0},
     {"KursID":"exist", "Termin":[4,5], "Counter":0},
@@ -12,7 +31,7 @@ var KursList = [
     {"KursID":"mei-quellen", "Termin":[6,7,8], "Counter":0},
     {"KursID":"sem-web", "Termin":[1,2,3], "Counter":0},
     {"KursID":"workflows", "Termin":[6,7,8], "Counter":0}
-];
+];*/
 
 /*Konfiguration der Summerschool 2018*/
 /*var KursList = [
