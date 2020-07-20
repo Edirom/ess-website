@@ -13,13 +13,13 @@
 #################
 # apache
 #################
-FROM php:apache-stretch
+FROM php:apache
 LABEL maintainer="Peter Stadler for the ViFE"
 
-ARG SSMTP_AuthUser
-ARG SSMTP_AuthPass
-ARG CAPTCHA_PUBLIC_KEY
-ARG CAPTCHA_PRIVATE_KEY
+ENV GMAIL_User_FILE=/run/secrets/GMAIL_User
+ENV GMAIL_Password_FILE=/run/secrets/GMAIL_Password
+ENV CAPTCHA_PUBLIC_KEY_FILE=/run/secrets/CAPTCHA_PUBLIC_KEY
+ENV CAPTCHA_PRIVATE_KEY_FILE=/run/secrets/CAPTCHA_PRIVATE_KEY
 
 # Use the default production configuration
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
@@ -28,10 +28,12 @@ WORKDIR /var/www/html
 COPY . .
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends ssmtp && \
+    apt-get install -y --no-install-recommends msmtp msmtp-mta && \
     apt-get clean && \
     rm -r /var/lib/apt/lists/* && \
-    mv entrypoint.sh /usr/local/bin/
+    mv entrypoint.sh /usr/local/bin/ && \
+    touch /var/log/msmtp.log && \
+    chown -h www-data:www-data /var/log/msmtp.log
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["apache2-foreground"]
