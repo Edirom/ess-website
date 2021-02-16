@@ -4,3 +4,12 @@
 *.xsl
 *.xlsx
 *.xpr
+.idea
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+node_modules
+Dockerfile*
+

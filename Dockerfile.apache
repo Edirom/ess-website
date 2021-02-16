@@ -2,6 +2,17 @@
 # Use the nginx Dockerfile for the static site (when the registration is closed)
 # and the apache Dockerfile (with php enabled) for the php registration form
 
+FROM jekyll/jekyll:builder as builder
+
+WORKDIR /var/jekyllbuilder
+COPY . .
+
+# CAVEAT: need to create the directories first
+# for Jekyll to build properly
+RUN npm i && \
+    mkdir .jekyll-cache _site && \
+    jekyll build
+
 #################
 # apache
 #################
@@ -17,7 +28,7 @@ ENV CAPTCHA_PRIVATE_KEY_FILE=/run/secrets/CAPTCHA_PRIVATE_KEY
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 WORKDIR /var/www/html
-COPY . .
+COPY --from=builder /var/jekyllbuilder/_site/ .
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends msmtp msmtp-mta && \
