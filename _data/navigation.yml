@@ -4,3 +4,9 @@
   link: /registrierung
 - name: Archiv
   link: /archiv.html
+- name: Kooperationen
+  link: /partner.html
+- name: Veranstaltungsort
+  link: /veranstaltungsort.html
+- name: About
+  link: /about.html
