@@ -1,5 +1,10 @@
 .DS_Store
-.sass-cache/
 .picasa.ini
+.idea
 Thumbs.db
 develMaterial
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
