@@ -1,8 +1,8 @@
 {
   "name": "ess-website",
-  "version": "1.0.0",
-  "description": "Web pages for the [Edirom Summer School](http://ess.uni-paderborn.de) based on the CSS framework [Foundation](http://foundation.zurb.com).",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Web pages for the [Edirom Summer School](http://ess.uni-paderborn.de).",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,7 +12,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "CC-BY-4.0",
   "bugs": {
     "url": "https://github.com/Edirom/ess-website/issues"
   },
