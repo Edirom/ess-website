@@ -1,12 +1,10 @@
+- name: About
+  link: /about.html
 - name: Kursprogramm
   link: /programm.html
 - name: Registrierung
   link: /registrierung
-- name: Archiv
-  link: /archiv.html
-- name: Kooperationen
-  link: /partner.html
 - name: Veranstaltungsort
   link: /veranstaltungsort.html
-- name: About
-  link: /about.html
+- name: Archiv
+  link: /archiv.html
