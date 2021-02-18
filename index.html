@@ -1,14 +1,20 @@
 ---
 layout: default
-title: "12. Edirom-Summer-School"
+title: "Startseite"
 ---
 
 <div class="row">
     <div class="col-md-8">
-        <h3>Aktuelles</h3>
-        <h4 class="subheader">Termin der 12. Edirom-Summer-School 2021</h4>
-        <p><b>Save the date!</b><br/>
-        Die 12. Edirom-Summer-School findet vom 13. bis 17. September 2021 statt.</p>
+        <h2>Aktuelles</h2>
+        {% for post in site.posts limit: 3 %}
+        <div class="card bg-light my-4">
+            <div class="card-body">
+                <h3>{{post.title}}</h3>
+                <p class="card-text">{{post.excerpt}}</p>
+                <a class="btn btn-primary" href="{{post.url}}" role="button">Zum Beitrag</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
     <div class="col-md-4">
         <div class="card bg-light">
