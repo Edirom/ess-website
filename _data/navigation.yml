@@ -1,9 +1,9 @@
 - name: About
   link: /about.html
 - name: Kursprogramm
-  link: /programm.html
+  link: /2021/programm.html
 - name: Registrierung
-  link: /registrierung
+  link: /2021/registrierung.html
 - name: Veranstaltungsort
   link: /veranstaltungsort.html
 - name: Archiv
