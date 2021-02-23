@@ -6,3 +6,9 @@ sass:
     - _sass
     - node_modules/bootstrap/scss
   style: compressed
+
+copy_to_dest:
+  - source: node_modules/@fortawesome/fontawesome-free/webfonts/.
+    target: assets/webfonts/
+  - source: node_modules/@fortawesome/fontawesome-free/svgs/.
+    target: assets/svgs/
