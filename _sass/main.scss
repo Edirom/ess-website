@@ -1,17 +1,5 @@
-$backgroundColor: #ffffff;
-$bodyColor: #000000;
-$bodyFont: "Lucida Sans Unicode", "Lucida Grande", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-$header-font-family: $bodyFont;
 $ess-gray: rgb(94, 98, 99);
-$header-font-color: $ess-gray;
-$small-font-size: 60%;
-$small-font-color: lighten($header-font-color, 30%);
-
-body {
-  background: $backgroundColor;
-  color: $bodyColor;
-  font-family: $bodyFont;
-}
+$headings-color: $ess-gray;
 
 footer img {
   max-height: 40px;
