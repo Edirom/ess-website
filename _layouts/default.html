@@ -9,6 +9,7 @@
     <script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/bootstrap.min.js' | relative_url }}"></script>
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"/>
+    {% include matomo.html %}
   </head>
   <body>
     {% include navigation.html %}
@@ -19,6 +20,6 @@
       {% endif %}
       {{ content }}
     </div>
+    {% include footer.html %}
   </body>
-  {% include footer.html %}
 </html>
