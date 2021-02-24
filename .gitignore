@@ -2,10 +2,11 @@
 .picasa.ini
 .idea
 Thumbs.db
-develMaterial
-_site
-.sass-cache
-.jekyll-cache
+develMaterial/
+_site/
+.sass-cache/
+.jekyll-cache/
 .jekyll-metadata
-vendor
-node_modules
+vendor/
+node_modules/
+.bundle/
