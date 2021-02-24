@@ -21,36 +21,6 @@ programm_img: /archiv/2020/img/ESS2020_Programm.png
 		</div>
 	</div>
 
-	<!-- Do not change below -->
-	<div class="row my-4">
-		{% assign current-year = page.path | slice: 8, 4 %}
-		{% assign classes-path = current-year | append: '/classes/' %}
-		{% assign classes = site.archiv | where_exp:"item", "item.path contains classes-path" %}
-		<div class="col-3">
-			<div class="list-group" id="list-tab" role="tablist">
-				<a class="list-group-item list-group-item-action active" data-toggle="list" href="#list-overview" role="tab" aria-controls="overview">Übersicht</a>
-				{% for class in classes %}
-				<a class="list-group-item list-group-item-action" data-toggle="list" href="#list-{{ class.short }}" role="tab" aria-controls="{{ class.short }}">{{ class.title }} <small>({{ class.lang }})</small></a>
-				{% endfor %}
-			</div>
-		</div>
-		<div class="col-9">
-			<div class="tab-content" id="nav-tabContent">
-				<div class="tab-pane fade active show" id="list-overview" role="tabpanel">
-					<a href="{{ page.programm_pdf | relative_url }}" title="Edirom–Summer–School-Programm" target="_blank"><img class="img-fluid" src="{{ page.programm_img | relative_url }}" alt="Programmübersicht"/></a>
-				</div>
-				{% for class in classes %}
-				<div class="tab-pane fade" id="list-{{ class.short }}" role="tabpanel">{{ class }}</div>
-				{% endfor %}
-			</div>
-		</div>
+	{% include program-list.html %}
 
-
-	</div>
-	<script type="application/javascript">
-		$('#list-tab a').on('click', function (e) {
-			e.preventDefault()
-			$(this).tab('show')
-		})
-	</script>
 </div>
