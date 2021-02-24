@@ -10,3 +10,4 @@ _site/
 vendor/
 node_modules/
 .bundle/
+*.xpr
