@@ -18,5 +18,6 @@ copy_to_dest:
     target: assets/js/
 
 collections:
-  classes:
-    year: true
+  archiv:
+    sort_by: title
+    output: true
