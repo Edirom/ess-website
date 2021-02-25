@@ -36,3 +36,13 @@ footer {
   margin-bottom: $footer-height;
 }
 
+/*
+ * old styles in use
+ */
+.legacy_alert {
+  color:red !important;
+}
+
+.strike {
+  text-decoration:line-through;
+}
