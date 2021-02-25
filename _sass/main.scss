@@ -1,6 +1,38 @@
+/*
+ * ESS color definitions
+ */
 $ess-gray: rgb(94, 98, 99);
+$ess-green-lighter: rgb(134,231,51);
+$ess-green-light: rgb(112,193,42);
+$ess-green-medium: rgb(89,151,32);
+$ess-green-dark: rgb(60,100,23);
+/*
+ * setting bootstrap colors
+ */
+$primary: $ess-green-medium;
+$link-color: $ess-green-medium;
 $headings-color: $ess-gray;
 
-footer img {
-  max-height: 40px;
+/*
+ * copying $spacer and $navbar-padding-y
+ * for setting footer max-height
+ */
+$spacer: 1rem !default;
+$navbar-padding-y: $spacer / 2 !default;
+$footer-height: 4rem;
+
+footer {
+  max-height: $footer-height;
+  img {
+    max-height: $footer-height - 2 * $navbar-padding-y;
+  }
 }
+
+/*
+ * add margin-bottom according to
+ * the sticky footer height
+ */
+#main-content-container {
+  margin-bottom: $footer-height;
+}
+
