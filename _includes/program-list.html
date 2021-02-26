@@ -13,7 +13,11 @@
     <div class="col-9">
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade active show" id="list-overview" role="tabpanel">
+                {% if page.programm_img %}
                 <a href="{{ page.programm_pdf | relative_url }}" title="Edirom–Summer–School-Programm" target="_blank"><img class="img-fluid" src="{{ page.programm_img | relative_url }}" alt="Programmübersicht"/></a>
+                {% else %}
+                <span>Keine Übersicht verfügbar</span>
+                {% endif %}
             </div>
             {% for class in classes %}
             <div class="tab-pane fade" id="list-{{ class.short }}" role="tabpanel">{{ class }}</div>
