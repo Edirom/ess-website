@@ -4,14 +4,16 @@
 
 FROM jekyll/jekyll:builder as builder
 
+# set default jekyll user for building
+USER jekyll:jekyll
 WORKDIR /var/jekyllbuilder
-COPY . .
+COPY --chown=jekyll . .
 
-# CAVEAT: need to create the directories first
-# for Jekyll to build properly
+# build local
 RUN npm i && \
-    mkdir .jekyll-cache _site && \
-    jekyll build
+    bundle config set --local path 'vendor/bundle' && \
+    bundle install && \
+    bundle exec jekyll build
 
 #################
 # apache
