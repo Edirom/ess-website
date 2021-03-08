@@ -1,6 +1,6 @@
 ---
 title: Programmergänzungen 
-layout: default
+layout: post
 ---
 
 1. Programmänderung: Edirom User Forum auf den Abend verschoben. <br/>

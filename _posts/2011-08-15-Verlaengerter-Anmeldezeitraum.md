@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Verlängerter Anmeldezeitraum Edirom-Summer-School 2011
 ---
 

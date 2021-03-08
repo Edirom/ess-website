@@ -1,5 +1,5 @@
 ---
-layout: default 
+layout: post 
 title: ESS 2020 ausschließlich virtuell
 ---
 

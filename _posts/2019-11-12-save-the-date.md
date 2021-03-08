@@ -1,5 +1,5 @@
 ---
-layout: default 
+layout: post 
 title: Termin der 11. Edirom-Summer-School 2020
 ---
 

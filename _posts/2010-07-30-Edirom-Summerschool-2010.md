@@ -1,5 +1,5 @@
 ---
-layout: default 
+layout: post 
 title: Edirom Summerschool 2010 
 excerpt: Vom 21.09. bis 01.10. richtet das Edirom-Projekt die Summerschool 2010 rund um die Themen XML, digitale Text- und Musikedition aus.
 ---

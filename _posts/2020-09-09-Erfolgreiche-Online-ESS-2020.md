@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Erfolgreiche Online-ESS 2020
 ---
 

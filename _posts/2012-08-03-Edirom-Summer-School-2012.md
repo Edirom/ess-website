@@ -1,5 +1,5 @@
 ---
-layout: default 
+layout: post 
 title: Edirom-Summer-School 2012 vom 24. bis 28. Sept.
 ---
 

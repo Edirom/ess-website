@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Google-Kalender für die ESS 2020
 ---
 
