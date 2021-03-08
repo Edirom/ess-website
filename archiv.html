@@ -6,7 +6,7 @@ title: "Archiv"
 <div class="row">
 
 	<div class="col-md-6">
-		<h2>News-Archiv</h2>
+		<h1>News-Archiv</h1>
 		{% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
 		{% for year in postsByYear %}
 		<div>
@@ -22,7 +22,7 @@ title: "Archiv"
 	</div>
 
 	<div class="col-md-6">
-		<h2>Programm-Archiv</h2>
+		<h1>Programm-Archiv</h1>
 		<ul>
 			{% assign programs = site.archiv | where_exp:"item", "item.title contains 'Kursprogramm'" | sort: 'title' | reverse %}
 			{% for page in programs %}
