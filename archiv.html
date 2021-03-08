@@ -13,7 +13,8 @@ title: "Archiv"
 			<h3>{{ year.name }}</h3>
 			<ul>
 				{% for post in year.items %}
-				<li><a href="{{ post.url }}">{{ post.date | date: "%d. %b. %Y" }}: {{ post.title }}</a></li>
+				{% include date-german.html date=post.date showDay=true %}
+				<li><a href="{{ post.url }}">{{ formattedDate }}: {{ post.title }}</a></li>
 				{% endfor %}
 			</ul>
 		</div>
