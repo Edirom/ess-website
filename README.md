@@ -7,7 +7,7 @@ Web pages for the [Edirom Summer School] built via [Jekyll].
 
 ## Editing pages
 
-The regular website routine involves two issues:
+The regular website routine involves these issues:
 
 1. Adding news posts: 
    New posts must follow the filename format `YYYY-MM-DD-someName.suffix` 
@@ -18,6 +18,9 @@ The regular website routine involves two issues:
    named `programm.html`. It's important that the metadata "title" string 
    contains "Kursprogramm", otherwise the programm will not properly be 
    displayed on the "archiv" page.  
+3. Updating the top navigation:
+   To have the top navigation point at the right program, please modify the 
+   YAML file at `_data/navigation.yml`.
 
 
 ## Building locally
