@@ -1,23 +1,64 @@
+[![ESS Logo](https://github.com/Edirom/ess-website/raw/jekyll-refactoring/assets/img/ViFE-ESS-logo-ohne-Jahr/ViFE-ESS-logo-ohne-Jahr.png)](http://ess.uni-paderborn.de)
+
 # Edirom Summer School Website
 
-Web pages for the [Edirom Summer School](http://ess.uni-paderborn.de) based on the CSS framework [Foundation](http://foundation.zurb.com).
+Web pages for the [Edirom Summer School] built via [Jekyll].
+
+
+## Editing pages
+
+The regular website routine involves two issues:
+
+1. Adding news posts: 
+   New posts must follow the filename format `YYYY-MM-DD-someName.suffix` 
+   and are to be put in the `_posts` folder. The most recent three are 
+   displayed on the start page and all are accessible from the "archiv" page.  
+2. Adding new programs: 
+   Summer School programs for every year are found in the `_archiv` folder, 
+   named `programm.html`. It's important that the metadata "title" string 
+   contains "Kursprogramm", otherwise the programm will not properly be 
+   displayed on the "archiv" page.  
+
+
+## Building locally
+
+With Ruby and RubyGems installed as prerequisites it should be enough to enter
+```shell
+bundle install
+bundle exec jekyll serve --livereload
+```
+Now browse to `http://localhost:4000` to see the page live.
+
 
 ## Docker
-There's a docker image available at [Docker Hub](https://hub.docker.com/r/edirom/vife-website/), based on an Nginx web server. Run it with 
-```
-# docker run --rm --name ess -p8080:80 edirom/ess-website
+
+There's a docker image available at [Docker Hub], based on an Nginx web server. 
+Run it with 
+```shell
+docker run --rm --name ess -p8080:80 edirom/ess-website
 ```
 and point your browser at `http://localhost:8080`.
 
+
 ## Credits 
+
 Software and Frameworks used:
 
-* Foundation CSS Framework by [Zurb](http://foundation.zurb.com)
-* Webicons by [Fairhead Creative](http://fairheadcreative.com)
-* jQuery JavaScript library by [The jQuery Foundation](https://jquery.org)
+* Static site generator [Jekyll]
+* CSS Framework by [Bootstrap]
+* Webicons by [Font Awesome]
+* jQuery JavaScript library by [The OpenJS Foundation]
 * FormMail by [Tectite](http://www.tectite.com/)
 
 
 ## License
 
-This work is licensed under a [Creative Commons Attribution 4.0 Unported License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
+This work is licensed under a [Creative Commons Attribution 4.0 Unported License (CC BY 4.0)]
+
+[Jekyll]: https://jekyllrb.com
+[Edirom Summer School]: http://ess.uni-paderborn.de
+[Bootstrap]: https://getbootstrap.com
+[Font Awesome]: https://fontawesome.com
+[The OpenJS Foundation]: https://openjsf.org
+[Creative Commons Attribution 4.0 Unported License (CC BY 4.0)]: https://creativecommons.org/licenses/by/4.0/
+[Docker Hub]: https://hub.docker.com/r/edirom/vife-website/
