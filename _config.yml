@@ -21,3 +21,4 @@ collections:
   archiv:
     sort_by: title
     output: true
+    permalink: /:path
