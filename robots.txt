@@ -1,7 +1,4 @@
 # robots.txt for http://ess.uni-paderborn.de/
 
 User-agent: *
-#Disallow: /stylesheets/
-#Disallow: /javascripts/
-Disallow: /sass/
-#Disallow: /img/
+Disallow: /assets/
