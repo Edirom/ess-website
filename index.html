@@ -1,162 +1,36 @@
-<!DOCTYPE html>
-<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en" > <!--<![endif]-->
+---
+layout: default
+title: "Startseite"
+---
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
-	<meta name="google-site-verification" content="_lpEUZU8bG1CxddpNoKUBFjVcNncJwf9uHWPz3PJMm4" />
-	<meta name="referrer" content="same-origin"/>
-	<meta name="description" content="Die Edirom-Summer-School: 'Digital Humanities – Themen, Tools, Technologien'. 
-		Angeboten werden grundlegende Einführungen sowie Kurse für Fortgeschrittene in die Auszeichnungsstandards der Text Encoding Initiative (TEI) und der Music Encoding Initiative (MEI), Edirom, XML und vieles mehr."/>
-	<title>Edirom-Summer-School</title>
-	<link rel="stylesheet" href="stylesheets/app.css" />
-	<script src="javascripts/vendor/custom.modernizr.js"></script>
-    <style type="text/css">
-        .icon{height: 40px; margin-right:5px;}
-    </style>
-</head>
-<body>
+<div class="row">
+    <div class="col-md-8">
+        <h2>Aktuelles</h2>
+        {% for post in site.posts limit: 3 %}
+        <div class="card bg-light my-4">
+            <div class="card-body">
+                <h3>{{post.title}}</h3>
+                <p class="card-text">{{ post.excerpt | strip_html }}</p>
+                <a class="btn btn-primary" href="{{post.url}}" role="button">Zum Beitrag</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-light">
+            <img class="card-img-top" src=" {{ "2021/img/ViFE-ESS-logo-2021.png" | relative_url }}" alt="ESS-2021-Logo"/>
+            <div class="card-body">
+                <p class="text-center">
+                    <!--					<b>Edirom-Summer-School</b>-->
+                    <br/> <b>13. bis 17. September 2021</b>
+                    <br/>Heinz-Nixdorf-Institut
+                    <br />Universität Paderborn
+                </p>
 
-	<!-- Nav Bar -->
-	
-	<div class="contain-to-grid fixed myBorder">
-		<nav class="top-bar">
-			
-			<ul class="title-area">
-				<li class="name">
-					<h1 class="hide-for-small"><a href="#">Edirom-Summer-School</a></h1>
-					<h1 class="show-for-small"><a href="#">ESS</a></h1>
-				</li>
-				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-			</ul>
-			
-			<section class="top-bar-section">
-				<ul class="right">
-					<li><a href="2021/programm.html">Kursprogramm</a></li>
-					<li class="divider"></li>
-					<li><a href="2021/registrierung.html">Registrierung</a></li>
-					<li class="divider"></li>
-					<li class="has-dropdown">
-						<a href="#">Informationen</a>
-							<ul class="dropdown">
-								<li><a href="about.html">Über die ESS</a></li>
-								<li><a href="veranstaltungsort.html">Veranstaltungsort</a></li>
-								<li><a href="partner.html">Kooperationen</a></li>
-							</ul>
-					</li>	
-					<li class="divider"></li>
-					<li>
-						<a href="archiv.html">Archiv</a>
-					</li>
-				</ul>
-			</section>
-		</nav>
-	</div>
-	
-	<!-- End Nav -->
-	
-	
-	<!-- Main Page Content and Sidebar -->
-	
-	<div class="row">
-		
-		<!-- Main Blog Content -->
-		<div class="columns large-8" role="content">
-			<div class="row text-center show-for-small">
-				<h1> 12. Edirom-Summer-School</h1>
-				<img src="img/ViFE-ESS-logo-2021.png" width="150" height="29" alt="Dots"/>
-				<h2>Digital Humanities – Themen, Tools, Technologien</h2>
-				<p>13. – 17. September 2021<br/>Heinz-Nixdorf-Institut der Universität Paderborn</p>
-			</div>
-			
-			<div class="row">
-				<div class="column" align="justify">
-					<h3>Aktuelles</h3>
-					<h4 class="subheader">Termin der 12. Edirom-Summer-School 2021</h4>
-					<p><b>Save the date!</b><br/>
-					Die 12. Edirom-Summer-School findet vom 13. bis 17. September 2021 statt.</p>
-				</div>
-			</div>
-		</div>
-		
-		<div class="columns large-4">
-			<div class="row panel">
-<!--				<img class=" hide-for-small" src="2019/img/ESS2019_Logo_complete.png" alt="Edirom-Summer-School-Logo"/>-->
-				
-				<p class="hide-for-small" align="center" >
-					<img src="2021/img/ViFE-ESS-logo-2021.png" width="300" height="61" alt="ESS-2021-Logo"/>
-				
-					
-<!--					<b>Edirom-Summer-School</b>-->
-					<br/> <b>13. bis 17. September 2021</b>
-					<br/>Heinz-Nixdorf-Institut
-					<br />Universität Paderborn
-				</p>
-				
-				<hr class="hide-for-small" />
-			
-				<p>Follow  us on 
-					<a class="webicon twitter small" href="https://twitter.com/edirom" title="Edirom on Twitter">Twitter</a>
-					<a class="webicon github small" href="https://github.com/Edirom" title="Edirom on GitHub">Github</a>
-				</p>
-				<a class="twitter-timeline"  href="https://twitter.com/edirom"  data-widget-id="352403975489859585">Tweets von @edirom</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			</div>
-		</div>
-	</div>
-	
-	<div class="row">
-		
-		<div class="columns large-8 pull-4" role="content">			
-		</div>
-		
-	</div>
-	<!-- End Main Content -->	
-	<!-- End Main Content and Sidebar -->
-	
-	<!-- Footer -->
-	
-	<footer class="row">
-		<div class="small-12 columns">
-			<hr />
-			<div class="row">
-				<div class="small-12 columns text-center">
-					<p><a href="impressum.html">Impressum | </a><a href="http://www.edirom.de" target="_blank"><img src="img/ViFE-logo-s.png" width="100"/></a></p>
-				</div>
-			</div>
-		</div>
-	</footer>
+                <a class="twitter-timeline"  href="https://twitter.com/edirom"  data-widget-id="352403975489859585">Tweets von @edirom</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-
-	<!-- Check for Zepto support, load jQuery if necessary -->
-	<script>
-	  document.write('<script src=javascripts/vendor/'
-	    + ('__proto__' in {} ? 'zepto' : 'jquery')
-	    + '.js><\/script>');
-	</script>
-	<script src="javascripts/foundation/foundation.js"></script>
-	<script src="javascripts/foundation/foundation.topbar.js"></script>
-	<script>
-	  $(document).foundation();
-	</script>
-		
-	<!-- Matomo -->
-	<script type="text/javascript">
-  var _paq = _paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(["setDomains", ["*.ess.upb.de","*.ess.uni-paderborn.de"]]);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//matomo.edirom.de/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', '2']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-	<noscript><p><img src="//matomo.edirom.de/piwik.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-	<!-- End Matomo Code -->
-</body>
-</html>
+            </div>
+        </div>
+    </div>
+</div>

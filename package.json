@@ -1,0 +1,26 @@
+{
+  "name": "ess-website",
+  "version": "2.0.0",
+  "description": "Web pages for the [Edirom Summer School](http://ess.uni-paderborn.de).",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edirom/ess-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/Edirom/ess-website/issues"
+  },
+  "homepage": "https://github.com/Edirom/ess-website#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}

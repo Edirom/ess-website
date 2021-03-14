@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'de-DE' }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+    <meta name="google-site-verification" content="_lpEUZU8bG1CxddpNoKUBFjVcNncJwf9uHWPz3PJMm4" />
+    <meta name="referrer" content="same-origin"/>
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/bootstrap.min.js' | relative_url }}"></script>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"/>
+    {% include matomo.html %}
+  </head>
+  <body>
+    {% include navigation.html %}
+    <div class="container py-4" id="main-content-container">
+      {{ content }}
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

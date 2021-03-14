@@ -1,201 +1,35 @@
-<!DOCTYPE html>
-<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en" > <!--<![endif]-->
+---
+layout: default
+title: "Archiv"
+---
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
-	<meta name="referrer" content="same-origin"/>
-	<meta name="description" content="Archiv der Edirom-Summer-School: Übersicht über das Programm der letzten Jahre"/>
-	<title>Archiv</title>
-	<link rel="stylesheet" href="stylesheets/app.css" />
-	<script src="javascripts/vendor/custom.modernizr.js"></script>
-    <style type="text/css">
-        .icon{height: 40px; margin-right:5px;}
-    </style>
-</head>
-<body>
+<div class="row">
 
-	<!-- Nav Bar -->
-	
-	<div class="contain-to-grid fixed myBorder">
-		<nav class="top-bar">
-			
-			<ul class="title-area">
-				<li class="name">
-					<h1 class="hide-for-small"><a href="index.html"><!--<img src="2019/img/ESS2019_Logo.png" class="icon" alt="Edirom-Summer-School 2019"/>-->Edirom-Summer-School</a></h1>
-					<h1 class="show-for-small"><a href="index.html">ESS</a></h1>
-				</li>
-				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	<div class="col-md-6">
+		<h1>News-Archiv</h1>
+		{% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+		{% for year in postsByYear %}
+		<div>
+			<h3>{{ year.name }}</h3>
+			<ul>
+				{% for post in year.items %}
+				{% include date-german.html date=post.date showDay=true %}
+				<li><a href="{{ post.url }}">{{ formattedDate }}: {{ post.title }}</a></li>
+				{% endfor %}
 			</ul>
-			
-			<section class="top-bar-section">
-				<ul class="right">
-					<li><a href="2021/programm.html">Kursprogramm</a></li>
-					<li class="divider"></li>
-					<li><a href="2021/registrierung.html">Registrierung</a></li>
-					<li class="divider"></li>
-					<li class="has-dropdown">
-						<a href="#">Informationen</a>
-							<ul class="dropdown">
-								<li><a href="about.html">Über die ESS</a></li>
-								<li><a href="veranstaltungsort.html">Veranstaltungsort</a></li>
-								<li><a href="partner.html">Kooperationen</a></li>
-							</ul>
-					</li>	
-					<li class="divider"></li>
-					<li>
-						<a href="archiv.html">Archiv</a>
-					</li>
-				</ul>
-			</section>
-		</nav>
+		</div>
+		{% endfor %}
+
 	</div>
-	
-	<!-- End Nav -->
-	
-	
-	<!-- Main Page Content and Sidebar -->
-	
-	<div class="row">
-		<!-- Main Blog Content -->
-		<div class="row">
-			<h2>Archiv der Edirom-Summer-School</h2>
-			<div class="row">
-				<div>
-				<section class="active">
-					<p/>
-					<h3>Programm 2020</h3>
-						<div>
-							<p><img src="2020/img/ESS2020_Programm.png" width="762" height="632" alt="ESS Programm 2020"/></p>
-						</div>
-				</section>
-			</div>
-		</div>
-		<div class="row">
-			<div>
-				<section class="active">
-					<p/>
-					<h3>Programm 2019</h3>
-					<div>
-						<p><img src="2019/img/ESS2019_Programm.png" width="762" height="632" alt="ESS Programm 2019"/></p>
-					</div>
-				</section>
-			</div>
-		</div>
-		<div class="row">
-			<div>
-				<section class="active">
-					<p/>
-					<h3>Programm 2018</h3>
-					<div>
-						<p><img src="2018/img/ESS2018_Programm.png" width="762" height="632" alt="ESS Programm 2018"/></p>
-					</div>
-				</section>
-			</div>
-		</div>
-		<div class="row">
-			<div>
-				<section class="active">
-					<p/>
-					<h3>Programm 2017</h3>
-					<div>
-						<p><img src="2017/img/ESS2017_Programm.png" width="762" height="632" alt="ESS Programm 2017"/></p>
-					</div>
-				</section>
-			</div>
-		</div>
-		<div class="row">
-			<div>
-				<section class="active">
-				<p/>
-					<h3>Programm 2016</h3>
-					<div>
-						<p><img src="2016/img/ESS2016_Programm.png" width="762" height="632" alt="ESS Programm 2016"/></p>
-					</div>
-				</section>
-			</div>
-		</div>
-		<div class="row">
-			<div>
-				<section class="active">
-					<p/>
-					<h3>Programm 2015</h3>
-					<div>
-						<p><img src="2015/img/ESS2015_Programm.png" width="762" height="632" alt="ESS Programm 2015"/></p>
-					</div>
-				</section>
-			</div>
-		</div>
-		<div class="row">
-			<div>
-				<section class="active">
-					<p/>
-					<h3>Programm 2014</h3>
-					<div>
-						<p><img src="2014/img/ESS2014_Programm.png" width="762" height="632" alt="ESS Programm 2014"/></p>
-					</div>
-				</section>
-			</div>
-		</div>
-		<div class="row">
-			<div>
-				<section class="active">
-					<p/>
-					<h3>Programm 2013</h3>
-					<div>
-						<p><img src="2013/img/ESS2013_Programm.png" width="762" height="632" alt="ESS Programm 2014"/></p>
-					</div>
-				</section>
-			</div>
-		</div>
 
-		
-	<!-- End Main Content -->	
-	<!-- End Main Content and Sidebar -->
-	
-	<!-- Footer -->
-	
-	<footer class="row">
-		<div class="small-12 columns">
-			<hr />
-			<div class="row">
-				<div class="small-12 columns text-center">
-					<p><a href="impressum.html">Impressum | </a><a href="http://www.edirom.de" target="_blank"><img src="img/ViFE-logo-s.png" width="100"/></a></p>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<div class="col-md-6">
+		<h1>Programm-Archiv</h1>
+		<ul>
+			{% assign programs = site.archiv | where_exp:"item", "item.title contains 'Kursprogramm'" | sort: 'title' | reverse %}
+			{% for page in programs %}
+			<li><a href="{{ page.url }}">{{page.title}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
 
-
-	<!-- Check for Zepto support, load jQuery if necessary -->
-	<script>
-	  document.write('<script src=javascripts/vendor/'
-	    + ('__proto__' in {} ? 'zepto' : 'jquery')
-	    + '.js><\/script>');
-	</script>
-	<script src="javascripts/foundation/foundation.js"></script>
-	<script src="javascripts/foundation/foundation.topbar.js"></script>
-	<script>
-	  $(document).foundation();
-	</script>
-		
-		<!-- Matomo -->
-		<script type="text/javascript">
-  var _paq = _paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(["setDomains", ["*.ess.upb.de","*.ess.uni-paderborn.de"]]);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//matomo.edirom.de/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', '2']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-		<noscript><p><img src="//matomo.edirom.de/piwik.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-		<!-- End Matomo Code -->
-</body>
-</html>
+</div>
