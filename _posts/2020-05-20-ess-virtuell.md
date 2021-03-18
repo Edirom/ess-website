@@ -12,4 +12,4 @@ Das Programm bleibt so bestehen, wie es auf der Website bereits [hier]
 veröffentlicht ist. Details zur Durchführung der ersten virtuellen ESS folgen
 bis Ende Juni. Die Anmeldung wird ab Mitte Juli möglich sein.
 
-[hier]: {{ '/archiv/2020/programm.html' | relative_url }}
+[hier]: {{ '/2020/programm.html' | relative_url }}
