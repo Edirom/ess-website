@@ -6,7 +6,7 @@ title: DIME Tools Spotlight
 Wir freuen uns, dass auch in diesem Jahr die Gelegenheit von den Teilnehmer*innen genutzt wird, die eigene Arbeit im Rahmen eines Spotlights vorzustellen.
 
 Dienstag von 9.15 bis 10.45 Uhr präsentiert Oleksii Sapov 
-**"Werkzeuge der Digital-Interaktiven Mozart-Edition"**: 
+**„Werkzeuge der Digital-Interaktiven Mozart-Edition“**: 
 Das Spotlight verschafft einen Überblick über einige Werkzeuge 
 der [Digital-Interaktiven Mozart-Edition], die die Bearbeitung 
 von MEI-Dateien erleichtern und somit auch für andere Projekte 
