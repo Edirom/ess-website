@@ -2,7 +2,7 @@
 layout: post
 title: "6. Edirom-Summer-School mit Teilnehmerrekord"
 author:
-- Anna-Maria Komprecht
+- Anna Maria Komprecht
 ---
 
 ### Workshop-Woche zum digitalen Arbeiten in der Musikwissenschaft
@@ -12,7 +12,7 @@ mit DARIAH-DE zum sechsten Mal die Edirom-Summer-School (ESS) in den Räumen des
 Jahren eine stetig steigende Teilnehmerzahl zu verbuchen war, wurde in diesem Jahr ein neuer Rekord mit insgesamt 100 Beteiligten aufgestellt.**
 
 Im Rahmen der einwöchigen Sum-mer School, die unter dem Motto „Digital Humanities – Themen, Tools, Technologien“ stand, wurden verschiedene Kurse und Workshops zu Inhalten rund um die Anwendung
-von digitalen Standards, Arbeitsweisen und Werkzeugen in den Digital Humanities (DH) bzw. im Bereich der digita- len Musikedition angeboten. Während auch in den vergangenen Jahren die
+von digitalen Standards, Arbeitsweisen und Werkzeugen in den Digital Humanities (DH) bzw. im Bereich der digitalen Musikedition angeboten. Während auch in den vergangenen Jahren die
 überwiegende Zahl der Teilnehmenden aus dem musikwissenschaftlich-universitären Bereich kam, war die Zahl der Vertreter von (Musik-)Bibliotheken, von DH-Toolentwicklern
 und von (Musik-)Verlagen dieses Jahr besonders signifikant. Auch das steigende Interesse aus dem Ausland an der ESS zeigte sich mit Teilnehmenden und Dozenten aus Dänemark, Italien, Österreich,
 Polen, der Schweiz, den USA und Kanada.
@@ -37,7 +37,7 @@ Dank der stetig steigenden Anzahl an Teilnehmern und der Aktualität von digital
 Vom 26. bis 30. September 2016 wird der Forschungsverbund [ViFE] wieder in die Räume des Heinz Nixdorf Instituts einladen.
 
 
-*Der vorstehende Bericht "6. Edirom-Summer-School mit Teilnehmerrekord" von Anna-Maria Komprecht erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), Wintersemester 2015/2016, S. 36/37.*
+*Der vorstehende Bericht "6. Edirom-Summer-School mit Teilnehmerrekord" von Anna Maria Komprecht erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 2/2015, S. 36/37.*
 
 [puz]: https://kw.uni-paderborn.de/fileadmin/fakultaet/Institute/kunst/Forschung/HiP/PUZ_2-2015-web--.pdf
 [ViFE]: https://edirom.de/
