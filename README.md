@@ -1,4 +1,4 @@
-[![ESS Logo](https://github.com/Edirom/ess-website/raw/jekyll-refactoring/assets/img/ViFE-ESS-logo-ohne-Jahr/ViFE-ESS-logo-ohne-Jahr.png)](http://ess.uni-paderborn.de)
+[![ESS Logo](https://github.com/Edirom/ess-website/raw/main/assets/img/ViFE-ESS-logo-ohne-Jahr/ViFE-ESS-logo-ohne-Jahr.png)](http://ess.uni-paderborn.de)
 
 # Edirom Summer School Website
 
