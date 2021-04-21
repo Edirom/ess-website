@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Redesign der ESS-Webseiten
+authors: Peter Stadler
 ---
 
 Die Webseiten der Edirom-Summer-School sind nach fast 8 Jahren (puh, wie die 
