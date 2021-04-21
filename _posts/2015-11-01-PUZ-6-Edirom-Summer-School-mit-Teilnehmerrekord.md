@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Paderborner Universitätszeitschrift (puz): 6. Edirom-Summer-School mit Teilnehmerrekord
+title: "Paderborner Universitätszeitschrift (puz): 6. Edirom-Summer-School mit Teilnehmerrekord"
 ---
 
 In der Paderborner Universitätszeitschrift (puz) für das Wintersemester 2015/2016 erschien der folgende Bericht *6. Edirom-Summer-School mit Teilnehmerrekord* von Anna-Maria Komprecht. 
