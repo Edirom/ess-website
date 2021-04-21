@@ -8,10 +8,11 @@ layout: default
         {{ content }}
         <p class="byline">
             {% assign authorCount = page.authors | size %}
+            {% include date-german.html date=page.date showDay=true %}
             {% if authorCount == 0 %}
                 <!-- no author given -->
             {% elsif authorCount == 1 %}
-                {{ page.authors }}
+                {{ page.authors }}, {{ formattedDate }}
             {%- else -%}
                 {%- for author in page.authors -%}
                     {%- if forloop.first -%}
@@ -22,9 +23,8 @@ layout: default
                         <span>, {{ author }}</span>
                     {%- endif -%}
                 {%- endfor -%}
+                , {{ formattedDate }}
             {%- endif -%}
-            {%- include date-german.html date=page.date showDay=true -%}
-            , {{ formattedDate }}
         </p>
     </div>
 </div>
