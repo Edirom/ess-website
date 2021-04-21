@@ -25,7 +25,7 @@ The regular website routine involves these issues:
 
 ## Building locally
 
-With Ruby and RubyGems installed as prerequisites it should be enough to enter
+With Ruby, RubyGems and Bundler (`gem install bundler`) installed as prerequisites it should be enough to enter
 ```shell
 bundle install
 bundle exec jekyll serve --livereload
