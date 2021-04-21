@@ -21,8 +21,8 @@ Die ESS 2017 findet vom 18. bis zum 22. September 2017 im HNI statt. Im Zentrum 
 Themen und es wird erstmals einen thematischen Kurs über die ganze Woche für Fortgeschrittene geben, bei dem an einem Beispiel alle technischen und inhaltlichen Fragen behandelt werden.
 Auch dieses Mal wird der Blick auf die Digitalen Geisteswissenschaften mit einer öffentlichen Keynote geweitet.  
 
-*Der vorstehende Bericht "Erfolgskonzept Edirom-Summer-School" von Dr. Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 1/2017, S. 106.*
+*Der vorstehende Bericht „Erfolgskonzept Edirom-Summer-School“ von Dr. Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 1/2017, S. 106.*
 
 [puz]: https://kw.uni-paderborn.de/fileadmin/fakultaet/Institute/anglistik-amerikanistik/Geierhos/Presse/PUZ/PUZ_SoSe_2017.pdf
 [ViFE]: https://edirom.de/
-[Music Encoding Initiative]: https://music-encoding.org/
+[MEI]: https://music-encoding.org/

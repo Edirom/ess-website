@@ -37,7 +37,7 @@ Dank der stetig steigenden Anzahl an Teilnehmern und der Aktualität von digital
 Vom 26. bis 30. September 2016 wird der Forschungsverbund [ViFE] wieder in die Räume des Heinz Nixdorf Instituts einladen.
 
 
-*Der vorstehende Bericht "6. Edirom-Summer-School mit Teilnehmerrekord" von Anna Maria Komprecht erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 2/2015, S. 36/37.*
+*Der vorstehende Bericht „6. Edirom-Summer-School mit Teilnehmerrekord“ von Anna Maria Komprecht erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 2/2015, S. 36/37.*
 
 [puz]: https://kw.uni-paderborn.de/fileadmin/fakultaet/Institute/kunst/Forschung/HiP/PUZ_2-2015-web--.pdf
 [ViFE]: https://edirom.de/

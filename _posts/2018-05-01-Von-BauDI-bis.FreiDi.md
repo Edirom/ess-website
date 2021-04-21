@@ -12,7 +12,7 @@ als Austausch-Forum fest etabliert. 2018 liegt ihr Schwerpunkt im Spannungsfeld 
 
 Seit 2009 veranstaltet der am [Musikwissenschaftlichen Seminar Detmold/Paderborn] angesiedelte Virtuelle Forschungsverbund Edirom ([ViFE]) jährlich im September im HNI eine Summer School.
 Es werden Kurse zur digitalen (Musik)-Edition angeboten und gleichzeitig besteht die Gelegenheit, sich über die Entwicklungen in den digitalen Themen der Musikwissenschaft und der Musikbibliotheken
-auszutauschen. So stellte sich einerseits das junge Projekt „[Ludwig] Baumann digital“ (BauDi) im Rahmen der neu eingeführten „Spotlights“ vor, andererseits wurden in einem einwöchigen Kurs alle in einem digitalen Projekt
+auszutauschen. So stellte sich einerseits das junge Projekt „Ludwig Baumann digital“ (BauDi) im Rahmen der neu eingeführten „Spotlights“ vor, andererseits wurden in einem einwöchigen Kurs alle in einem digitalen Projekt
 verwendeten Techniken im Anschluss an das renommierte Detmold/Paderborner Projekt „[Freischütz digital]“ (FreiDi) unterrichtet. Das Master-Projekt der Studierenden aus Karlsruhe stieß auf große Resonanz.
 Gemeinsam mit den Anwesenden wurde überlegt, welche weiteren Erschließungen in welcher Form für die Forschung und die Nutzerinnen und Nutzer von besonderem Interesse wären. In dem Kurs „Performing Freischütz“, der
 in deutscher und englischer Sprache stattfand, wurden die in dieser genuin digitalen Edition eingesetzten unterschiedlichsten Techniken zur Erschließung der Text- und Musikquellen von Carl Maria von Webers
@@ -21,7 +21,7 @@ bekanntester Oper „Der Freischütz“ (Edirom, [MEI], [TEI] etc.) an neuen Dat
 **Großes Interesse an Musik-Codierung**  
 Da die Paderborner ESS in Europa die einzige Summer School ist, bei der Einführungs- und Fortgeschrittenen-Kurse in die Musik-Codierungssprache MEI angeboten werden, ist der Bedarf nach wie vor groß: Diesmal
 musste ein zweiter Einführungskurs angeboten werden, um die Nachfrage zu decken. Gleichzeitig besteht aber auch ein stetiges Interesse an einem Blick über den Tellerrand: Kürzere Workshops, die die Entwicklung im
-gesamten Netz (Semantic Web) in den Blick nahmen oder den Umgang mit digitalen Forschungsdaten (DARIAH- DE) zum Thema hatten, waren stark nachgefragt.  
+gesamten Netz (Semantic Web) in den Blick nahmen oder den Umgang mit digitalen Forschungsdaten (DARIAH-DE) zum Thema hatten, waren stark nachgefragt.  
 Ebenfalls sehr gut besucht war die Keynote, mit der Dr. Arianna Ciula vom King’s College London („Modelling in theory and in practice: sampling digital musicology projects“) einen Einblick in die zahlreichen Projekte
 des King’s Digital Laboratory und damit Anregungen zu eigenen weiteren Arbeiten gab.
 
@@ -36,7 +36,7 @@ Zur Betonung dieses Schwerpunktes der ESS 2018 wird sich auch die Keynote von Ri
 Details zum Programm finden sich [hier].
 
 
-*Der vorstehende Bericht "Von BauDI bis FreiDi. Die ESS 2017 zwischen Lehre und Community-Building" von Dr. Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 1/2018, S. 28/29.*  
+*Der vorstehende Bericht „Von BauDI bis FreiDi. Die ESS 2017 zwischen Lehre und Community-Building“ von Dr. Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 1/2018, S. 28/29.*  
 
 
 [puz]: https://kw.uni-paderborn.de/fileadmin/fakultaet/Institute/anglistik-amerikanistik/Geierhos/Presse/PUZ/PUZ_SoSe_2018.pdf
