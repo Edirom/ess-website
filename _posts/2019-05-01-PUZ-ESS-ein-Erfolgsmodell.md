@@ -1,7 +1,8 @@
 ---
 layout: post 
 title: Edirom Summer School – ein Erfolgsmodell 
-authors: Dr. Irmlind Capelle
+authors: 
+- Irmlind Capelle
 ---
 
 **2010 begann alles noch recht bescheiden: Die Mitarbeiterinnen und Mitarbeiter
@@ -40,8 +41,7 @@ die Jubiläumsveranstaltung ist darüber hinaus eine spezifische Form
 Postersession geplant.
 2019 findet vom 2. bis 6. September im HNF Paderborn die 10. ESS statt. 
 
-*Der vorstehende Bericht „Edirom Summer School – ein Erfolgsmodell“ von Dr.
-Irmlind Capelle erschien ebenfalls in der Paderborner
+*Der vorstehende Bericht „Edirom Summer School – ein Erfolgsmodell“ von Irmlind Capelle erschien ebenfalls in der Paderborner
 Universitätszeitschrift ([puz]), 1/2019, S. 76.*
 
 

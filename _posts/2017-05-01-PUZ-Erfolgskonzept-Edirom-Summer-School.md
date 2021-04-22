@@ -2,7 +2,7 @@
 layout: post
 title: Erfolgskonzept Edirom-Summer-School
 authors:
-- Dr. Irmlind Capelle
+- Irmlind Capelle
 ---
 
 **Seit 2010 veranstaltet der Virtuelle Forschungsverbund Edirom (ViFE), der am Musikwissenschaftlichen Seminar Detmold/Paderborn angesiedelt ist, im September jeden Jahres eine Woche mit Kursen und Workshops zur digitalen Editionspraxis.**  
@@ -21,7 +21,7 @@ Die ESS 2017 findet vom 18. bis zum 22. September 2017 im HNI statt. Im Zentrum 
 Themen und es wird erstmals einen thematischen Kurs über die ganze Woche für Fortgeschrittene geben, bei dem an einem Beispiel alle technischen und inhaltlichen Fragen behandelt werden.
 Auch dieses Mal wird der Blick auf die Digitalen Geisteswissenschaften mit einer öffentlichen Keynote geweitet.  
 
-*Der vorstehende Bericht „Erfolgskonzept Edirom-Summer-School“ von Dr. Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 1/2017, S. 106.*
+*Der vorstehende Bericht „Erfolgskonzept Edirom-Summer-School“ von Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 1/2017, S. 106.*
 
 [puz]: https://digital.ub.uni-paderborn.de/up/periodical/structure/2918962
 [ViFE]: https://edirom.de/

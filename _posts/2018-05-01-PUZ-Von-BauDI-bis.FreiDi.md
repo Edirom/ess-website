@@ -2,7 +2,7 @@
 layout: post
 title: Von BauDI bis FreiDi
 authors:
-- Dr. Irmlind Capelle
+- Irmlind Capelle
 ---
 
 ### Die ESS 2017 zwischen Lehre und Community-Building
@@ -36,7 +36,7 @@ Zur Betonung dieses Schwerpunktes der ESS 2018 wird sich auch die Keynote von Ri
 Details zum Programm finden sich [hier].
 
 
-*Der vorstehende Bericht „Von BauDI bis FreiDi. Die ESS 2017 zwischen Lehre und Community-Building“ von Dr. Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 1/2018, S. 28/29.*  
+*Der vorstehende Bericht „Von BauDI bis FreiDi. Die ESS 2017 zwischen Lehre und Community-Building“ von Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 1/2018, S. 28/29.*  
 
 
 [puz]: https://digital.ub.uni-paderborn.de/up/periodical/structure/2918962
