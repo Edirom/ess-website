@@ -1,0 +1,90 @@
+<div class="row my-4">
+    {% assign current-year = page.path | slice: 8, 4 %}
+    {% assign classes-path = current-year | append: '/classes/' %}
+    {% assign classes = site.archiv | where_exp:"item", "item.path contains classes-path" %}
+
+    {% comment %}
+        linke Spalte = Menüeinträge
+    {% endcomment %}
+    <div class="col-3">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active"
+               data-toggle="list" href="#overview" role="tab"
+               aria-controls="overview">Übersicht</a>
+            {% for class in classes %}
+            <a class="list-group-item list-group-item-action"
+               data-toggle="list" href="#{{ class.label }}" role="tab"
+               aria-controls="{{ class.label }}">{{ class.title-short }}
+                <small>({{ class.lang }})</small></a>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% comment %}
+        rechte Spalte = Kursbeschreibungen
+    {% endcomment %}
+    <div class="col-9">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade active show" id="overview" role="tabpanel">
+                {% if page.programm_img %}
+                <a href="{{ page.programm_pdf | relative_url }}"
+                   title="Edirom–Summer–School-Programm"
+                   target="_blank">
+                    <img class="img-fluid"
+                         src="{{ page.programm_img | relative_url }}"
+                         alt="Programmübersicht"/></a>
+                {% else %}
+                <span>Keine Übersicht verfügbar</span>
+                {% endif %}
+            </div>
+            {% for class in classes %}
+            <div class="tab-pane fade" id="{{ class.label }}" role="tabpanel">
+                <h2>{{ class.title }}</h2>
+                <h3>Dozent*innen:
+                    <ul class="teachers">
+                        {% for teacher in class.teachers %}
+                        <li>{{ teacher }}</li>
+                        {% endfor %}
+                    </ul>
+                </h3>
+                <h4>Zeiten:
+                    <ul class="slots">
+                        {% assign thisYearsTimeslots =
+                        site.data.timeslots[current-year] %}
+                        {% for slot in class.slots %}
+                            <li>
+                            {% assign currentDate = thisYearsTimeslots[slot].date %}
+                            {% include date-german.html date=currentDate
+                                showDayOfWeek=true showDay=true %}
+                            {{ formattedDate | truncatewords: 3, "" }},
+                             {{ thisYearsTimeslots[slot].time_start }}–{{
+                                thisYearsTimeslots[slot].time_end }} Uhr
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </h4>
+                <h4>Raum: {{ class.room }}</h4>
+                {{ class }}
+                <dl>
+                    <dt>Kurssprache</dt>
+                    <dd>{{ class.lang | capitalize }}</dd>
+                    <dt>Voraussetzungen/Vorkenntnisse</dt>
+                    <dd>{{ class.requirements | join: "; " }}</dd>
+                    <dt>Software</dt>
+                    <dd>{{ class.software | join: "; " }}</dd>
+                    <dt>Zielgruppe</dt>
+                    <dd>{{ class.target-audience | capitalize }}</dd>
+                    <dt>Kosten</dt>
+                    <dd>{{ class.costs }}</dd>
+                </dl>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script type="application/javascript">
+        $('#list-tab a').on('click', function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+    </script>
+</div>
