@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Verlängerter Anmeldezeitraum Edirom-Summer-School 2011
+title: Verlängerter Anmeldezeitraum ESS 2011
 ---
 
 Der neue Anmeldeschluss für die Edirom-Summer-School 2011 
