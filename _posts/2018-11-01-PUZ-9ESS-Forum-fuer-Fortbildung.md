@@ -2,7 +2,7 @@
 layout: post
 title: 9. ESS Forum für Fortbildung und Community-Bildung
 authors:
-- Dr. Irmlind Capelle
+- Irmlind Capelle
 ---
 
 **Neben Kursen zur digitalen Musik-Edition bildeten Metadaten als wichtiges Bindeglied zwischen Wissenschaft und Gedächtnisinstitutionen einen Schwerpunkt der diesjährigen Edirom Summer School (ESS).**
@@ -20,7 +20,7 @@ unwiderstehliche Leidenschaft?“, da auch hier das künftige Verhältnis von Wi
 Mit vier von den Teilnehmern gehaltenen Spotlights und interessanten Projekt- bzw. Themenvorstellungen bei der Postersession wurde die ESS auch in diesem Jahr ihrem Ziel, sowohl Forum für Fortbildung
 als auch für Community-Bildung zu sein, gerecht.
 
-*Der vorstehende Bericht „9. Edirom Summer School Forum für Fortbildung und Community-Bildung“ von Dr. Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 2/2018, S. 78.*  
+*Der vorstehende Bericht „9. Edirom Summer School Forum für Fortbildung und Community-Bildung“ von Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 2/2018, S. 78.*  
 
 
 [puz]: https://digital.ub.uni-paderborn.de/up/periodical/structure/2918962
