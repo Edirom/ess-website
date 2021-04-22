@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "11. Edirom-Summer-School im Sommer"
-author:
+authors:
 - Dr. Irmlind Capelle
 ---
 

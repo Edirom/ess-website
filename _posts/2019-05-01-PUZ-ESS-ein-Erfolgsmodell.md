@@ -1,7 +1,7 @@
 ---
 layout: post 
 title: Edirom Summer School – ein Erfolgsmodell 
-author: Dr. Irmlind Capelle
+authors: Dr. Irmlind Capelle
 ---
 
 **2010 begann alles noch recht bescheiden: Die Mitarbeiterinnen und Mitarbeiter

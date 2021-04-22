@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Von BauDI bis FreiDi
-author:
+authors:
 - Dr. Irmlind Capelle
 ---
 

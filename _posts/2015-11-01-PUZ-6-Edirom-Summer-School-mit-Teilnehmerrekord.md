@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "6. Edirom-Summer-School mit Teilnehmerrekord"
-author:
+authors:
 - Anna Maria Komprecht
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 9. ESS Forum für Fortbildung und Community-Bildung
-author:
+authors:
 - Dr. Irmlind Capelle
 ---
 

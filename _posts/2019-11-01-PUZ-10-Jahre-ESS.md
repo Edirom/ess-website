@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Zehn Jahre Edirom Summerschool
-author:
+authors:
 - Vera Grund
 - Kristin Herold
 - Agnes Seipelt

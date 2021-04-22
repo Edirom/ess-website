@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Erfolgskonzept Edirom-Summer-School
-author:
+authors:
 - Dr. Irmlind Capelle
 ---
 
