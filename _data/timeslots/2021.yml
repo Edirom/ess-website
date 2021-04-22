@@ -1,0 +1,40 @@
+Mo1:
+  date: "2021-09-13"
+  time_start: "14:15"
+  time_end: "17:45"
+Di1:
+  date: "2021-09-14"
+  time_start: "09:15"
+  time_end: "10:45"
+Di2:
+  date: "2021-09-14"
+  time_start: "11:15"
+  time_end: "12:45"
+Di3:
+  date: "2021-09-14"
+  time_start: "14:15"
+  time_end: "17:45"
+Mi1:
+  date: "2021-09-15"
+  time_start: "9:15"
+  time_end: "12:45"
+Mi2:
+  date: "2021-09-15"
+  time_start: "14:15"
+  time_end: "17:45"
+Do1:
+  date: "2021-09-16"
+  time_start: "09:15"
+  time_end: "10:45"
+Do2:
+  date: "2021-09-16"
+  time_start: "11:15"
+  time_end: "12:45"
+Do3:
+  date: "2021-09-16"
+  time_start: "14:15"
+  time_end: "17:45"
+Fr1:
+  date: "2021-09-17"
+  time_start: "9:15"
+  time_end: "12:45"
