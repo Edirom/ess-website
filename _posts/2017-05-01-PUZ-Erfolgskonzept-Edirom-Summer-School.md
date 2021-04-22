@@ -23,6 +23,6 @@ Auch dieses Mal wird der Blick auf die Digitalen Geisteswissenschaften mit einer
 
 *Der vorstehende Bericht „Erfolgskonzept Edirom-Summer-School“ von Dr. Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 1/2017, S. 106.*
 
-[puz]: https://kw.uni-paderborn.de/fileadmin/fakultaet/Institute/anglistik-amerikanistik/Geierhos/Presse/PUZ/PUZ_SoSe_2017.pdf
+[puz]: https://digital.ub.uni-paderborn.de/up/periodical/structure/2918962
 [ViFE]: https://edirom.de/
 [MEI]: https://music-encoding.org/

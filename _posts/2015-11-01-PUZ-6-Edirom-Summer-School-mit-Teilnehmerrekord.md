@@ -39,7 +39,7 @@ Vom 26. bis 30. September 2016 wird der Forschungsverbund [ViFE] wieder in die R
 
 *Der vorstehende Bericht „6. Edirom-Summer-School mit Teilnehmerrekord“ von Anna Maria Komprecht erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 2/2015, S. 36/37.*
 
-[puz]: https://kw.uni-paderborn.de/fileadmin/fakultaet/Institute/kunst/Forschung/HiP/PUZ_2-2015-web--.pdf
+[puz]: https://digital.ub.uni-paderborn.de/up/periodical/structure/2918962
 [ViFE]: https://edirom.de/
 [Musikwissenschaftlichen Seminar Detmold/Paderborn]: https://www.muwi-detmold-paderborn.de/
 [Music Encoding Initiative]: https://music-encoding.org/

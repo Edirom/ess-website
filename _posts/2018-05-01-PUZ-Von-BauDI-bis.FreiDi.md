@@ -39,7 +39,7 @@ Details zum Programm finden sich [hier].
 *Der vorstehende Bericht „Von BauDI bis FreiDi. Die ESS 2017 zwischen Lehre und Community-Building“ von Dr. Irmlind Capelle erschien ebenfalls in der Paderborner Universitätszeitschrift ([puz]), 1/2018, S. 28/29.*  
 
 
-[puz]: https://kw.uni-paderborn.de/fileadmin/fakultaet/Institute/anglistik-amerikanistik/Geierhos/Presse/PUZ/PUZ_SoSe_2018.pdf
+[puz]: https://digital.ub.uni-paderborn.de/up/periodical/structure/2918962
 [ViFE]: https://edirom.de/
 [Musikwissenschaftlichen Seminar Detmold/Paderborn]: https://www.muwi-detmold-paderborn.de/
 [Freischütz digital]: https://freischuetz-digital.de/
