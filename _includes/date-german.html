@@ -3,8 +3,15 @@
 {%- endcomment -%}
 {%- assign formattedDate = '' -%}
 
+{%- if include.showDayOfWeek -%}
+{%- assign dayNames = 'Mo.,Di.,Mi.,Do.,Fr.,Sa.,So.' | split: ',' -%}
+{%- assign dayOfWeek = include.date | date: '%-w' | minus: 1 -%}
+{%- assign formattedDate = dayNames[dayOfWeek] | append: ', ' -%}
+{%- endif -%}
+
 {%- if include.showDay -%}
-{%- assign formattedDate = include.date | date: '%-d' | append: '. ' -%}
+{%- assign day = include.date | date: '%-d' | append: '. ' -%}
+{%- assign formattedDate = formattedDate | append: day -%}
 {%- endif -%}
 
 {%- assign monthNames =
