@@ -1,7 +1,8 @@
 <div class="row my-4">
     {% assign current-year = page.path | slice: 8, 4 %}
     {% assign classes-path = current-year | append: '/classes/' %}
-    {% assign classes = site.archiv | where_exp:"item", "item.path contains classes-path" %}
+    {% assign classes = site.archiv | where_exp:"item", "item.path contains
+    classes-path" | sort_natural: "title-short" %}
 
     {% comment %}
         linke Spalte = Menüeinträge
@@ -73,7 +74,7 @@
                     <dt>Software</dt>
                     <dd>{{ class.software | join: "; " }}</dd>
                     <dt>Zielgruppe</dt>
-                    <dd>{{ class.target-audience | capitalize }}</dd>
+                    <dd>{{ class.target-audience }}</dd>
                     <dt>Kosten</dt>
                     <dd>{{ class.costs }}</dd>
                 </dl>
