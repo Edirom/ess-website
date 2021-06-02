@@ -22,3 +22,22 @@ collections:
     sort_by: title
     output: true
     permalink: /:path:output_ext
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: "_archiv/*/programm.html"
+    values:
+      layout: "program"
+  - scope:
+      path: "_archiv/*/classes"
+    values:
+      requirements: "–"
+      level: "any"
+      lang: "deutsch"
+      software: "–"
+      costs: "–"
