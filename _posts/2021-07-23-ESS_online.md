@@ -13,8 +13,8 @@ Präsenzveranstaltung nicht erlauben.
 
 Wie im letzten Jahr werden alle Kurse zeitlich wie im Programmablauf angegeben
 per ZOOM stattfinden. Kosten für die Teilnahme an der ESS entfallen damit. Wir
-bitten jedoch um Anmeldung zu den Kursen und werden hierzu die Registrierung am
-4. August 2021 öffnen.
+bitten jedoch um Anmeldung zu den Kursen und werden hierzu die Registrierung 
+am 4. August 2021 öffnen.
 
 Wir laden noch einmal herzlich zu einer Bewerbung für die Spotlights ein: Diese
 sind ein Format ausdrücklich für Teilnehmer:innen und eine gute Gelegenheit,
