@@ -27,6 +27,6 @@ RUN npm i && \
 #################
 FROM nginx:alpine
 LABEL maintainer="Peter Stadler for the ViFE"
-LABEL org.opencontainers.image.source=https://github.com/edirom/ess-website
+LABEL org.opencontainers.image.source=https://github.com/Edirom/ess-website
 
 COPY --from=builder /var/jekyllbuilder/_site/  /usr/share/nginx/html/
