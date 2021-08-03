@@ -27,6 +27,7 @@ RUN npm i && \
 #################
 FROM php:apache
 LABEL maintainer="Peter Stadler for the ViFE"
+LABEL org.opencontainers.image.source=https://github.com/edirom/ess-website
 
 ENV GMAIL_User_FILE=/run/secrets/GMAIL_User
 ENV GMAIL_Password_FILE=/run/secrets/GMAIL_Password
