@@ -1,11 +1,11 @@
 ---
-layout: post
+layout: program
 title: "Registrierung ESS 2021"
 ---
 
 <div class="row justify-content-center">
 
-    <div class="col">
+    <div class="col-12">
 
         <p>Ab Sommer 2021 können Sie sich hier für die 12. Edirom-Summer-School
             2021 registrieren.
@@ -13,5 +13,243 @@ title: "Registrierung ESS 2021"
             für aktuelle Ankündigungen.
         </p>
 
+    </div>
+
+    <div class="col">
+        <form class="needs-validation" name="form1" method="post" enctype="multipart/form-data" action="formmail.php" novalidate="true" onsubmit="return validate_form(this)">
+            <input type="hidden" name="recipients" value="essbe_gaedirom.de" />
+            <input type="hidden" name="required" value="vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail" />
+            <input type="hidden" name="subject" value="[ESS2021] Anmeldung" />
+            <input type="hidden" name="good_template" value="form_ok.html" />
+            <input type="hidden" name="bad_template" value="form_bad.html" />
+            <input type="hidden" name="derive_fields" value="realname=vorname+nachname,imgverify=g-recaptcha-response,arverify=imgverify" />
+            <input type="hidden" name="csvfile" value="anmeldungen2021.csv" />
+            <input type="hidden" name="csvcolumns" value="nachname,vorname,email,euf,seo,keynote,kurse,kommentar" />
+            <input type="hidden" name="autorespond"
+                   value="PlainFile=autorespond.txt,Subject=[ESS2021] Anmeldebestätigung,FromAddr=essbe_gaedirom.de" />
+            <input type="hidden" name="mail_options"
+                   value="CharSet=utf-8" />
+
+            <div class="row">
+
+                <div class="col">
+                    <fieldset>
+                        <legend>Persönliche Angaben</legend>
+
+                        <!--
+                        <div id="anredeDiv" class="form-group row">
+                            <label for="anrede" class="col-form-label col-sm-2">Anrede</label>
+                            <div class="col-sm-10">
+                                <select id="anrede" class="form-control" name="anrede" required="required">
+                                    <option disabled="disabled" selected="selected"></option>
+                                    <option>Frau</option>
+                                    <option>Herr</option>
+                                    <option>(keine)</option>
+                                </select>
+                                <div class="invalid-feedback">Bitte auswählen</div>
+                            </div>
+                        </div>
+                        -->
+
+                        <div id="vornameDiv" class="form-group row">
+                            <label for="vorname" class="col-form-label col-sm-2">Vorname</label>
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Ihr Vorname (Pflichtangabe)" name="vorname" id="vorname" class="form-control" required="required"/>
+                                <div class="invalid-feedback">Wir benötigen Ihren Vornamen für die Anmeldung</div>
+                            </div>
+                        </div>
+                        <div id="nachnameDiv" class="form-group row">
+                            <label for="nachname" class="col-form-label col-sm-2">Nachname</label>
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Ihr Nachname (Pflichtangabe)" name="nachname" id="nachname" class="form-control" required="required"/>
+                                <div class="invalid-feedback">Wir benötigen Ihren Nachnamen für die Anmeldung</div>
+                            </div>
+                        </div>
+                        <div id="emailDiv" class="form-group row">
+                            <label for="email" class="col-form-label col-sm-2">E-Mail</label>
+                            <div class="col-sm-10">
+                                <input type="email" placeholder="Ihre E-Mail-Adresse (Pflichtangabe)" name="email" id="email" class="form-control" required="required"/>
+                                <div class="invalid-feedback">Bitte geben Sie eine gültige Email-Adresse ein</div>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="form-group">
+                            <label for="student">
+                                <input type="checkbox" id="student" style="display: none;" name="student" value="ja"/>
+                                <span class="custom checkbox"></span> Ich bin eingeschriebene/r Studierende/r an der Universität Paderborn oder der HfM Detmold.
+                            </label>
+                        </div>
+                        -->
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Teilnahme an Abendveranstaltungen</legend>
+
+                        <div class="form-check">
+                            <input type="checkbox" id="keynote" name="key" value="ja" class="form-check-input"/>
+                            <label for="keynote" class="form-check-label">Keynote</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="euf" name="euf" value="ja" class="form-check-input"/>
+                            <label for="euf" class="form-check-label">Postersession</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="pabquiz" name="pabquiz" value="ja" class="form-check-input"/>
+                            <label for="pabquiz" class="form-check-label">PAB-Quiz</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Kommentar</legend>
+                        <textarea placeholder="Sie können uns hier einen Kommentar hinterlassen" name="kommentar" id="kommentar" class="form-control"></textarea>
+                    </fieldset>
+                </div>
+
+                <div class="col">
+                    <fieldset class="kurse">
+                        <legend>Kurswahl</legend>
+
+                        {% assign current-year = page.path | slice: 8, 4 %}
+                        {% assign classes-path = current-year | append: '/classes/' %}
+                        {% assign classes =
+                            site.archiv | where_exp:"item", "item.path contains
+                            classes-path" | sort_natural: "title" %}
+                        {% assign thisYearsTimeslots =
+                            site.data.timeslots[current-year] %}
+
+                        {% for class in classes %}
+                        <div class="form-check">
+                            <input type="checkbox" id="{{ class.label }}" name="kurse" value="{{ class.label }}" class="form-check-input" data-slots="{{ class.slots | join: ' ' }}"/>
+                            <label for="{{ class.label }}" class="form-check-label">{{ class.title }}</label>
+                            <small class="form-text text-muted">Beginn:
+                                {% assign startSlot =  class.slots[0] %}
+                                {% assign endSlot =  class.slots.last %}
+
+                                {% assign currentDate = thisYearsTimeslots[startSlot].date %}
+                                {% include date-german.html date=currentDate
+                                showDayOfWeek=true showDay=true %}
+                                {{ formattedDate | truncatewords: 3, "" }},
+                                {{ thisYearsTimeslots[startSlot].time_start }} Uhr
+                                <br/>Ende:
+                                {% assign currentDate = thisYearsTimeslots[endSlot].date %}
+                                {% include date-german.html date=currentDate
+                                showDayOfWeek=true showDay=true %}
+                                {{ formattedDate | truncatewords: 3, "" }},
+                                {{ thisYearsTimeslots[endSlot].time_end }} Uhr
+                            </small>
+                        </div>
+                        {% endfor %}
+
+                    </fieldset>
+                    <div class="captcha">
+                        <div class="g-recaptcha" data-sitekey="6LehmiYTAAAAACjoZFLWSSR8AVe44FXp3pwhIel3"></div>
+                        <small class="errorText" style="display:none;">Bitte bestätigen</small>
+                    </div>
+                    <input class="small button secondary right" type="submit" value="Senden"/>
+                </div>
+            </div>
+        </form>
+        <script>
+            // Example starter JavaScript from https://getbootstrap.com/docs/4.6/components/forms/#custom-styles
+            // for disabling form submissions if there are invalid fields
+            (function() {
+                'use strict';
+                window.addEventListener('load', function() {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function(form) {
+                        form.addEventListener('submit', function(event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+        <script>
+            let counters = new Map();
+
+            // helper function for comparing arrays
+            function match(termin1,termin2)
+            {
+                for (var i=0;i<termin1.length;i++)
+                    for (var j=0;j<termin2.length;j++)
+                    {
+                        if (termin1[i]===termin2[j]) return true;
+                    }
+                return false;
+            }
+
+            function conflict(kursElem, force) {
+
+                // skip if checkbox is (already) disabled
+                if($(kursElem).attr('disabled'))
+                    return;
+
+                let kurse = $('.kurse input');
+                let curSlots = $(kursElem).attr('data-slots').split(' ');
+                //console.log(kursElem.checked);
+
+                if (force || kursElem.checked===true) {
+                    //console.log('this is if')
+                    $(curSlots).each(function(a,b){
+                        if(counters.has(b)) {
+                            counters.set(b, counters.get(b) + 1)
+                        }
+                        else {
+                            counters.set(b, 1)
+                        }
+                    })
+
+                    console.log(counters);
+
+                    for(let i=0;i<kurse.length;i++) {
+
+                        if(kurse[i].id === kursElem.id) continue;
+                        //console.log(kurse[i].id);
+                        let runningKurseSlots = $(kurse[i]).attr('data-slots').split(' ');
+                        if (match(curSlots,runningKurseSlots)) {
+                            //console.log('hit at ', kurse[i].id)
+                            $(kurse[i]).attr('disabled', true)
+                            //    KursList[i].Counter++;
+                        }
+                    }
+                }
+                else {
+                    //console.log('this is else')
+                    $(curSlots).each(function(a,b){
+                        if(counters.has(b)) {
+                            counters.set(b, counters.get(b) - 1)
+                        }
+                        else {
+                            counters.set(b, 0)
+                        }
+                    })
+
+                    console.log(counters);
+
+                    for(let i=0;i<kurse.length;i++) {
+
+                        if(kurse[i].id === kursElem.id) continue;
+                        //console.log(kurse[i].id);
+                        let runningKurseSlots = $(kurse[i]).attr('data-slots').split(' ');
+                        if (match(curSlots,runningKurseSlots)) {
+                            //console.log('hit at ', kurse[i].id)
+                            $(kurse[i]).attr('disabled', false)
+                            //    KursList[i].Counter++;
+                        }
+                    }
+                }
+
+            }
+
+            $('.kurse input').click(function() {
+                conflict(this);
+            })
+        </script>
     </div>
 </div>
