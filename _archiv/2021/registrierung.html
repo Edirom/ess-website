@@ -46,7 +46,9 @@ title: "Registrierung ESS 2021"
 
                         {% for class in classes %}
                         <div class="form-check">
-                            <input type="checkbox" id="{{ class.label }}" name="kurse" value="{{ class.label }}" class="form-check-input" data-slots="{{ class.slots | join: ' ' }}"/>
+                            <input type="checkbox" id="{{ class.label }}"
+                                   name="kurse[]" value="{{ class.label }}"
+                                   class="form-check-input" data-slots="{{ class.slots | join: ' ' }}"/>
                             <label for="{{ class.label }}" class="form-check-label">{{ class.title }}</label>
                             <small class="form-text text-muted">Beginn:
                                 {% assign startSlot =  class.slots[0] %}
