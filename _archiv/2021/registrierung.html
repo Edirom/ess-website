@@ -24,7 +24,7 @@ title: "Registrierung ESS 2021"
             <input type="hidden" name="bad_template" value="form_bad.html" />
             <input type="hidden" name="derive_fields" value="realname=vorname+nachname,imgverify=g-recaptcha-response,arverify=imgverify" />
             <input type="hidden" name="csvfile" value="anmeldungen2021.csv" />
-            <input type="hidden" name="csvcolumns" value="nachname,vorname,email,euf,seo,keynote,kurse,kommentar" />
+            <input type="hidden" name="csvcolumns" value="nachname,vorname,email,kurse,kommentar" />
             <input type="hidden" name="autorespond"
                    value="PlainFile=autorespond.txt,Subject=[ESS2021] Anmeldebestätigung,FromAddr=essbe_gaedirom.de" />
             <input type="hidden" name="mail_options"
@@ -73,21 +73,6 @@ title: "Registrierung ESS 2021"
                     <fieldset>
                         <legend>Persönliche Angaben</legend>
 
-                        <!--
-                        <div id="anredeDiv" class="form-group row">
-                            <label for="anrede" class="col-form-label col-sm-2">Anrede</label>
-                            <div class="col-sm-10">
-                                <select id="anrede" class="form-control" name="anrede" required="required">
-                                    <option disabled="disabled" selected="selected"></option>
-                                    <option>Frau</option>
-                                    <option>Herr</option>
-                                    <option>(keine)</option>
-                                </select>
-                                <div class="invalid-feedback">Bitte auswählen</div>
-                            </div>
-                        </div>
-                        -->
-
                         <div id="vornameDiv" class="form-group row">
                             <label for="vorname" class="col-form-label col-sm-2">Vorname</label>
                             <div class="col-sm-10">
@@ -109,31 +94,6 @@ title: "Registrierung ESS 2021"
                                 <div class="invalid-feedback">Bitte geben Sie eine gültige Email-Adresse ein</div>
                             </div>
                         </div>
-                        <!--
-                        <div class="form-group">
-                            <label for="student">
-                                <input type="checkbox" id="student" style="display: none;" name="student" value="ja"/>
-                                <span class="custom checkbox"></span> Ich bin eingeschriebene/r Studierende/r an der Universität Paderborn oder der HfM Detmold.
-                            </label>
-                        </div>
-                        -->
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Teilnahme an Abendveranstaltungen</legend>
-
-                        <div class="form-check">
-                            <input type="checkbox" id="keynote" name="key" value="ja" class="form-check-input"/>
-                            <label for="keynote" class="form-check-label">Keynote</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" id="euf" name="euf" value="ja" class="form-check-input"/>
-                            <label for="euf" class="form-check-label">Postersession</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" id="pabquiz" name="pabquiz" value="ja" class="form-check-input"/>
-                            <label for="pabquiz" class="form-check-label">PAB-Quiz</label>
-                        </div>
                     </fieldset>
 
                     <fieldset>
@@ -152,8 +112,6 @@ title: "Registrierung ESS 2021"
                         </div>
                     </div>
 
-                    <!--<input class="small button secondary right"
-                            type="submit" value="Senden"/>-->
                 </div>
             </div>
         </form>
