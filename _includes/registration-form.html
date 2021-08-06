@@ -117,6 +117,7 @@
                         document.getElementById('g-recaptcha-response').value.length === 0) {
                         // add an extra warning if recaptcha is not solved
                         if(document.getElementById('g-recaptcha-response').value.length===0) {
+                            $('.g-recaptcha span.invalid-feedback').remove();
                             $('.g-recaptcha').append('<span class="invalid-feedback">Bitte das Captcha ausfüllen</span>');
                             $('.g-recaptcha span.invalid-feedback').show();
                             $('.g-recaptcha').css('border', '1px solid red');
