@@ -1,7 +1,9 @@
 ---
 layout: post 
 title: ESS 2021 online 
-excerpt: ESS online 
+excerpt: "Die Edirom Summer School wird auch in diesem Jahr (rein) online
+stattfinden, da die Auflagen zur Durchführung der ESS eine
+Präsenzveranstaltung nicht erlauben."
 authors:
 - Irmlind Capelle
 ---
