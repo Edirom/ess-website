@@ -3,7 +3,14 @@ Sehr geehrte*r $realname,
 vielen Dank für Ihre Anmeldung zur 12. Edirom-Summer-School 2021 (ESS2021),
 deren Eingang wir Ihnen hiermit bestätigen.
 
-$kurse
+Wir haben von Ihnen folgende Angaben erhalten, die wir selbstverständlich nur zur Durchführung der Edirom Summer School gebrauchen und nicht an Dritte weitergeben.
+
+Vorname: $vorname
+Nachname: $nachname
+Email: $email
+Kurse:
+* ${kurse:sep=\n* }
+Kommentar: $kommentar
 
 Da die Veranstaltungen online stattfinden, werden keine Kursgebühren erhoben.
 
