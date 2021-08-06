@@ -1,0 +1,36 @@
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"
+                    id="staticBackdropLabel">Anmeldung geschlossen
+                </h5>
+            </div>
+            <div class="modal-body">
+                Die Anmeldung zur Edirom Summer School {{ current-year }}
+                wurde am
+                {% include date-german.html date=page.deadline
+                showDayOfWeek=false showDay=true %}
+                {{ formattedDate }}
+                geschlossen.
+                <br/>
+                Hinweise zum aktuellen Programm finden Sie unter <a
+                    href="{{ current-year | append: '/programm.html' | relative_url }}"
+            >Kursprogramm</a>, alle älteren Jahrgänge im <a
+                    href="{{ 'archiv.html' | relative_url }}">Archiv</a>.
+            </div>
+            <div class="modal-footer">
+                <a href="http://localhost:4000" class="btn btn-primary btn-lg"
+                   tabindex="-1" role="button" aria-disabled="true">Startseite
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        let now = Date.now(),
+            anmeldeschluss = Date.parse('{{ page.deadline }}') ;
+        if(now > anmeldeschluss) {
+            $('#staticBackdrop').modal('show');
+        }
+    </script>
+</div>
