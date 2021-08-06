@@ -16,7 +16,10 @@
             <a class="list-group-item list-group-item-action"
                data-toggle="list" href="#{{ class.label }}" role="tab"
                aria-controls="{{ class.label }}">{{ class.title-short }}
-                <small>({{ class.lang }})</small></a>
+                <small>({{ class.lang }})</small>
+                {% if class.full %}
+                <span class="text-warning">(ausgebucht)</span>
+                {% endif %}</a>
             {% endfor %}
         </div>
     </div>

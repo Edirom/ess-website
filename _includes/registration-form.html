@@ -33,8 +33,19 @@
                     <input type="checkbox" id="{{ class.label }}"
                            name="kurse[]"
                            value="{{ class.title-short }} ({{ class.lang }})"
-                           class="form-check-input" data-slots="{{ class.slots | join: ' ' }}"/>
-                    <label for="{{ class.label }}" class="form-check-label">{{ class.title }}</label>
+                           class="form-check-input"
+                           {% if class.full %}
+                           disabled="disabled"
+                           {% else %}
+                           data-slots="{{ class.slots | join: ' ' }}"
+                           {% endif %}
+                            />
+                    <label for="{{ class.label }}" class="form-check-label">
+                        {{ class.title }}
+                        {% if class.full %}
+                        <span class="text-warning">(ausgebucht)</span>
+                        {% endif %}
+                    </label>
                     <small class="form-text text-muted">Beginn:
                         {% assign startSlot =  class.slots[0] %}
                         {% assign endSlot =  class.slots.last %}
