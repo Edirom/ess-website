@@ -1,0 +1,174 @@
+<form class="needs-validation" name="form1" method="post" enctype="multipart/form-data" action="formmail.php" novalidate="true">
+    {% assign current-year = page.path | slice: 8, 4 %}
+    <input type="hidden" name="recipients" value="essbe_gaedirom.de" />
+    <input type="hidden" name="required" value="vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail" />
+    <input type="hidden" name="subject"
+           value="[ESS{{ current-year }}] Anmeldung" />
+    <input type="hidden" name="good_template" value="form_ok.html" />
+    <input type="hidden" name="bad_template" value="form_bad.html" />
+    <input type="hidden" name="derive_fields" value="realname=vorname+nachname,imgverify=g-recaptcha-response,arverify=imgverify" />
+    <input type="hidden" name="csvfile" value="anmeldungen{{ current-year }}.csv" />
+    <input type="hidden" name="csvcolumns" value="nachname,vorname,email,kurse,kommentar" />
+    <input type="hidden" name="autorespond"
+           value="PlainTemplate=autorespond.txt,Subject=[ESS{{ current-year }}] Anmeldebestätigung,FromAddr=essbe_gaedirom.de" />
+    <input type="hidden" name="mail_options"
+           value="CharSet=utf-8" />
+
+    <div class="row">
+
+        <div class="col">
+            <fieldset class="kurse">
+                <legend>Kurswahl</legend>
+
+                {% assign current-year = page.path | slice: 8, 4 %}
+                {% assign classes-path = current-year | append: '/classes/' %}
+                {% assign classes =
+                site.archiv | where_exp:"item", "item.path contains
+                classes-path" | sort_natural: "title" %}
+                {% assign thisYearsTimeslots =
+                site.data.timeslots[current-year] %}
+
+                {% for class in classes %}
+                <div class="form-check mb-2">
+                    <input type="checkbox" id="{{ class.label }}"
+                           name="kurse[]"
+                           value="{{ class.title-short }} ({{ class.lang }})"
+                           class="form-check-input" data-slots="{{ class.slots | join: ' ' }}"/>
+                    <label for="{{ class.label }}" class="form-check-label">{{ class.title }}</label>
+                    <small class="form-text text-muted">Beginn:
+                        {% assign startSlot =  class.slots[0] %}
+                        {% assign endSlot =  class.slots.last %}
+
+                        {% assign currentDate = thisYearsTimeslots[startSlot].date %}
+                        {% include date-german.html date=currentDate
+                        showDayOfWeek=true showDay=true %}
+                        {{ formattedDate | truncatewords: 3, "" }},
+                        {{ thisYearsTimeslots[startSlot].time_start }} Uhr
+                        <br/>Ende:
+                        {% assign currentDate = thisYearsTimeslots[endSlot].date %}
+                        {% include date-german.html date=currentDate
+                        showDayOfWeek=true showDay=true %}
+                        {{ formattedDate | truncatewords: 3, "" }},
+                        {{ thisYearsTimeslots[endSlot].time_end }} Uhr
+                    </small>
+                </div>
+                {% endfor %}
+
+            </fieldset>
+        </div>
+        <div class="col">
+            <fieldset>
+                <legend>Persönliche Angaben</legend>
+
+                <div id="vornameDiv" class="form-group row">
+                    <label for="vorname" class="col-form-label col-sm-2">Vorname</label>
+                    <div class="col-sm-10">
+                        <input type="text" placeholder="Ihr Vorname" name="vorname" id="vorname" class="form-control" required="required"/>
+                        <div class="invalid-feedback">Wir benötigen Ihren Vornamen für die Anmeldung</div>
+                    </div>
+                </div>
+                <div id="nachnameDiv" class="form-group row">
+                    <label for="nachname" class="col-form-label col-sm-2">Nachname</label>
+                    <div class="col-sm-10">
+                        <input type="text" placeholder="Ihr Nachname" name="nachname" id="nachname" class="form-control" required="required"/>
+                        <div class="invalid-feedback">Wir benötigen Ihren Nachnamen für die Anmeldung</div>
+                    </div>
+                </div>
+                <div id="emailDiv" class="form-group row">
+                    <label for="email" class="col-form-label col-sm-2">E-Mail</label>
+                    <div class="col-sm-10">
+                        <input type="email" placeholder="Ihre E-Mail-Adresse" name="email" id="email" class="form-control" required="required"/>
+                        <div class="invalid-feedback">Bitte geben Sie eine gültige Email-Adresse ein</div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Kommentar</legend>
+                <textarea
+                        placeholder="Sie können uns hier einen Kommentar hinterlassen" name="kommentar" id="kommentar" class="form-control" rows="3"></textarea>
+            </fieldset>
+
+            <div class="row mt-3">
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                <div class="g-recaptcha col"
+                     data-sitekey="6LehmiYTAAAAACjoZFLWSSR8AVe44FXp3pwhIel3"></div>
+                <div class="col mt-3">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        Senden</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+<script>
+    // Example starter JavaScript from https://getbootstrap.com/docs/4.6/components/forms/#custom-styles
+    // for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+<script>
+    // Javascript for disabling inputs of concurrent workshops
+    function conflict(kursElem) {
+
+        // get the slot labels (e.g. 'Mi1', 'Mi2') for the current input
+        let curSlots = $(kursElem).attr('data-slots').split(' ');
+
+        // if checked, disable all concurrent classes
+        if (kursElem.checked) {
+            // iterate over the current slot labels and simply
+            // disable all inputs with the same label
+            $(curSlots).each(function(a,b){
+                $('input[data-slots~=' + b + ']').attr('disabled',
+                    true);
+            })
+            // since the above loop disables every match,
+            // re-enable here for current input
+            $(kursElem).attr('disabled', false);
+        }
+
+            // otherwise re-enable matching inputs
+            // this is a bit complicated, since we need to look out
+        // for cross matches
+        else {
+            // iterate over the current slot labels
+            $(curSlots).each(function(a,slot){
+                // ... and iterate over all matching inputs
+                $('input[disabled][data-slots~=' + slot + ']').each(function(b,curInput) {
+                    let curInputSlots =
+                            $(curInput).attr('data-slots').split(' '),
+                        counter = 0;
+                    // ... and its slot labels to check whether there
+                    // is any other checked input with the same label
+                    $(curInputSlots).each(function(x,y) {
+                        counter+= $('input:checked[data-slots~=' + y +
+                            ']').length;
+                    })
+                    if(counter === 0) {
+                        $(curInput).attr('disabled', false);
+                    }
+                })
+            })
+        }
+    }
+
+    $('.kurse input').on('change', function() {
+        conflict(this);
+    })
+</script>
