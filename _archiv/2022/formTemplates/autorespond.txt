@@ -1,0 +1,35 @@
+Sehr geehrte*r $realname,
+
+vielen Dank für Ihre Anmeldung zur 13. Edirom-Summer-School 2022 (ESS2022),
+deren Eingang wir Ihnen hiermit bestätigen.
+
+Wir haben von Ihnen folgende Angaben erhalten, die wir selbstverständlich nur zur Durchführung der Edirom Summer School gebrauchen und nicht an Dritte weitergeben.
+
+Vorname: $vorname
+Nachname: $nachname
+Email: $email
+Kurse:
+* ${kurse:sep=\n* }
+Kommentar: $kommentar
+
+
+Nähere Informationen zur technischen Durchführung der Kurse erhalten Sie in der Woche vor der ESS.
+
+Wir haben für die Kommunikation zur ESS auch einen Slack-Kanal eingerichtet:
+https://join.slack.com/t/ediromsummerschool/shared_invite/zt-u2nzgzus-mcru4ByKHnZM96uEgFIlkg
+Bitte melden Sie sich dort schon einmal an. Sie können dann auch dort ggf. direkt mit Ihren Dozent*innen in Kontakt treten.
+
+Wir freuen uns, Sie bei der ESS begrüßen zu dürfen.
+Bei Fragen stehen wir Ihnen gerne unter ess@edirom.de zur Verfügung.
+
+Mit den besten Grüßen aus Detmold/Paderborn
+Ihr ESS-Team
+
+
+****
+
+Die ESS2022 im Netz: https://ess.upb.de
+
+Folgen Sie uns auf Twitter unter https://twitter.com/edirom oder #edirom2022
+
+****
