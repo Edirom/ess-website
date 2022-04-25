@@ -44,6 +44,11 @@ docker run --rm --name ess -p8080:80 edirom/ess-website
 ```
 and point your browser at `http://localhost:8080`.
 
+To build the image on your local machine (before running) use, e.g.,
+```shell
+docker build -t ess -f Dockerfile.nginx .
+```
+(.nginx is for building a static page)
 
 ## Credits 
 
