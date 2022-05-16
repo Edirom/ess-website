@@ -80,6 +80,8 @@
                     <dd>{{ class.target-audience }}</dd>
                     <dt>Kosten</dt>
                     <dd>{{ class.costs }}</dd>
+                    <dt>Besonderheiten</dt>
+                    <dd>{{ class.specials | join: "; " }}</dd>
                 </dl>
             </div>
             {% endfor %}
