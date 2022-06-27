@@ -71,13 +71,17 @@
                 <h4>Raum: {{ class.room }}</h4>
                 {% endif %}
                 <dl>
-                    <dt>{% if class.label == "keynote" %}
-                        
-                        {% else %}
-                        Kursbeschreibung
-                        {% endif %}</dt>
+                    {% if class.label == "keynote" %}
+                    <dt/>
+                    {% else %}
+                    <dt>Kursbeschreibung</dt>
+                    {% endif %}
                     <dd>{{ class }}</dd>
+                    {% if class.label == "keynote" %}
+                    <dt>Vortragssprache</dt>
+                    {% else %}
                     <dt>Kurssprache</dt>
+                    {% endif %}
                     <dd>{{ class.lang | capitalize }}</dd>
                     <dt>Voraussetzungen/Vorkenntnisse</dt>
                     <dd>{{ class.requirements | join: "; " }}</dd>
