@@ -71,7 +71,11 @@
                 <h4>Raum: {{ class.room }}</h4>
                 {% endif %}
                 <dl>
-                    <dt>Kursbeschreibung</dt>
+                    <dt>{% if class.label == "keynote" %}
+                        
+                        {% else %}
+                        Kursbeschreibung
+                        {% endif %}</dt>
                     <dd>{{ class }}</dd>
                     <dt>Kurssprache</dt>
                     <dd>{{ class.lang | capitalize }}</dd>
@@ -83,8 +87,10 @@
                     <dd>{{ class.target-audience }}</dd>
                     <dt>Kosten</dt>
                     <dd>{{ class.costs }} €</dd>
+                    {% if class.specials %}
                     <dt>Besonderheiten</dt>
                     <dd>{{ class.specials | join: "; " }}</dd>
+                    {% endif %}
                 </dl>
             </div>
             {% endfor %}
