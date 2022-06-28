@@ -39,7 +39,7 @@
                          alt="Programmübersicht"/></a>
                 {% else %}
                 <span>Keine Übersicht verfügbar</span>
-                {% endif %}
+                {% endif %}1
             </div>
             {% for class in classes %}
             <div class="tab-pane fade" id="{{ class.label }}" role="tabpanel">
@@ -67,10 +67,21 @@
                         {% endfor %}
                     </ul>
                 </h4>
+                {% if class.room %}
                 <h4>Raum: {{ class.room }}</h4>
-                {{ class }}
+                {% endif %}
                 <dl>
+                    {% if class.label == "keynote" %}
+                    <dt/>
+                    {% else %}
+                    <dt>Kursbeschreibung</dt>
+                    {% endif %}
+                    <dd>{{ class }}</dd>
+                    {% if class.label == "keynote" %}
+                    <dt>Vortragssprache</dt>
+                    {% else %}
                     <dt>Kurssprache</dt>
+                    {% endif %}
                     <dd>{{ class.lang | capitalize }}</dd>
                     <dt>Voraussetzungen/Vorkenntnisse</dt>
                     <dd>{{ class.requirements | join: "; " }}</dd>
@@ -79,7 +90,11 @@
                     <dt>Zielgruppe</dt>
                     <dd>{{ class.target-audience }}</dd>
                     <dt>Kosten</dt>
-                    <dd>{{ class.costs }}</dd>
+                    <dd>{{ class.costs }} €</dd>
+                    {% if class.specials %}
+                    <dt>Besonderheiten</dt>
+                    <dd>{{ class.specials | join: "; " }}</dd>
+                    {% endif %}
                 </dl>
             </div>
             {% endfor %}
