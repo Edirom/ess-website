@@ -10,4 +10,4 @@ Auch in diesem Jahr haben Sie wieder ,die Qual der Wahl‘. Um Ihnen die Kurswah
 
 Darüber hinaus darf ich ankündigen, dass die diesjährige Keynote von Prof. Dr. Aline Deicke gehalten wird. Wir sind sehr gespannt auf die Einblicke, die uns Frau Deicke in die Themenfelder „Netzwerktheorie“ und „Archäologie“ geben wird!
 
-Die Anmeldephase beginnt mitte Juli.
+Die Anmeldephase beginnt Mitte Juli.
