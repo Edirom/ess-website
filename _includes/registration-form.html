@@ -6,9 +6,9 @@
            value="[ESS{{ current-year }}] Anmeldung" />
     <input type="hidden" name="good_template" value="form_ok.html" />
     <input type="hidden" name="bad_template" value="form_bad.html" />
-    <input type="hidden" name="derive_fields" value="realname=vorname+nachname,imgverify=g-recaptcha-response,arverify=imgverify" />
+    <input type="hidden" name="derive_fields" value="realname=vorname+nachname,imgverify=g-recaptcha-response,arverify=imgverify,gebuehr" /><!-- hier var costs definieren? -->
     <input type="hidden" name="csvfile" value="anmeldungen{{ current-year }}.csv" />
-    <input type="hidden" name="csvcolumns" value="nachname,vorname,email,kurse,kommentar" />
+    <input type="hidden" name="csvcolumns" value="nachname,vorname,email,kurse,gebuehr,kommentar" />
     <input type="hidden" name="autorespond"
            value="PlainTemplate=autorespond.txt,Subject=[ESS{{ current-year }}] Anmeldebestätigung,FromAddr=essbe_gaedirom.de" />
     <input type="hidden" name="mail_options"
@@ -27,7 +27,9 @@
                 classes-path" | sort_natural: "title" %}
                 {% assign thisYearsTimeslots =
                 site.data.timeslots[current-year] %}
-
+                
+                {% assign gebuehrGesamt = 0 %}
+                
                 {% for class in classes %}
                 <div class="form-check mb-2">
                     <input type="checkbox" id="{{ class.label }}"
@@ -62,11 +64,12 @@
                         {{ formattedDate | truncatewords: 3, "" }},
                         {{ thisYearsTimeslots[endSlot].time_end }} Uhr
                     </small>
-                    <span style="display: none;">{% assign costs =  class.costs %}</span>
+                    <input type="hidden" name="gebuehren[]" value="{{ class.costs }}" />
+                    {% assign gebuehrGesamt = gebuehr | plus: class.costs %}
                     <br/>
                 </div>
                 {% endfor %}
-                <small class="form-text text-muted">Anfallende Gebühren: {% sum(costs) %}€</small>
+                <small class="form-text text-muted">Gebühr (gesamt): {{ gebuehrGesamt }}€</small>
             </fieldset>
         </div>
         <div class="col">
