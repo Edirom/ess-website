@@ -62,9 +62,11 @@
                         {{ formattedDate | truncatewords: 3, "" }},
                         {{ thisYearsTimeslots[endSlot].time_end }} Uhr
                     </small>
+                    <span style="display: none;">{% assign costs =  class.costs %}</span>
+                    <br/>
                 </div>
                 {% endfor %}
-
+                <small class="form-text text-muted">Anfallende Gebühren: {% sum(costs) %}€</small>
             </fieldset>
         </div>
         <div class="col">
