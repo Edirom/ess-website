@@ -75,8 +75,8 @@
                 <div id="basket">
                     <div id="vornameDiv" class="form-group row">
                         <label for="gebuehr" class="col-form-label col-sm-4">Teilnahmegebühr</label>
-                        <div class="col-sm-2">
-                            <input type="number" name="gebuehr" id="gebuehr" class="form-control" readonly><span id="costsTotal"></span>€</input>
+                        <div class="col-sm-2 col-form-label">
+                            <input type="hidden" name="gebuehr" id="gebuehr" class="form-control" readonly><span id="costsTotal"></span>€</input>
                         </div>
                     </div>
                 </div>
@@ -105,16 +105,17 @@
                         <div class="invalid-feedback">Bitte geben Sie eine gültige Email-Adresse ein</div>
                     </div>
                 </div>
-                <div id="studiDiv" class="form-group row">
+                </fieldset>
+            
+            <fieldset>
+                <legend><small>Studierende (UPB/HfM-DT)</small></legend>
                     <input type="checkbox" id="studi"
                         name="studi"
                         value="studierende"
-                        class="form-check-input"
+                        class="form-check-input" style="margin-left: 0px;"
                     />
-                    <label for="studi" class="form-check-label">Studierene (UPB/HfM-DT)</label>
-                    <small class="form-text text-muted">Ich bin an der Universität Paderborn/Hochschule für Musik Detmold eingeschrieben und besuche die Kurse als Lehrveranstaltung. (Hochschule und Matrikel-Nr. bitte im Kommentar angeben!)
+                <small class="form-text text-muted"  style="margin-left: 18px;">Ich bin an der Universität Paderborn/Hochschule für Musik Detmold eingeschrieben und besuche die Kurse als Lehrveranstaltung. (Hochschule und Matrikel-Nr. bitte im Kommentar angeben!)
                     </small>
-                </div>
             </fieldset>
 
             <fieldset>
@@ -231,8 +232,8 @@
 
      function getTotal(){
          total = 0;
-         if($("#studi").checked) {
-            total = 0
+         if(document.getElementById("studi").checked == true) {
+            $('#costsTotal').text("0");
          } else {
             $("#basket").find('.form-check-input').each(function(i){
                total += parseInt($(this).attr('costs'));
@@ -243,6 +244,8 @@
     
     $('.kurse input').on('change', function() {
         conflict(this);
-        calcFee();
+    });
+    $('#studi').on('change', function() {
+        getTotal();
     });
 </script>
