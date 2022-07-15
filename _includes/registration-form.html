@@ -41,6 +41,7 @@
                            {% else %}
                            data-slots="{{ class.slots | join: ' ' }}"
                            {% endif %}
+                           costs="{{ class.costs }}"
                             />
                     <label for="{{ class.label }}" class="form-check-label">
                         {{ class.title }}
@@ -63,13 +64,12 @@
                         showDayOfWeek=true showDay=true %}
                         {{ formattedDate | truncatewords: 3, "" }},
                         {{ thisYearsTimeslots[endSlot].time_end }} Uhr
+                        <br/>
+                        Teilnahmebeitrag: {{ class.costs }}€
                     </small>
-                    <input type="hidden" name="gebuehren[]" value="{{ class.costs }}" />
-                    {% assign gebuehrGesamt = gebuehr | plus: class.costs %}
-                    <br/>
                 </div>
                 {% endfor %}
-                <small class="form-text text-muted">Gebühr (gesamt): {{ gebuehrGesamt }}€</small>
+                <span class="form-text text-muted" id="gebuehrGesamt">Teilnahmegebühr (gesamt): <span class="costsTotal"></span>€</span>
             </fieldset>
         </div>
         <div class="col">
