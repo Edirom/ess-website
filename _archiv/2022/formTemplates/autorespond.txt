@@ -12,11 +12,11 @@ Kurse:
 * ${kurse:sep=\n* }
 Kommentar: $kommentar
 
-Für die von Ihnen gewählten Kurse fallen folgende Gebühren an: €$gebuehrGesamt.
-Bei den Kursgebühren handelt es sich um eine Versorgungspauschale (Catering).
+Für die von Ihnen gewählten Kurse fällt eine Teilnahmegebühr von $gebuehr € an.
+Bei den Teilnahmegebühren handelt es sich um eine Versorgungspauschale (Catering).
 
 
-Bitte überweisen Sie den Gesamtbetrag von €$gebuehrGesamt an folgendes Konto:
+Bitte überweisen Sie den Gesamtbetrag von $gebuehr € an folgendes Konto:
 
 Universität Paderborn
 IBAN: DE55 4726 0121 8747 0400 00
