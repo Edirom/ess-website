@@ -18,7 +18,7 @@
 
         <div class="col">
             <fieldset class="kurse">
-                <legend>Kurswahl</legend>
+                <legend>Kursangebot</legend>
 
                 {% assign current-year = page.path | slice: 8, 4 %}
                 {% assign classes-path = current-year | append: '/classes/' %}
@@ -65,14 +65,19 @@
                         {{ formattedDate | truncatewords: 3, "" }},
                         {{ thisYearsTimeslots[endSlot].time_end }} Uhr
                         <br/>
-                        Teilnahmebeitrag: {{ class.costs }}€
+                        Teilnahmegebühr: {{ class.costs }}€
                     </small>
                 </div>
                 {% endfor %}
-                <span class="form-text text-muted" id="gebuehrGesamt">Teilnahmegebühr (gesamt): <span class="costsTotal"></span>€</span>
             </fieldset>
         </div>
         <div class="col">
+            <fieldset>
+                <legend>Ihre Kurse</legend>
+                <div id="basket">
+                    <span>Teilnahmegebühr (gesamt): <span id="costsTotal"></span>€</span>
+                </div>
+            </fieldset>
             <fieldset>
                 <legend>Persönliche Angaben</legend>
 
@@ -196,8 +201,29 @@
             })
         }
     }
+    
+     //adaption to https://stackoverflow.com/questions/29397155/javascript-calculate-total-price-of-items
+    //by Dennis
+    var total = 0;
+    $(".kurse").on('click', ".form-check-input", function() {
+        $(this.parentNode).appendTo("#basket");
+        getTotal()
+    });
+    $("#basket").on('click', ".form-check-input", function() {
+      $(this.parentNode).appendTo(".kurse");   
+      getTotal()
+    });
 
+     function getTotal(){
+        total = 0;
+        $("#basket").find('.form-check-input').each(function(i){
+           total += parseInt($(this).attr('costs'));
+            $('#costsTotal').text(total);
+        });
+      } 
+    
     $('.kurse input').on('change', function() {
         conflict(this);
-    })
+        calcFee();
+    });
 </script>
