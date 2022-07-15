@@ -28,8 +28,6 @@
                 {% assign thisYearsTimeslots =
                 site.data.timeslots[current-year] %}
                 
-                {% assign gebuehrGesamt = 0 %}
-                
                 {% for class in classes %}
                 <div class="form-check mb-2">
                     <input type="checkbox" id="{{ class.label }}"
@@ -75,7 +73,12 @@
             <fieldset>
                 <legend>Ihre Kurse</legend>
                 <div id="basket">
-                    <span>Teilnahmegebühr (gesamt): <span id="costsTotal"></span>€</span>
+                    <div id="vornameDiv" class="form-group row">
+                        <label for="gebuehr" class="col-form-label col-sm-4">Teilnahmegebühr</label>
+                        <div class="col-sm-2">
+                            <input type="hidden" name="gebuehr" id="gebuehr" class="form-control" readonly><span id="costsTotal"></span>€</input>
+                        </div>
+                    </div>
                 </div>
             </fieldset>
             <fieldset>
