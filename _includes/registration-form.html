@@ -76,7 +76,7 @@
                     <div id="vornameDiv" class="form-group row">
                         <label for="gebuehr" class="col-form-label col-sm-4">Teilnahmegebühr</label>
                         <div class="col-sm-2">
-                            <input type="hidden" name="gebuehr" id="gebuehr" class="form-control" readonly><span id="costsTotal"></span>€</input>
+                            <input type="number" name="gebuehr" id="gebuehr" class="form-control" readonly><span id="costsTotal"></span>€</input>
                         </div>
                     </div>
                 </div>
@@ -104,6 +104,16 @@
                         <input type="email" placeholder="Ihre E-Mail-Adresse" name="email" id="email" class="form-control" required="required"/>
                         <div class="invalid-feedback">Bitte geben Sie eine gültige Email-Adresse ein</div>
                     </div>
+                </div>
+                <div id="studiDiv" class="form-group row">
+                    <input type="checkbox" id="studi"
+                        name="studi"
+                        value="studierende"
+                        class="form-check-input"
+                    />
+                    <label for="studi" class="form-check-label">Studierene (UPB/HfM-DT)</label>
+                    <small class="form-text text-muted">Ich bin an der Universität Paderborn/Hochschule für Musik Detmold eingeschrieben und besuche die Kurse als Lehrveranstaltung. (Hochschule und Matrikel-Nr. bitte im Kommentar angeben!)
+                    </small>
                 </div>
             </fieldset>
 
@@ -144,15 +154,17 @@
                 form.addEventListener('submit', function(event) {
                     if (form.checkValidity() === false ||
                         document.getElementById('g-recaptcha-response').value.length === 0) {
+                        // bypass recapture for debugging
+                        form.classList.add('was-validated');
                         // add an extra warning if recaptcha is not solved
-                        if(document.getElementById('g-recaptcha-response').value.length===0) {
-                            $('.g-recaptcha span.invalid-feedback').remove();
-                            $('.g-recaptcha').append('<span class="invalid-feedback">Bitte das Captcha ausfüllen</span>');
-                            $('.g-recaptcha span.invalid-feedback').show();
-                            $('.g-recaptcha').css('border', '1px solid red');
-                        }
-                        event.preventDefault();
-                        event.stopPropagation();
+//                        if(document.getElementById('g-recaptcha-response').value.length===0) {
+//                            $('.g-recaptcha span.invalid-feedback').remove();
+//                            $('.g-recaptcha').append('<span class="invalid-feedback">Bitte das Captcha ausfüllen</span>');
+//                            $('.g-recaptcha span.invalid-feedback').show();
+//                            $('.g-recaptcha').css('border', '1px solid red');
+//                        }
+//                        event.preventDefault();
+//                        event.stopPropagation();
                     }
                     form.classList.add('was-validated');
                 }, false);
@@ -213,17 +225,21 @@
         getTotal()
     });
     $("#basket").on('click', ".form-check-input", function() {
-      $(this.parentNode).appendTo(".kurse");   
+      $(this.parentNode).appendTo(".kurse");
       getTotal()
     });
 
      function getTotal(){
-        total = 0;
-        $("#basket").find('.form-check-input').each(function(i){
-           total += parseInt($(this).attr('costs'));
-            $('#costsTotal').text(total);
-        });
-      } 
+         total = 0;
+         if($("#studi").checked) {
+            total = 0
+         } else {
+            $("#basket").find('.form-check-input').each(function(i){
+               total += parseInt($(this).attr('costs'));
+               $('#costsTotal').text(total);
+            });
+         }
+     };
     
     $('.kurse input').on('change', function() {
         conflict(this);
