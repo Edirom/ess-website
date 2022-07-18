@@ -76,7 +76,7 @@
                     <div id="gebuehrDiv" class="form-group row">
                         <label for="gebuehr" class="col-form-label col-sm-4">Teilnahmegebühr</label>
                         <div class="col-sm-2 col-form-label">
-                            <input type="hidden" name="gebuehr" id="gebuehr" class="form-control" readonly><span id="costsTotal">0</span>€</input>
+                            <input type="text" name="gebuehr" id="gebuehr" class="form-control" readonly/>€
                         </div>
                     </div>
                 </div>
@@ -231,14 +231,14 @@
      function getTotal(){
          total = 0;
          if(document.getElementById("studi").checked == true) {
-            $('#costsTotal').text("0");
+            document.getElementById('#gebuehr').value = "0";
          } else {
             if($("#basket").find('.form-check-input').length == 0) {
-                $('#costsTotal').text("0");
+                document.getElementById('#gebuehr').value = "0";
             } else{
                 $("#basket").find('.form-check-input').each(function(i){
                    total += parseInt($(this).attr('costs'));
-                   $('#costsTotal').text(total);
+                   document.getElementById('#gebuehr').value = total;
                 });
             }
          }
