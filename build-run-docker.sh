@@ -1,3 +1,4 @@
+#!/bin/sh
 # build the ess website docker image and run it in a container (locally)
 # this can also be used for updating the image and running a new container 
 # by Dennis Ried
