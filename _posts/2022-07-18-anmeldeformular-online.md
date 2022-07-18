@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: "Die heißte Phase hat begonnen."
+title: "Die heiße Phase hat begonnen."
 excerpt: "Das Anmeldeformular ist freigeschaltet."
 authors:
 - Dennis Ried
