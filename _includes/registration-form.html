@@ -57,7 +57,7 @@
                         {{ formattedDate | truncatewords: 3, "" }},
                         {{ thisYearsTimeslots[startSlot].time_start }} Uhr
                         <br/>
-                        {% if class.label = ess-party %}
+                        {% if class.label == "ess-party" %}
                         Teilnahme auf eigene Kosten.
                         {% else %}
                         Ende:

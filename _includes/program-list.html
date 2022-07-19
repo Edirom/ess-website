@@ -83,14 +83,24 @@
                     <dt>Kurssprache</dt>
                     {% endif %}
                     <dd>{{ class.lang | capitalize }}</dd>
+                    {% if class.requirements %}
                     <dt>Voraussetzungen/Vorkenntnisse</dt>
                     <dd>{{ class.requirements | join: "; " }}</dd>
+                    {% endif %}
+                    {% if class.software %}
                     <dt>Software</dt>
                     <dd>{{ class.software | join: "; " }}</dd>
+                    {% endif %}
+                    {% if class.target-audience %}
                     <dt>Zielgruppe</dt>
                     <dd>{{ class.target-audience }}</dd>
+                    {% endif %}
                     <dt>Kosten</dt>
+                    {% if class.label == "ess-party" %}
+                    <dd>Auf eigene Kosten.</dd>
+                    {% else %}
                     <dd>{{ class.costs }} €</dd>
+                    {% endif %}
                     {% if class.specials %}
                     <dt>Besonderheiten</dt>
                     <dd>{{ class.specials | join: "; " }}</dd>
