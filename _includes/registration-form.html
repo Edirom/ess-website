@@ -39,7 +39,7 @@
                            {% else %}
                            data-slots="{{ class.slots | join: ' ' }}"
                            {% endif %}
-                           costs="{{ class.costs }}"
+                           costs="{% if class.costs %}{{ class.costs }}{% else %}0{% endif %}"
                             />
                     <label for="{{ class.label }}" class="form-check-label">
                         {{ class.title }}
@@ -56,7 +56,11 @@
                         showDayOfWeek=true showDay=true %}
                         {{ formattedDate | truncatewords: 3, "" }},
                         {{ thisYearsTimeslots[startSlot].time_start }} Uhr
-                        <br/>Ende:
+                        <br/>
+                        {% if class.label = ess-party %}
+                        Teilnahme auf eigene Kosten.
+                        {% else %}
+                        Ende:
                         {% assign currentDate = thisYearsTimeslots[endSlot].date %}
                         {% include date-german.html date=currentDate
                         showDayOfWeek=true showDay=true %}
@@ -64,6 +68,7 @@
                         {{ thisYearsTimeslots[endSlot].time_end }} Uhr
                         <br/>
                         Teilnahmegebühr: {{ class.costs }}€
+                        {% endif %}
                     </small>
                 </div>
                 {% endfor %}

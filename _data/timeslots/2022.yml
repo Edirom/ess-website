@@ -26,6 +26,10 @@ Mi2:
   date: "2022-09-07"
   time_start: "14:15"
   time_end: "17:45"
+Mi3:
+  date: "2022-09-07"
+  time_start: "18:00"
+  time_end: "21:00"
 Do1:
   date: "2022-09-08"
   time_start: "09:15"
