@@ -48,13 +48,16 @@ function getTotal(){
     total = 0;
     if(document.getElementById("studi").checked == true) {
         document.getElementById('gebuehr').value = "0";
+        document.getElementById('gebuehrSpan').text("0" + "€");
     } else {
         if($("#basket").find('.form-check-input').length == 0) {
             document.getElementById('gebuehr').value = "0";
+            document.getElementById('gebuehrSpan').text("0" + "€");
         } else{
             $("#basket").find('.form-check-input').each(function(i){
                 total += parseInt($(this).attr('costs'));
                 document.getElementById('gebuehr').value = total;
+                document.getElementById('gebuehrSpan').text(total + "€");
             });
         }
     }
