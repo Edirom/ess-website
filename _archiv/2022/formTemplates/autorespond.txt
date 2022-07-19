@@ -25,7 +25,7 @@ Bank: Verbundvolksbank OWL eG
 Verwendungszweck: 3011001706, ESS2022, $nachname, $vorname
 
 
-Studierende der Universität Paderborn bzw. Hochschule für Musik Detmold reichen bitte zusätzlich eine aktuelle Studienbescheinigung ein (ess@edirom.de)
+Studierende der Universität Paderborn melden sich bitte zusätzlich in PAUL zu den entsprechenden Lehrveranstaltungen an.
 
 
 Nähere Informationen zur technischen Durchführung der Kurse erhalten Sie in der Woche vor der ESS.
