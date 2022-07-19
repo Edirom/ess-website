@@ -14,7 +14,6 @@ In diesem Jahr findet die Edirom-Summer-School wieder als Präsenzveranstaltung 
 
 Die Anmeldephase ist bis zum Samstag vor der ESS (03.09.) geöffnet.
 
-
 Für sechs Studierende, die nicht in Paderborn/Detmold eingeschreiben sind, können wir in diesem Jahr einen Reisekostenzuschuss in Höhe von maximal 200€ vergeben. Hierfür melden Sie sich bitte an ess@edirom.de (Betreff: Reisekostenzuschuss), unter Angabe der zu erwartenden Reisekosten.
 
 Außerdem wollen wir das Spotlight-Format wiederbeleben. Hierfür nehmen wir ab sofort gerne Themenvorschläge entgegen.
