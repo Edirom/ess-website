@@ -45,23 +45,23 @@ function conflict(kursElem) {
 //adaption to https://stackoverflow.com/questions/29397155/javascript-calculate-total-price-of-items
 //by Dennis
 function getTotal(){
-    total = 0;
-    if(document.getElementById("studi").checked == true) {
+    let total = 0;
+    if(document.getElementById("studi").checked === true) {
         document.getElementById('gebuehr').value = "0";
-        $('#gebuehrSpan').textContent = "0";
+        document.getElementById('gebuehrSpan').innerHTML = "0";
     } else {
-        if($("#basket").find('.form-check-input').length == 0) {
+        if($("#basket").find('.form-check-input').length === 0) {
             document.getElementById('gebuehr').value = "0";
-            $('#gebuehrSpan').textContent = "0";
+            document.getElementById('gebuehrSpan').innerHTML = "0";
         } else{
             $("#basket").find('.form-check-input').each(function(i){
                 total += parseInt($(this).attr('costs'));
                 document.getElementById('gebuehr').value = total;
-                $('#gebuehrSpan').textContent = total;
+                document.getElementById('gebuehrSpan').innerHTML = total;
             });
         }
     }
-};
+}
 
 function sortList() {
     let list, i, switching, b, shouldSwitch;
