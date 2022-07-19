@@ -67,7 +67,7 @@
                         {{ formattedDate | truncatewords: 3, "" }},
                         {{ thisYearsTimeslots[endSlot].time_end }} Uhr
                         <br/>
-                        Teilnahmegebühr: {{ class.costs }}€
+                        Teilnahmegebühr: {{ class.costs }}&thinsp;€
                         {% endif %}
                     </small>
                 </div>
@@ -80,8 +80,8 @@
                 <div id="basket">
                     <div id="gebuehrDiv" class="form-group row">
                             <input type="hidden" name="gebuehr" id="gebuehr" class="form-control" readonly/>
-                        <div class="col-sm-2 col-form-label">
-                            <span>Teilnahmegebühr:&nbsp;<span id="gebuehrSpan">0</span>€</span>
+                        <div class="col col-form-label">
+                            Teilnahmegebühr: <span id="gebuehrSpan">0</span>&thinsp;€
                         </div>
                     </div>
                 </div>
