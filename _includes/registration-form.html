@@ -40,7 +40,7 @@
                            {% else %}
                            data-slots="{{ class.slots | join: ' ' }}"
                            {% endif %}
-                           costs="{% if class.costs %}{{ class.costs }}{% else %}0{% endif %}"
+                           data-costs="{% if class.costs %}{{ class.costs }}{% else %}0{% endif %}"
                             />
                     <label for="{{ class.label }}" class="form-check-label">
                         {{ class.title }}

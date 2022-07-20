@@ -54,8 +54,8 @@ function getTotal(){
             document.getElementById('gebuehr').value = "0";
             document.getElementById('gebuehrSpan').innerHTML = "0";
         } else{
-            $("#basket").find('.form-check-input').each(function(i){
-                total += parseInt($(this).attr('costs'));
+            $("#basket").find('.form-check-input').each(function(){
+                total += parseInt($(this).attr('data-costs'));
                 document.getElementById('gebuehr').value = total;
                 document.getElementById('gebuehrSpan').innerHTML = total;
             });
