@@ -39,7 +39,7 @@
                          alt="Programmübersicht"/></a>
                 {% else %}
                 <span>Keine Übersicht verfügbar</span>
-                {% endif %}1
+                {% endif %}
             </div>
             {% for class in classes %}
             <div class="tab-pane fade" id="{{ class.label }}" role="tabpanel">
@@ -83,14 +83,24 @@
                     <dt>Kurssprache</dt>
                     {% endif %}
                     <dd>{{ class.lang | capitalize }}</dd>
+                    {% if class.requirements %}
                     <dt>Voraussetzungen/Vorkenntnisse</dt>
                     <dd>{{ class.requirements | join: "; " }}</dd>
+                    {% endif %}
+                    {% if class.software %}
                     <dt>Software</dt>
                     <dd>{{ class.software | join: "; " }}</dd>
+                    {% endif %}
+                    {% if class.target-audience %}
                     <dt>Zielgruppe</dt>
                     <dd>{{ class.target-audience }}</dd>
+                    {% endif %}
                     <dt>Kosten</dt>
-                    <dd>{{ class.costs }} €</dd>
+                    {% if class.label == "ess-party" %}
+                    <dd>Auf eigene Kosten.</dd>
+                    {% else %}
+                    <dd>{{ class.costs }}&thinsp;€</dd>
+                    {% endif %}
                     {% if class.specials %}
                     <dt>Besonderheiten</dt>
                     <dd>{{ class.specials | join: "; " }}</dd>

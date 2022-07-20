@@ -1,228 +1,141 @@
-/* pro Halbtag eine Ziffer in das Array "Termin" vergeben */
+// Javascript for disabling inputs of concurrent workshops
+function conflict(kursElem) {
 
+    // get the slot labels (e.g. 'Mi1', 'Mi2') for the current input
+    let curSlots = $(kursElem).attr('data-slots').split(' ');
 
-/* Konfiguration der Summerschool 2020 */
-
-var KursList = [
-    {"KursID":"tei", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"odd", "Termin":[4,5], "Counter":0},
-    {"KursID":"teiPublisher", "Termin":[6,7,8], "Counter":0},
-    {"KursID":"programmieren", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"mpm", "Termin":[4], "Counter":0},
-    {"KursID":"meiler", "Termin":[5], "Counter":0},
-    {"KursID":"edirom", "Termin":[6,7,8], "Counter":0},
-    {"KursID":"meiE", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"meiPraxis", "Termin":[4,5,6,7,8], "Counter":0},
-    {"KursID":"meiWerk", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"git", "Termin":[4,5], "Counter":0},
-    {"KursID":"xTech", "Termin":[6,7,8], "Counter":0}
-];
-
-/* Konfiguration der Summerschool 2019 */
-/*var KursList = [
-    {"KursID":"anwendung-mei", "Termin":[1,2,3,4,5], "Counter":0},
-    {"KursID":"arbeiten-xml", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"exist", "Termin":[4,5], "Counter":0},
-    {"KursID":"git", "Termin":[4,5], "Counter":0},
-    {"KursID":"odd", "Termin":[6,7,8], "Counter":0},
-    {"KursID":"tei", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"mining", "Termin":[6,7,8], "Counter":0},
-    {"KursID":"programmieren", "Termin":[4,5], "Counter":0},
-    {"KursID":"mei-quellen", "Termin":[6,7,8], "Counter":0},
-    {"KursID":"sem-web", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"workflows", "Termin":[6,7,8], "Counter":0}
-];*/
-
-/*Konfiguration der Summerschool 2018*/
-/*var KursList = [
-    {"KursID":"mei-e", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"tei", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"sem-web", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"anreichern", "Termin":[2,3,4,5,6,7,8], "Counter":0},
-    {"KursID":"arbeiten-xml", "Termin":[4,5], "Counter":0},
-    {"KursID":"programmieren", "Termin":[4,5], "Counter":0},
-    {"KursID":"hoftheater", "Termin":[4,5], "Counter":0},
-    {"KursID":"edirom", "Termin":[6,7,8], "Counter":0},
-    {"KursID":"mei-f", "Termin":[6,7,8], "Counter":0},
-    {"KursID":"mei-meta", "Termin":[6,7,8], "Counter":0}
-]; */
-
-/*Konfiguration der Summerschool 2017*/
-/*var KursList = [
-   {"KursID":"mei-E", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"edirom-P", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"xTec", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"PerfFrei", "Termin":[1,2,3,4,5,6,7,8], "Counter":0},
-    {"KursID":"git", "Termin":[4], "Counter":0},
-    {"KursID":"semWeb", "Termin":[4], "Counter":0},
-    {"KursID":"audio", "Termin":[4], "Counter":0},
-    {"KursID":"daten", "Termin":[5], "Counter":0},
-    {"KursID":"rendMEI", "Termin":[5], "Counter":0},
-    {"KursID":"edirom-E", "Termin":[6,7,8], "Counter":0},
-    {"KursID":"mei-F", "Termin":[6,7,8], "Counter":0},
-    {"KursID":"tei", "Termin":[6,7,8], "Counter":0}
-];*/
-
-/*Konfiguration der Summerschool 2016*/
-/*var KursList = [
-    {"KursID":"tei", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"mei-A-dt", "Termin":[4,5,6], "Counter":0},
-    {"KursID":"edirom-A-dt", "Termin":[7,8,9], "Counter":0},
-    {"KursID":"edirom-A-en", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"mei-A-en", "Termin":[4,5,6], "Counter":0},
-    {"KursID":"metadaten", "Termin":[7,8], "Counter":0},
-    {"KursID":"edition-A-en", "Termin":[9,10], "Counter":0},
-    {"KursID":"mei-F-dt", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"edirom-F-dt", "Termin":[4,5,6], "Counter":0},
-    {"KursID":"edition-F-dt", "Termin":[7,8], "Counter":0},
-    {"KursID":"philo", "Termin":[1,2], "Counter":0},
-    {"KursID":"eXist", "Termin":[3,4], "Counter":0},
-    {"KursID":"mei-tools", "Termin":[5,6], "Counter":0},
-    {"KursID":"daten", "Termin":[7], "Counter":0}
-];*/
-
-/*Konfiguration der Summerschool 2015*/
-/*var KursList = [
-    {"KursID":"exist", "Termin":[4,5,6], "Counter":0},
-    {"KursID":"XMLdata", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"edition", "Termin":[8,9], "Counter":0},
-    {"KursID":"edirom", "Termin":[8,9,10], "Counter":0},
-    {"KursID":"euf", "Termin":[0], "Counter":0},
-    {"KursID":"kolloquium", "Termin":[6,7], "Counter":0},
-    {"KursID":"mei-einf", "Termin":[1,2,3], "Counter":0},
-    {"KursID":"mermeid", "Termin":[8,9,10], "Counter":0},
-    {"KursID":"meidev", "Termin":[1,2], "Counter":0},
-    {"KursID":"odd", "Termin":[3,4], "Counter":0},
-    {"KursID":"tei-einf", "Termin":[4,5,6], "Counter":0}
-];*/
-
-var errorText = '<small>Ungültige Eingabe</small>';
-		
-function pos(kurs)
-{
-	for (var i=0;i<KursList.length;i++)
-	if (KursList[i].KursID==kurs)
-	{
-		return i;
-	}
-}
-
-function match(termin1,termin2)
-{			
-	for (var i=0;i<termin1.length;i++)
-		for (var j=0;j<termin2.length;j++)
-		{
-			if (termin1[i]===termin2[j]) return true;
-		}
-	return false;			
-}
-
-function conflict(kurs, force) {		
-
-    // if checkbox is disabled
-    if($(document.getElementById(kurs)).attr('disabled'))
-        return;
-    
-    var k = pos(kurs);
-    var termin=KursList[k].Termin;				
-    
-    if (force || document.getElementById(kurs).checked==false) {
-		for(var i=0;i<KursList.length;i++) {
-		    if(i === k) continue;
-		    
-			if (match(termin,KursList[i].Termin)) {
-						
-    			$(document.getElementById(KursList[i].KursID)).attr('disabled', true);
-    			$(document.getElementById(KursList[i].KursID).nextSibling).addClass('disabled');
-    			KursList[i].Counter++;
-			}
-		}
-	}
-	else {	
-		for(var i=0;i<KursList.length;i++) {
-		
-		    if(i === k) continue;
-		
-			if (match(termin,KursList[i].Termin) && KursList[i].Counter==1) {
-    			$(document.getElementById(KursList[i].KursID)).removeAttr('disabled');
-    			$(document.getElementById(KursList[i].KursID).nextSibling).removeClass('disabled');
-    			KursList[i].Counter--;
-			}
-			else if (match(termin,KursList[i].Termin) && KursList[i].Counter>1)
-			    KursList[i].Counter--;
-		}
-	}				
-}
-
-function validate_name(field)
-{
-    var myID = field.name+'Div';
-    with (field)
-    {
-        if (value.length < 2||value.length > 40)
-      	{	
-      	$('#'+ myID + '> .errorText').show();
-      	$('#'+myID).addClass('error');
-      	return false;
-      	}
+    // if checked, disable all concurrent classes
+    if (kursElem.checked) {
+        // iterate over the current slot labels and simply
+        // disable all inputs with the same label
+        $(curSlots).each(function(a,b){
+            $('input[data-slots~=' + b + ']').attr('disabled',
+                true);
+        })
+        // since the above loop disables every match,
+        // re-enable here for current input
+        $(kursElem).attr('disabled', false);
     }
-    return true;
+
+        // otherwise re-enable matching inputs
+        // this is a bit complicated, since we need to look out
+    // for cross matches
+    else {
+        // iterate over the current slot labels
+        $(curSlots).each(function(a,slot){
+            // ... and iterate over all matching inputs
+            $('input[disabled][data-slots~=' + slot + ']').each(function(b,curInput) {
+                let curInputSlots =
+                        $(curInput).attr('data-slots').split(' '),
+                    counter = 0;
+                // ... and its slot labels to check whether there
+                // is any other checked input with the same label
+                $(curInputSlots).each(function(x,y) {
+                    counter+= $('input:checked[data-slots~=' + y +
+                        ']').length;
+                })
+                if(counter === 0) {
+                    $(curInput).attr('disabled', false);
+                }
+            })
+        })
+    }
 }
 
-function validate_email(field)
-{
-    with (field)
-    {
-        apos=value.indexOf("@")
-        dotpos=value.lastIndexOf(".")
-        if (apos<1||dotpos-apos<2) 
-        {
-        $('#emailDiv > .errorText').show();
-        $('#emailDiv').addClass('error');
-        return false;
+//adaption to https://stackoverflow.com/questions/29397155/javascript-calculate-total-price-of-items
+//by Dennis
+function getTotal(){
+    let total = 0;
+    if(document.getElementById("studi").checked === true) {
+        document.getElementById('gebuehr').value = "0";
+        document.getElementById('gebuehrSpan').innerHTML = "0";
+    } else {
+        if($("#basket").find('.form-check-input').length === 0) {
+            document.getElementById('gebuehr').value = "0";
+            document.getElementById('gebuehrSpan').innerHTML = "0";
+        } else{
+            $("#basket").find('.form-check-input').each(function(){
+                total += parseInt($(this).attr('data-costs'));
+                document.getElementById('gebuehr').value = total;
+                document.getElementById('gebuehrSpan').innerHTML = total;
+            });
         }
     }
-    return true;
 }
 
-function validate_anrede(field)
-{
-    if(field.value=='')
-    {
-        $('#anredeDiv > .errorText').show();
-        $('#anredeDiv').addClass('error');
-        return false;
+function sortList() {
+    let list, i, switching, b, shouldSwitch;
+    list = document.querySelector(".kurse");
+    switching = true;
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+        // start by saying: no switching is done:
+        switching = false;
+        b = list.getElementsByTagName("div");
+        // Loop through all list-items:
+        for (i = 0; i < (b.length - 1); i++) {
+            // start by saying there should be no switching:
+            shouldSwitch = false;
+            /* check if the next item should
+            switch place with the current item: */
+            if (b[i].querySelector(".form-check-label").innerText > b[i + 1].querySelector(".form-check-label").innerText) {
+                /* if next item is alphabetically
+                lower than current item, mark as a switch
+                and break the loop: */
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark the switch as done: */
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+        }
     }
-    return true;
 }
 
-function validate_form(thisform)
-{
-    var error=0;
-    $('.errorText').hide();
-    $('.error').removeClass('error');
-    with (thisform)
-    {
-    if (!validate_name(vorname)) error++;
-    if (!validate_name(nachname)) error++;
-    if (!validate_email(email)) error++;
-    if (!validate_anrede(anrede)) error++;
-    if (document.getElementById('g-recaptcha-response').value.length === 0) {
-        error++;
-        $('.captcha > .errorText').show();
-        $('.captcha').addClass('error');
-    }
-    //console.log(error);
-    if (error!=0) return false; 
-    }
-}
+$(".kurse").on('click', ".form-check-input", function() {
+    $(this.parentNode).appendTo("#basket");
+    getTotal();
+});
 
-// beim Aufruf durch die Browser-History müssen die Counter (und die disabled-Klassen) neu gesetzt werden 
-function init() {
+$("#basket").on('click', ".form-check-input", function() {
+    $(this.parentNode).appendTo(".kurse");
+    getTotal();
+});
 
-    $('.kurse input:checked').each(function(a,b) {
-        conflict(b.id, true);
+$('.kurse input').on('change', function() {
+    conflict(this);
+    sortList();
+});
+
+$('#studi').on('change', function() {
+    getTotal();
+});
+
+// Example starter JavaScript from https://getbootstrap.com/docs/4.6/components/forms/#custom-styles
+// for disabling form submissions if there are invalid fields
+window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    let forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    let validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false ||
+                document.getElementById('g-recaptcha-response').value.length === 0) {
+                // add an extra warning if recaptcha is not solved
+                if(document.getElementById('g-recaptcha-response').value.length===0) {
+                    $('.g-recaptcha span.invalid-feedback').remove();
+                    $('.g-recaptcha').append('<span class="invalid-feedback">Bitte das Captcha ausfüllen</span>');
+                    $('.g-recaptcha span.invalid-feedback').show();
+                    $('.g-recaptcha').css('border', '1px solid red');
+                }
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
     });
-}
-
-init();
+}, false);
