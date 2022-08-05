@@ -9,14 +9,17 @@ Unter dem Motto #WirFeiernZukunft begeht die Universität Paderborn in diesem Ja
 
 Hier ein paar Hinweise zu Unterkünften, von denen aus das HNI erreichbar ist:
 
-
 - IN VIA Hotel, Giersmauer 35, 33098 Paderborn
-- [Liborianum](https://www.liborianum.de/zimmer-angebote), An den Kapuzinern 5–7, 33098 Paderborn
+- Hotel Manu Detmolder Str. 196, 33100 Paderborn
+- Pader-Motel, Holsteiner Weg 106, 33102 Paderborn
+- Liborianum, An den Kapuzinern 5–7, 33098 Paderborn
 - ibis Paderborn City, Paderwall 1-5, 33102 Paderborn
 - Welcome Hotel Paderborn, Fürstenweg 13, 33102 Paderborn
 - Arthotel ANA Fleur Hathumarstraße 22, 33098 Paderborn
 - Best Western Plus Arosa Hotel, Westernmauer 38, 33098 Paderborn
 
+Falls Sie mit dem Auto anreisen, können Sie auch auf Hotels im Stadtteil Paderborn-Elsen ausweichen. Von dort aus ist das Heinz-Nixdorf-Institut gut zu erreichen.
+Auch mit dem Bus dauert die fahrt nur ca. 30 Minuten (Linien 68 und 11 via Hbf).
 
 Studierende, die nicht an der UPB oder der HfM Detmold eingeschrieben sind, haben die Möglichkeit sich auf einen Reisekostenzuschuss zu bewerben. In diesem Jahr können wir einen Zuschuss von maximal 200&thinsp;€ an sechs Studierende vergeben.
 
