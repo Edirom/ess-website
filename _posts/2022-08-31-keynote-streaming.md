@@ -5,9 +5,8 @@ excerpt: "Livestream aus dem HNI"
 authors: Dennis Ried
 ---
 
-Natürlich haben wir überlegt, welche digitalen Angebote wir beibehalten können, wenn die ESS wieder zur Präsenz zurückkehrt. Leider haben sich hybride Formate für die ESS-Kurse in diesem Jahr nicht umsetzen lassen.
-
-Daher ist es um so schöner, dass wir den Keynote Vortrag von Aline Deicke live aus dem Heinz-Nixdorf-Institut in Paderborn streamen können. Hierzu eine herzliche Einladung.
+Natürlich haben auch wir überlegt, welche digitalen Angebote wir beibehalten können, wenn die ESS wieder zur Präsenz zurückkehrt. Leider hat sich das in diesem Jahr als unerwartet aufwendig erwiesen.
+Daher ist es um so schöner, dass wir den Keynote Vortrag von Aline Deicke im Heinz-Nixdorf-Institut von Paderborn aus live in die Welt streamen können! Hierzu eine herzliche Einladung.
 
 (Anmeldung nicht notwendig.)
 
