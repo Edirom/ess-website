@@ -2,7 +2,7 @@
 # Use the nginx Dockerfile for the static site (when the registration is closed)
 # and the apache Dockerfile (with php enabled) for the php registration form
 
-FROM jekyll/jekyll:builder as builder
+FROM jekyll/builder as builder
 
 ENV WORK_DIR=/var/jekyllbuilder
 
