@@ -1,0 +1,52 @@
+Mi1:
+  date: "2023-05-31"
+  time_start: "09:15"
+  time_end: "10:45"
+Mi2:
+  date: "2023-05-31"
+  time_start: "11:15"
+  time_end: "12:45"
+Mi3:
+  date: "2023-05-31"
+  time_start: "14:15"
+  time_end: "15:45"
+Mi4:
+  date: "2023-05-31"
+  time_start: "16:15"
+  time_end: "17:45"
+Do1:
+  date: "2023-06-01"
+  time_start: "09:15"
+  time_end: "10:45"
+Do2:
+  date: "2023-06-01"
+  time_start: "11:15"
+  time_end: "12:45"
+Do3:
+  date: "2023-06-01"
+  time_start: "14:15"
+  time_end: "15:45"
+Do4:
+  date: "2023-06-01"
+  time_start: "16:15"
+  time_end: "17:45"
+Do5:
+  date: "2023-06-01"
+  time_start: "19:00"
+  time_end: "21:30"
+Fr1:
+  date: "2023-06-02"
+  time_start: "09:00"
+  time_end: "10:30"
+Fr2:
+  date: "2023-06-02"
+  time_start: "11:00"
+  time_end: "12:30"
+Fr3:
+  date: "2023-06-02"
+  time_start: "13:00"
+  time_end: "14:30"
+Fr4:
+  date: "2023-06-02"
+  time_start: "15:00"
+  time_end: "16:30"
