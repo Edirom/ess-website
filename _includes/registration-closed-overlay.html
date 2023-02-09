@@ -3,23 +3,25 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"
-                    id="staticBackdropLabel">Anmeldephase ausgelaufen
+                    id="staticBackdropLabel">Anmeldephase geschlossen
                 </h5>
             </div>
             <div class="modal-body">
-                Die Anmeldung zur Edirom Summer School {{ current-year }}
-                wurde am
+                Die Anmeldung zur Edirom-Summer-School {{ current-year }}
+                findet vom
+                {% include date-german.html date=page.registrationstart
+                showDayOfWeek=false showDay=true %}
+                {{ formattedDate }}
+                bis zum
                 {% include date-german.html date=page.deadline
                 showDayOfWeek=false showDay=true %}
                 {{ formattedDate }}
-                geschlossen.
+                statt.
                 <br/>
                 Hinweise zum aktuellen Programm finden Sie unter <a
                     href="{{ current-year | append: '/programm.html' | relative_url }}"
             >Kursprogramm</a>, alle älteren Jahrgänge im <a
                     href="{{ 'archiv.html' | relative_url }}">Archiv</a>.
-                <br/>
-                For very late birds: Bitte wenden Sie sich direkt an <a href="mailto:ess@edirom.de">ess@edirom.de</a>.
             </div>
             <div class="modal-footer">
                 <a href="{{ '/' | relative_url }}"
@@ -29,6 +31,13 @@
             </div>
         </div>
     </div>
+    <script>
+        let now = Date.now(),
+            anmeldebeginn = Date.parse('{{ page.registrationstart }}') ;
+        if(anmeldebeginn > now) {
+            $('#staticBackdrop').modal('show');
+        }
+    </script>
     <script>
         let now = Date.now(),
             anmeldeschluss = Date.parse('{{ page.deadline }}') ;
