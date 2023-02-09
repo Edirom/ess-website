@@ -6,7 +6,6 @@ authors:
 - Dennis Ried
 ---
 
-Das Kursprogramm zur 14. Edirom Summer School ist online.
-Da die ViFE Anfang September 2023 (4.–8.) die TEI und MEC Joint Conference ausrichtet, sind Einsteiger\*innen und Wiedereinsteiger\*innen die Zielgruppe der diesjährigen ESS. 
+Das Kursprogramm zur 14. Edirom Summer School ist online und richtet sich in diesem Jahr gezielt an Einsteiger\*innen. Natürlich können die Kurse auch zum Auffrischen genutzt werden, z. B. im Hinblick auf die TEI und MEC Joint Conference (4.–8. Sept. 2023).
 
-Die Anmeldung findet im Zeitraum vom 1. März bis zum 29. Mai statt.
+Die Anmeldephase findet im Zeitraum vom **1. März** bis zum **29. Mai** statt.
