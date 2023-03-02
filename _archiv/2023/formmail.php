@@ -2,7 +2,7 @@
 /** @noinspection PhpMissingParamTypeInspection */
 /** @noinspection PhpUnused */
 /** @noinspection PhpIncludeInspection */
-$FM_VERS = "10.00"; // script version
+$FM_VERS = "10.03"; // script version
 
 /* ex:set ts=4 sw=4 et:
  * FormMail PHP script from Tectite.com.
@@ -164,6 +164,12 @@ $FM_VERS = "10.00"; // script version
  *  main website here:
  *   http://www.tectite.com/fmdoc/version_history.php
  */
+
+/**
+ * An alternative function for sending email.
+ * You can override this variable in a hook script to use a different function.
+ */
+$ALT_MAIL_FUNCTION = '';
 
 FMDebug('Submission to: ' . (isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : '') . ' from: ' .
         (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''));
@@ -1312,6 +1318,12 @@ define('MSG_USER_ATTACK_MANY_URLS',223);		// Your input ...
 define('MSG_USER_ATTACK_MANY_URL_FIELDS',224);	// Your input ...
 
 define('MSG_INVALID_EMAIL',230);           // The email address...is invalid
+
+//
+// The following messages are no longer used
+//
+define('MSG_FLD_NOTFOUND', 900);
+
 
 // @formatter:on
 // <A NAME="MessageNumbers"> Jump to: <A HREF="#BuiltinMessages">
@@ -6243,7 +6255,7 @@ function ProcessFormIniFile($s_file)
 	if (isset($a_sections["special_fields"])) {
 		foreach ($a_sections["special_fields"] as $s_name => $m_value) {
 			if (IsSpecialField($s_name)) {
-				ValidateSpecialField($s_name,$s_value,false);
+				ValidateSpecialField($s_name,$m_value,false);
 				SetSpecialField($s_name,$m_value);
 				//
 				// if this is the recipients, cc, or bcc field,
@@ -6376,8 +6388,8 @@ function CheckEmailAddress($m_addr,&$s_valid,&$s_invalid,$b_check = true)
 //
 function filter_string_polyfill(string $string): string
 {
-	$str = preg_replace('/\x00|<[^>]*>?/', '', $string);
-	return str_replace(["'", '"'], ['&#39;', '&#34;'], $str);
+	$str = preg_replace('/\x00|<[^>]*>?/','',$string);
+	return str_replace(["'",'"'],['&#39;','&#34;'],$str);
 }
 
 //
@@ -6761,84 +6773,89 @@ function ExpandMailHeadersArray($a_headers)
 //
 function DoMail($s_to,$s_subject,$s_mesg,$a_headers,$s_options)
 {
+	global $ALT_MAIL_FUNCTION;
 
-	//
-	// Encode the subject line.
-	// Ideally, we want to encode the relevant parts of To, From, Cc,
-	// Reply-To, and this is the right place to do it.
-	// However, it's another 1000 lines of code!
-	// So, we must compromise the code quality because of this cost.
-	// We encode subject here, and we encode the From line where it's
-	// created.  The rest remain for a future version where code size
-	// can be controlled.
-	//
-	$s_subject = EncodeHeaderText($s_subject);
-	if (!Settings::isEmpty('PEAR_SMTP_HOST')) {
-		//
-		// Note that PEAR Mail seems to take responsibility for header line folding
-		//
-		require_once("Mail.php");
-
-		$a_params = array("host" => Settings::get('PEAR_SMTP_HOST'),
-		                  "port" => Settings::get('PEAR_SMTP_PORT')
-		);
-		if (!Settings::isEmpty('PEAR_SMTP_USER')) {
-			$a_params["auth"]     = TRUE;
-			$a_params["username"] = Settings::get('PEAR_SMTP_USER');
-			$a_params["password"] = Settings::get('PEAR_SMTP_PWD');
-		}
-		$mailer = Mail::factory("smtp",$a_params);
-		if (!is_object($mailer)) {
-			ShowError("pear_error",GetMessage(MSG_PEAR_OBJ),FALSE,FALSE);
-			FormMailExit();
-		}
-		if (strtolower(get_class($mailer)) === 'pear_error') {
-			ShowError("pear_error",$mailer->getMessage(),FALSE,FALSE);
-			FormMailExit();
-		}
-		if (!isset($a_headers['To']) && !isset($a_headers['to'])) {
-			$a_headers['To'] = SafeHeader($s_to);
-		}
-		if (!isset($a_headers['Subject']) && !isset($a_headers['subject'])) {
-			$a_headers['Subject'] = SafeHeader($s_subject);
-		}
-		$res = $mailer->send($s_to,$a_headers,$s_mesg);
-		if ($res === TRUE) {
-			return (TRUE);
-		}
-
-		global $aAlertInfo;
-
-		$aAlertInfo[] = GetMessage(MSG_PEAR_ERROR,array("MSG" => $res->getMessage()));
-		return (FALSE);
+	if ($ALT_MAIL_FUNCTION !== '') {
+		return ($ALT_MAIL_FUNCTION($s_to,$s_subject,$s_mesg,$a_headers,$s_options));
 	} else {
-		//$s_subject = HeaderFolding($s_subject,RFCLINELEN-10);   // "Subject: " is about 10 chars
 		//
-		// Notes from Feb 2010....
+		// Encode the subject line.
+		// Ideally, we want to encode the relevant parts of To, From, Cc,
+		// Reply-To, and this is the right place to do it.
+		// However, it's another 1000 lines of code!
+		// So, we must compromise the code quality because of this cost.
+		// We encode subject here, and we encode the From line where it's
+		// created.  The rest remain for a future version where code size
+		// can be controlled.
 		//
-		// PHP's mail function (tested in version 5.2.6) does folding of the
-		// To line and the Subject line.
-		// If we do it, then things break.
-		//
-		// This area is quite confusing.  It's not clear whether the script
-		// should be folding header lines or whether the MTA should do it.
-		// We *do know* (as stated above) that folding To and Subject breaks things.
-		//
-		// But folding other header lines properly, seems to be OK.
-		//
-		// However, for years FormMail never did header line folding (except for the
-		// soft line breaks inserted by the quoted_printable_encode function we had used),
-		// and we didn't seem to get any reports of breakage (except for problems
-		// with the quoted_printable_encode soft line breaks!).
-		//
-		// So, even though we've implemented all the code for header line folding,
-		// we'll not use it.
-		// No header line folding will be performed in version 8.22 onwards.
-		//
-		if ($s_options !== "") {
-			return (mail($s_to,$s_subject,$s_mesg,ExpandMailHeaders($a_headers),$s_options));
+		$s_subject = EncodeHeaderText($s_subject);
+		if (!Settings::isEmpty('PEAR_SMTP_HOST')) {
+			//
+			// Note that PEAR Mail seems to take responsibility for header line folding
+			//
+			require_once("Mail.php");
+
+			$a_params = array("host" => Settings::get('PEAR_SMTP_HOST'),
+			                  "port" => Settings::get('PEAR_SMTP_PORT')
+			);
+			if (!Settings::isEmpty('PEAR_SMTP_USER')) {
+				$a_params["auth"]     = TRUE;
+				$a_params["username"] = Settings::get('PEAR_SMTP_USER');
+				$a_params["password"] = Settings::get('PEAR_SMTP_PWD');
+			}
+			$mailer = Mail::factory("smtp",$a_params);
+			if (!is_object($mailer)) {
+				ShowError("pear_error",GetMessage(MSG_PEAR_OBJ),FALSE,FALSE);
+				FormMailExit();
+			}
+			if (strtolower(get_class($mailer)) === 'pear_error') {
+				ShowError("pear_error",$mailer->getMessage(),FALSE,FALSE);
+				FormMailExit();
+			}
+			if (!isset($a_headers['To']) && !isset($a_headers['to'])) {
+				$a_headers['To'] = SafeHeader($s_to);
+			}
+			if (!isset($a_headers['Subject']) && !isset($a_headers['subject'])) {
+				$a_headers['Subject'] = SafeHeader($s_subject);
+			}
+			$res = $mailer->send($s_to,$a_headers,$s_mesg);
+			if ($res === TRUE) {
+				return (TRUE);
+			}
+
+			global $aAlertInfo;
+
+			$aAlertInfo[] = GetMessage(MSG_PEAR_ERROR,array("MSG" => $res->getMessage()));
+			return (FALSE);
 		} else {
-			return (mail($s_to,$s_subject,$s_mesg,ExpandMailHeaders($a_headers)));
+			//$s_subject = HeaderFolding($s_subject,RFCLINELEN-10);   // "Subject: " is about 10 chars
+			//
+			// Notes from Feb 2010....
+			//
+			// PHP's mail function (tested in version 5.2.6) does folding of the
+			// To line and the Subject line.
+			// If we do it, then things break.
+			//
+			// This area is quite confusing.  It's not clear whether the script
+			// should be folding header lines or whether the MTA should do it.
+			// We *do know* (as stated above) that folding To and Subject breaks things.
+			//
+			// But folding other header lines properly, seems to be OK.
+			//
+			// However, for years FormMail never did header line folding (except for the
+			// soft line breaks inserted by the quoted_printable_encode function we had used),
+			// and we didn't seem to get any reports of breakage (except for problems
+			// with the quoted_printable_encode soft line breaks!).
+			//
+			// So, even though we've implemented all the code for header line folding,
+			// we'll not use it.
+			// No header line folding will be performed in version 8.22 onwards.
+			//
+			if ($s_options !== "") {
+				return (mail($s_to,$s_subject,$s_mesg,ExpandMailHeaders($a_headers),$s_options));
+			} else {
+				return (mail($s_to,$s_subject,$s_mesg,ExpandMailHeaders($a_headers)));
+			}
 		}
 	}
 }
@@ -7736,8 +7753,9 @@ class   HTTPGet extends NetIO
 		}
 		//
 		// Accept any output
+		// use of concatenation to avoid problems with IDE syntax highlighting.
 		//
-		$s_req .= "Accept: */*\r\n";
+		$s_req .= "Accept: */" . "*\r\n";
 		$s_req .= $this->_AdditionalHeaders();
 		//
 		// End of request headers
@@ -7915,7 +7933,11 @@ class   HTTPPost extends HTTPGet
 			if ($s_data != '') {
 				$s_data .= '&';
 			}
-			$s_data .= urlencode($s_name) . '=' . urlencode($s_value);
+			if (is_string($s_value)) {
+				$s_data .= urlencode($s_name) . '=' . urlencode($s_value);
+			} else {
+				$s_data .= urlencode($s_name) . '=' . urlencode(serialize($s_value));
+			}
 		}
 		return ($s_data);
 	}
@@ -13588,6 +13610,12 @@ function DetectSpecialsAttack($a_fields,&$s_attack,&$s_info,&$s_user_info)
 //
 function DetectManyURLsAttack($a_fields,&$s_attack,&$s_info,&$s_user_info)
 {
+	//
+	// This suffix to patterns ensure that a domain name is not actually the name component
+	// of an email address.  For example, 'ss.game@bigpond.com' would get incorrectly recognised as a URL
+	// without this additional pattern.
+	//
+	$s_not_email_name = '(?!@[a-z]+\.)';
 
 	$a_fld_names = array();
 	//
@@ -13611,7 +13639,7 @@ function DetectManyURLsAttack($a_fields,&$s_attack,&$s_info,&$s_user_info)
 			if ($s_pat == "") {
 				continue;
 			}
-			$s_srch .= "|" . str_replace('/','\/',$s_pat);
+			$s_srch .= "|" . str_replace('/','\/',$s_pat) . $s_not_email_name;
 		}
 	}
 	if (Settings::get('SITE_DOMAIN')) {
@@ -13749,7 +13777,7 @@ function DetectAttacks($a_fields)
 		}
 	}
 	if (function_exists('FMHookDetectAttacks')) {
-		if (FMookDetectAttacks($a_fields,$s_attack,$s_info,$s_user_info)) {
+		if (FMHookDetectAttacks($a_fields,$s_attack,$s_info,$s_user_info)) {
 			$b_attacked = true;
 		}
 	}
