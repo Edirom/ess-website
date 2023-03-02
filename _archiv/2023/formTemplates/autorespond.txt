@@ -22,17 +22,14 @@ IBAN: DE55 4726 0121 8747 0400 00
 BIC: DGPBDE3MXXX
 Bank: Verbundvolksbank OWL eG
 
-Verwendungszweck: 3011001706, ESS2023, $nachname, $vorname
-
-
-Studierende der Universität Paderborn melden sich bitte zusätzlich in PAUL zu den entsprechenden Lehrveranstaltungen an.
+Verwendungszweck: 3011004703, ESS2023, $nachname, $vorname
 
 
 Nähere Informationen zur technischen Durchführung der Kurse erhalten Sie in der Woche vor der ESS.
 
 
 Wir haben für die Kommunikation zur ESS auch einen Slack-Kanal eingerichtet:
-https://join.slack.com/t/ediromsummerschool/shared_invite/zt-1cjftslpz-I_AJwsTHPyFHdRbPsYZ2NA
+https://join.slack.com/t/ediromsummerschool/shared_invite/zt-1qi8ikbdt-Fe190FrvMfczi2K8F0GetQ
 
 Bitte melden Sie sich dort schon einmal an. Sie können dann auch dort ggf. direkt mit Ihren Dozent*innen in Kontakt treten.
 
