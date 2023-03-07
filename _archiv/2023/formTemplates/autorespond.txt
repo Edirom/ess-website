@@ -1,0 +1,55 @@
+Sehr geehrte*r $realname,
+
+vielen Dank für Ihre Anmeldung zur 14. Edirom-Summer-School 2023 (ESS2023), deren Eingang wir Ihnen hiermit bestätigen.
+
+Wir haben von Ihnen folgende Angaben erhalten, die wir selbstverständlich nur zur Durchführung der Edirom Summer School gebrauchen und nicht an Dritte weitergeben.
+
+Vorname: $vorname
+Nachname: $nachname
+Email: $email
+Kurse:
+* ${kurse:sep=\n* }
+Kommentar: $kommentar
+
+Für die von Ihnen gewählten Kurse erheben wir eine Teilnahmegebühr von $gebuehr €.
+Bei den Teilnahmegebühren handelt es sich um eine Versorgungspauschale (Catering).
+
+
+Bitte überweisen Sie den Gesamtbetrag von $gebuehr € zeitnah an folgendes Konto:
+
+Universität Paderborn
+IBAN: DE55 4726 0121 8747 0400 00
+BIC: DGPBDE3MXXX
+Bank: Verbundvolksbank OWL eG
+
+Verwendungszweck: 3011004703, ESS2023, $nachname, $vorname
+
+
+Nähere Informationen zur technischen Durchführung der Kurse erhalten Sie in der Woche vor der ESS.
+
+
+Wir haben für die Kommunikation zur ESS auch einen Slack-Kanal eingerichtet:
+https://join.slack.com/t/ediromsummerschool/shared_invite/zt-1qi8ikbdt-Fe190FrvMfczi2K8F0GetQ
+
+Bitte melden Sie sich dort schon einmal an. Sie können dann auch dort ggf. direkt mit Ihren Dozent*innen in Kontakt treten.
+
+
+Wir freuen uns, Sie bei der ESS in Paderborn begrüßen zu dürfen.
+Bei Fragen stehen wir Ihnen gerne unter ess@edirom.de zur Verfügung.
+
+
+Mit den besten Grüßen aus Detmold/Paderborn
+Ihr ESS-Team
+
+stellv. Dennis Ried
+
+(Diese Mail ist automatisch generiert.)
+
+
+****
+
+Die ESS2023 im Netz: https://ess.upb.de
+
+Folgen Sie uns auf Twitter unter https://twitter.com/edirom oder #edirom2023
+
+****
