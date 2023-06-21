@@ -33,15 +33,9 @@
     </div>
     <script>
         let now = Date.now(),
-            anmeldebeginn = Date.parse('{{ page.registrationstart }}') ;
-        if(anmeldebeginn > now) {
-            $('#staticBackdrop').modal('show');
-        }
-    </script>
-    <script>
-        let now = Date.now(),
+            anmeldebeginn = Date.parse('{{ page.registrationstart }}'),
             anmeldeschluss = Date.parse('{{ page.deadline }}') ;
-        if(now > anmeldeschluss) {
+        if(anmeldebeginn > now || now > anmeldeschluss) {
             $('#staticBackdrop').modal('show');
         }
     </script>
