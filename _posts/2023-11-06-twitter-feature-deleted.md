@@ -1,13 +1,8 @@
 ---
 layout: post
-title: "Save the date!"
-excerpt: "Edirom-Summer-School 2024"
+title: "Twitter-Feed"
+excerpt: "Twitter-Feed von Startseite entfernt"
 authors: Dennis Ried
 ---
 
-**Save the date!** Vom 23.–27. September 2024 findet die **15. Edirom-Summer-School** im Heinz-Nixdorf-Institut Paderborn statt.
-
-In Kooperation mit:
-- [Text+](https://www.text-plus.org)
-- [ZenMEM](https://zenmem.de)
-- [Virtuellen Forschungsverbundes Edirom, ViFE](https://edirom.de)
+Bislang war es üblich, dass wir in der rechten Sidebar unserer Webseite einen Twitter-Feed angeboten haben, der über aktuelle Aktivitäten des Virtuellen Forschungsverbund Edirom (ViFE) informierte. Dieses Feature ist für X (vormals Twitter) nicht mehr verfügbar und wurde daher von unserer Seite entfernt. Wir bitten um Verständnis.
