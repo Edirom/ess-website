@@ -16,5 +16,5 @@ authors:
           <li>Poster-Session, Details siehe <a href="/2024/programm.html#poster">Abschnitt „Poster-Session“ im Kursprogramm</a></li>
        </ul>
    </p>
-   <p>Der Beginn der  Anmeldephase ist für den 18./19. Juli geplant. Wir informieren hier und über die üblichen Mailinglisten.</p>
+   <p>Der Beginn der  Anmeldephase ist für den 19. Juli geplant. Wir informieren hier und über die üblichen Mailinglisten.</p>
 </div>
