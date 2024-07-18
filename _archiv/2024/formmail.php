@@ -698,7 +698,7 @@ $DB_SEE_INPUT = false; /* set to true to just see the input values */
 $DB_SEE_INI = false; /* set to true to just see the ini file */
 
 /* Help: http://www.tectite.com/fmdoc/maxstring.php */
-$MAXSTRING = 1024; /* maximum string length for a value */
+$MAXSTRING = 4096; /* maximum string length for a value */
 
 /* Help: http://www.tectite.com/fmdoc/require_captcha.php */
 $REQUIRE_CAPTCHA = "Confirm you are not a robot."; /* set to a message string if your forms */
