@@ -601,7 +601,7 @@ $CSVLINE = "\n"; /* line termination for CSV files.  The default is a single lin
 	                    this value, you *must* set $CSVOPEN = "b". */
 
 /* Help: http://www.tectite.com/fmdoc/templatedir.php */
-$TEMPLATEDIR = "/var/www/html/2023/formTemplates"; /* directory for template files; empty string if you don't have any templates */
+$TEMPLATEDIR = "/var/www/html/2024/formTemplates"; /* directory for template files; empty string if you don't have any templates */
 
 /* Help: http://www.tectite.com/fmdoc/templateurl.php */
 $TEMPLATEURL = ""; /* default; no template URL */
@@ -698,7 +698,7 @@ $DB_SEE_INPUT = false; /* set to true to just see the input values */
 $DB_SEE_INI = false; /* set to true to just see the ini file */
 
 /* Help: http://www.tectite.com/fmdoc/maxstring.php */
-$MAXSTRING = 1024; /* maximum string length for a value */
+$MAXSTRING = 4096; /* maximum string length for a value */
 
 /* Help: http://www.tectite.com/fmdoc/require_captcha.php */
 $REQUIRE_CAPTCHA = "Confirm you are not a robot."; /* set to a message string if your forms */

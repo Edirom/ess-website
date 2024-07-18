@@ -1,7 +1,8 @@
 <form class="needs-validation" name="form1" method="post" enctype="multipart/form-data" action="formmail.php" novalidate="novalidate">
     {% assign current-year = page.path | slice: 8, 4 %}
     <input type="hidden" name="recipients" value="essbe_gaedirom.de" />
-    <input type="hidden" name="required" value="vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail" />
+    <input type="hidden" name="required"
+           value="vorname:Ihr Vorname,nachname:Ihr Nachname,email:Ihre E-Mail,disclaimer" />
     <input type="hidden" name="subject"
            value="[ESS{{ current-year }}] Anmeldung" />
     <input type="hidden" name="good_template" value="form_ok.html" />
@@ -9,7 +10,7 @@
     <input type="hidden" name="derive_fields" value="realname=vorname+nachname,imgverify=g-recaptcha-response,arverify=imgverify" />
     <input type="hidden" name="csvfile" value="anmeldungen{{ current-year }}.csv" />
     <input type="hidden" name="csvcolumns"
-           value="nachname,vorname,email,kurse,gebuehr,studierende,kommentar" />
+           value="nachname,vorname,email,kurse,gebuehr,studierende,kommentar,disclaimer" />
     <input type="hidden" name="autorespond"
            value="PlainTemplate=autorespond.txt,Subject=[ESS{{ current-year }}] Anmeldebestätigung,FromAddr=essbe_gaedirom.de" />
     <input type="hidden" name="mail_options"
@@ -136,13 +137,15 @@
 
             <fieldset>
                 <legend><small>Datenschutz</small></legend>
-                <input type="checkbox" id="disclamer"
-                    name="disclamer"
+                <input type="checkbox" id="disclaimer"
+                    name="disclaimer"
                     value="ja"
                     class="form-check-input ml-1"
                     required="required"
                 />
-                <label for="disclamer" class="form-text text-muted ml-4 small">Ich bin einverstanden, dass meine personenbezogenen Daten erhoben, gespeichert und verarbeitet werden. (Buchhaltung, Anwesenheitslisten, Teilnahmebescheinigungen u.ä.)</label>
+                <label for="disclaimer" class="form-text text-muted ml-4 small">Ich bin einverstanden, dass meine personenbezogenen Daten erhoben, gespeichert und verarbeitet werden. (Buchhaltung, Anwesenheitslisten, Teilnahmebescheinigungen u.ä.)</label>
+                <div class="invalid-feedback">Bitte akzeptieren Sie die
+                    Datenschutzvereinbarung</div>
                 <small>Alle personenbezogenen Daten werden entsprechend den jeweils geltenden Vorschriften zum Schutz personenbezogener Daten nur zum Zwecke der Tagungsorganisation und Abwicklung erhoben, verarbeitet und genutzt. Eine Weitergabe an Dritte erfolgt nicht.</small>
             </fieldset>
 
