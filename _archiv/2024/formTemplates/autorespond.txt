@@ -22,7 +22,9 @@ IBAN: DE55 4726 0121 8747 0400 00
 BIC: DGPBDE3MXXX
 Bank: Verbundvolksbank OWL eG
 
-Verwendungszweck: 3011004703, ESS2023, $nachname, $vorname
+Verwendungszweck: 3011004703, ESS2024, $nachname, $vorname
+
+>>> Die Teilnahme an der ESS ist erst nach Zahlungseingang möglich! <<<
 
 
 Nähere Informationen zur technischen Durchführung der Kurse erhalten Sie in der Woche vor der ESS. Und auf https://ess.upb.de
