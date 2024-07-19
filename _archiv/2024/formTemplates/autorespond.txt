@@ -24,7 +24,7 @@ Bank: Verbundvolksbank OWL eG
 
 Verwendungszweck: 3011004703, ESS2024, $nachname, $vorname
 
->>> Die Teilnahme an der ESS ist er nach Zahlungseingang möglich! <<<
+>>> Die Teilnahme an der ESS ist erst nach Zahlungseingang möglich! <<<
 
 
 Nähere Informationen zur technischen Durchführung der Kurse erhalten Sie in der Woche vor der ESS. Und auf https://ess.upb.de
