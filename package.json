@@ -19,7 +19,7 @@
   "homepage": "https://github.com/Edirom/ess-website#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.0.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
   }
