@@ -58,11 +58,16 @@ jobs:
 
   clean:
     runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      packages: write
     steps:
-      - name: Delete Package Versions
-        uses: actions/delete-package-versions@v5.0.0
+      - name: ghcr.io cleanup action
+        uses: dataaxiom/ghcr-cleanup-action@v1
         with:
-          package-name: 'ess-website'
-          package-type: 'container'
-          min-versions-to-keep: 10
-          delete-only-untagged-versions: 'true'
+          package: ess-website
+          delete-untagged: true
+          dry-run: false
+          validate: true
+          older-than: 2 weeks
+          token: ${{ secrets.GITHUB_TOKEN }}
