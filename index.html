@@ -3,8 +3,46 @@ layout: default
 title: "Startseite"
 ---
 
+<section>
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-10 col-sm-6">
+                <img src="{{ '2024/img/ViFE-ESS-logo.png' | relative_url }}"
+                     class="img-fluid mx-auto d-block"
+                     alt="Edirom Logo"/>
+            </div>
+            <div class="card bg-light">
+                <div class="card-body">
+                    <p class="text-center">
+                        <b>16. Edirom Summer School</b>
+                        <br/><b>8. bis 12. September 2025</b>
+                        <br/>Heinz-Nixdorf-Institut
+                        <br/>Universität Paderborn
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-primary">
+    <div class="container py-3">
+        <div class="row">
+                <h1>Joint MEC TEI conference 2023</h1>
+
+                <p> Die Edirom Summer School (ESS) findet regelmäßig im September im Heinz-Nixdorf-Institut der
+            Universität Paderborn statt.
+            Sie richtet sich mit unterschiedlichen Kursen zu konzeptionellen und
+            technischen Fragestellungen digitaler Editionsarbeit sowohl an
+            interessierte Einsteiger*innen und Studierende als auch an fortgeschrittene
+            Wissenschaftler*innen bzw. Editor*innen.</p>
+        </div>
+    </div>
+</section>
+
+<section>
 <div class="row">
-    <div class="col-md-8">
+    <div>
         <h2>Aktuelles</h2>
         {% for post in site.posts limit: 3 %}
         <div class="card bg-light my-4">
@@ -16,17 +54,5 @@ title: "Startseite"
         </div>
         {% endfor %}
     </div>
-    <div class="col-md-4">
-        <div class="card bg-light">
-            <img class="card-img-top" src=" {{ "2024/img/ViFE-ESS-logo.png" | relative_url }}" alt="ESS-Logo"/>
-            <div class="card-body">
-                <p class="text-center">
-                    <b>16. Edirom Summer School</b>
-                    <br/><b>8. bis 12. September 2025</b>
-                    <br/>Heinz-Nixdorf-Institut
-                    <br/>Universität Paderborn
-                </p>
-            </div>
-        </div>
-    </div>
 </div>
+</section>
