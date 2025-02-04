@@ -1,0 +1,60 @@
+
+    <div class="row g-3 deactivated" id="countdown">
+
+        <div class="col-6 col-lg-3">
+            <div class="counter-item">
+                <p id="countdown-days"></p>
+                <p>Tage</p>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="counter-item">
+                <p id="countdown-hours"></p>
+                <p>Stunden</p>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="counter-item">
+                <p id="countdown-minutes"></p>
+                <p>Minuten</p>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="counter-item">
+                <p id="countdown-seconds"></p>
+                <p>Sekunden</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function addCountdown(elementId, endDate) {
+            // Initialisiere Variablen für die Verbleibende Zeit
+            let daysElement = document.getElementById(elementId + "-days"),
+                hoursElement = document.getElementById(elementId + "-hours"),
+                minutesElement = document.getElementById(elementId + "-minutes"),
+                secondsElement = document.getElementById(elementId + "-seconds");
+
+            // Aktualisiere die verbleibende Zeit alle 1000ms (1s)
+            setInterval(function () {
+                let currentDate = new Date(),
+                    remainingTime = endDate - currentDate,
+                    // Berechne Tage, Stunden, Minuten und Sekunden
+                    remainingDays = Math.floor(remainingTime / (1000 * 60 * 60 * 24)),
+                    remainingHours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+                    remainingMinutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60)),
+                    remainingSeconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+                // Aktualisiere die Text-Elemente
+                daysElement.textContent = remainingDays;
+                hoursElement.textContent = remainingHours;
+                minutesElement.textContent = remainingMinutes;
+                secondsElement.textContent = remainingSeconds;
+            }, 1000);
+        }
+
+        let endDate = new Date("September 8, 2025 00:00:00");
+        addCountdown("countdown", endDate);
+    </script>
+
