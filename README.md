@@ -71,4 +71,4 @@ This work is licensed under a [Creative Commons Attribution 4.0 Unported License
 [Font Awesome]: https://fontawesome.com
 [The OpenJS Foundation]: https://openjsf.org
 [Creative Commons Attribution 4.0 Unported License (CC BY 4.0)]: https://creativecommons.org/licenses/by/4.0/
-[Docker Hub]: https://hub.docker.com/r/edirom/vife-website/
+[Docker Hub]: https://hub.docker.com/r/edirom/ess-website/
