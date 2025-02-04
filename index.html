@@ -5,21 +5,23 @@ title: "Startseite"
 
 <section>
     <div class="container text-center py-3">
-        <div class="row g-3 justify-content-center">
+        <div class="row g-3">
             <div class="col-10 col-sm-6">
                 <img src="{{ '2024/img/ViFE-ESS-logo.png' | relative_url }}" class="img-fluid mx-auto d-block"
                     alt="Edirom Logo" />
             </div>
-            <div class="card bg-light">
-                <div class="card-body">
-                    <p class="text-center">
-                        <b>16. Edirom Summer School</b>
-                        <br /><b>8. bis 12. September 2025</b>
-                        <br />Heinz-Nixdorf-Institut
-                        <br />Universität Paderborn
-                    </p>
-                    <div><!--class="col-12 col-sm-6 counter-section"-->
-                        {% include index-counter.html %}
+            <div class="col-5 col-sm-6">
+                <div class="card bg-light py-3">
+                    <div class="card-body">
+                        <p class="text-center">
+                            <b>16. Edirom Summer School</b>
+                            <br /><b>8. bis 12. September 2025</b>
+                            <br />Heinz-Nixdorf-Institut
+                            <br />Universität Paderborn
+                        </p>
+                        <div><!--class="col-12 col-sm-6 counter-section"-->
+                            {% include index-counter.html %}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -27,21 +29,22 @@ title: "Startseite"
     </div>
 </section>
 
-<section class="bg-primary">
-    <div class="container py-3">
-        <div class="row g-3">
-            <h1>Edirom Summer School</h1>
+<section>
+    <div class="container text-center py-3">
+        <div class="col-10 col-sm-12">
+            <div class="row g-3 justify-content-center bg-primary">
+            <div class="card-header bg-primary">
+                <h1 class="text-light">Edirom Summer School</h1>
 
-            <p>Die Edirom Summer School (ESS) findet regelmäßig im September im Heinz-Nixdorf-Institut der Universität
-                Paderborn statt. Sie beschäftigt sich in unterschiedlichen Kursen mit konzeptionellen und technischen
-                Fragestellungen digitaler Editionsarbeit. Das Kernangebot an Kursen zu den Auszeichnungsstandards der
-                Text Encoding Initiative (TEI) und der Music Encoding Initiative (MEI) sowie zu den Edirom Tools wird
-                jährlich um Angebote zu weiteren Themen ergänzt. Darüber hinaus haben die Teilnehmer*innen die
-                Gelegenheit, eigene Projekte vorzustellen und in Austausch zu treten. Außerdem
-                findet zur Eröffnung eine Keynote zu aktuellen DH-Forschungsfragen statt.</p>
+                <p>Die Edirom Summer School (ESS) findet regelmäßig im September im Heinz-Nixdorf-Institut der Universität
+                    Paderborn statt. Sie beschäftigt sich in unterschiedlichen Kursen mit konzeptionellen und technischen
+                    Fragestellungen digitaler Editionsarbeit. Das Kernangebot an Kursen zu den Auszeichnungsstandards der
+                    Text Encoding Initiative (TEI) und der Music Encoding Initiative (MEI) sowie zu den Edirom Tools wird
+                    jährlich um Angebote zu weiteren Themen ergänzt. Darüber hinaus haben die Teilnehmer*innen die
+                    Gelegenheit, eigene Projekte vorzustellen und in Austausch zu treten. Außerdem
+                    findet zur Eröffnung eine Keynote zu aktuellen DH-Forschungsfragen statt.</p>
+            </div>
         </div>
-
-
     </div>
 
 </section>
@@ -49,9 +52,7 @@ title: "Startseite"
 <section>
 
     <div class="container py-5">
-
         <div class="row g-3">
-
             <div class="col-sm-6">
                 <h2>Aktuelles</h2>
                 {% for post in site.posts limit: 2 %}
@@ -65,13 +66,9 @@ title: "Startseite"
                 {% endfor %}
             </div>
 
-
             <div class="col-sm-6">
-
-
+                <h2>Keynote</h2>
                 {% include index-keynote.html %}
-
-
             </div>
         </div>
 
@@ -79,6 +76,3 @@ title: "Startseite"
 
 </section>
 
-<!-- <section class="text-bg-primary">
-    {% include index-sponsors.html %}
-</section> -->

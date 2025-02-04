@@ -1,17 +1,28 @@
 /*
  * ESS color definitions
  */
-$ess-gray: rgb(94, 98, 99);
-$ess-green-lighter: rgb(134,231,51);
-$ess-green-light: rgb(112,193,42);
-$ess-green-medium: rgb(83,153,14);
-$ess-green-dark: rgb(60,100,23);
+$ess-gray: rgb(237, 232, 220);
+$ess-green-lighter: rgb(193, 207, 161);
+$ess-green-light: rgb(165, 182, 141);
+$ess-green-medium: rgb(83, 153, 14);
+$ess-green-dark: rgb(56,101,14);
+$ess-sand: rgb(237, 232, 220);
+$ess-rose: rgb(231, 204, 204);
+$ess-rose-dark: rgb(207,152,152);
 /*
  * setting bootstrap colors
  */
-$primary: $ess-green-medium;
-$link-color: $ess-green-medium;
-$headings-color: $ess-gray;
+$primary: $ess-green-light;
+$link-color: $ess-green-dark;
+$headings-color: $ess-green-dark;
+$light: $ess-sand;
+$dark: $ess-green-dark;
+$warning: $ess-rose-dark;
+$secondary: $ess-sand;
+$danger: $ess-rose-dark;
+$info: $ess-rose-dark;
+$sucess: $ess-rose-dark;
+
 
 /*
  * copying $spacer and $navbar-padding-y
@@ -55,3 +66,4 @@ footer {
 .slots, .teachers {
   list-style: none;
 }
+
