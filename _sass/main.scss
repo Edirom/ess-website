@@ -67,3 +67,16 @@ footer {
   list-style: none;
 }
 
+.gallery {
+    display: flex;
+    flex-wrap: wrap; /* Ermöglicht das Umbruch der Bilder */
+    justify-content: space-between; /* Gleiche Abstände zwischen Bildern */
+}
+
+.gallery img {
+    max-width: 250px; /* Bild passt in den Container */
+    height: auto; /* Proportionaler Höhenverlauf */
+    margin-bottom: 10px; /* Abstand zwischen den Bildern */
+    flex: 1 1 200px; /* Flexibles Wachstum, Mindestbreite von 200px */
+}
+
