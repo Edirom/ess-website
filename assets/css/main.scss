@@ -7,3 +7,6 @@ $fa-font-path: "{{ '/assets/webfonts' | relative_url }}" !default;
 @import "bootstrap";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/brands";
+
+// local SCSS
+@import "./contributions";

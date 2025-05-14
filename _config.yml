@@ -34,6 +34,11 @@ defaults:
     values:
       layout: "program"
   - scope:
+      path: ""
+      type: "contributions"
+    values:
+      layout: "contribution"    
+  - scope:
       path: "_archiv/*/classes"
     values:
       requirements: "–"

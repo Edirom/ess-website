@@ -1,0 +1,438 @@
+- date: "2025-09-08"
+  title: Workshop 1
+  time: 14:15 bis 17:45 Uhr
+  location: tba
+  track: 1
+  paperIDs:
+    - 100
+- date: "2025-09-08"
+  title: Workshop 2
+  time: 14:15 bis 17:45 Uhr
+  location: tba
+  track: 2
+  paperIDs:
+    - 200
+- date: "2025-09-08"
+  title: Workshop 3
+  time: 14:15 bis 17:45 Uhr
+  location: tba
+  track: 3
+  paperIDs:
+    - 300
+- date: "2025-09-08"
+  title: Workshop 4
+  time: 14:15 bis 17:45 Uhr
+  location: tba
+  track: 1
+  paperIDs:
+    - 400
+- date: "2025-09-08"
+  title: Eröffnungskeynote
+  time: 18:15 bis 19:45 Uhr
+  location: tba
+  track: 1
+  paperIDs:
+    - 146
+
+- date: "2025-09-09"
+  title: Workshop 1
+  time: 9:15 bis 16 Uhr
+  location: tba
+  track: 3
+  paperIDs:
+    - 184
+- date: "2025-09-09"
+  title: Workshop 2
+  time: 9:15 bis 16 Uhr
+  location: tba
+  track: 3
+  paperIDs:
+    - 156
+- date: "2025-09-09"
+  title: Workshop 3
+  time: 9:15 bis 16 Uhr
+  location: tba
+  track: 4
+  paperIDs:
+    - 179
+- date: "2025-09-10"
+  title: Workshop 4
+  time: 9:15 bis 16:00 Uhr
+  location: tba
+  order: 2
+  track: 2
+  paperIDs:
+    - 116
+- date: "2025-09-10"
+  title: Postersession
+  time: 16:00 bis 17:45 Uhr
+  location: tba
+  order: 5
+  track: 2
+  paperIDs:
+    - 174
+    
+- date: "2025-09-10"
+  title: Panel Session 3
+  time: 4:15pm to 5:45pm
+  location: tba
+  order: 8
+  track: 2
+  paperIDs:
+    - 139
+- date: "2025-09-12"
+  title: Panel Session 6
+  time: 11:15am to 12:45pm
+  location: tba
+  order: 5
+  track: 2
+  paperIDs:
+    - 101
+- date: "2025-09-12"
+  title: Panel Session 5
+  time: 9:15am to 10:45am
+  location: tba
+  order: 2
+  track: 2
+  paperIDs:
+    - 199
+- date: "2025-09-11"
+  title: Panel Session 4
+  time: 11:15am to 12:45pm
+  location: Main Campus, L&#8201;1.201 <span class="btn btn-sm room btn-outline-room-egXML" type="button">&lt;campus:egXML&gt;</span>
+  order: 10
+  track: 2
+  paperIDs:
+    - 170
+- date: "2025-09-10"
+  title: Data Connections (Short Papers)
+  chair: "Martina Scholger"
+  time: 9:15am to 10:45am
+  location: tba
+  order: 6
+  track: 3
+  paperIDs:
+    - 117
+    - 135
+    - 194
+    - 129
+    - 176
+- date: "2025-09-10"
+  title: Encoding Challenges (Short Papers)
+  chair: "Christine Siegert"
+  time: 2:15pm to 3:45pm
+  location: tba
+  order: 9
+  track: 3
+  paperIDs:
+    - 107
+    - 190
+    - 130
+    - 102
+    - 127
+- date: "2025-09-11"
+  title: Encoding the Global Humanities (Short Papers)
+  chair: "Gimena del Rio Riande"
+  time: 2:15pm to 3:45pm
+  location: tba
+  order: 5
+  track: 3
+  paperIDs:
+    - 182
+    - 169
+    - 147
+    - 198
+    - 160
+- date: "2025-09-12"
+  title: Tools and Workflows (Short Papers)
+  chair: "Peter Stadler"
+  time: 11:15am to 12:45pm
+  location: tba
+  order: 8
+  track: 3
+  paperIDs:
+    - 145
+    - 151
+    - 162
+    - 108
+    - 134
+- date: "2025-09-10"
+  title: Data Strategies (Long Papers)
+  chair: "Sophia Dörner"
+  time: 9:15am to 10:45am
+  location: Main Campus, L&#8201;1.202 <span class="btn btn-sm room btn-outline-room-note" type="button">&lt;campus:note&gt;</span>
+  order: 1
+  track: 1
+  paperIDs:
+    - 163
+    - 137
+    - 111
+- date: "2025-09-10"
+  title: Text and Music / Music and Text (Long Papers)
+  chair: "Raff Viglianti"
+  time: 11:15am to 12:45pm
+  location: Main Campus, L&#8201;1.202 <span class="btn btn-sm room btn-outline-room-note" type="button">&lt;campus:note&gt;</span>
+  order: 3
+  track: 1
+  paperIDs:
+    - 124
+    - 183
+    - 171
+- date: "2025-09-11"
+  title: What Output for Complex Encodings? (Long Papers)
+  chair: "Joey Takeda"
+  time: 11:15am to 12:45pm
+  location: Main Campus, L&#8201;1.202 <span class="btn btn-sm room btn-outline-room-note" type="button">&lt;campus:note&gt;</span>
+  order: 4
+  track: 1
+  paperIDs:
+    - 189
+    - 196
+    - 149
+- date: "2025-09-10"
+  title: Tools for Music Editions and Analysis (Long Papers)
+  chair: "Laurent Pugin"
+  time: 2:15pm to 3:45pm
+  location: Main Campus, L&#8201;1.202 <span class="btn btn-sm room btn-outline-room-note" type="button">&lt;campus:note&gt;</span>
+  order: 7
+  track: 1
+  paperIDs:
+    - 185
+    - 159
+    - 177
+- date: "2025-09-10"
+  title: Encoding Semantics and Entities (Long Papers)
+  chair: "Constance Crompton"
+  time: 4:15pm to 5:45pm
+  location: Main Campus, L&#8201;1.202 <span class="btn btn-sm room btn-outline-room-note" type="button">&lt;campus:note&gt;</span>
+  order: 10
+  track: 1
+  paperIDs:
+    - 104
+    - 165
+    - 153
+- date: "2025-09-10"
+  title: Beyond Common Western Music Notation (Long Papers)
+  chair: "Benjamin W. Bohl"
+  time: 11:15am to 12:45pm
+  location: tba
+  order: 3
+  track: 3
+  paperIDs:
+    - 166
+    - 188
+    - 180
+- date: "2025-09-11"
+  title: Towards Genetic Editions (Long Papers)
+  chair: "Anna Plaksin"
+  time: 11:15am to 12:45pm
+  location: tba
+  order: 4
+  track: 3
+  paperIDs:
+    - 154
+    - 112
+    - 140
+- date: "2025-09-11"
+  title: Encoding Strategies (Long Papers)
+  chair: "David M. Weigl"
+  time: 2:15pm to 3:45pm
+  location: Main Campus, L&#8201;1.202 <span class="btn btn-sm room btn-outline-room-note" type="button">&lt;campus:note&gt;</span>
+  order: 6
+  track: 1
+  paperIDs:
+    - 125
+    - 113
+    - 114
+- date: "2025-09-11"
+  title: Infrastructure (Long Papers)
+  chair: "James Cummings"
+  time: 2:15pm to 3:45pm
+  location: Main Campus, L&#8201;1.201 <span class="btn btn-sm room btn-outline-room-egXML" type="button">&lt;campus:egXML&gt;</span>
+  order: 7
+  track: 2
+  paperIDs:
+    - 105
+    - 168
+- date: "2025-09-12"
+  title: Corpus Building (Long Papers)
+  chair: "Kiyonori Nagasaki"
+  time: 9:15am to 10:45am
+  location: Main Campus, L&#8201;1.202 <span class="btn btn-sm room btn-outline-room-note" type="button">&lt;campus:note&gt;</span>
+  order: 1
+  track: 1
+  paperIDs:
+    - 157
+    - 132
+    - 100
+- date: "2025-09-12"
+  title: Early Music and Renaissance (Long Papers)
+  chair: "Timothy Duguid"
+  time: 9:15am to 10:45am
+  location: tba
+  order: 3
+  track: 3
+  paperIDs:
+    - 128
+    - 106
+    - 181
+- date: "2025-09-12"
+  title: Encoding for the Stage (Long Papers)
+  chair: "Joshua Neumann"
+  time: 11:15am to 12:45pm
+  location: Main Campus, L&#8201;1.202 <span class="btn btn-sm room btn-outline-room-note" type="button">&lt;campus:note&gt;</span>
+  order: 4
+  track: 1
+  paperIDs:
+    - 122
+    - 173
+    - 148
+- date: "2025-09-11"
+  title: Poster Session
+  chair: "James Cummings"
+  time: 4:15pm to 5:45pm
+  location: tba
+  order: 9
+  track: 1
+  paperIDs:
+    - 143
+    - 172
+    - 150
+    - 131
+    - 152
+    - 167
+    - 187
+    - 103
+    - 195
+    - 158
+    - 136
+    - 164
+    - 141
+    - 133
+    - 119
+    - 175
+    - 178
+    - 115
+    - 118
+    - 142
+    - 138
+    - 110
+    - 144
+    - 121
+- date: "2025-09-09"
+  title: Opening Keynote and Reception
+  time: 7pm to 9pm
+  location: HNF
+  order: 6
+  track: 1
+  paperIDs: 
+    - Keynote-Kijas
+- date: "2025-09-12"
+  title: Closing Keynote
+  time: 2:15pm to 3:45pm
+  location: Main Campus, Audimax
+  order: 6
+  track: 1
+  paperIDs:
+    - Keynote-Grallert
+- date: "2025-09-11"
+  title: TEI Annual General Meeting
+  time: 9:15am to 10:45am
+  location: Main Campus, L&#8201;1.202 <span class="btn btn-sm room btn-outline-room-note" type="button">&lt;campus:note&gt;</span>
+  order: 1
+  track: 1
+  paperIDs:
+- date: "2025-09-11"
+  title: MEI Community Meeting
+  time: 9:15am to 10:45am
+  location: tba
+  order: 2
+  track: 2
+  paperIDs:
+- date: "2023-09-09"
+  title: Water Skiing
+  chair: "Dennis Friedl"
+  time: 10:00am to 4:00pm
+  location: tba
+  track: 1
+  paperIDs:
+- date: "2025-09-10"
+  title: Conference Dinner
+  time: 7:00pm to 10:00pm
+  location: Gut Lippesee
+  track: 1
+  paperIDs:
+- date: "2025-09-09"
+  title: Guided Tour to the Heinz Nixdorf Museumsforum
+  time: 5:30pm to 6:30pm
+  location: HNF
+  track: 1
+  paperIDs:
+- date: "2025-09-12"
+  title: Guided Tour to the Heinz Nixdorf Museumsforum
+  time: 4:45pm to 5:45pm
+  location: HNF
+  track: 1
+  paperIDs:
+- date: "2025-09-11"
+  title: Guided City Tours
+  time: 6:00pm to 7:30pm
+  location: tba
+  track: 1
+  paperIDs:
+- date: "2025-09-10"
+  title: SIG/IG meeting
+  time: 4:15pm to 5:45pm
+  location: tba
+  order: 1
+  track: 3
+  paperIDs:
+    - SIG-Correspondence
+- date: "2025-09-09"
+  title: SIG/IG meeting
+  time: 9:15 bis 12:45 Uhr
+  location: tba
+  order: 1
+  track: 1
+  paperIDs:
+    - IG-Analysis
+- date: "2025-09-10"
+  title: SIG/IG meeting
+  time: 11:15am to 12:45pm
+  location: tba
+  order: 1
+  track: 2
+  paperIDs:
+    - SIG-Linguistics
+- date: "2025-09-11"
+  title: SIG/IG meeting
+  time: 11:15am to 12:45pm
+  location: Main Campus, L&#8201;2.201 <span class="btn btn-sm room btn-outline-room-performance" type="button">&lt;campus:performance&gt;</span>
+  order: 1
+  track: 4
+  paperIDs:
+    - SIG-Ontologies
+- date: "2025-09-11"
+  title: SIG/IG meeting
+  time: 2:15pm to 3:45pm
+  location: Main Campus, L&#8201;2.201 <span class="btn btn-sm room btn-outline-room-performance" type="button">&lt;campus:performance&gt;</span>
+  order: 1
+  track: 4
+  paperIDs:
+    - IG-Metadata
+- date: "2025-09-12"
+  title: SIG/IG meeting
+  time: 9:15am to 10:45am
+  location: Main Campus, L&#8201;1.201 <span class="btn btn-sm room btn-outline-room-egXML" type="button">&lt;campus:egXML&gt;</span>
+  order: 1
+  track: 4
+  paperIDs:
+    - SIG-Manuscripts
+- date: "2025-09-12"
+  title: SIG/IG meeting
+  time: 11:15am to 12:45pm
+  location: Main Campus, L&#8201;1.201 <span class="btn btn-sm room btn-outline-room-egXML" type="button">&lt;campus:egXML&gt;</span>
+  order: 1
+  track: 4
+  paperIDs:
+    - SIG-GraphTechnologies

@@ -1,0 +1,34 @@
+{% assign date = include.date %}
+{% assign time = include.time %}
+{% assign track = include.track | to_integer }
+{% assign program = site.data.sessions | where: "session", session.date == include.date%}
+
+{% for session in site.data.sessions %}
+{% assign sessionTrack = session.track | to_integer %}
+{% if session.date == date and session.time == time and sessionTrack == track %}
+<div class="col-{{ include.cols }}">
+    <div class="session{%
+         if include.event == 'true' %} event{% endif %}">
+        <strong>{{ session.title }}</strong>
+        {% if session.chair %}
+        <p class="chair">Chair: {{ session.chair }} </p>
+        {% endif %}
+        <p>Location: {{ session.location }}</p>
+        {% for contributionID in session.paperIDs %}
+        {% for contribution in site.contributions %}
+        {% if contribution.paperID == contributionID %}
+        <div class="contribution">
+            <a class="title" href="{{ contribution.url }}">{{
+                contribution.title
+                }}</a>
+            <span class="authors">{{
+                contribution.authors | join: ' / '
+                }}</span>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endfor %}
