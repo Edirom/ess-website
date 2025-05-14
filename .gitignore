@@ -11,3 +11,4 @@ vendor/
 node_modules/
 .bundle/
 *.xpr
+package-lock.json
