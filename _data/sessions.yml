@@ -4,7 +4,7 @@
   location: tba
   track: 1
   paperIDs:
-    - MEI
+    - 100
 - date: "2025-09-08"
   title: Workshop 2
   time: 14:15 bis 17:45 Uhr
@@ -38,23 +38,23 @@
   title: Workshop 1
   time: 9:15 bis 16 Uhr
   location: tba
-  track: 1
+  track: 3
   paperIDs:
-    - 100
+    - 184
 - date: "2025-09-09"
   title: Workshop 2
   time: 9:15 bis 16 Uhr
   location: tba
   track: 3
   paperIDs:
-    - 200
+    - 156
 - date: "2025-09-09"
   title: Workshop 3
   time: 9:15 bis 16 Uhr
   location: tba
   track: 4
   paperIDs:
-    - 300
+    - 179
 - date: "2025-09-10"
   title: Workshop 4
   time: 9:15 bis 16:00 Uhr
@@ -62,7 +62,7 @@
   order: 2
   track: 2
   paperIDs:
-    - 400
+    - 116
 - date: "2025-09-10"
   title: Postersession
   time: 16:00 bis 17:45 Uhr

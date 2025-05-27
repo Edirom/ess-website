@@ -8,7 +8,7 @@
 {% if session.date == date and session.time == time and sessionTrack == track %}
 <div class="col-{{ include.cols }}">
     <div class="session{%
-        if include.event == 'true' %} event{% endif %}">
+         if include.event == 'true' %} event{% endif %}">
         <strong>{{ session.title }}</strong>
         {% if session.chair %}
         <p class="chair">Chair: {{ session.chair }} </p>
@@ -18,7 +18,7 @@
         {% for contribution in site.contributions %}
         {% if contribution.paperID == contributionID %}
         <div class="contribution">
-            <a class="title" href="{{ contribution.url | relativize_url }}">{{
+            <a class="title" href="{{ contribution.url }}">{{
                 contribution.title
                 }}</a>
             <span class="authors">{{
@@ -30,6 +30,5 @@
         {% endfor %}
     </div>
 </div>
-    {% endif %}
-    {% endfor %}
-    
+{% endif %}
+{% endfor %}
