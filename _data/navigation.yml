@@ -1,5 +1,7 @@
 - name: About
   link: /about.html
+- name: Kursprogramm
+  link: /2025/programm.html
 - name: Veranstaltungsort
   link: /veranstaltungsort.html
 - name: "Sponsoren"

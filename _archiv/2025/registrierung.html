@@ -1,0 +1,28 @@
+---
+layout: program
+title: "Registrierung ESS 2024"
+registrationstart: "2024-07-18T00:00:00+02:00"
+deadline: "2024-09-18T23:59:59+02:00"
+---
+
+<div class="row justify-content-center">
+
+    <div class="col-12">
+
+        <p>Die Registrierung ist vom {% include date-german.html date=page.registrationstart
+            showDayOfWeek=false showDay=true %}
+            {{ formattedDate }} bis zum {% include date-german.html
+            date=page.deadline
+            showDayOfWeek=false showDay=true %}
+            {{ formattedDate }} (23:59 Uhr, UTC+2) geöffnet.
+        </p>
+
+    </div>
+
+    <div class="col">
+        {% include registration-form.html %}
+    </div>
+
+    {% include registration-closed-overlay.html %}
+
+</div>
