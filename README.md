@@ -11,7 +11,7 @@ The regular website routine involves these issues:
 
 1. Adding news posts: 
    New posts must follow the filename format `YYYY-MM-DD-someName.suffix` 
-   and are to be put in the `_posts` folder. The most recent three are 
+   and are to be put in the `_posts` folder. The most recent two are 
    displayed on the start page and all are accessible from the "archiv" page.  
 2. Adding new programs: 
    Summer School programs for every year are found in the `_archiv` folder, 
