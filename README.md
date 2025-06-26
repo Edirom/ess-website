@@ -17,7 +17,7 @@ The regular website routine involves these issues:
    Summer School programs for every year are found in the `_archiv` folder, 
    named `programm.html`. It's important that the metadata "title" string 
    contains "Kursprogramm", otherwise the programm will not properly be 
-   displayed on the "archiv" page.  
+   displayed on the "archiv" page. Further information can be found [here](https://github.com/Edirom/ess-website/blob/main/_archiv/README.md).  
 3. Updating the top navigation:
    To have the top navigation point at the right program, please modify the 
    YAML file at `_data/navigation.yml`.
