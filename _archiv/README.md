@@ -75,9 +75,10 @@ The costs depend on the courses length: a slot of 3 hours costs 5 Euros.
 The slots are set up in `_data/timeslots/[year].yml`.
 
 ### Text body
+Under the metadata header needs to be this text body with the actual description.
 
     <div class="content">
-    <p>Description of the fancy course.</p>
-    
+      <p>This is the first paragraph with the description of the fancy course.</p>
+      <p>The description can be even more fancy if you add links to <a href="https://www.fancy-website.de/" title="Fancy Website" target="_blank">websites</a>.</p>
     </div>
 
