@@ -14,17 +14,19 @@
 
  
 ## What's in the file `programm.html`
-The HTML file should consist of two parts, a metadata head and the actual text 
-body.
+The HTML file should consist of two parts, a metadata header and the actual 
+text body.
 
-### Metadata head
+### Metadata header
 
-    ---
-    layout: program
-    title: "Kursprogramm ESS 20XX"
-    programm_pdf: /2025/img/ESS20XX-Programm.pdf
-    programm_img: /2025/img/ESS20XX-Programm.png
-    ---
+```yaml
+---
+layout: program
+title: "Kursprogramm ESS 20XX"
+programm_pdf: /20XX/img/ESS20XX-Programm.pdf
+programm_img: /20XX/img/ESS20XX-Programm.png
+---
+```
     
     
 ### Text body
@@ -48,31 +50,33 @@ body.
 
 ## How to set up a course
 
-The HTML file should consist of two parts, a metadata head and the actual text 
-body.
+The HTML file should consist of two parts, a metadata header and the actual 
+text body.
 First of all, please name the file with a meaningful title.
 
-### Metadata head
+### Metadata header
 
-    ---
-    title: Fancy course on important stuff
-    title-short: Fancy course
-    label: fancy
-    lang: Deutsch oder English
-    costs: 20
-    teachers: Awesome teacher
-    requirements:
-    - basic knowledge of stuff
-    software:
-    - average software
-    target-audience: Beginners
-    slots:
-    - Mi1
-    - Mi2
-    - Mi3
-    - Mi4
-    room: tba
-    ---
+```yaml
+---
+title: Fancy course on important stuff
+title-short: Fancy course
+label: fancy
+lang: Deutsch oder English
+costs: 20
+teachers: Awesome teacher
+requirements:
+  - basic knowledge of stuff
+software:
+  - average software
+target-audience: Beginners
+slots:
+  - Mi1
+  - Mi2
+  - Mi3
+  - Mi4
+room: tba
+---
+```
 
 The costs depend on the course length: a slot of 3 hours costs 5 Euros.
 
