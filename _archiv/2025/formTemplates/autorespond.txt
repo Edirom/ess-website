@@ -1,0 +1,48 @@
+Sehr geehrte*r $realname,
+
+vielen Dank für Ihre Anmeldung zur 16. Edirom-Summer-School 2025 (ESS2025), deren Eingang wir Ihnen hiermit bestätigen.
+
+Wir haben von Ihnen folgende Angaben erhalten, die wir selbstverständlich nur im Rahmen der Durchführung der Edirom-Summer-School verarbeiten. Ihre Daten werden nicht an Dritte weitergeben.
+
+Vorname: $vorname
+Nachname: $nachname
+Email: $email
+Kurse:
+* ${kurse:sep=\n* }
+Kommentar: $kommentar
+
+Für die von Ihnen gewählten Kurse erheben wir eine Teilnahmegebühr von $gebuehr €.
+Bei den Teilnahmegebühren handelt es sich um eine Versorgungspauschale (Catering) in den Pausen.
+
+
+Bitte überweisen Sie den Gesamtbetrag von $gebuehr € zeitnah an folgendes Konto:
+
+Universität Paderborn
+IBAN: DE55 4726 0121 8747 0400 00
+BIC: DGPBDE3MXXX
+Bank: Verbundvolksbank OWL eG
+
+Verwendungszweck: 3011004703, ESS2025, $nachname, $vorname
+
+>>> Die Teilnahme an der ESS ist erst nach Zahlungseingang möglich! <<<
+
+
+Nähere Informationen zur technischen Durchführung der Kurse erhalten Sie in der Woche vor der ESS und auf https://ess.upb.de
+
+
+Wir haben für die Kommunikation zur ESS auch einen Matrix-Space eingerichtet:
+https://matrix.to/#/#ess:edirom.de
+
+Bitte melden Sie sich dort schon einmal an. Sie können dann auch dort ggf. direkt mit den Dozent*innen in Kontakt treten.
+
+
+Wir freuen uns, Sie bei der ESS in Paderborn begrüßen zu dürfen.
+Bei Fragen stehen wir Ihnen gerne unter ess@edirom.de zur Verfügung.
+
+
+Mit den besten Grüßen aus Detmold/Paderborn
+Ihr ESS-Team
+
+stellv. Salome Obert
+
+(Diese Mail ist automatisch generiert.)
