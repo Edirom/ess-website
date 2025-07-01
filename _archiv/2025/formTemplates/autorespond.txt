@@ -27,7 +27,7 @@ Verwendungszweck: 3011004703, ESS2025, $nachname, $vorname
 >>> Die Teilnahme an der ESS ist erst nach Zahlungseingang möglich! <<<
 
 
-Nähere Informationen zur technischen Durchführung der Kurse erhalten Sie in der Woche vor der ESS. Und auf https://ess.upb.de
+Nähere Informationen zur technischen Durchführung der Kurse erhalten Sie in der Woche vor der ESS und auf https://ess.upb.de
 
 
 Wir haben für die Kommunikation zur ESS auch einen Matrix-Space eingerichtet:
