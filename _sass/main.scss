@@ -80,3 +80,6 @@ footer {
     flex: 1 1 200px; /* Flexibles Wachstum, Mindestbreite von 200px */
 }
 
+input[type="checkbox"] {
+  accent-color: $ess-green-dark;
+}
