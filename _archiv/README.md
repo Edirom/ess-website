@@ -92,3 +92,15 @@ Under the metadata header needs to be this text body with the actual description
   <p>The description can be even more fancy if you add links to <a href="https://www.fancy-website.de/" title="Fancy Website" target="_blank">websites</a>.</p>
 </div>
 ```
+
+### How to open the registration
+- Add and update the autoresponse form `_archiv/[year]/formTemplates/autorespond.txt` 
+- Copy the formmail script for the specific year `_archiv/[year/formmail.php` and adapt the `$TEMPLATEDIR` variable to the correct year `/var/www/html/[year]/formTemplates`
+- Adapt `_includes/registration-form.html` if necessary
+- Add the dates of the registration to the program `_archiv/[year]/programm.html`
+- Add file and configure the variables in the header `_archiv/[year]/registrierung.html`
+- Add registration to navigation `_data/navigation.yml` with correct slug
+- Update `entrypoint.sh` with correct year for CAPTCHA keys
+- Switch to the Apache Dockerfile for PHP support
+- Switch back to nginx Dockerfile after registration is closed again. This can be done in `.github/workflows/docker-publish.yml`.
+
