@@ -1,19 +1,25 @@
+{% assign current-year = "2025" %}
+{% assign keynote = site.archiv | where_exp: "item", "item.path contains
+    current-year and item.label contains 'keynote'" %}
+{%- assign keynote-link = current-year | append: '/programm.html#keynote' -%}
 <div class="card text-center my-4">
     <div class="card-header bg-primary">
-        <h3 class="text-light">Eröffnungskeynote <br>8. September 2025, 18:15 Uhr</h3>
+        <h3 class="text-light">8. September 2025, 18:15 Uhr</h3>
     </div>
-    <div class="card-body team-member">
-
+    <div class="card-body bg-light">
         <!-- <figure>
             <img src="{{ '/assets/img/xx-yy-thumb.jpg' | relative_url }}"
                                      alt="Foto von" />
             <figcaption>
                 <h3>{{yy[0].authors[0]}}</h3>
             </figcaption>
-        </figure>
-        <p>{{yy[0].title}}</p>
-                                <a href="{{ '/contributions/Keynote-yy.html' | relative_url }}"
-                                   class="card-link"></a> -->
-        <p>Nähere Informationen folgen in Kürze</p>
+        </figure> -->
+        <h3>{{ keynote[0].title }}</h3>
+        <p>von</p>
+        <p>{{ keynote[0].teachers[0] }}</p>
+        </br>
+        <a href="{{ keynote-link | relative_url }}"
+              class="card-link">Weitere Informationen</a> 
+        <!-- <p>Nähere Informationen folgen in Kürze</p> -->
     </div>
 </div>
