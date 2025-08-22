@@ -12,15 +12,18 @@ The regular website routine involves these issues:
 1. Adding news posts: 
    New posts must follow the filename format `YYYY-MM-DD-someName.suffix` 
    and are to be put in the `_posts` folder. The most recent two are 
-   displayed on the start page and all are accessible from the "archiv" page.  
+   displayed on the start page and all are accessible from the "archiv" page. 
 2. Adding new programs: 
    Summer School programs for every year are found in the `_archiv` folder, 
    named `programm.html`. It's important that the metadata "title" string 
    contains "Kursprogramm", otherwise the programm will not properly be 
-   displayed on the "archiv" page. Further information can be found [here](https://github.com/Edirom/ess-website/blob/main/_archiv/README.md).  
+   displayed on the "archiv" page. Further information can be found [here](https://github.com/Edirom/ess-website/blob/main/_archiv/README.md). 
 3. Updating the top navigation:
    To have the top navigation point at the right program, please modify the 
    YAML file at `_data/navigation.yml`.
+4. Opening the registration:
+   New files for the registration need to be added and configuration needs to 
+   be adapted. Further information can be found [here](https://github.com/Edirom/ess-website/blob/main/_archiv/README.md).
 
 
 ## Building locally
