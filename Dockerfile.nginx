@@ -2,19 +2,14 @@
 # Use the nginx Dockerfile for the static site (when the registration is closed)
 # and the apache Dockerfile (with php enabled) for the php registration form
 
-FROM jekyll/builder AS builder
+FROM ruby:3 AS builder
 
-ENV WORK_DIR=/var/jekyllbuilder
+# install dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends nodejs npm
 
-# since WORKDIR will not honour the USER directive
-# we need to create the directory and set permissions in advance
-RUN mkdir -p ${WORK_DIR} && \
-    chown -R jekyll:jekyll ${WORK_DIR}
-
-# set default jekyll user for building
-USER jekyll:jekyll
-WORKDIR ${WORK_DIR}
-COPY --chown=jekyll . .
+WORKDIR /var/jekyllbuilder
+COPY . .
 
 # build local
 RUN npm i && \
