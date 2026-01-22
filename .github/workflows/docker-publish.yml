@@ -35,6 +35,16 @@ jobs:
           username: vifebot
           password: ${{ secrets.VIFEBOTS_GITHUB_TOKEN }}
 
+      # Login to dhi.io registry except on PR
+      # https://github.com/docker/login-action
+      - name: Log into registry dhi.io
+        if: github.event_name != 'pull_request' && github.actor != 'dependabot[bot]'
+        uses: docker/login-action@v3
+        with:
+          registry: dhi.io
+          username: vifebot
+          password: ${{ secrets.VIFEBOT_DOCKERHUB_TOKEN }}
+
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
@@ -53,6 +63,7 @@ jobs:
           context: .
           file: ./Dockerfile.nginx
           #file: ./Dockerfile.apache
+          build-args: BASE_IMAGE=dhi.io/nginx:1
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
