@@ -4,6 +4,9 @@
   "description": "Web pages for the [Edirom Summer School](http://ess.uni-paderborn.de).",
   "main": "index.html",
   "scripts": {
+    "build": "bundle config set --local path 'vendor/bundle' && bundle install && bundle exec jekyll build",
+    "preinstall": "bundle config set --local path 'vendor/bundle' && bundle install",
+    "serve": "bundle exec jekyll serve --livereload",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
