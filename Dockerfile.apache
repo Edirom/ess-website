@@ -2,7 +2,7 @@
 # Use the nginx Dockerfile for the static site (when the registration is closed)
 # and the apache Dockerfile (with php enabled) for the php registration form
 
-FROM ruby:3 AS builder
+FROM ruby:4 AS builder
 
 # install dependencies
 RUN apt-get update \
