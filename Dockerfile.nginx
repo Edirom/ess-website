@@ -2,6 +2,12 @@
 # Use the nginx Dockerfile for the static site (when the registration is closed)
 # and the apache Dockerfile (with php enabled) for the php registration form
 
+# Default base image is nginx:alpine
+# while a hardened image can be requested
+# by providing the e.g. BASE_IMAGE="dhi.io/nginx:1"
+# build argument
+ARG BASE_IMAGE="nginx:alpine"
+
 FROM ruby:3 AS builder
 
 # install dependencies
@@ -12,7 +18,7 @@ WORKDIR /var/jekyllbuilder
 COPY . .
 
 # build local
-RUN npm i && \
+RUN npm ci && \
     bundle config set --local path 'vendor/bundle' && \
     bundle install && \
     bundle exec jekyll build
@@ -20,8 +26,9 @@ RUN npm i && \
 #################
 # nginx
 #################
-FROM nginx:alpine
-LABEL maintainer="Peter Stadler for the ViFE"
-LABEL org.opencontainers.image.source=https://github.com/Edirom/ess-website
+FROM $BASE_IMAGE
+
+LABEL org.opencontainers.image.authors="Peter Stadler for the ViFE"
+LABEL org.opencontainers.image.source="https://github.com/Edirom/ess-website"
 
 COPY --from=builder /var/jekyllbuilder/_site/  /usr/share/nginx/html/
