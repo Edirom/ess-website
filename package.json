@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Edirom/ess-website#readme",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.2",
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
