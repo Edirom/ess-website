@@ -1,19 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand text-dark" href="{{ "/" | relative_url }}">Edirom Summer School</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent"
+        <a class="navbar-brand text-dark" href="{{ '/' | relative_url }}">Edirom Summer School</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ms-auto">
                 {% for item in site.data.navigation %}
                 <li class="nav-item">
-                    <a class="nav-link{% if page.url == item.link %}
-                        active" aria-current="page{% endif %} text-dark"
-                        href="{{ item.link }}">
+                    {% assign is_active = page.url == item.link %}
+                    <a class="nav-link text-dark{% if is_active %} active{% endif %}"
+                        href="{{ item.link | relative_url }}">
                         {{ item.name }}
                     </a>
                 </li>
