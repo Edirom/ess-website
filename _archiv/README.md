@@ -78,7 +78,7 @@ room: tba
 ---
 ```
 
-The costs depend on the course length: a slot of 3 hours costs 5 Euros.
+The costs depend on the course length: a slot of 90 minutes costs 5 Euros.
 The slots are set up in `_data/timeslots/[year].yml`.
 
 If a course is fully booked add 
