@@ -83,3 +83,33 @@ footer {
 input[type="checkbox"] {
   accent-color: $ess-green-dark;
 }
+
+.F0\.231 {
+  background-color: $ess-green-lighter;
+}
+
+.F1\.110 {
+  background-color: $ess-rose-dark;
+}
+
+.F2\.211 {
+  background-color: $ess-rose;
+}
+
+.F0\.225 {
+  background-color: $ess-green-light;
+}
+
+li.slot {
+  padding: 1ex;
+}
+
+table {
+  table-layout: fixed;
+  text-wrap: auto;
+  word-wrap: break-word;
+}
+
+th[scope="row"] {
+  width: 75px;
+}
