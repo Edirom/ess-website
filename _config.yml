@@ -7,6 +7,11 @@ sass:
     - node_modules/bootstrap/scss
     - node_modules/@fortawesome/fontawesome-free/scss
   style: compressed
+  silence_deprecations:
+    - global-builtin
+    - color-functions
+    - if-function
+    - import
 
 copy_to_dest:
   - source: node_modules/@fortawesome/fontawesome-free/webfonts/.
