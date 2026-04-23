@@ -1,35 +1,11 @@
-/*
- * ESS color definitions
- */
-$ess-gray: rgb(237, 232, 220);
-$ess-green-lighter: rgb(193, 207, 161);
-$ess-green-light: rgb(165, 182, 141);
-$ess-green-medium: rgb(83, 153, 14);
-$ess-green-dark: rgb(56,101,14);
-$ess-sand: rgb(237, 232, 220);
-$ess-rose: rgb(231, 204, 204);
-$ess-rose-dark: rgb(207,152,152);
-/*
- * setting bootstrap colors
- */
-$primary: $ess-green-light;
-$link-color: $ess-green-dark;
-$headings-color: $ess-green-dark;
-$light: $ess-sand;
-$dark: $ess-green-dark;
-$warning: $ess-rose-dark;
-$secondary: $ess-sand;
-$danger: $ess-rose-dark;
-$info: $ess-rose-dark;
-$success: $ess-rose-dark;
-
+// ESS-Farbvariablen laden (as * = kein Namespace-Präfix nötig)
+@use "ess-variables" as *;
 
 /*
- * copying $spacer and $navbar-padding-y
- * for setting footer max-height
+ * Local layout variables — copied from Bootstrap defaults so footer
+ * height calculation works without depending on Bootstrap internals.
  */
-$spacer: 1rem !default;
-$navbar-padding-y: $spacer / 2 !default;
+$navbar-padding-y: 0.5rem;
 $footer-height: 4rem;
 
 footer {
