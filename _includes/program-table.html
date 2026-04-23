@@ -1,0 +1,42 @@
+<div class="table-responsive">
+    <table class="table table-sm text-center">
+        <thead>
+            <tr>
+                <th scope="row"></th>
+                {% for date in seenDates %}
+                {% include date-german.html date=date
+                showDayOfWeek=true showDay=true %}
+                <th scope="col">{{ formattedDate | truncatewords: 3, "" }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">9:15<br/>–<br/>10:45</th>
+                {% include program-table-td.html slot="1" %}
+            </tr>
+            <tr>
+                <th scope="row">11:15<br/>–<br/>12:45</th>
+                {% include program-table-td.html slot="2" %}
+            </tr>
+            <tr class="break">
+                <td colspan="6"></td>
+            </tr>
+            <tr>
+                <th scope="row">15:15<br/>–<br/>15:45</th>
+                {% include program-table-td.html slot="3" %}
+            </tr>
+            <tr>
+                <th scope="row">16:15<br/>–<br/>17:45</th>
+                {% include program-table-td.html slot="4" %}
+            </tr>
+            <tr class="break">
+                <td colspan="6"></td>
+            </tr>
+            <tr>
+                <th scope="row">18:15<br/>–<br/>19:45</th>
+                {% include program-table-td.html slot="5" %}
+            </tr>
+        </tbody>
+    </table>
+</div>
