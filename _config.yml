@@ -5,6 +5,7 @@ sass:
   load_paths:
     - _sass
     - node_modules/bootstrap/scss
+    - node_modules/@fortawesome/fontawesome-free/scss
   style: compressed
 
 copy_to_dest:
@@ -12,9 +13,7 @@ copy_to_dest:
     target: assets/webfonts/
   - source: node_modules/@fortawesome/fontawesome-free/svgs/.
     target: assets/svgs/
-  - source: node_modules/bootstrap/dist/js/bootstrap.min.js
-    target: assets/js/
-  - source: node_modules/jquery/dist/jquery.min.js
+  - source: node_modules/bootstrap/dist/js/bootstrap.bundle.min.js
     target: assets/js/
 
 collections:
