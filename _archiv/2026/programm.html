@@ -6,8 +6,16 @@ title: "Kursprogramm ESS 2026"
 <div>
     <div class="row justify-content-center">
         <div class="col">
+            {% assign registrierung-page = site.archiv | where: "title", "Registrierung ESS 2026" | first %}
             <p>Kursangebot zur 17. Edirom-Summer-School</p>
-            <p>Die Anmeldephase findet <b>vom 14. bis 18. September</b>
+            <p>Die Anmeldephase findet <b>vom
+                {% include date-german.html date=registrierung-page.registrationstart
+                showDayOfWeek=false showDay=true %}
+                {{ formattedDate }}
+                bis
+                {% include date-german.html date=registrierung-page.deadline
+                showDayOfWeek=false showDay=true %}
+                {{ formattedDate }}</b>
                 statt.</p>
             <p>Weitere Informationen folgen hier. Die Programme der vergangenen
                 Jahrgänge sind im
