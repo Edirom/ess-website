@@ -1,9 +1,30 @@
 ---
 ---
 
-$fa-font-path: "{{ '/assets/webfonts' | relative_url }}" !default;
+// 1. ESS-Farbvariablen als Namespace laden
+@use "ess-variables" as ess;
 
-@import "main";
-@import "bootstrap";
-@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
-@import "../node_modules/@fortawesome/fontawesome-free/scss/brands";
+// 2. Bootstrap theming: Variablen aus dem ess-Namespace direkt übergeben
+@use "bootstrap" with (
+  $primary:        ess.$ess-green-light,
+  $secondary:      ess.$ess-sand,
+  $light:          ess.$ess-sand,
+  $dark:           ess.$ess-green-dark,
+  $warning:        ess.$ess-rose-dark,
+  $danger:         ess.$ess-rose-dark,
+  $info:           ess.$ess-rose-dark,
+  $success:        ess.$ess-rose-dark,
+  $link-color:     ess.$ess-green-dark,
+  $headings-color: ess.$ess-green-dark,
+);
+
+// 3. Font Awesome: variables-Modul zuerst konfigurieren, damit $fa-font-path
+//    gesetzt ist bevor fontawesome es intern lädt
+@use "../node_modules/@fortawesome/fontawesome-free/scss/variables" with (
+  $font-path:  "{{ '/assets/webfonts' | relative_url }}"
+);
+@use "fontawesome";
+@use "brands" as fa-brands;
+
+// 4. Eigene App-Styles zuletzt, damit Bootstrap-Defaults überschreibbar sind
+@use "app";

@@ -1,4 +1,4 @@
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -32,11 +32,20 @@
         </div>
     </div>
     <script>
-        let now = Date.now(),
-            anmeldebeginn = Date.parse('{{ page.registrationstart }}'),
-            anmeldeschluss = Date.parse('{{ page.deadline }}') ;
-        if(anmeldebeginn > now || now > anmeldeschluss) {
-            $('#staticBackdrop').modal('show');
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const modalElement = document.getElementById('staticBackdrop');
+
+            if (!modalElement) {
+                return;
+            }
+
+            const now = Date.now();
+            const anmeldebeginn = Date.parse('{{ page.registrationstart }}');
+            const anmeldeschluss = Date.parse('{{ page.deadline }}');
+
+            if (anmeldebeginn > now || now > anmeldeschluss) {
+                bootstrap.Modal.getOrCreateInstance(modalElement).show();
+            }
+        });
     </script>
 </div>

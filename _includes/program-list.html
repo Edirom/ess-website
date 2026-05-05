@@ -7,15 +7,17 @@
     {% comment %}
         linke Spalte = Menüeinträge
     {% endcomment %}
-    <div class="col-lg-3">
-        <div class="list-group" id="list-tab" role="tablist">
+    <div class="col-lg-4 col-xl-3 mb-4 mb-lg-0">
+        <div class="list-group shadow-sm" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-action active"
-               data-toggle="list" href="#overview" role="tab"
-               aria-controls="overview">Übersicht</a>
+               id="overview-list"
+               data-bs-toggle="list" href="#overview" role="tab"
+               aria-controls="overview" aria-selected="true">Übersicht</a>
             {% for class in classes %}
             <a class="list-group-item list-group-item-action"
-               data-toggle="list" href="#{{ class.label }}" role="tab"
-               aria-controls="{{ class.label }}">{{ class.title-short }}
+               id="{{ class.label }}-list"
+               data-bs-toggle="list" href="#{{ class.label }}" role="tab"
+               aria-controls="{{ class.label }}" aria-selected="false">{{ class.title-short }}
                 <small>({{ class.lang }})</small>
                 {% if class.full %}
                 <span class="text-warning">(ausgebucht)</span>
@@ -27,9 +29,9 @@
     {% comment %}
         rechte Spalte = Kursbeschreibungen
     {% endcomment %}
-    <div class="col-lg-9">
-        <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade active show" id="overview" role="tabpanel">
+    <div class="col-lg-8 col-xl-9">
+        <div class="tab-content border rounded-3 shadow-sm p-3 p-lg-4 bg-body" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-list" tabindex="0">
                 {% if page.programm_img %}
                 <a href="{{ page.programm_pdf | relative_url }}"
                    title="Edirom–Summer–School-Programm"
@@ -42,40 +44,36 @@
                 {% endif %}
             </div>
             {% for class in classes %}
-            <div class="tab-pane fade" id="{{ class.label }}" role="tabpanel">
+            <div class="tab-pane fade" id="{{ class.label }}" role="tabpanel" aria-labelledby="{{ class.label }}-list" tabindex="0">
                 <h2>{{ class.title }}</h2>
-                <h4>Dozent*innen:
-                    <ul class="teachers">
-                        {% for teacher in class.teachers %}
-                        <li>{{ teacher }}</li>
-                        {% endfor %}
-                    </ul>
-                </h4>
-                <h5>Zeiten:
-                    <ul class="slots">
-                        {% assign thisYearsTimeslots =
-                        site.data.timeslots[current-year] %}
-                        {% for slot in class.slots %}
-                            <li>
-                            {% assign currentDate = thisYearsTimeslots[slot].date %}
-                            {% include date-german.html date=currentDate
-                                showDayOfWeek=true showDay=true %}
-                            {{ formattedDate | truncatewords: 3, "" }},
-                             {{ thisYearsTimeslots[slot].time_start }}–{{
-                                thisYearsTimeslots[slot].time_end }} Uhr
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </h5>
+                <h4>Dozent*innen</h4>
+                <ul class="teachers mb-4">
+                    {% for teacher in class.teachers %}
+                    <li>{{ teacher }}</li>
+                    {% endfor %}
+                </ul>
+                <h5>Zeiten</h5>
+                <ul class="slots mb-4">
+                    {% assign thisYearsTimeslots =
+                    site.data.timeslots[current-year] %}
+                    {% for slot in class.slots %}
+                        <li>
+                        {% assign currentDate = thisYearsTimeslots[slot].date %}
+                        {% include date-german.html date=currentDate
+                            showDayOfWeek=true showDay=true %}
+                        {{ formattedDate | truncatewords: 3, "" }},
+                         {{ thisYearsTimeslots[slot].time_start }}–{{
+                            thisYearsTimeslots[slot].time_end }} Uhr
+                        </li>
+                    {% endfor %}
+                </ul>
                 {% if class.room %}
                 <h5>Raum: {{ class.room }}</h5>
                 {% endif %}
                 <dl>
-                    {% if class.label == "keynote" %}
-                    <dt/>
-                    {% else %}
+                    {% unless class.label == "keynote" %}
                     <dt>Kursbeschreibung</dt>
-                    {% endif %}
+                    {% endunless %}
                     <dd>{{ class }}</dd>
                     {% if class.label == "keynote" %}
                     <dt>Vortragssprache</dt>
@@ -110,10 +108,4 @@
             {% endfor %}
         </div>
     </div>
-    <script type="application/javascript">
-        $('#list-tab a').on('click', function (e) {
-            e.preventDefault()
-            $(this).tab('show')
-        })
-    </script>
 </div>

@@ -1,141 +1,179 @@
-// Javascript for disabling inputs of concurrent workshops
-function conflict(kursElem) {
-
-    // get the slot labels (e.g. 'Mi1', 'Mi2') for the current input
-    let curSlots = $(kursElem).attr('data-slots').split(' ');
-
-    // if checked, disable all concurrent classes
-    if (kursElem.checked) {
-        // iterate over the current slot labels and simply
-        // disable all inputs with the same label
-        $(curSlots).each(function(a,b){
-            $('input[data-slots~=' + b + ']').attr('disabled',
-                true);
-        })
-        // since the above loop disables every match,
-        // re-enable here for current input
-        $(kursElem).attr('disabled', false);
-    }
-
-        // otherwise re-enable matching inputs
-        // this is a bit complicated, since we need to look out
-    // for cross matches
-    else {
-        // iterate over the current slot labels
-        $(curSlots).each(function(a,slot){
-            // ... and iterate over all matching inputs
-            $('input[disabled][data-slots~=' + slot + ']').each(function(b,curInput) {
-                let curInputSlots =
-                        $(curInput).attr('data-slots').split(' '),
-                    counter = 0;
-                // ... and its slot labels to check whether there
-                // is any other checked input with the same label
-                $(curInputSlots).each(function(x,y) {
-                    counter+= $('input:checked[data-slots~=' + y +
-                        ']').length;
-                })
-                if(counter === 0) {
-                    $(curInput).attr('disabled', false);
-                }
-            })
-        })
-    }
+function getCourseInputs() {
+    return Array.from(document.querySelectorAll('input[name="kurse[]"]'));
 }
 
-//adaption to https://stackoverflow.com/questions/29397155/javascript-calculate-total-price-of-items
-//by Dennis
-function getTotal(){
-    let total = 0;
-    if(document.getElementById("studi").checked === true) {
-        document.getElementById('gebuehr').value = "0";
-        document.getElementById('gebuehrSpan').innerHTML = "0";
-    } else {
-        if($("#basket").find('.form-check-input').length === 0) {
-            document.getElementById('gebuehr').value = "0";
-            document.getElementById('gebuehrSpan').innerHTML = "0";
-        } else{
-            $("#basket").find('.form-check-input').each(function(){
-                total += parseInt($(this).attr('data-costs'));
-                document.getElementById('gebuehr').value = total;
-                document.getElementById('gebuehrSpan').innerHTML = total;
-            });
-        }
-    }
+function getInteractiveCourseInputs() {
+    return getCourseInputs().filter((input) => input.dataset.slots);
+}
+
+function getCourseLabelText(item) {
+    const label = item.querySelector('.form-check-label');
+    return label ? label.innerText.trim() : '';
 }
 
 function sortList() {
-    let list, i, switching, b, shouldSwitch;
-    list = document.querySelector(".kurse");
-    switching = true;
-    /* Make a loop that will continue until
-    no switching has been done: */
-    while (switching) {
-        // start by saying: no switching is done:
-        switching = false;
-        b = list.getElementsByTagName("div");
-        // Loop through all list-items:
-        for (i = 0; i < (b.length - 1); i++) {
-            // start by saying there should be no switching:
-            shouldSwitch = false;
-            /* check if the next item should
-            switch place with the current item: */
-            if (b[i].querySelector(".form-check-label").innerText > b[i + 1].querySelector(".form-check-label").innerText) {
-                /* if next item is alphabetically
-                lower than current item, mark as a switch
-                and break the loop: */
-                shouldSwitch = true;
-                break;
-            }
-        }
-        if (shouldSwitch) {
-            /* If a switch has been marked, make the switch
-            and mark the switch as done: */
-            b[i].parentNode.insertBefore(b[i + 1], b[i]);
-            switching = true;
-        }
+    const list = document.querySelector('.kurse');
+
+    if (!list) {
+        return;
     }
+
+    const items = Array.from(list.querySelectorAll('.form-check'));
+
+    items
+        .sort((left, right) => getCourseLabelText(left).localeCompare(getCourseLabelText(right), 'de'))
+        .forEach((item) => list.appendChild(item));
 }
 
-$(".kurse").on('click', ".form-check-input", function() {
-    $(this.parentNode).appendTo("#basket");
-    getTotal();
-});
+function syncCoursePlacement() {
+    const list = document.querySelector('.kurse');
+    const basket = document.getElementById('basket');
 
-$("#basket").on('click', ".form-check-input", function() {
-    $(this.parentNode).appendTo(".kurse");
-    getTotal();
-});
+    if (!list || !basket) {
+        return;
+    }
 
-$('.kurse input').on('change', function() {
-    conflict(this);
+    getInteractiveCourseInputs().forEach((input) => {
+        const item = input.closest('.form-check');
+
+        if (!item) {
+            return;
+        }
+
+        if (input.checked) {
+            basket.appendChild(item);
+        } else {
+            list.appendChild(item);
+        }
+    });
+
     sortList();
-});
+}
 
-$('#studi').on('change', function() {
+function updateDisabledStates() {
+    const checkedSlots = new Set(
+        getInteractiveCourseInputs()
+            .filter((input) => input.checked)
+            .flatMap((input) => input.dataset.slots.split(' ').filter(Boolean))
+    );
+
+    getCourseInputs().forEach((input) => {
+        if (!input.dataset.slots) {
+            return;
+        }
+
+        if (input.checked) {
+            input.disabled = false;
+            return;
+        }
+
+        const hasConflict = input.dataset.slots
+            .split(' ')
+            .filter(Boolean)
+            .some((slot) => checkedSlots.has(slot));
+
+        input.disabled = hasConflict;
+    });
+}
+
+function getTotal() {
+    const studentCheckbox = document.getElementById('studi');
+    const feeInput = document.getElementById('gebuehr');
+    const feeSpan = document.getElementById('gebuehrSpan');
+
+    if (!feeInput || !feeSpan) {
+        return;
+    }
+
+    let total = 0;
+
+    if (!studentCheckbox || !studentCheckbox.checked) {
+        total = Array.from(document.querySelectorAll('#basket .form-check-input:checked')).reduce((sum, input) => {
+            const costs = Number.parseInt(input.dataset.costs || '0', 10);
+            return sum + (Number.isNaN(costs) ? 0 : costs);
+        }, 0);
+    }
+
+    feeInput.value = String(total);
+    feeSpan.textContent = String(total);
+}
+
+function updateRecaptchaFeedback() {
+    const recaptcha = document.querySelector('.g-recaptcha');
+
+    if (!recaptcha) {
+        return false;
+    }
+
+    const response = document.getElementById('g-recaptcha-response');
+    const isValid = !!response && response.value.trim().length > 0;
+    let feedback = recaptcha.querySelector('.invalid-feedback[data-generated="recaptcha"]');
+
+    if (isValid) {
+        recaptcha.style.removeProperty('border');
+        if (feedback) {
+            feedback.remove();
+        }
+        return true;
+    }
+
+    if (!feedback) {
+        feedback = document.createElement('div');
+        feedback.className = 'invalid-feedback d-block';
+        feedback.dataset.generated = 'recaptcha';
+        feedback.textContent = 'Bitte das Captcha ausfüllen';
+        recaptcha.appendChild(feedback);
+    }
+
+    recaptcha.style.border = '1px solid red';
+    return false;
+}
+
+function initCourseForm() {
+    const studentCheckbox = document.getElementById('studi');
+
+    syncCoursePlacement();
+    updateDisabledStates();
     getTotal();
-});
 
-// Example starter JavaScript from https://getbootstrap.com/docs/4.6/components/forms/#custom-styles
-// for disabling form submissions if there are invalid fields
-window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    let forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    let validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false ||
-                document.getElementById('g-recaptcha-response').value.length === 0) {
-                // add an extra warning if recaptcha is not solved
-                if(document.getElementById('g-recaptcha-response').value.length===0) {
-                    $('.g-recaptcha span.invalid-feedback').remove();
-                    $('.g-recaptcha').append('<span class="invalid-feedback">Bitte das Captcha ausfüllen</span>');
-                    $('.g-recaptcha span.invalid-feedback').show();
-                    $('.g-recaptcha').css('border', '1px solid red');
-                }
+    document.addEventListener('change', (event) => {
+        const target = event.target;
+
+        if (!(target instanceof HTMLInputElement)) {
+            return;
+        }
+
+        if (target.name === 'kurse[]') {
+            syncCoursePlacement();
+            updateDisabledStates();
+            getTotal();
+            return;
+        }
+
+        if (studentCheckbox && target === studentCheckbox) {
+            getTotal();
+        }
+    });
+}
+
+function initValidation() {
+    const forms = Array.from(document.getElementsByClassName('needs-validation'));
+
+    forms.forEach((form) => {
+        form.addEventListener('submit', (event) => {
+            const recaptchaIsValid = updateRecaptchaFeedback();
+
+            if (!form.checkValidity() || !recaptchaIsValid) {
                 event.preventDefault();
                 event.stopPropagation();
             }
+
             form.classList.add('was-validated');
         }, false);
     });
-}, false);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    initCourseForm();
+    initValidation();
+});
