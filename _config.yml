@@ -20,6 +20,8 @@ copy_to_dest:
     target: assets/svgs/
   - source: node_modules/bootstrap/dist/js/bootstrap.bundle.min.js
     target: assets/js/
+  - source: node_modules/html2pdf.js/dist/html2pdf.bundle.min.js
+    target: assets/js/
 
 collections:
   archiv:

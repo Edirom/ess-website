@@ -1,5 +1,16 @@
-<div class="table-responsive">
-    <table class="table table-sm text-center">
+<div class="table-responsive" id="program-table-container">
+    <a id="print-program-button" class="float-end" href="#">
+        <i class="fa-solid fa-print"></i>
+    </a>
+    <div class="d-flex justify-content-between align-items-center d-none">
+        <img src="{{ '2024/img/ViFE-ESS-logo.png' | relative_url }}"
+             width="200" alt="ViFE-ESS-Logo"
+             class="img-fluid"/>
+        {% assign current-year = page.path | slice: 8, 4 %}
+        <h2>Edirom Summer School
+            {{ current-year }}</h2>
+    </div>
+    <table class="table table-sm text-center" id="program-table">
         <thead>
             <tr>
                 <th scope="row"></th>
@@ -19,7 +30,7 @@
                 <th scope="row">11:15<br/>–<br/>12:45</th>
                 {% include program-table-td.html slot="2" %}
             </tr>
-            <tr class="break">
+            <tr class="break" style="break-after: page">
                 <td colspan="6"></td>
             </tr>
             <tr>
@@ -43,4 +54,36 @@
             </tr>
         </tbody>
     </table>
+    <script>
+        document
+            .getElementById("print-program-button")
+            .addEventListener("click", function (event) {
+                event.preventDefault();
+
+                const program =
+                    document.getElementById("program-table-container");
+                const opt = {
+                    margin: 6,
+                    filename: "ESS-Programm.pdf",
+                    html2canvas: {
+                        scale: 2,
+                        onclone: (clonedDoc) => {
+                            const style = clonedDoc.createElement("style");
+                            style.textContent = "" +
+                                "#print-program-button { display: none !important; }" +
+                                "#program-table-container > div { display: flex !important; }";
+                            clonedDoc.head.appendChild(style);
+                        }
+                    },
+                    jsPDF: {
+                        unit: "mm",
+                        format: "a4",
+                        orientation: "portrait"
+                    }
+                };
+
+                html2pdf().set(opt).from(program).save();
+            });
+    </script>
+
 </div>

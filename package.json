@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Edirom/ess-website#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.2.0",
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "html2pdf.js": "^0.14.0"
   }
 }

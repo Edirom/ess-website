@@ -25,6 +25,7 @@
 );
 @use "fontawesome";
 @use "brands" as fa-brands;
+@use "solid" as fa-solid;
 
 // 4. Eigene App-Styles zuletzt, damit Bootstrap-Defaults überschreibbar sind
 @use "app";
