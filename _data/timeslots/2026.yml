@@ -42,10 +42,10 @@ Mi4:
   date: "2026-09-16"
   time_start: "16:15"
   time_end: "17:45"
-Mi5:
+Mi6:
   date: "2026-09-16"
   time_start: "19:00"
-  time_end: "21:30"
+  time_end: "22:00"
 Do1:
   date: "2026-09-17"
   time_start: "9:15"
