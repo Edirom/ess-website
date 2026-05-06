@@ -6,7 +6,7 @@
     "item.slots contains y" %}
     <ul class="list-unstyled">
         {% for class in curClasses %}
-        <li class="{{ class.room | escape }} slot">
+        <li class="{{ class.label | escape }} slot">
             <strong class="title">{{ class.title-short }}</strong>
             <br/>
             <span class="room">{{ class.room }}</span>
