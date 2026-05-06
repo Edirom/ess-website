@@ -96,32 +96,40 @@ a {
   }
 }
 
-.F0\.231 {
-  background-color: $ess-green-lighter;
-}
+#overview {
 
-.F1\.110 {
-  background-color: $ess-rose-dark;
-}
+  table {
+    table-layout: fixed;
+    text-wrap: auto;
+    word-wrap: break-word;
 
-.F2\.211 {
-  background-color: $ess-rose;
-}
+    th[scope="row"] {
+      width: 75px;
+      vertical-align: middle;
+    }
 
-.F0\.225 {
-  background-color: $ess-green-light;
-}
+    li.slot {
+      padding: 1ex;
 
-li.slot {
-  padding: 1ex;
-}
+      &.docker, &.git, &.xtech {
+        background-color: $ess-green-lighter;
+      }
 
-table {
-  table-layout: fixed;
-  text-wrap: auto;
-  word-wrap: break-word;
-}
+      &.teiE, &.audio, &.svg {
+        background-color: $ess-rose-dark;
+      }
 
-th[scope="row"] {
-  width: 75px;
+      &.ediromE, &.latex, &.llms {
+        background-color: $ess-rose;
+      }
+
+      &.meiE, &.programming {
+        background-color: $ess-green-light;
+      }
+
+      &.poster, &.keynote {
+        background-color: $ess-sand;
+      }
+    }
+  }
 }
