@@ -68,40 +68,37 @@ a {
   }
 }
 
-#overview {
+table#program-table {
+  table-layout: fixed;
+  text-wrap: auto;
+  word-wrap: break-word;
 
-  table {
-    table-layout: fixed;
-    text-wrap: auto;
-    word-wrap: break-word;
+  th[scope="row"] {
+    width: 75px;
+    vertical-align: middle;
+  }
 
-    th[scope="row"] {
-      width: 75px;
-      vertical-align: middle;
+  li.slot {
+    padding: 1ex;
+
+    &.docker, &.git, &.xtech {
+      background-color: $ess-green-lighter;
     }
 
-    li.slot {
-      padding: 1ex;
+    &.teiE, &.audio, &.svg {
+      background-color: $ess-rose-dark;
+    }
 
-      &.docker, &.git, &.xtech {
-        background-color: $ess-green-lighter;
-      }
+    &.ediromE, &.latex, &.llms {
+      background-color: $ess-rose;
+    }
 
-      &.teiE, &.audio, &.svg {
-        background-color: $ess-rose-dark;
-      }
+    &.meiE, &.programming {
+      background-color: $ess-green-light;
+    }
 
-      &.ediromE, &.latex, &.llms {
-        background-color: $ess-rose;
-      }
-
-      &.meiE, &.programming {
-        background-color: $ess-green-light;
-      }
-
-      &.poster, &.keynote, &.ess-party {
-        background-color: $ess-sand;
-      }
+    &.poster, &.keynote, &.ess-party {
+      background-color: $ess-sand;
     }
   }
 }
