@@ -47,33 +47,17 @@ title: "Über die Edirom Summer School"
 <section>
     <h2>Eindrücke</h2>
     <div class="gallery container gap-2">
-        <img class="img-thumbnail img-fluid about-lightbox-trigger" alt="ESS-impressions"
-             data-lightbox-index="0"
-             src="{{ '/assets/img/impressions/impressions-4.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid about-lightbox-trigger" alt="ESS-impressions"
-             data-lightbox-index="1"
-             src="{{ '/assets/img/impressions/impressions-8.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid about-lightbox-trigger" alt="ESS-impressions"
-             data-lightbox-index="2"
-             src="{{ '/assets/img/impressions/impressions-9.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid about-lightbox-trigger" alt="ESS-impressions"
-             data-lightbox-index="3"
-             src="{{ '/assets/img/impressions/impressions-11.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid about-lightbox-trigger" alt="ESS-impressions"
-             data-lightbox-index="4"
-             src="{{ '/assets/img/impressions/impressions-6.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid about-lightbox-trigger" alt="ESS-impressions"
-             data-lightbox-index="5"
-             src="{{ '/assets/img/impressions/impressions-12.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid about-lightbox-trigger" alt="ESS-impressions"
-             data-lightbox-index="6"
-             src="{{ '/assets/img/impressions/impressions-13.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid about-lightbox-trigger" alt="ESS-impressions"
-             data-lightbox-index="7"
-             src="{{ '/assets/img/impressions/impressions-14.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid about-lightbox-trigger" alt="ESS-impressions"
-             data-lightbox-index="8"
-             src="{{ '/assets/img/impressions/impressions-1.jpg' | relative_url }}"/>
+        {% for image in site.static_files %}
+            {% if image.path contains 'img/impressions'
+                and image.path contains 'gif' %}
+            <a href="{{ image.path | replace: '.gif', '.jpg' | relative_url }}"
+               data-lightbox-index="{% increment my_counter %}"
+               class="about-lightbox-trigger">
+                <img class="img-thumbnail img-fluid" alt="ESS-impressions"
+                     src="{{ image.path | relative_url }}"/>
+            </a>
+            {% endif %}
+        {% endfor %}
     </div>
 </section>
 

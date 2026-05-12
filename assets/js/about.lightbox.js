@@ -29,8 +29,8 @@ function initAboutLightbox() {
     function updateModalContent(index) {
         const normalizedIndex = normalizeIndex(index, triggers.length);
         const trigger = triggers[normalizedIndex];
-        const src = trigger.getAttribute('src') || '';
-        const caption = (trigger.getAttribute('alt') || '').trim();
+        const src = trigger.getAttribute('href') || '';
+        const caption = (trigger.firstElementChild.getAttribute('alt') || '').trim();
 
         currentIndex = normalizedIndex;
         imageElement.src = src;
@@ -60,7 +60,8 @@ function initAboutLightbox() {
         trigger.setAttribute('tabindex', '0');
         trigger.setAttribute('aria-label', 'Bild in Grossansicht oeffnen');
 
-        trigger.addEventListener('click', () => {
+        trigger.addEventListener('click', (event) => {
+            event.preventDefault();
             openAt(triggerIndex);
         });
 
