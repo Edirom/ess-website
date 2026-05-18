@@ -48,16 +48,18 @@ title: "Über die Edirom Summer School"
 <section>
     <h2>Eindrücke</h2>
     <div class="gallery container gap-2">
-        {% for image in site.static_files %}
-            {% if image.path contains 'img/impressions'
-                and image.path contains 'gif' %}
-            <a href="{{ image.path | replace: '.gif', '.jpg' | relative_url }}"
+        {% comment %}
+        Dots in filenames are not preserved in Jekyll,
+        so "aboutgallery" maps to "about.gallery.yml"
+        {% endcomment %}
+        {% for image in site.data.aboutgallery %}
+            <a href="{{ image.full | relative_url }}"
                data-lightbox-index="{% increment my_counter %}"
                class="about-lightbox-trigger">
-                <img class="img-thumbnail img-fluid" alt="ESS-impressions"
-                     src="{{ image.path | relative_url }}"/>
+                <img class="img-thumbnail img-fluid" alt="{{ image.caption }}"
+                     title="{{ image.caption }}"
+                     src="{{ image.thumb | relative_url }}"/>
             </a>
-            {% endif %}
         {% endfor %}
     </div>
 </section>
