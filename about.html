@@ -14,7 +14,8 @@ title: "Über die Edirom Summer School"
                 Fortgeschrittene.</p>
 
             <p>Das Kernangebot an Kursen zu den Auszeichnungsstandards der <a href="https://www.tei-c.org/">Text
-                    Encoding Initiative (TEI)</a> und der <a href="http://music-encoding.org">Music Encoding Initiative
+                    Encoding Initiative (TEI)</a> und der <a
+                    href="https://music-encoding.org">Music Encoding Initiative
                     (MEI)</a> sowie zu den <a href="https://github.com/Edirom/Edirom-Online">Edirom Tools</a> wird
                 jährlich um Angebote zu weiteren Themen ergänzt. Darüber hinaus haben die Teilnehmer*innen die
                 Gelegenheit, im Rahmen der Spotlights eigene Projekte vorzustellen und in Austausch zu treten. Seit 2016
@@ -47,24 +48,51 @@ title: "Über die Edirom Summer School"
 <section>
     <h2>Eindrücke</h2>
     <div class="gallery container gap-2">
-        <img class="img-thumbnail img-fluid" alt="ESS-impressions"
-             src="{{ '/assets/img/impressions/impressions-4.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid" alt="ESS-impressions"
-             src="{{ '/assets/img/impressions/impressions-8.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid" alt="ESS-impressions"
-             src="{{ '/assets/img/impressions/impressions-9.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid" alt="ESS-impressions"
-             src="{{ '/assets/img/impressions/impressions-11.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid" alt="ESS-impressions"
-             src="{{ '/assets/img/impressions/impressions-6.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid" alt="ESS-impressions"
-             src="{{ '/assets/img/impressions/impressions-12.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid" alt="ESS-impressions"
-             src="{{ '/assets/img/impressions/impressions-13.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid" alt="ESS-impressions"
-             src="{{ '/assets/img/impressions/impressions-14.jpg' | relative_url }}"/>
-        <img class="img-thumbnail img-fluid" alt="ESS-impressions"
-             src="{{ '/assets/img/impressions/impressions-1.jpg' | relative_url }}"/>
+        {% comment %}
+        Dots in filenames are not preserved in Jekyll,
+        so "aboutgallery" maps to "about.gallery.yml"
+        {% endcomment %}
+        {% for image in site.data.aboutgallery %}
+            <a href="{{ image.full | relative_url }}"
+               data-lightbox-index="{% increment my_counter %}"
+               class="about-lightbox-trigger">
+                <img class="img-thumbnail img-fluid" alt="{{ image.caption }}"
+                     title="{{ image.caption }}"
+                     src="{{ image.thumb | relative_url }}"/>
+            </a>
+        {% endfor %}
     </div>
-
 </section>
+
+<div class="modal fade about-lightbox-modal" id="aboutGalleryModal"
+     tabindex="-1" aria-labelledby="aboutGalleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-secondary border-0">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="aboutGalleryModalLabel">Eindrücke</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0 position-relative">
+                <button type="button"
+                        class="btn btn-dark about-lightbox-nav about-lightbox-prev position-absolute top-50 start-0 translate-middle-y ms-2"
+                        id="aboutLightboxPrev"
+                        aria-label="Vorheriges Bild">
+                    &lt;
+                </button>
+                <img id="aboutLightboxImage" class="img-fluid w-100" src="" alt=""/>
+                <button type="button"
+                        class="btn btn-dark about-lightbox-nav about-lightbox-next position-absolute top-50 end-0 translate-middle-y me-2"
+                        id="aboutLightboxNext"
+                        aria-label="Nächstes Bild">
+                    &gt;
+                </button>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <p class="text-dark mb-0 d-none"
+                   id="aboutLightboxCaption"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ '/assets/js/about.lightbox.js' | relative_url }}"></script>
