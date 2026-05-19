@@ -60,7 +60,6 @@ Software and Frameworks used:
 * Static site generator [Jekyll]
 * CSS Framework by [Bootstrap]
 * Webicons by [Font Awesome]
-* jQuery JavaScript library by [The OpenJS Foundation]
 * FormMail by [Tectite](http://www.tectite.com/)
 
 
