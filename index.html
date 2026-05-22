@@ -7,7 +7,8 @@ title: "Startseite"
     <div class="container text-center py-3">
         <div class="row g-3">
             <div class="col-10 col-sm-6">
-                <img src="{{ '2024/img/ViFE-ESS-logo.png' | relative_url }}" class="img-fluid mx-auto d-block"
+                <img class="img-fluid mx-auto d-block"
+                    src="{{ 'assets/img/ViFE-ESS-logo-ohne-Jahr/ViFE-ESS-logo-ohne-Jahr.png' | relative_url }}"
                     alt="Edirom Logo" />
             </div>
             <div class="col-sm-6">
@@ -15,8 +16,9 @@ title: "Startseite"
                     <div class="card-body">
                         <p class="text-center">
                             <b>17. Edirom Summer School</b>
-                            <br /><b>14. bis 18. September 2026</b>
+                            <br /><b>14. bis 18. September 2026</b>
                             <br />Heinz-Nixdorf-Institut
+                                / Software Innovation Campus
                             <br />Universität Paderborn
                         </p>
                         <!--<div>
@@ -55,19 +57,14 @@ title: "Startseite"
                 {% for post in site.posts limit: 2 %}
                 <div class="card bg-light my-4">
                     <div class="card-body">
+                        <span class="text-muted text-end d-block">
+                            {% include date-german.html
+                            date=post.date showDay=true %}
+                            {{ author }}{{ formattedDate }}
+                        </span>
                         <h3>{{post.title}}</h3>
-                        <div class="row g-3">
-                            <div class="col-sm-8">
-                                <p class="card-text">{{ post.excerpt | strip_html }}</p>
-                            </div>
-                            <div class="col-sm-4">
-                                <p class="byline"> {% include date-german.html date=post.date showDay=true %}{{ author
-                                    }}{{ formattedDate }}</p>
-                            </div>
-                        </div>
-                            <div>
-                                <a class="btn btn-primary" href="{{post.url}}" role="button">zum Beitrag</a>
-                            </div>
+                        <p class="card-text">{{ post.excerpt | strip_html }}</p>
+                        <a class="btn btn-primary" href="{{post.url}}" role="button">zum Beitrag</a>
                     </div>
                 </div>
                 {% endfor %}
@@ -80,7 +77,6 @@ title: "Startseite"
             </div>
             -->
         </div>
-    </div>
     </div>
 
 </section>
