@@ -3,7 +3,18 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"
-                    id="staticBackdropLabel">Anmeldephase geschlossen
+                    id="staticBackdropLabel">
+                    {% capture nowDate %}
+                        {{ 'now' | date: '%s' }}
+                    {% endcapture %}
+                    {% capture registrationstartDate %}
+                        {{ page.registrationstart | date: '%s'}}
+                    {% endcapture %}
+                    {% if nowDate < registrationstartDate %}
+                        Anmeldephase noch nicht aktiv
+                    {% else %}
+                        Anmeldephase geschlossen
+                    {% endif %}
                 </h5>
             </div>
             <div class="modal-body">
