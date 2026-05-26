@@ -11,7 +11,7 @@ Als Keynote Speaker konnten wir Laurent Pugin gewinnen, Titel und Abstract
 sind aber noch geheim!
 
 Eine Besonderheit stellt dieses Jahr die [zweigeteilte Ausrichtung der ESS] dar.
-Unverändert hat sich dagegen die große Bereitschaft von internen und 
+Nicht verändert hat sich dagegen die große Bereitschaft von internen und 
 externen Dozent:innen, sich bei der ESS einzubringen und einen Workshop zu 
 leiten.
 Für dieses Engagement sind wir sehr dankbar und freuen uns auf tolle 
