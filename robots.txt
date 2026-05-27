@@ -1,4 +1,4 @@
-# robots.txt for http://ess.uni-paderborn.de/
+# robots.txt for https://ess.uni-paderborn.de/
 
 User-agent: *
 Disallow: /assets/

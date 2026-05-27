@@ -1,7 +1,7 @@
 {
   "name": "ess-website",
   "version": "2.0.0",
-  "description": "Web pages for the [Edirom Summer School](http://ess.uni-paderborn.de).",
+  "description": "Web pages for the [Edirom Summer School](https://ess.uni-paderborn.de).",
   "main": "index.html",
   "scripts": {
     "build": "bundle config set --local path 'vendor/bundle' && bundle install && bundle exec jekyll build",

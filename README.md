@@ -1,4 +1,4 @@
-[![ESS Logo](https://github.com/Edirom/ess-website/raw/main/assets/img/ViFE-ESS-logo-ohne-Jahr/ViFE-ESS-logo-ohne-Jahr.png)](http://ess.uni-paderborn.de)
+[![ESS Logo](https://github.com/Edirom/ess-website/raw/main/assets/img/ViFE-ESS-logo-ohne-Jahr/ViFE-ESS-logo-ohne-Jahr.png)](https://ess.uni-paderborn.de)
 
 # Edirom Summer School Website
 
@@ -60,7 +60,7 @@ Software and Frameworks used:
 * Static site generator [Jekyll]
 * CSS Framework by [Bootstrap]
 * Webicons by [Font Awesome]
-* FormMail by [Tectite](http://www.tectite.com/)
+* FormMail by [Tectite](https://www.tectite.com/)
 
 
 ## License
@@ -68,7 +68,7 @@ Software and Frameworks used:
 This work is licensed under a [Creative Commons Attribution 4.0 Unported License (CC BY 4.0)]
 
 [Jekyll]: https://jekyllrb.com
-[Edirom Summer School]: http://ess.uni-paderborn.de
+[Edirom Summer School]: https://ess.uni-paderborn.de
 [Bootstrap]: https://getbootstrap.com
 [Font Awesome]: https://fontawesome.com
 [The OpenJS Foundation]: https://openjsf.org
