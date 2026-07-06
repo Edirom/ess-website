@@ -116,4 +116,34 @@
             {% endfor %}
         </div>
     </div>
+    <script>
+        /*
+         this will activate the matching Bootstrap tab from #fragment
+         and keep the URL in sync when the user clicks tabs
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            const triggers = document.querySelectorAll('[data-bs-toggle="list"]');
+            if (!triggers.length || !window.bootstrap) return;
+
+            const showTabFromHash = () => {
+                const { hash } = window.location;
+                if (!hash) return;
+
+                const trigger = document.querySelector(`[data-bs-toggle="list"][href="${hash}"]`);
+                if (trigger) {
+                    bootstrap.Tab.getOrCreateInstance(trigger).show();
+                }
+            };
+
+            showTabFromHash();
+            window.addEventListener('hashchange', showTabFromHash);
+
+            triggers.forEach((trigger) => {
+                trigger.addEventListener('shown.bs.tab', (event) => {
+                    const href = event.target.getAttribute('href');
+                    if (href) history.replaceState(null, '', href);
+                });
+            });
+        });
+    </script>
 </div>
