@@ -15,7 +15,7 @@ freundliche Unterstützung und Aufnahme.
 
 An dieser Stelle sei auch nochmal an die Poster-Session erinnert:
 Dort können Sie ein Projekt, Tool oder eine Forschungsarbeit vorstellen und
-mit anderen Teilnehmern:innen in Austausch treten.
+mit anderen Teilnehmer:innen in Austausch treten.
 Die Poster-Session soll bewusst eine niedrigschwellige Möglichkeit sein, um 
 Projekte – in beliebigem Stadium – zu präsentieren.
 
