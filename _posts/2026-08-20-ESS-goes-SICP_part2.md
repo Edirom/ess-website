@@ -10,7 +10,7 @@ Die Raumnummern sind im Programm bereits geändert und es sind ja auch noch
 ein paar Wochen bis zum Start, sodass hoffentlich keine Verwirrung entsteht.
 
 Wir freuen uns auf diesen spannenden Ortswechsel und bedanken uns 
-Stelle bei Prof. Dr. Stefan Sauer sowie Frau Gabriele Stall für die 
+bei Prof. Dr. Stefan Sauer sowie Frau Gabriele Stall für die 
 freundliche Unterstützung und Aufnahme.
 
 An dieser Stelle sei auch nochmal an die Poster-Session erinnert:
