@@ -1,7 +1,7 @@
 ---
 layout: post 
 title: Registrierungsmeilenstein
-excerpt: "Bereits 60+ Teilnehmerinnen und Teilnehmer haben sich zur zur Edirom Summer School 2026 registriert."
+excerpt: "Bereits 60+ Teilnehmerinnen und Teilnehmer haben sich zur Edirom Summer School 2026 registriert."
 authors:
 - Maximilian Greshake
 ---
