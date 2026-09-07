@@ -7,9 +7,19 @@
     <ul class="list-unstyled">
         {% for class in curClasses %}
         <li class="{{ class.label | escape }} slot">
-            <strong class="title">{{ class.title-short }}</strong>
+            <strong class="title">
+                <a href="#{{ class.label }}">{{ class.title-short }}</a>
+            </strong>
             <br/>
-            <span class="room">{{ class.room }}</span>
+            <a
+               {% if rooms[class.room].url %}
+                href="{{ rooms[class.room].url }}"
+                class="room"
+               {% else %}
+               class="room disabled"
+               {% endif %}>
+                {{ rooms[class.room].name }}
+            </a>
         </li>
         {% endfor %}
     </ul>
