@@ -4,6 +4,7 @@
     {% assign classes = site.archiv | where_exp:"item", "item.path contains
     classes-path" | sort_natural: "title-short" %}
     {% assign thisYearsTimeslots = site.data.timeslots[current-year] %}
+    {% assign rooms = site.data.rooms %}
 
     <!-- remove duplicate dates -->
     {% assign seenDates = "" | split: "" %}
@@ -76,7 +77,15 @@
                     {% endfor %}
                 </ul>
                 {% if class.room %}
-                <h5>Raum: {{ class.room }}</h5>
+                <h5>Raum:
+                    {% if rooms[class.room].url %}
+                        <a href="{{ rooms[class.room].url }}" >
+                            {{ rooms[class.room].name }}
+                        </a>
+                    {% else %}
+                        {{ rooms[class.room].name }}
+                    {% endif %}
+                </h5>
                 {% endif %}
                 <dl>
                     {% unless class.label == "keynote" %}
