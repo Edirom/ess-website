@@ -109,6 +109,10 @@ table#program-table {
   li.slot {
     padding: 1ex;
 
+    a {
+      color: inherit;
+    }
+
     &.docker, &.git, &.xtech {
       background-color: $ess-green-lighter;
     }

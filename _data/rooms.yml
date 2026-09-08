@@ -1,0 +1,70 @@
+"ZM2.B.03.13":
+  name: ZM2.B.03.13
+  url: https://www.sicp.de/raumbuchung/zm2b0313
+  description: "This is a small, dimly lit room with stone walls and a low ceiling. The air is damp and musty, and the only source of light comes from a flickering torch mounted on the wall. There are no windows, and the only exit is a heavy wooden door that creaks when opened."
+  items:
+    - name: Old Chest
+      description: "A weathered wooden chest with iron bands. It looks like it hasn't been opened in years."
+      properties:
+        locked: true
+        key_required: true
+    - name: Rusty Sword
+      description: "An old sword with a rusted blade. It seems fragile but could still be useful in a pinch."
+      properties:
+        damage: 5
+        durability: 10
+"ZM2.A.00.12":
+  name: ZM2.A.00.12
+  description: "A grand library with towering shelves filled with ancient tomes and scrolls. The room is bathed in a soft, golden light from the chandeliers above."
+  items:
+    - name: Ancient Scroll
+      description: "A delicate scroll containing forgotten knowledge. The parchment is brittle and must be handled with care."
+      properties:
+        magic_power: 30
+        fragile: true
+    - name: Ornate Desk
+      description: "A large wooden desk with intricate carvings. It has several drawers, some of which are locked."
+      properties:
+        storage_capacity: 20
+"ZM2.A.00.06":
+  name: ZM2.A.00.06
+  url: https://www.sicp.de/raumbuchung/zm2a0006
+  description: "A cozy study filled with shelves of books and a large wooden desk. The room is illuminated by a warm fireplace, and the scent of old paper fills the air."
+  items:
+    - name: Leather-bound Journal
+      description: "A journal with a worn leather cover. The pages are filled with handwritten notes and sketches."
+      properties:
+        value: 50
+        fragile: true
+    - name: Quill and Inkpot
+      description: "A feather quill and a small inkpot. The quill is slightly frayed, but still usable."
+      properties:
+        writing_quality: high
+"ZM2.A.01.55":
+  name: ZM2.A.01.55
+  url: https://www.sicp.de/raumbuchung/zm2a0155
+  description: "A small, dimly lit chamber with a single bed and a small chest. The walls are covered in cobwebs, and the air is thick with dust."
+  items:
+    - name: Old Key
+      description: "A tarnished key with a worn handle. It appears to be the key to a locked chest."
+      properties:
+        key_required: true
+"ZM2.A.02.73":
+  name: ZM2.A.02.73
+  url: https://www.sicp.de/raumbuchung/zm2a0273
+  type: room
+  description: "A large, open hall with high ceilings and grand chandeliers. The walls are adorned with tapestries depicting historical battles."
+  items:
+    - name: Golden Goblet
+      description: "A finely crafted goblet made of gold, encrusted with precious gems."
+      properties:
+        value: 1000
+        fragile: true
+    - name: Ancient Tome
+      description: "A thick book filled with arcane knowledge. The pages are yellowed and brittle."
+      properties:
+        magic_power: 50
+        cursed: true
+"Kitzgams":
+  name: Kitzgams
+  url: https://www.kitzgams.de/
