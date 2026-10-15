@@ -1,26 +1,37 @@
 // ESS-Farbvariablen laden (as * = kein Namespace-Präfix nötig)
 @use "ess-variables" as *;
+@use "bootstrap" as bootstrap;
+@use "sass:map";
 
 /*
  * Local layout variables — copied from Bootstrap defaults so footer
  * height calculation works without depending on Bootstrap internals.
  */
 $navbar-padding-y: 0.5rem;
-$footer-height: 4rem;
+$footer-height-xs: 9rem;   // 3 gestapelte Zeilen auf kleinen Screens
+$footer-height-md: 5rem;   // 2 Zeilen auf mittleren Screens
+$footer-height-lg: 4rem;   // 1 Zeile ab lg
 
 footer {
-  max-height: $footer-height;
   img {
-    max-height: $footer-height - 2 * $navbar-padding-y;
+    max-height: $footer-height-lg - 2 * $navbar-padding-y;
   }
 }
 
 /*
  * add margin-bottom according to
- * the sticky footer height
+ * the sticky footer height (responsive)
  */
 #main-content-container {
-  margin-bottom: $footer-height;
+  margin-bottom: $footer-height-xs;
+
+  @media (min-width: map.get(bootstrap.$grid-breakpoints, "md")) {
+    margin-bottom: $footer-height-md;
+  }
+
+  @media (min-width: map.get(bootstrap.$grid-breakpoints, "lg")) {
+    margin-bottom: $footer-height-lg;
+  }
 }
 
 /*
